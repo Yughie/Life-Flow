@@ -1,1 +1,129 @@
 @use "../abstract/index.scss" as *;
+
+.header {
+    
+    &.open{
+        
+        .header__toggle{
+            cursor: pointer;
+            span:first-child{
+                transform: rotate(45deg);
+            }
+             span:nth-child(2){
+                opacity: 0;
+                
+            }
+             span:last-child{
+                transform: rotate(-45deg);
+            }
+        }   
+    }
+
+    .header__toggle {
+        
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        cursor: pointer;
+
+        >span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background-color: white;
+            border-radius: 10px;
+            transform-origin: 2px 1px;
+            transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }   
+       
+    }
+    
+    nav{
+        
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 99;
+        background-color: $primaryRed;
+        display: flex;
+        justify-content: space-between;
+        
+        @include breakpoint-up(large){
+            //padding-left: ;
+            //padding-right: $padding-lg;
+           
+        }
+
+
+        .header__logo { 
+            
+            margin: 5px 50px 0px;
+            padding: 0;
+
+            img{
+                width: 180px;
+                height: 60px;
+            }
+            
+           
+        }
+        .header_container{
+            display: flex;
+            border: 1px;
+
+            .header__links {
+                
+                margin: auto;
+                
+                a {
+                    position: relative;
+                    font-size: 1.8rem;
+                    color: white;
+                    transition: color 400ms ease-in-out;
+    
+                    
+        
+                    &:not(:last-child){
+                        margin-right: 2em;
+                    }
+               
+        
+                    &:hover{
+        
+                        &::before{
+                            opacity: 1;
+                        }
+                    } 
+                }
+            }
+            .adminButton{
+                
+                width: 60px;
+                height: 60px;
+                margin: 1.0rem 5.0rem;
+                border: 1px solid;
+            }
+
+        }
+
+        
+
+
+    }
+    
+}
+    
+
+    
+
+    
+    
+
+
+
+//haburger open styles 
+
