@@ -3,31 +3,37 @@
     
     display: flex;
     background-color: $primaryRed;
+    min-height: 100vh;
+    height: 100%;
+    ;
     
     
 
     .adminNavigation{
-        display: flex;
+        
+        //display: flex;
         flex-direction: column;
         width: 450px;
-       // min-width:300px;
-        //max-width: 450px;
+        min-width:300px;
+        max-width: 450px;
         text-align: center;
         color: $offWhite;
         height: 100%;
+        
+        
 
-        img{
+        .Logo{
             width: 200px;
-            height: 6.5;
             margin: auto;
-            margin: 25px;
+            margin: 25px auto 25px auto;
+            
         }
         
         .greeting{
             h1{
-                margin: 25px; 
+                margin: 0 auto 25px auto; 
              }
-            font-size: 3.0rem;
+            font-size: 30px;
             span{
                 color: $limeGreen;
             }
@@ -38,22 +44,93 @@
 
         
         .adminLinks{
-            margin: 10px 0 ;
-
+            margin: 5px 0 ;
+            
+            &__Dashboard{
+                
+                h2{
+                    margin-bottom: -10px;
+                }
+                &:hover{
+                    img{
+                        content: url('Images/AdminDashboard/icon-dashboard-current.svg');
+                    }
+                    
+                }
+            }
+            &__Recipient{
+                
+                h2{
+                    margin-bottom: -10px;
+                }
+                &:hover{
+                    img{
+                        content: url('Images/AdminDashboard/Icon-Recipient-current.svg');
+                    }
+                    
+                }
+            }
+            &__OrganDonor{
+                &:hover{
+                    img{
+                        content: url('Images/AdminDashboard/icon-organDonor-current.svg');
+                    }
+                    
+                }
+            }
+            &__BloodDonor{
+                &:hover{
+                    img{
+                        content: url('Images/AdminDashboard/Icon-BloodDonor-current.svg');
+                    }
+                    
+                }
+            }
+            &__DonorApplication{
+                &:hover{
+                    img{
+                        content: url('Images/AdminDashboard/icon-donorApplicant-current.svg');
+                    }
+                    
+                }
+            }
+            &__BloodTransfusion{
+                &:hover{
+                    img{
+                        content: url('Images/AdminDashboard/icon-bloodTransfusion-current.svg');
+                    }
+                    
+                }
+            }
+            &__LogOut{
+                &:hover{
+                    img{
+                        content: url('Images/AdminDashboard/Icon-LogOut-current.svg');
+                    }
+                    
+                }
+            }
+            
+            
             img{
-                width: 50px;
-                height: 50px;
+                position: relative;
+                margin-left: 50px;
+                margin-right: 10px;
+                width: 40px;
+                height: 40px;
+                
             }
             a{
+               
+                position: relative;
                 margin: auto;
                 width: 300px;
                 height: 80px;
                 display: flex;
                 align-items: center;
                 text-align: left;
-                font-size: 14px;
+                font-size: 12px;
                 border-radius: 15px;
-                cursor: pointer;
                 color: $offWhite;
                 transition: 150ms ease-in-out ;
 
@@ -61,6 +138,7 @@
                     background-color: $offWhite;
                     color: $offBlack;
                     transform: scale(1.03);
+                    
                 }
                 &:active{
                     background-color: #eeb2b2;
@@ -82,22 +160,129 @@
     }
 
 }
+
+
+
 //MAIN FRAME
 .adminDashboardContent{
     width: 100%;
-    
-    border:20px 0 0 20px;
     background-color: $offWhite;
     border-radius: 25px 0 0 25px;
     
 
-        &__summaryContainer{
+    *{
+        border: 1px solid;
+    }
+    
 
-           margin:  100px;
+    h1{
+        font-size: 70px;
+        color: $offBlack;
+        margin: 30px;
+       }
+    
+        //CONTAINER
+        &__summaryContainer{
+           margin: 30px;
+           height: 80%;
+           display: grid;
+            //grid-template-columns: 300px 300px 300px 300px;
+           grid-template-areas:
+            'application organ transplant blood supply'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
+            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant';
+           gap: 30px;
+           margin: 30px;
+           text-align: center;
+           border-radius: 15px;
+           justify-content: center;
+           overflow: hidden;
+
            h1{
-            font-size: 8.0rem;
-            color: $offBlack;
+            color: $offWhite;
+            
+        
            }
+           h2{
+            color: $offWhite;
+            font-size: 18px;
+            padding:10px;
+            height: 80px;
+            //font-family: ;
+           }
+
+           
+            //ITEMS
+            
+            .grid-item-totalApplication{
+                grid-area: application;
+                background-color: $primaryRed;
+                border-radius: 15px;
+                max-width: 250px;
+                min-width: 200px;
+                height:300px;
+                
+            }
+            .grid-item-TotalOrganDonor{
+                grid-area: organ;
+                background-color: $darkBlueGreen;
+                border-radius: 15px;
+                max-width: 250px;
+                min-width: 200px;
+                height:300px;
+                
+            }
+            .grid-item-OrganTransplantCandidate{
+                grid-area: transplant;
+                background-color: $primaryRed;
+                border-radius: 15px;
+                max-width: 250px;
+                min-width: 200px;
+                height:300px;
+                
+            }
+            .grid-item-BloodRequest{
+                grid-area: blood;
+                background-color: $darkBlueGreen;
+                border-radius: 15px;
+                max-width: 250px;
+                min-width: 200px;
+                height:300px;
+                
+            }
+            .grid-item-TotalBloodSupply{
+                grid-area: supply;
+                background-color: $primaryRed;
+                border-radius: 15px;
+                max-width: 250px;
+                min-width: 200px;
+                height:300px;
+            }
+            .grid-item-LatestDonorApplication{
+                h2{
+                    font-size:25px;
+                    margin: 10px;
+                }
+                grid-area: donorApplicant;
+                background-color: $darkBlueGreen;
+                text-align: left;
+                border-radius: 15px;
+                height: 100%;
+
+                
+            }
+            
+
+
 
         }
     }

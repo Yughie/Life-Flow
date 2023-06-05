@@ -13,56 +13,56 @@
 <body>
     <nav class="adminDashboard">
 
-        <div class="adminNavigation">
+        <div class="adminNavigation .hide-for-mobile">
             
-            <div>
+            
                 <img class="Logo" src="Images/LOGO.png" alt="">
-            </div>
+            
             <div class="greeting">
                 <h1>Hi <span>Admin</span>!</h1>
             </div>
             <div class="adminLinks current">
-                <a href="#">
-                    <img src="Images/AdminDashboard/icon-dashboard.svg" alt="">
+                <a class="adminLinks__Dashboard" href="#">
+                    <img src="Images/AdminDashboard/icon-dashboard-current.svg" alt="">
                     <h2>Dashboard</h2>
                 </a>  
             </div>
             <div class="adminLinks">
-                <a href="#">
-                    <img src="Images/AdminDashboard/Icon-Recipient.svg" alt="">
-                    <h2>Recipient</h2>
+                <a class="adminLinks__Recipient" href="#">
+                    <img src="Images/AdminDashboard/Icon-Recipient-standby.svg" alt="">
+                    <h2 >Recipient</h2>
                 </a>
             </div>
-            <div class="adminLinks ">
-                <a href="#">
-                    <img src="Images/AdminDashboard/icon-organDonor.svg" alt="">
+            <div class="adminLinks">
+                <a class="adminLinks__OrganDonor" href="#">
+                    <img src="Images/AdminDashboard/icon-organDonor-standby.svg" alt="">
                     <h2>Organ Donor</h2>
                 </a>
             </div>
-            <div class="adminLinks ">
-                <a href="#">
-                    <img src="Images/AdminDashboard/Icon-BloodDonor.svg" alt="">
+            <div class="adminLinks">
+                <a class="adminLinks__BloodDonor" href="#">
+                    <img src="Images/AdminDashboard/Icon-BloodDonor-standby.svg" alt="">
                     <h2>Blood Donor</h2>
                 </a>
                 
             </div>
-            <div class="adminLinks ">
-                <a href="#">
-                    <img src="Images/AdminDashboard/Icon-DonorApplicant.svg" alt="">
+            <div class="adminLinks">
+                <a class="adminLinks__DonorApplication" href="#">
+                    <img src="Images/AdminDashboard/icon-donorApplicant-standby.svg" alt="">
                     <h2>Donor Applicant</h2>
                 </a>
                 
             </div>
             <div class="adminLinks flex">
-                <a href="#">
-                    <img src="Images/AdminDashboard/icon-bloodTranfusion.svg" alt="">
+                <a class="adminLinks__BloodTransfusion"href="#">
+                    <img src="Images/AdminDashboard/icon-bloodTransfusion-standby.svg" alt="">
                     <h2>Blood Transfusion Registry</h2>
                 </a>
                 
             </div>
             <div class="adminLinks flex">
-                <a href="#">
-                    <img src="Images/AdminDashboard/Icon-LogOut.svg" alt="">
+                <a class="adminLinks__LogOut" href="#">
+                    <img src="Images/AdminDashboard/Icon-LogOut-standby.svg" alt="">
                     <h2>Log Out</h2>
                 </a>
             </div>
@@ -70,10 +70,34 @@
 
 
         <div class="adminDashboardContent">
+            <h1>Dashboard</h1>
             <div class="adminDashboardContent__summaryContainer">
-                <h1>Dashboard</h1>
+                <div class="grid-item-totalApplication">
+                    <h2>Total Application</h2>
+                    <h1>03</h1>
+                </div>
+                <div class="grid-item-TotalOrganDonor">
+                    <h2>Total Organ Donation</h2>
+                    <h1>03</h1>
+                </div>
+                <div class="grid-item-OrganTransplantCandidate">
+                    <h2>Organ Transplant Candidate</h2>
+                    <h1>03</h1>
+                </div>
+                <div class="grid-item-BloodRequest">
+                    <h2>Blood Request</h2>
+                    <h1>03</h1>
+                </div>
+                <div class="grid-item-TotalBloodSupply">
+                    <h2>Total Blood Supply</h2>
+                    <h1>03</h1>
+                </div>
+                <div class="grid-item-LatestDonorApplication">
+                    <h2>Latest Donor Application</h2>
+                    
+                </div>
+                
             </div>
-
         </div>
 
     </nav>
