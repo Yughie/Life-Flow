@@ -1,5 +1,5 @@
 html {
-  font-size: 62.5%;
+  font-size: 100%;
   box-sizing: border-box;
 }
 
@@ -172,18 +172,14 @@ h1, h2, h3 {
 .adminDashboard {
   display: flex;
   background-color: #860909;
-  height: 100vh;
-  width: 100vw;
 }
 .adminDashboard .adminNavigation {
   display: flex;
   flex-direction: column;
   width: 450px;
-  min-width: 300px;
-  max-width: 450px;
-  height: 100vh;
   text-align: center;
   color: #e9e9e9;
+  height: 100%;
 }
 .adminDashboard .adminNavigation img {
   width: 200px;
@@ -235,17 +231,17 @@ h1, h2, h3 {
   color: #292828;
   transform: scale(1.03);
 }
-.adminDashboard .adminDashboardContent {
+
+.adminDashboardContent {
   width: 100%;
-  height: 100%;
   border: 20px 0 0 20px;
   background-color: #e9e9e9;
   border-radius: 25px 0 0 25px;
 }
-.adminDashboard .adminDashboardContent__summaryContainer {
-  margin: 50px 100px;
+.adminDashboardContent__summaryContainer {
+  margin: 100px;
 }
-.adminDashboard .adminDashboardContent__summaryContainer h1 {
+.adminDashboardContent__summaryContainer h1 {
   font-size: 8rem;
   color: #292828;
 }/*# sourceMappingURL=style.css.map */
