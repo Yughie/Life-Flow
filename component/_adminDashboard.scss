@@ -1,23 +1,20 @@
 @use "../abstract/index.scss" as *;
-
-
 .adminDashboard{
     
     display: flex;
     background-color: $primaryRed;
-    height: 100vh;
-    width: 100vw;
-
     
+    
+
     .adminNavigation{
         display: flex;
         flex-direction: column;
         width: 450px;
-        min-width:300px;
-        max-width: 450px;
-        height: 100vh;
+       // min-width:300px;
+        //max-width: 450px;
         text-align: center;
         color: $offWhite;
+        height: 100%;
 
         img{
             width: 200px;
@@ -84,11 +81,11 @@
         }
     }
 
-
+}
 //MAIN FRAME
 .adminDashboardContent{
     width: 100%;
-    height: 100%;
+    
     border:20px 0 0 20px;
     background-color: $offWhite;
     border-radius: 25px 0 0 25px;
@@ -96,7 +93,7 @@
 
         &__summaryContainer{
 
-           margin: 50px 100px;
+           margin:  100px;
            h1{
             font-size: 8.0rem;
             color: $offBlack;
@@ -109,7 +106,7 @@
 
     
         
-    }
+   
     
 
 
