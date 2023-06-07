@@ -266,86 +266,130 @@ h1, h2, h3 {
 
 .adminDashboardContent {
   width: 100%;
+  height: 100%;
   background-color: #e9e9e9;
   border-radius: 25px 0 0 25px;
 }
-.adminDashboardContent * {
-  border: 1px solid;
-}
-.adminDashboardContent h1 {
+.adminDashboardContent .dashboard-title {
   font-size: 70px;
   color: #292828;
   margin: 30px;
 }
+
 .adminDashboardContent__summaryContainer {
-  margin: 30px;
-  height: 80%;
   display: grid;
-  grid-template-areas: "application organ transplant blood supply" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant" "donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant";
-  gap: 30px;
-  margin: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  grid-template-rows: 300px auto;
+  padding: 20px;
+  grid-template-areas: "a b c d e";
   text-align: center;
-  border-radius: 15px;
-  justify-content: center;
-  overflow: hidden;
 }
-.adminDashboardContent__summaryContainer h1 {
+.adminDashboardContent__summaryContainer .grid-item {
+  display: grid;
+  grid-template-rows: 80px auto;
+  border-radius: 20px;
+}
+.adminDashboardContent__summaryContainer .grid-item .flash-Title {
+  color: #e9e9e9;
+  padding: 20px;
+  font-size: 20px;
+}
+.adminDashboardContent__summaryContainer .grid-item .statistic-total {
+  font-size: 5rem;
+  place-items: center;
+  color: #e9e9e9;
+  padding: 30px;
+}
+.adminDashboardContent__summaryContainer .grid-item .flash-title {
+  font-size: 1.25rem;
+  margin: 10px;
+  padding: 30px;
+}
+.adminDashboardContent__summaryContainer .totalApplication {
+  grid-area: a;
+  background-color: #860909;
+}
+.adminDashboardContent__summaryContainer .TotalOrganDonor {
+  grid-area: b;
+  background-color: #136371;
+}
+.adminDashboardContent__summaryContainer .OrganTransplantCandidate {
+  grid-area: c;
+  background-color: #860909;
+}
+.adminDashboardContent__summaryContainer .BloodRequest {
+  grid-area: d;
+  background-color: #136371;
+}
+.adminDashboardContent__summaryContainer .TotalBloodSupply {
+  grid-area: e;
+  background-color: #860909;
+}
+.adminDashboardContent__summaryContainer .LatestDonorApplication {
+  grid-area: f;
+  background-color: #136371;
+}
+.adminDashboardContent__summaryContainer .LatestDonorApplication h2 {
+  font-size: 30px;
+  margin: 10px;
+}
+
+/***********CONTINUATION OF LATEST**************/
+.LatestDonorApplication {
+  background-color: #136371;
+  border-radius: 20px;
+  margin: 25px;
+  width: auto;
+  min-height: 520px;
+  overflow-y: auto;
+}
+.LatestDonorApplication__Title {
+  padding: 25px 25px 10px 25px;
   color: #e9e9e9;
 }
-.adminDashboardContent__summaryContainer h2 {
-  color: #e9e9e9;
-  font-size: 18px;
-  padding: 10px;
+.LatestDonorApplication .latestApplication_container .profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e9e9e9;
+  margin: 10px;
+  padding: 10px 30px 10px 30px;
+  border-radius: 5px;
+  min-height: 100px;
+}
+.LatestDonorApplication .latestApplication_container .profile__Image {
+  width: 80px;
   height: 80px;
 }
-.adminDashboardContent__summaryContainer .grid-item-totalApplication {
-  grid-area: application;
-  background-color: #860909;
-  border-radius: 15px;
-  max-width: 250px;
-  min-width: 200px;
-  height: 300px;
-}
-.adminDashboardContent__summaryContainer .grid-item-TotalOrganDonor {
-  grid-area: organ;
-  background-color: #136371;
-  border-radius: 15px;
-  max-width: 250px;
-  min-width: 200px;
-  height: 300px;
-}
-.adminDashboardContent__summaryContainer .grid-item-OrganTransplantCandidate {
-  grid-area: transplant;
-  background-color: #860909;
-  border-radius: 15px;
-  max-width: 250px;
-  min-width: 200px;
-  height: 300px;
-}
-.adminDashboardContent__summaryContainer .grid-item-BloodRequest {
-  grid-area: blood;
-  background-color: #136371;
-  border-radius: 15px;
-  max-width: 250px;
-  min-width: 200px;
-  height: 300px;
-}
-.adminDashboardContent__summaryContainer .grid-item-TotalBloodSupply {
-  grid-area: supply;
-  background-color: #860909;
-  border-radius: 15px;
-  max-width: 250px;
-  min-width: 200px;
-  height: 300px;
-}
-.adminDashboardContent__summaryContainer .grid-item-LatestDonorApplication {
-  grid-area: donorApplicant;
-  background-color: #136371;
-  text-align: left;
-  border-radius: 15px;
-  height: 100%;
-}
-.adminDashboardContent__summaryContainer .grid-item-LatestDonorApplication h2 {
+.LatestDonorApplication .latestApplication_container .profile__Name {
+  color: #292828;
   font-size: 25px;
-  margin: 10px;
+}
+.LatestDonorApplication .latestApplication_container .profile__ApplicationDate {
+  color: #292828;
+}
+.LatestDonorApplication .latestApplication_container .profile__Organ {
+  width: 90px;
+  height: 90px;
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept {
+  cursor: pointer;
+  border-radius: 50%;
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept:hover {
+  filter: invert(42%) sepia(45%) saturate(484%) hue-rotate(55deg) brightness(101%) contrast(88%);
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept:active {
+  filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject {
+  border-radius: 50%;
+  cursor: pointer;
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject:hover {
+  filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject:active {
+  filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }/*# sourceMappingURL=style.css.map */

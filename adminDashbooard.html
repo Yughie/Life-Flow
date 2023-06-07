@@ -15,7 +15,6 @@
 
         <div class="adminNavigation .hide-for-mobile">
             
-            
                 <img class="Logo" src="Images/LOGO.png" alt="">
             
             <div class="greeting">
@@ -68,37 +67,59 @@
             </div>
         </div>
 
-
+        <!---------------ADMIN DASHBOARD CONTENT--------------------->
         <div class="adminDashboardContent">
-            <h1>Dashboard</h1>
+            <h1 class="dashboard-title">Dashboard</h1>
+            
             <div class="adminDashboardContent__summaryContainer">
-                <div class="grid-item-totalApplication">
-                    <h2>Total Application</h2>
-                    <h1>03</h1>
+                <div class="grid-item totalApplication">
+                    <h2 class="flash-Title">Total Application</h2>
+                    <h1 class="statistic-total">03</h1>
                 </div>
-                <div class="grid-item-TotalOrganDonor">
-                    <h2>Total Organ Donation</h2>
-                    <h1>03</h1>
+                <div class="grid-item TotalOrganDonor">
+                    <h2 class="flash-Title">Total Organ Donation</h2>
+                    <h1 class="statistic-total">03</h1>
                 </div>
-                <div class="grid-item-OrganTransplantCandidate">
-                    <h2>Organ Transplant Candidate</h2>
-                    <h1>03</h1>
+                <div class="grid-item OrganTransplantCandidate">
+                    <h2 class="flash-Title">Organ Transplant Candidate</h2>
+                    <h1 class="statistic-total">03</h1>
                 </div>
-                <div class="grid-item-BloodRequest">
-                    <h2>Blood Request</h2>
-                    <h1>03</h1>
+                <div class="grid-item BloodRequest">
+                    <h2 class="flash-Title">Blood Request</h2>
+                    <h1 class="statistic-total">03</h1>
                 </div>
-                <div class="grid-item-TotalBloodSupply">
-                    <h2>Total Blood Supply</h2>
-                    <h1>03</h1>
+                <div class="grid-item TotalBloodSupply">
+                    <h2 class="flash-Title">Total Blood Supply</h2>
+                    <h1 class="statistic-total">03</h1>
                 </div>
-                <div class="grid-item-LatestDonorApplication">
-                    <h2>Latest Donor Application</h2>
-                    
+            </div>
+       
+        
+                <!--------------LATEST DONOR APPLICATION----------------->
+                <div class="LatestDonorApplication">
+                    <h2 class="LatestDonorApplication__Title">Latest Donor Application</h2>
+
+                    <div class="latestApplication_container">
+                        <div class="profile1 profile">
+                            <h1 class="profile__ID">1</h1>
+                            <img class="profile__Image" src="./Images/AdminDashboard/profile-default.svg" alt="default profile">
+                            <h3 class="profile__Name">Yughie</h3>
+                            <h3 class="profile__ApplicationDate">September 12, 2001</h3>
+                            <img class="profile__Organ" src="./Images/Organ-Assets/organ-liver.svg" alt="liver image">
+                            <div class="applicatiion-function-container">
+                                <img class="applicant-accept" src="./Images/AdminDashboard/icon-accept.svg" alt="accept applicant">
+                                <img class="applicant-reject" src="./Images/AdminDashboard/icon-reject.svg" alt="rejectapplicant">
+                            </div>
+
+                        </div>
+                        <div class="profile2 profile"></div>
+                        <div class="profile3 profile"></div>
+                        
+                    </div>
                 </div>
                 
             </div>
-        </div>
+        
 
     </nav>
 </body>
