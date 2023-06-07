@@ -420,4 +420,7 @@ h1, h2, h3 {
   .adminDashboard .adminNavigation .adminLinks img {
     margin-left: 30px;
   }
+}
+.slides {
+  width: 120px;
 }/*# sourceMappingURL=style.css.map */
