@@ -1,0 +1,10 @@
+@use "../abstract/index.scss" as *;
+
+
+
+
+@include breakpoint-down(large){
+    .LatestDonorApplication{
+        //
+    }
+}
