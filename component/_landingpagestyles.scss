@@ -1,5 +1,9 @@
 @use "../abstract/index.scss" as *;
 
+body {
+    height: 100vh;
+    overflow-y: hidden;
+}
 .slider {
     height: 100vh;
     display: flex;
@@ -14,7 +18,41 @@
 
         .slide {
             transition: 1s ease-in-out;
-        } 
+            position: relative;
+            height: 1080px;
+            .overlay {
+                position: absolute;
+                margin-top: 100px;
+                margin-left: 300px;
+
+                button {
+                    padding: 1.3em 3em;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 2.5px;
+                    font-weight: 500;
+                    color: #000;
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 45px;
+                    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease 0s;
+                    cursor: pointer;
+                    outline: none;
+
+                    &:hover {
+                        background-color: #c42323;
+                        box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
+                        color: #fff;
+                        transform: translateY(-7px);
+                    }
+
+                    &:active {
+                        transform: translateY(-1px);
+                    }
+                }
+            }
+        }
 
         #radio1 {
             &:checked ~ .first{
@@ -42,7 +80,7 @@
         justify-content: center;
         padding-left: 25px;
         position: absolute;
-        margin-top: 700px;
+        margin-top: 650px;
 
         .manual-btn {
             background-color: rgb(43, 43, 43);
@@ -76,5 +114,130 @@
 
 .color {
     background-color: red;
+}
+
+.nav-bar {
+    background-color: #A00608;
+    padding: 5px 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+        img {
+            width: 135px;
+        }
+    }
+
+    .toggle {
+        display: none;
+    }
+
+    .menuButton {
+        scale: 0.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 13%;
+        color: #090909;
+        width: 3.5em;
+        height: 3.5em;
+        border-radius: 0.5em;
+        background: #b41417;
+        border: 1px solid #e22528;
+        transition: all .3s;
+        box-shadow: 6px 6px 12px #861315,
+                   -6px -6px 12px #be1e20;
+
+        &:hover {
+            border: 1px solid #d84a4c;
+        }
+
+        &:active {
+            color: #666;
+            box-shadow: inset 4px 4px 12px #861315,
+                       inset -4px -4px 12px #be1e20;
+        }
+
+        span {
+            width: 30px;
+            height: 4px;
+            background: #ffffff;
+            border-radius: 100px;
+            transition: 0.3s ease;
+        }
+
+        input[type = "checkbox"] {
+            -webkit-appearance: none;
+            display: none;
+            visibility: hidden;
+        }
+    
+        input[type]:checked ~ span.top {
+        transform: translateY(290%)rotate(45deg);
+        width: 40px;
+        }
+    
+        input[type]:checked ~ span.bot {
+            transform: translateY(-270%) rotate(-45deg);
+            width: 40px;
+            box-shadow: 0 0 10px #495057;
+        }
+    
+        input[type]:checked ~ span.mid {
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+
+        li{
+            margin: 20px;
+            transition: .2s ease-in-out;
+            border-radius: 20px;
+
+            &:hover {
+                scale: 1.03;
+                transition: .25s ease-in-out;
+                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+            }
+
+            &::after {
+                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                opacity: 0;
+                transition: opacity 0.25s ease-in-out;
+            }
+
+            &:hover::after {
+                opacity: 1;
+            }
+
+            a {
+                color: rgb(255, 255, 255);
+                font-size: 15px;
+                font-weight: 700;
+                padding: 5px 15px;
+                text-transform: uppercase;
+                transition: .2s ease-in-out;
+                border-radius: 20px;
+
+                &:hover {
+                    color: red;
+                    background-color: white;
+                }
+            }
+        }
+        
+        img {
+            width: 40px;
+        }
+    }
 }
 
