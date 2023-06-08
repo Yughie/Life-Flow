@@ -284,6 +284,14 @@ h1, h2, h3 {
   padding: 30px 30px 0px 30px;
   grid-template-areas: "a b c d e";
   text-align: center;
+  /*
+  .LatestDonorApplication{
+       background-color: $darkBlueGreen;
+       h2{
+           font-size: $font-med;
+           margin: 10px;
+       }
+   }  */
 }
 .adminDashboardContent__summaryContainer .grid-item {
   display: grid;
@@ -292,18 +300,14 @@ h1, h2, h3 {
 }
 .adminDashboardContent__summaryContainer .grid-item .flash-Title {
   color: #e9e9e9;
+  font-size: 1.5rem;
+  margin: 10px;
   padding: 20px;
-  font-size: 20px;
 }
 .adminDashboardContent__summaryContainer .grid-item .statistic-total {
   font-size: 5rem;
   place-items: center;
   color: #e9e9e9;
-  padding: 30px;
-}
-.adminDashboardContent__summaryContainer .grid-item .flash-title {
-  font-size: 1.25rem;
-  margin: 10px;
   padding: 30px;
 }
 .adminDashboardContent__summaryContainer .totalApplication {
@@ -325,14 +329,6 @@ h1, h2, h3 {
 .adminDashboardContent__summaryContainer .TotalBloodSupply {
   grid-area: e;
   background-color: #860909;
-}
-.adminDashboardContent__summaryContainer .LatestDonorApplication {
-  grid-area: f;
-  background-color: #136371;
-}
-.adminDashboardContent__summaryContainer .LatestDonorApplication h2 {
-  font-size: 30px;
-  margin: 10px;
 }
 
 /***********LATEST DONOR APPLICATION**************/
@@ -380,7 +376,7 @@ h1, h2, h3 {
 }
 .LatestDonorApplication .latestApplication_container .profile__Name {
   color: #292828;
-  font-size: 25px;
+  font-size: 1.5rem;
 }
 .LatestDonorApplication .latestApplication_container .profile__ApplicationDate {
   color: #292828;
