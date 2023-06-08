@@ -384,8 +384,8 @@ h1, h2, h3 {
   min-height: 100px;
 }
 .LatestDonorApplication .latestApplication_container .profile__Image {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 .LatestDonorApplication .latestApplication_container .profile__Name {
   color: #292828;
@@ -395,10 +395,13 @@ h1, h2, h3 {
   color: #292828;
 }
 .LatestDonorApplication .latestApplication_container .profile__Organ {
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
 }
 .LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept {
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
   cursor: pointer;
   border-radius: 50%;
 }
@@ -409,6 +412,9 @@ h1, h2, h3 {
   filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
 }
 .LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject {
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -458,19 +464,15 @@ h1, h2, h3 {
     grid-template-rows: 35px;
   }
   .adminDashboardContent__summaryContainer .grid-item .flash-Title {
-    padding: 0;
-    font-size: 0.875rem;
+    padding: 10px;
+    font-size: 1.125rem;
   }
   .LatestDonorApplication {
-    border: 5px solid green;
     margin: 20px;
   }
   .LatestDonorApplication__Title {
     font-size: 1.125rem;
     padding: 20px 20px 10px 20px;
-  }
-  .LatestDonorApplication .latestApplication_container {
-    border: 1px solid yellow;
   }
 }
 .slider {

@@ -347,8 +347,8 @@
 
                     }
                     &__Image{
-                    width: 80px;
-                    height: 80px;
+                    width: 60px;
+                    height: 60px;
                     
                     
                    }
@@ -360,13 +360,16 @@
                     color: $offBlack;
                    }
                    &__Organ{
-                        width: 90px;
-                        height: 90px;
+                        width: 60px;
+                        height: 60px;
                    }
 
                    .applicatiion-function-container{
                         
                     .applicant-accept{
+                        width: 50px;
+                        height: 50px;
+                        margin-top: 8px;
                         cursor: pointer;
                         border-radius: 50%;
                         //box-shadow: 0px 0px 0px 15px #7ab858;
@@ -378,6 +381,9 @@
                         }
                     }
                     .applicant-reject{
+                        width: 50px;
+                        height: 50px;
+                        margin-top: 8px;
                         border-radius: 50%;
                         cursor: pointer;
                         //box-shadow: 0px 0px 0px 15px #c05a5a;
@@ -455,14 +461,14 @@
                         grid-template-rows: 35px;
 
                         .flash-Title{
-                            padding: 0;
-                            font-size: $font-sm;
+                            padding: 10px;
+                            font-size: $font-med;
                         }
                     }
                 }
             }
             .LatestDonorApplication{
-                border: 5px solid green;
+                
                 margin: 20px;
                 
                 
@@ -473,7 +479,6 @@
                     padding: 20px 20px 10px 20px;
                 }
                 .latestApplication_container{ 
-                    border: 1px solid yellow;
                     
                 
 
