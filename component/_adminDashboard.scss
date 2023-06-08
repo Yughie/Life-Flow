@@ -223,10 +223,8 @@
                     
                     .flash-Title{
                         color: $offWhite;
-                        font-size: $font-med; // 20px
-                        margin: 10px;
                         padding: 20px;
-                        
+                        font-size: 20px;
                     }
                     
                     .statistic-total{
@@ -235,7 +233,16 @@
                         color: $offWhite;
                         padding: 30px;
     
-                    } 
+                    }
+                    .flash-title{
+                        font-size: 1.25rem; // 20px
+                        margin: 10px;
+                        padding: 30px;
+                        
+                        
+                    }
+                
+                   
                 }
                 
             
@@ -262,14 +269,14 @@
                 grid-area: e;
                 background-color: $primaryRed;
             }
-            /*
            .LatestDonorApplication{
+                grid-area: f;
                 background-color: $darkBlueGreen;
                 h2{
-                    font-size: $font-med;
+                    font-size: 30px;
                     margin: 10px;
                 }
-            }  */
+            }
         }
     
 
@@ -347,7 +354,7 @@
                    }
                    &__Name{
                     color: $offBlack;
-                    font-size: $font-med;
+                    font-size: 25px;
                    }
                    &__ApplicationDate{
                     color: $offBlack;
