@@ -1,24 +1,30 @@
 @use "../abstract/index.scss" as *;
+
+
+
 .adminDashboard{
     
     display: flex;
     background-color: $primaryRed;
-    min-height: 100vh;
-    height: 100%;
-    ;
+    height: 100vh;
+    
+    //overflow: hidden;
+    
     
     
 
     .adminNavigation{
         
-        //display: flex;
+        display: flex;
         flex-direction: column;
         width: 450px;
-        min-width:300px;
+        min-width:250px;
         max-width: 450px;
         text-align: center;
         color: $offWhite;
         height: 100%;
+        
+        
         
         
 
@@ -163,133 +169,240 @@
 
 
 
+
 //MAIN FRAME
 .adminDashboardContent{
     width: 100%;
+    height: 100%;
     background-color: $offWhite;
     border-radius: 25px 0 0 25px;
-    
-
-    *{
-        border: 1px solid;
-    }
-    
-
-    h1{
+   
+    .dashboard-title{
         font-size: 70px;
         color: $offBlack;
-        margin: 30px;
-       }
-    
-        //CONTAINER
-        &__summaryContainer{
-           margin: 30px;
-           height: 80%;
-           display: grid;
-            //grid-template-columns: 300px 300px 300px 300px;
-           grid-template-areas:
-            'application organ transplant blood supply'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant'
-            'donorApplicant donorApplicant donorApplicant donorApplicant donorApplicant';
-           gap: 30px;
-           margin: 30px;
-           text-align: center;
-           border-radius: 15px;
-           justify-content: center;
-           overflow: hidden;
-
-           h1{
-            color: $offWhite;
-            
-        
-           }
-           h2{
-            color: $offWhite;
-            font-size: 18px;
-            padding:10px;
-            height: 80px;
-            //font-family: ;
-           }
-
-           
-            //ITEMS
-            
-            .grid-item-totalApplication{
-                grid-area: application;
-                background-color: $primaryRed;
-                border-radius: 15px;
-                max-width: 250px;
-                min-width: 200px;
-                height:300px;
-                
-            }
-            .grid-item-TotalOrganDonor{
-                grid-area: organ;
-                background-color: $darkBlueGreen;
-                border-radius: 15px;
-                max-width: 250px;
-                min-width: 200px;
-                height:300px;
-                
-            }
-            .grid-item-OrganTransplantCandidate{
-                grid-area: transplant;
-                background-color: $primaryRed;
-                border-radius: 15px;
-                max-width: 250px;
-                min-width: 200px;
-                height:300px;
-                
-            }
-            .grid-item-BloodRequest{
-                grid-area: blood;
-                background-color: $darkBlueGreen;
-                border-radius: 15px;
-                max-width: 250px;
-                min-width: 200px;
-                height:300px;
-                
-            }
-            .grid-item-TotalBloodSupply{
-                grid-area: supply;
-                background-color: $primaryRed;
-                border-radius: 15px;
-                max-width: 250px;
-                min-width: 200px;
-                height:300px;
-            }
-            .grid-item-LatestDonorApplication{
-                h2{
-                    font-size:25px;
-                    margin: 10px;
-                }
-                grid-area: donorApplicant;
-                background-color: $darkBlueGreen;
-                text-align: left;
-                border-radius: 15px;
-                height: 100%;
-
-                
-            }
-            
-
-
-
-        }
+        margin: 30px 30px 0px 30px;
     }
     
 
+   
+}
 
+
+        //CONTAINER
+      
+        .adminDashboardContent__summaryContainer{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            grid-template-rows: 310px;
+            padding: 30px 30px 0px 30px;
+            grid-template-areas: 
+               "a b c d e";
+            text-align: center;
+            
+           
+
+                .grid-item{
+                    display: grid;
+                    grid-template-rows: 80px;
+                    border-radius: 20px;
+                    
+                    
+                    .flash-Title{
+                        color: $offWhite;
+                        padding: 20px;
+                        font-size: 20px;
+                    }
+                    
+                    .statistic-total{
+                        font-size: 5rem; // 80px
+                        place-items: center;
+                        color: $offWhite;
+                        padding: 30px;
     
+                    }
+                    .flash-title{
+                        font-size: 1.25rem; // 20px
+                        margin: 10px;
+                        padding: 30px;
+                        
+                        
+                    }
+                
+                   
+                }
+                
+            
+            .totalApplication{
+                grid-area: a;
+                background-color: $primaryRed;
+                
+                
+            }
+            .TotalOrganDonor{
+                grid-area: b;
+                background-color: $darkBlueGreen;
+                
+            }
+            .OrganTransplantCandidate{
+                grid-area: c;
+                background-color: $primaryRed;
+            }
+            .BloodRequest{
+                grid-area: d;
+                background-color: $darkBlueGreen;
+            }
+            .TotalBloodSupply{
+                grid-area: e;
+                background-color: $primaryRed;
+            }
+           .LatestDonorApplication{
+                grid-area: f;
+                background-color: $darkBlueGreen;
+                h2{
+                    font-size: 30px;
+                    margin: 10px;
+                }
+            }
+        }
+    
+
+           
+     
+        /***********LATEST DONOR APPLICATION**************/
+
+        .LatestDonorApplication{
+            background-color: $darkBlueGreen;
+            border-radius: 20px;
+            margin: 30px;
+            
+            
+
+            &__Title{
+                padding: 25px 25px 10px 25px;
+                color: $offWhite;
+            }
+       
+
+            .latestApplication_container{
+            width: auto;
+            overflow-y: auto;
+            max-height: 370px;
+            border-radius: 15px;
+            
+
+                &::-webkit-scrollbar {
+                    width: 1em;
+                    border-radius: 15px;
+                   
+                }
+               
+                &::-webkit-scrollbar-track {
+                    
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                    border-radius: 20px;
+                }
+               
+                &::-webkit-scrollbar-thumb {
+                    background-color: darkgrey;
+                    outline: 1px solid slategrey;
+                    border-radius: 15px;
+                    
+                }
+
+
+                .profile{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: $offWhite;
+                    margin: 10px 30px;
+                    padding: 10px 30px 10px 30px;
+                    border-radius: 15px;
+                    min-height: 100px;
+
+                    
+
+                    &__ID{
+
+                    }
+                    &__Image{
+                    width: 80px;
+                    height: 80px;
+                    
+                    
+                   }
+                   &__Name{
+                    color: $offBlack;
+                    font-size: 25px;
+                   }
+                   &__ApplicationDate{
+                    color: $offBlack;
+                   }
+                   &__Organ{
+                        width: 90px;
+                        height: 90px;
+                   }
+
+                   .applicatiion-function-container{
+                        
+                    .applicant-accept{
+                        cursor: pointer;
+                        border-radius: 50%;
+                        //box-shadow: 0px 0px 0px 15px #7ab858;
+                        &:hover{
+                            filter: invert(42%) sepia(45%) saturate(484%) hue-rotate(55deg) brightness(101%) contrast(88%);
+                        }
+                        &:active{
+                            filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
+                        }
+                    }
+                    .applicant-reject{
+                        border-radius: 50%;
+                        cursor: pointer;
+                        //box-shadow: 0px 0px 0px 15px #c05a5a;
+                        &:hover{
+                            filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
+                        }
+                        &:active{
+                            filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+                        }
+                    }
+
+                   }
+
+                }
+            }
+        }
+
+        @include breakpoint-down(large){
+
+
+            .adminDashboard {
+                
+                .adminNavigation {
+                    *{
+                        transform: scale(0.9);
+                    }
+
+                    .adminLinks {
+                        a {
+                            width: 250px;
+                        }
+                        img{
+                            margin-left: 30px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        
+    
+
+
+     
         
    
     
