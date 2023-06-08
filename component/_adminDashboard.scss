@@ -6,9 +6,11 @@
     
     display: flex;
     background-color: $primaryRed;
-    height: 100vh;
+    //height: 100%;
     
     //overflow: hidden;
+    //display: grid;
+    //grid-template-columns: 1f 1fr;
     
     
     
@@ -52,8 +54,50 @@
         .adminLinks{
             margin: 5px 0 ;
             
-            &__Dashboard{
+
+            img{
+                position: relative;
+                margin-left: 50px;
+                margin-right: 10px;
+                width: 40px;
+                height: 40px;
                 
+            }
+            a{
+               
+                position: relative;
+                margin: auto;
+                width: 300px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                font-size: 12px;
+                border-radius: 15px;
+                color: $offWhite;
+                transition: 150ms ease-in-out ;
+
+                &:hover{
+                    background-color: $offWhite;
+                    color: $offBlack;
+                    transform: scale(1.03);
+                    
+                }
+                &:active{
+                    background-color: #eeb2b2;
+                    transform: scale(1.0);
+                    color: $offWhite;
+                }
+
+            }       
+
+
+            &__Dashboard{
+                img{
+                    width: 30px;
+                    height: 30px;
+                    //margin-left: 55px;
+                }
                 h2{
                     margin-bottom: -10px;
                 }
@@ -118,41 +162,7 @@
             }
             
             
-            img{
-                position: relative;
-                margin-left: 50px;
-                margin-right: 10px;
-                width: 40px;
-                height: 40px;
-                
-            }
-            a{
-               
-                position: relative;
-                margin: auto;
-                width: 300px;
-                height: 80px;
-                display: flex;
-                align-items: center;
-                text-align: left;
-                font-size: 12px;
-                border-radius: 15px;
-                color: $offWhite;
-                transition: 150ms ease-in-out ;
-
-                &:hover{
-                    background-color: $offWhite;
-                    color: $offBlack;
-                    transform: scale(1.03);
-                    
-                }
-                &:active{
-                    background-color: #eeb2b2;
-                    transform: scale(1.0);
-                    color: $offWhite;
-                }
-
-            }         
+             
         }
         
         .current{
@@ -170,12 +180,15 @@
 
 
 
+
 //MAIN FRAME
 .adminDashboardContent{
+    display: block;
     width: 100%;
     height: 100%;
     background-color: $offWhite;
     border-radius: 25px 0 0 25px;
+    //overflow: hidden;
    
     .dashboard-title{
         font-size: 70px;
@@ -194,7 +207,7 @@
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 10px;
-            grid-template-rows: 310px;
+            grid-template-rows: 300px;
             padding: 30px 30px 0px 30px;
             grid-template-areas: 
                "a b c d e";
@@ -215,7 +228,7 @@
                     }
                     
                     .statistic-total{
-                        font-size: 5rem; // 80px
+                        font-size: $font-xlg; // 80px
                         place-items: center;
                         color: $offWhite;
                         padding: 30px;
@@ -272,9 +285,14 @@
         /***********LATEST DONOR APPLICATION**************/
 
         .LatestDonorApplication{
+            display: flex;
+            flex-direction: column;
             background-color: $darkBlueGreen;
             border-radius: 20px;
             margin: 30px;
+            //display: block;
+            height: 450px;
+            min-width: 720px;
             
             
 
@@ -285,9 +303,11 @@
        
 
             .latestApplication_container{
+            display: block;
             width: auto;
             overflow-y: auto;
-            max-height: 370px;
+            white-space: nowrap;
+            
             border-radius: 15px;
             
 
@@ -381,20 +401,83 @@
             .adminDashboard {
                 
                 .adminNavigation {
-                    *{
-                        transform: scale(0.9);
-                    }
 
+                    width: 250px;
+                    min-width: 250px;
+                    max-width: 3500px;
+                    .Logo{
+                        width: 200px;
+                    }
+                    .greeting{
+                        margin: 0 auto -20px auto;
+                    }
                     .adminLinks {
+                        
+                        
+
                         a {
-                            width: 250px;
+                            width: 200px;
+                            height: 50px;
                         }
                         img{
-                            margin-left: 30px;
+                            margin-left: 20px;
+                            width: 35px;
+                            height: 35px;
+                        }
+
+                        &__Dashboard{
+
+                            img{
+                                width: 30px;
+                                height: 30px;
+                                margin-left: 24px;
+                            }
                         }
                     }
                 }
 
+            }
+
+
+
+            /*********************CONTENT*********/
+            .adminDashboardContent{
+                .dashboard-title{
+                    font-size: $font-lg;
+                }
+
+                &__summaryContainer{
+                    gap: 5px;
+                    grid-template-rows: 200px;
+                    padding: 20px 20px 0px 20px;
+
+                    .grid-item{
+                        grid-template-rows: 35px;
+
+                        .flash-Title{
+                            padding: 0;
+                            font-size: $font-sm;
+                        }
+                    }
+                }
+            }
+            .LatestDonorApplication{
+                border: 5px solid green;
+                margin: 20px;
+                
+                
+                //
+                
+                &__Title{
+                    font-size: $font-med;
+                    padding: 20px 20px 10px 20px;
+                }
+                .latestApplication_container{ 
+                    border: 1px solid yellow;
+                    
+                
+
+                }
             }
         }
 

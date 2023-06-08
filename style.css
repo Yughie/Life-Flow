@@ -172,7 +172,6 @@ h1, h2, h3 {
 .adminDashboard {
   display: flex;
   background-color: #860909;
-  height: 100vh;
 }
 .adminDashboard .adminNavigation {
   display: flex;
@@ -200,33 +199,6 @@ h1, h2, h3 {
 }
 .adminDashboard .adminNavigation .adminLinks {
   margin: 5px 0;
-}
-.adminDashboard .adminNavigation .adminLinks__Dashboard h2 {
-  margin-bottom: -10px;
-}
-.adminDashboard .adminNavigation .adminLinks__Dashboard:hover img {
-  content: url("Images/AdminDashboard/icon-dashboard-current.svg");
-}
-.adminDashboard .adminNavigation .adminLinks__Recipient h2 {
-  margin-bottom: -10px;
-}
-.adminDashboard .adminNavigation .adminLinks__Recipient:hover img {
-  content: url("Images/AdminDashboard/Icon-Recipient-current.svg");
-}
-.adminDashboard .adminNavigation .adminLinks__OrganDonor:hover img {
-  content: url("Images/AdminDashboard/icon-organDonor-current.svg");
-}
-.adminDashboard .adminNavigation .adminLinks__BloodDonor:hover img {
-  content: url("Images/AdminDashboard/Icon-BloodDonor-current.svg");
-}
-.adminDashboard .adminNavigation .adminLinks__DonorApplication:hover img {
-  content: url("Images/AdminDashboard/icon-donorApplicant-current.svg");
-}
-.adminDashboard .adminNavigation .adminLinks__BloodTransfusion:hover img {
-  content: url("Images/AdminDashboard/icon-bloodTransfusion-current.svg");
-}
-.adminDashboard .adminNavigation .adminLinks__LogOut:hover img {
-  content: url("Images/AdminDashboard/Icon-LogOut-current.svg");
 }
 .adminDashboard .adminNavigation .adminLinks img {
   position: relative;
@@ -258,6 +230,37 @@ h1, h2, h3 {
   transform: scale(1);
   color: #e9e9e9;
 }
+.adminDashboard .adminNavigation .adminLinks__Dashboard img {
+  width: 30px;
+  height: 30px;
+}
+.adminDashboard .adminNavigation .adminLinks__Dashboard h2 {
+  margin-bottom: -10px;
+}
+.adminDashboard .adminNavigation .adminLinks__Dashboard:hover img {
+  content: url("Images/AdminDashboard/icon-dashboard-current.svg");
+}
+.adminDashboard .adminNavigation .adminLinks__Recipient h2 {
+  margin-bottom: -10px;
+}
+.adminDashboard .adminNavigation .adminLinks__Recipient:hover img {
+  content: url("Images/AdminDashboard/Icon-Recipient-current.svg");
+}
+.adminDashboard .adminNavigation .adminLinks__OrganDonor:hover img {
+  content: url("Images/AdminDashboard/icon-organDonor-current.svg");
+}
+.adminDashboard .adminNavigation .adminLinks__BloodDonor:hover img {
+  content: url("Images/AdminDashboard/Icon-BloodDonor-current.svg");
+}
+.adminDashboard .adminNavigation .adminLinks__DonorApplication:hover img {
+  content: url("Images/AdminDashboard/icon-donorApplicant-current.svg");
+}
+.adminDashboard .adminNavigation .adminLinks__BloodTransfusion:hover img {
+  content: url("Images/AdminDashboard/icon-bloodTransfusion-current.svg");
+}
+.adminDashboard .adminNavigation .adminLinks__LogOut:hover img {
+  content: url("Images/AdminDashboard/Icon-LogOut-current.svg");
+}
 .adminDashboard .adminNavigation .current a {
   background-color: #e9e9e9;
   color: #292828;
@@ -265,6 +268,7 @@ h1, h2, h3 {
 }
 
 .adminDashboardContent {
+  display: block;
   width: 100%;
   height: 100%;
   background-color: #e9e9e9;
@@ -280,7 +284,7 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-  grid-template-rows: 310px;
+  grid-template-rows: 300px;
   padding: 30px 30px 0px 30px;
   grid-template-areas: "a b c d e";
   text-align: center;
@@ -296,7 +300,7 @@ h1, h2, h3 {
   font-size: 20px;
 }
 .adminDashboardContent__summaryContainer .grid-item .statistic-total {
-  font-size: 5rem;
+  font-size: 3.25rem;
   place-items: center;
   color: #e9e9e9;
   padding: 30px;
@@ -337,18 +341,23 @@ h1, h2, h3 {
 
 /***********LATEST DONOR APPLICATION**************/
 .LatestDonorApplication {
+  display: flex;
+  flex-direction: column;
   background-color: #136371;
   border-radius: 20px;
   margin: 30px;
+  height: 450px;
+  min-width: 720px;
 }
 .LatestDonorApplication__Title {
   padding: 25px 25px 10px 25px;
   color: #e9e9e9;
 }
 .LatestDonorApplication .latestApplication_container {
+  display: block;
   width: auto;
   overflow-y: auto;
-  max-height: 370px;
+  white-space: nowrap;
   border-radius: 15px;
 }
 .LatestDonorApplication .latestApplication_container::-webkit-scrollbar {
@@ -411,14 +420,57 @@ h1, h2, h3 {
 }
 
 @media (max-width: 87.4375em) {
-  .adminDashboard .adminNavigation * {
-    transform: scale(0.9);
+  .adminDashboard .adminNavigation {
+    width: 250px;
+    min-width: 250px;
+    max-width: 3500px;
+  }
+  .adminDashboard .adminNavigation .Logo {
+    width: 200px;
+  }
+  .adminDashboard .adminNavigation .greeting {
+    margin: 0 auto -20px auto;
   }
   .adminDashboard .adminNavigation .adminLinks a {
-    width: 250px;
+    width: 200px;
+    height: 50px;
   }
   .adminDashboard .adminNavigation .adminLinks img {
-    margin-left: 30px;
+    margin-left: 20px;
+    width: 35px;
+    height: 35px;
+  }
+  .adminDashboard .adminNavigation .adminLinks__Dashboard img {
+    width: 30px;
+    height: 30px;
+    margin-left: 24px;
+  }
+  /*********************CONTENT*********/
+  .adminDashboardContent .dashboard-title {
+    font-size: 2.375rem;
+  }
+  .adminDashboardContent__summaryContainer {
+    gap: 5px;
+    grid-template-rows: 200px;
+    padding: 20px 20px 0px 20px;
+  }
+  .adminDashboardContent__summaryContainer .grid-item {
+    grid-template-rows: 35px;
+  }
+  .adminDashboardContent__summaryContainer .grid-item .flash-Title {
+    padding: 0;
+    font-size: 0.875rem;
+  }
+  .LatestDonorApplication {
+    border: 5px solid green;
+    margin: 20px;
+  }
+  .LatestDonorApplication__Title {
+    font-size: 1.125rem;
+    padding: 20px 20px 10px 20px;
+  }
+  .LatestDonorApplication .latestApplication_container {
+    border: 1px solid yellow;
   }
 }
 body {
