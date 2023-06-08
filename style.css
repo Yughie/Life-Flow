@@ -284,14 +284,6 @@ h1, h2, h3 {
   padding: 30px 30px 0px 30px;
   grid-template-areas: "a b c d e";
   text-align: center;
-  /*
-  .LatestDonorApplication{
-       background-color: $darkBlueGreen;
-       h2{
-           font-size: $font-med;
-           margin: 10px;
-       }
-   }  */
 }
 .adminDashboardContent__summaryContainer .grid-item {
   display: grid;
@@ -300,14 +292,18 @@ h1, h2, h3 {
 }
 .adminDashboardContent__summaryContainer .grid-item .flash-Title {
   color: #e9e9e9;
-  font-size: 1.5rem;
-  margin: 10px;
   padding: 20px;
+  font-size: 20px;
 }
 .adminDashboardContent__summaryContainer .grid-item .statistic-total {
   font-size: 5rem;
   place-items: center;
   color: #e9e9e9;
+  padding: 30px;
+}
+.adminDashboardContent__summaryContainer .grid-item .flash-title {
+  font-size: 1.25rem;
+  margin: 10px;
   padding: 30px;
 }
 .adminDashboardContent__summaryContainer .totalApplication {
@@ -329,6 +325,14 @@ h1, h2, h3 {
 .adminDashboardContent__summaryContainer .TotalBloodSupply {
   grid-area: e;
   background-color: #860909;
+}
+.adminDashboardContent__summaryContainer .LatestDonorApplication {
+  grid-area: f;
+  background-color: #136371;
+}
+.adminDashboardContent__summaryContainer .LatestDonorApplication h2 {
+  font-size: 30px;
+  margin: 10px;
 }
 
 /***********LATEST DONOR APPLICATION**************/
@@ -376,7 +380,7 @@ h1, h2, h3 {
 }
 .LatestDonorApplication .latestApplication_container .profile__Name {
   color: #292828;
-  font-size: 1.5rem;
+  font-size: 25px;
 }
 .LatestDonorApplication .latestApplication_container .profile__ApplicationDate {
   color: #292828;
@@ -417,6 +421,65 @@ h1, h2, h3 {
     margin-left: 30px;
   }
 }
-.slides {
-  width: 120px;
+.slider {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.slider .slides {
+  display: flex;
+}
+.slider .slides input {
+  display: none;
+}
+.slider .slides .slide {
+  transition: 1s ease-in-out;
+}
+.slider .slides #radio1:checked ~ .first {
+  margin-left: 3840px;
+}
+.slider .slides #radio2:checked ~ .first {
+  margin-left: 0px;
+}
+.slider .slides #radio3:checked ~ .first {
+  margin-left: -3840px;
+}
+.slider .manual-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 25px;
+  position: absolute;
+  margin-top: 700px;
+}
+.slider .manual-nav .manual-btn {
+  background-color: rgb(43, 43, 43);
+  padding: 10px;
+  margin: 0px 30px 0px 30px;
+  border-radius: 20px;
+  margin-top: -40px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.slider .manual-nav .manual-btn:hover {
+  scale: 1.2;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+  background-color: red;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+.slider .manual-nav .manual-btn::after {
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.slider .manual-nav .manual-btn:hover::after {
+  opacity: 1;
+}
+
+.color {
+  background-color: red;
 }/*# sourceMappingURL=style.css.map */
