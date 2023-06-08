@@ -22,33 +22,82 @@ body {
             height: 1080px;
             .overlay {
                 position: absolute;
-                margin-top: 100px;
-                margin-left: 300px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 1020px;
+                scale: 0.833;
+                
+                .left {
+                    .heading {
+                        .red {
+                            color: #A00608;
+                        }
+                        position: absolute;
+                        width: 1018px;
+                        height: 254px;
+                        left: 90px;
+                        top: 283px;
 
-                button {
-                    padding: 1.3em 3em;
-                    font-size: 12px;
-                    text-transform: uppercase;
-                    letter-spacing: 2.5px;
-                    font-weight: 500;
-                    color: #000;
-                    background-color: #fff;
-                    border: none;
-                    border-radius: 45px;
-                    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-                    transition: all 0.3s ease 0s;
-                    cursor: pointer;
-                    outline: none;
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 70px;
+                        line-height: 85px;
 
-                    &:hover {
-                        background-color: #c42323;
-                        box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
-                        color: #fff;
-                        transform: translateY(-7px);
+                        color: #000000;
                     }
 
-                    &:active {
-                        transform: translateY(-1px);
+                    .text {
+                        position: absolute;
+                        width: 893px;
+                        height: 87px;
+                        left: 93px;
+                        top: 560px;
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 15px;
+                        line-height: 29px;
+
+                        color: #161616;
+                    }
+
+                    button {
+                        padding: 1.3em 3em;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        letter-spacing: 2.5px;
+                        font-weight: 500;
+                        color: #000;
+                        background-color: #fff;
+                        border: none;
+                        border-radius: 45px;
+                        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease 0s;
+                        cursor: pointer;
+                        outline: none;
+                        position: absolute;
+                        left: 93px;
+                        top: 650px;
+    
+                        &:hover {
+                            background-color: #c42323;
+                            box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
+                            color: #fff;
+                            transform: translateY(-7px);
+                        }
+    
+                        &:active {
+                            transform: translateY(-1px);
+                        }
+                    }
+                }
+
+                .right {
+                    position: absolute;
+                    right: 0px;
+                    img {
+                        width: 1000px;
                     }
                 }
             }
@@ -81,6 +130,7 @@ body {
         padding-left: 25px;
         position: absolute;
         margin-top: 650px;
+        background-color: green;
 
         .manual-btn {
             background-color: rgb(43, 43, 43);
@@ -170,7 +220,7 @@ body {
         }
 
         input[type = "checkbox"] {
-            -webkit-appearance: none;
+            appearance: none;
             display: none;
             visibility: hidden;
         }
