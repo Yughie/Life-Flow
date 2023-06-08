@@ -381,9 +381,46 @@ h1, h2, h3 {
 .LatestDonorApplication .latestApplication_container .profile__Name {
   color: #292828;
   font-size: 25px;
-  margin: 10px;
+}
+.LatestDonorApplication .latestApplication_container .profile__ApplicationDate {
+  color: #292828;
+}
+.LatestDonorApplication .latestApplication_container .profile__Organ {
+  width: 90px;
+  height: 90px;
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept {
+  cursor: pointer;
+  border-radius: 50%;
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept:hover {
+  filter: invert(42%) sepia(45%) saturate(484%) hue-rotate(55deg) brightness(101%) contrast(88%);
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept:active {
+  filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject {
+  border-radius: 50%;
+  cursor: pointer;
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject:hover {
+  filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
+}
+.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject:active {
+  filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
+@media (max-width: 87.4375em) {
+  .adminDashboard .adminNavigation * {
+    transform: scale(0.9);
+  }
+  .adminDashboard .adminNavigation .adminLinks a {
+    width: 250px;
+  }
+  .adminDashboard .adminNavigation .adminLinks img {
+    margin-left: 30px;
+  }
+}
 .slider {
   height: 100vh;
   display: flex;
@@ -443,47 +480,6 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-.slides {
-  width: 120px;
-}
-
-.LatestDonorApplication .latestApplication_container .profile__ApplicationDate {
-  color: #292828;
-}
-.LatestDonorApplication .latestApplication_container .profile__Organ {
-  width: 90px;
-  height: 90px;
-}
-.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept {
-  cursor: pointer;
-  border-radius: 50%;
-}
-.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept:hover {
-  filter: invert(42%) sepia(45%) saturate(484%) hue-rotate(55deg) brightness(101%) contrast(88%);
-}
-.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-accept:active {
-  filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
-}
-.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject {
-  border-radius: 50%;
-  cursor: pointer;
-}
-.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject:hover {
-  filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
-}
-.LatestDonorApplication .latestApplication_container .profile .applicatiion-function-container .applicant-reject:active {
-  filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
-}
-
-@media (max-width: 87.4375em) {
-  .adminDashboard .adminNavigation * {
-    transform: scale(0.9);
-  }
-  .adminDashboard .adminNavigation .adminLinks a {
-    width: 250px;
-  }
-  .adminDashboard .adminNavigation .adminLinks img {
-    margin-left: 30px;
-  }
-}
-/*# sourceMappingURL=style.css.map */
+.color {
+  background-color: red;
+}/*# sourceMappingURL=style.css.map */
