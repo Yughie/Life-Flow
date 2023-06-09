@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -477,7 +478,7 @@ h1, h2, h3 {
 }
 body {
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .slider {
@@ -541,7 +542,7 @@ body {
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000;
-  background-color: #fff;
+  background-color: #45ffe0;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -560,6 +561,9 @@ body {
 }
 .slider .slides .slide .overlay .left button:active {
   transform: translateY(-1px);
+}
+.slider .slides .slide .overlay .left .btn2 {
+  background-color: #ffffff;
 }
 .slider .slides .slide .overlay .right {
   position: absolute;
