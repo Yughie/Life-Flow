@@ -1,5 +1,5 @@
+//carorousel auto play
 var counter = 1;
-
 setInterval(function(){
     document.getElementById('radio' + counter).checked = true;
     counter++;
@@ -7,3 +7,5 @@ setInterval(function(){
             counter = 1;
         }
 }, 5000);
+
+

@@ -12,24 +12,27 @@
 
 <body>
     <script src="landingpagescript.js"></script>
-    <div class="nav-bar">
-        <div class="logo">
+    <div class="nav-bar" id="nav">
+        <div class="logo" id="logoid">
             <a href="#"><img src="../Images/LOGO.png"></a>
         </div>
-        <div class="toggle">
+
+        <div class="toggle" id="toggler">
             <label for="check" class="menuButton">
-                <input id="check" type="checkbox">
+                <input type="checkbox" onclick="openSidebar(this.checked);" id="check">
                 <span class="top"></span>
                 <span class="mid"></span>
                 <span class="bot"></span>
             </label>
         </div>
-        <ul class="menu">
-            <li><a href="#">home</a></li>
-            <li><a href="#">sign up</a></li>
-            <li><a href="#">learn about donation</a></li>
-            <div id="userprofilecvg"><a href="#"><img src="../Images/landing-page-assets/user default profile.svg"></a></div>
-        </ul>
+        
+        <div class="sidebar" id="lists">
+            <ul class="menu" id="navmenu">
+                <li id="list"><a href="#">home</a></li>
+                <li id="list"><a href="#">sign up</a></li>
+                <li id="list"><a href="#">learn about donation</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="slider">
