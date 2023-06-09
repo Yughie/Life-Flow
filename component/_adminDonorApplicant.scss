@@ -6,67 +6,175 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 10px 50px -35px 50px;
-    border: 1px dashed black;
+    transition: all 400ms ease-in-out;
+    
     //FIRST FUNCTION
     .add-donor-applicant_container{
         display: flex;
         flex-direction: row;
         width: 200px;
         align-items: center;
-        
+        cursor: pointer;
+        border-radius: 10px;
+        transition: all 100ms ease-in-out;
         .add-function-icon{
             padding-right: 5px;
+            fill: $darkBlueGreen;
         }
         .add-function-text{
             font-size: $font-med;
         }
+
+
+        &:hover{
+            color: $darkBlueGreen;
+            
+           // border: 2px solid $darkBlueGreen;
+            //background-color: rgb(211, 208, 208);
+            .add-function-icon{
+                transform: scale(1.06);
+                //transform: translate(65px,0px);
+                
+                
+            }
+            .add-function-text{
+               // display: none;
+            }
+    
+
+         }
+         &:focus{
+             
+             transform: scale(1.03);
+             color: $darkBlueGreen;
+         }
     }
+
+
+
 
     ///SECOND FUNCTION CONTAINER(SEARCH, FILTER, SORT)
     .select-function_container{
         display: flex;
         align-items: center;
-        
+        /*{
+            border: 1px dashed blue;
+        }*/
         .search-function{
            
             margin-bottom: -10px;
-            &:hover{
-                color: $darkBlueGreen;
-            }
+            
             .search-input{
                 background-image: url("../Images/DonorApplicant/icon-search.svg");
-                background-position: left;
+                background-position: 10px 0px;
                 background-repeat: no-repeat;
-                padding-left: 30px;
+                padding-left: 40px;
                 width: 150px;
                 height: 30px;
                 font-size: $font-med;
-                border-radius: 5px;
-                cursor: pointer;
+                border: none;
+                border-radius: 20px;
+                cursor: text;
                 margin-right: 20px;
-                //paddin;
+                transition: 100ms ease-in-out;
+                background-color: rgb(211, 208, 208);
+                border-radius: $darkBlueGreen;
+                
+                &:hover{
+                   // border: 1px solid $lightBlueGreen;
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
+                &:focus{
+                    //border: 1px solid $lightBlueGreen;
+                    transform: scale(1.03);
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
                 
             }
 
         }
         .filter-function{   
             display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 5;
             margin-bottom: -10px;
             margin-right: 20px;
             border: 1px solid;
             cursor: pointer;
             padding: 5px;
-            width: 170px;
-            height: 50px;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: $font-med;
+            color: $offBlack;
+
+            .filter-icon-function{
+                width: 25px;
+                height: 25px;
+                fill: $offBlack;
+            }
+
+            &:hover{
+                 color: $lightBlueGreen;
+                 border: 2px solid $darkBlueGreen;
+                 box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                 .filter-icon-function{
+                    fill: $lightBlueGreen;
+                    
+                    
+                 }
+             }
+             &:active{
+                 transform: scale(1.03);
+                 color: $darkBlueGreen;
+                 
+                 .filter-icon-function{
+                    fill: $darkBlueGreen;
+                 }
+             }
             
         }
         .sort-function{
             display: flex;
+            justify-content: center;
+            align-items: center;
             margin-bottom: -10px;
             margin-right: 20px;
             cursor: pointer;
             border: 1px solid;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            font-size: $font-med;
+            
+
+            .sort-icon-function{
+                width: 30px;
+                height: 30px;
+            }
+
+            &:hover{
+                color: $lightBlueGreen;
+                border: 2px solid $darkBlueGreen;
+                box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                .sort-icon-function{
+                   fill: $lightBlueGreen;
+                   
+                }
+            }
+            &:active{
+                transform: scale(1.03);
+                color: $darkBlueGreen;
+                
+                .sort-icon-function{
+                   fill: $darkBlueGreen;
+                }
+            }
+
         }
     }
 }
@@ -84,14 +192,49 @@
     border-radius: 20px;
     margin: 30px;
     //display: block;
-    height: 450px;
+    height: 71vh;
     min-width: 720px;
-    
-    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
 
-    &__Title{
-        padding: 25px 25px 10px 25px;
+    
+    //CONTENT TITLE's
+    &__contentTitle{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 0px 30px;
         color: $offWhite;
+        font-size: $font-sm;
+        border: 1px solid black;
+        background-color: $primaryRed;
+        
+        
+
+        &__ID{
+        width: 130px;
+        }
+        &__Profile{
+        width: 240px;
+        }
+        &__Contact{
+            width: 180px;
+            margin-left:  20px;
+        }
+        &__BloodType{
+            width: 80px;
+           
+           margin-left:  20px;
+        }
+        &__Organ{
+            width: 80px;
+            margin-left:  20px;
+        }
+        &__empty{
+            width: 270px;
+        }
     }
 
 
@@ -100,22 +243,18 @@
     width: auto;
     overflow-y: auto;
     white-space: nowrap;
-    
     border-radius: 15px;
     
-
         &::-webkit-scrollbar {
             width: 1em;
             border-radius: 15px;
            
         }
-       
         &::-webkit-scrollbar-track {
             
             box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             border-radius: 20px;
         }
-       
         &::-webkit-scrollbar-thumb {
             background-color: darkgrey;
             outline: 1px solid slategrey;
@@ -133,33 +272,82 @@
             padding: 10px 30px 10px 30px;
             border-radius: 15px;
             min-height: 100px;
-
             
+            /************************DATABASEEEEEE***************************/
 
-            &__ID{
+            //DATE AND ID
+            &__order{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
+                &__applicationdate{
+                    color: $offGrey;
+                    font-size: $font-sm;
+                    
+                    
+                }
+                &__applicantID{
+                    font-size: $font-bml;
+                }
             }
-            &__Image{
-            width: 60px;
-            height: 60px;
+
+            //APPLICANT IMAGE
             
-            
-           }
-           &__Name{
-            color: $offBlack;
-            font-size: 25px;
-           }
-           &__ApplicationDate{
-            color: $offBlack;
-           }
-           &__Organ{
+
+            //PERSONAL INFORMATION
+            &__personal{
+                display: flex;
+                align-items: center;
+                &__Image{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+                &__name{
+                    font-size: $font-med;
+                }
+                &__age{
+                    font-size: $font-sm;
+                    color: $offGrey;
+                }
+                &__sex{
+                    font-size: $font-sm;
+                    color: $offGrey;
+                }
+            }
+            //CONTACT INFORMATION
+            &__contact{
+                text-align: center;
+                &__applicantemail{
+                    font-size: $font-sm
+                }
+                &__applicantnumber{
+                    font-size: $font-sm
+                }
+            }
+
+            //Blood TYPE 
+            &__bloodtype{
+                color: $primaryRed;
+                font-size: $font-lg;
+            }
+
+            //ORGAN TYPE
+            &__Organ{
                 width: 60px;
                 height: 60px;
-           }
+            }
 
+
+           /******************FUNCTIONS**********************/
            .applicant-function-container{
-            
+                
             .applicant-edit{
+                width: 40px;
+                height: 40px;
+                margin-top: 8px;
                 cursor: pointer;
                 &:hover{
                     filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
@@ -171,6 +359,9 @@
                 
             }
             .applicant-delete{
+                width: 40px;
+                height: 40px;
+                margin-top: 8px;
                 cursor: pointer;
                 &:hover{
                     filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
@@ -181,31 +372,30 @@
                 }
             }
 
+
             .applicant-accept{
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
                 margin-top: 8px;
                 cursor: pointer;
                 border-radius: 50%;
                 //box-shadow: 0px 0px 0px 15px #7ab858;
                 &:hover{
                     filter: invert(42%) sepia(45%) saturate(484%) hue-rotate(55deg) brightness(101%) contrast(88%);
-                    transform: scale(1.03);
                 }
                 &:active{
                     filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
                 }
             }
             .applicant-reject{
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
                 margin-top: 8px;
                 border-radius: 50%;
                 cursor: pointer;
                 //box-shadow: 0px 0px 0px 15px #c05a5a;
                 &:hover{
                     filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
-                    transform: scale(1.03);
                 }
                 &:active{
                     filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
@@ -226,3 +416,5 @@
         //
     }
 }
+
+
