@@ -379,6 +379,111 @@ body {
     }
 }
 
+.signup-popup {
+    position:absolute; 
+    top: 200%; 
+    left:50%; 
+    transform:translate(-50%, -50%); 
+    width: auto; /* You can specify ANY width values here */ 
+    background-color: #270001be;
+    color: #ffffff;
+    font-weight: 550;
+    border-radius: 20px;
+    text-align: center;
+
+    transition: top .3s ease-in-out;
+
+    .su-top {
+        margin: 10px 15px;
+        text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-around;
+
+        p {
+            margin: 0px;
+        }
+
+        button {
+            --bg: #34d39e;
+            --text-color: #fff;
+            position: relative;
+            width: 25px;
+            border: none;
+            background: var(--bg);
+            color: var(--text-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.2s;
+            border-radius: 5px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            padding: 0px 0px 0px 1px;
+            box-shadow: #1ba074 0px 7px 2px, #000 0px 8px 5px;
+            margin-bottom: 7px;
+
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+
+            &:active {
+                top: 4px;
+                box-shadow: #1ba074 0px 3px 2px,#000 0px 3px 5px;
+            }
+
+            svg {
+                margin-top: 3px;
+                fill: white;
+            }
+        }
+    }
+    .su-btm {
+        display: flex;
+        justify-content: center;
+        height: 351px;
+        overflow: hidden;
+        border-radius: 20px;
+
+        .sides {
+            background-image: url('../Images/landing-page-assets/popups-assets/fltr recipient side.png');
+            background-size: 100%;
+            background-position: center;
+            border-radius: 20px 0px 0px 20px;
+            width: 300px;
+            height: 100%;
+            transition: all .2s ease-in-out;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+
+            &:hover {
+                background-size: 105%;
+                cursor: pointer;
+            }
+
+            h1{
+                text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.8);
+            }
+        
+            p{
+                margin: 0px;
+                font-size: 15px;
+                text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.5);
+            }
+        }
+
+        #donorside {
+            background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
+            border-radius: 0px 20px 20px 0px;
+            
+        }
+        
+    }
+}
+
 @media screen and (max-width: 766px) {
     #nav {
         display: block;
