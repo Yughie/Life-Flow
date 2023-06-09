@@ -9,3 +9,11 @@ setInterval(function(){
 }, 5000);
 
 
+//sidenav open/close
+function openSidebar(selected) {
+    if(selected) {
+        document.getElementById("sidenav").style.display = "";
+    } else {
+        document.getElementById("sidenav").style.display = "none";
+    }
+}

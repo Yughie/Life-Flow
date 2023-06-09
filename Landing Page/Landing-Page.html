@@ -8,6 +8,7 @@
     <title>Life Flow</title>
     <link rel="icon" type="tab-icon" href="../Images/landing-page-assets/LOGO1x1.png">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,15 +20,23 @@
 
         <div class="toggle" id="toggler">
             <label for="check" class="menuButton">
-                <input type="checkbox" onclick="openSidebar(this.checked);" id="check">
+                <input type="checkbox" onclick="openSidebar(this.checked);" class="slidecheck" id="check">
                 <span class="top"></span>
                 <span class="mid"></span>
                 <span class="bot"></span>
             </label>
         </div>
         
-        <div class="sidebar" id="lists">
+        <div class="sidebar" id="sidenav">
             <ul class="menu" id="navmenu">
+                <li id="list"><a href="#">home</a></li>
+                <li id="list"><a href="#">sign up</a></li>
+                <li id="list"><a href="#">learn about donation</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar" id="topnav">
+            <ul class="menu" id="sidenavmenu">
                 <li id="list"><a href="#">home</a></li>
                 <li id="list"><a href="#">sign up</a></li>
                 <li id="list"><a href="#">learn about donation</a></li>
