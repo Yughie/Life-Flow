@@ -51,12 +51,12 @@ body {
 
                     .text {
                         position: absolute;
-                        width: 893px;
+                        width: 700px;
                         height: 87px;
                         left: 93px;
                         top: 560px;
                         font-style: normal;
-                        font-weight: 700;
+                        font-weight: 550;
                         font-size: 15px;
                         line-height: 29px;
 
@@ -68,7 +68,7 @@ body {
                         font-size: 12px;
                         text-transform: uppercase;
                         letter-spacing: 2.5px;
-                        font-weight: 500;
+                        font-weight: 600;
                         color: #000;
                         background-color: #45ffe0;
                         border: none;
@@ -80,8 +80,6 @@ body {
                         position: absolute;
                         left: 93px;
                         top: 650px;
-
-    
                         &:hover {
                             background-color: #c42323;
                             box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
@@ -94,8 +92,35 @@ body {
                         }
                     }
 
-                    .btn2 {
-                        background-color: #ffffff;
+                    #btn2 {
+                        background-color: white;
+
+                        &:hover {
+                            background-color: #c42323;
+                            box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
+                            color: #fff;
+                            transform: translateY(-7px);
+                        }
+                    }
+                }
+
+                #lft2  {
+                    #hd2 {
+                        margin-top: 30px;
+                    }
+                    #txt2 {
+                        width: 800px;
+                        top: 500px;
+                    }
+                }
+
+                #lft3  {
+                    #hd3 {
+                        margin-top: 30px;
+                    }
+                    #txt3 {
+                        width: 800px;
+                        top: 500px;
                     }
                 }
 
@@ -253,6 +278,7 @@ body {
         align-items: center;
         justify-content: space-between;
         list-style: none;
+        letter-spacing: 1.5px;
 
         li{
             margin: 20px;

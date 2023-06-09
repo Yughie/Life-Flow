@@ -6,4 +6,4 @@ setInterval(function(){
         if(counter > 3){
             counter = 1;
         }
-}, 5000);
+}, 500000000);

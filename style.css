@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,550;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -525,12 +525,12 @@ body {
 }
 .slider .slides .slide .overlay .left .text {
   position: absolute;
-  width: 893px;
+  width: 700px;
   height: 87px;
   left: 93px;
   top: 560px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 550;
   font-size: 15px;
   line-height: 29px;
   color: #161616;
@@ -540,7 +540,7 @@ body {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  font-weight: 500;
+  font-weight: 600;
   color: #000;
   background-color: #45ffe0;
   border: none;
@@ -562,8 +562,28 @@ body {
 .slider .slides .slide .overlay .left button:active {
   transform: translateY(-1px);
 }
-.slider .slides .slide .overlay .left .btn2 {
-  background-color: #ffffff;
+.slider .slides .slide .overlay .left #btn2 {
+  background-color: white;
+}
+.slider .slides .slide .overlay .left #btn2:hover {
+  background-color: #c42323;
+  box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+.slider .slides .slide .overlay #lft2 #hd2 {
+  margin-top: 30px;
+}
+.slider .slides .slide .overlay #lft2 #txt2 {
+  width: 800px;
+  top: 500px;
+}
+.slider .slides .slide .overlay #lft3 #hd3 {
+  margin-top: 30px;
+}
+.slider .slides .slide .overlay #lft3 #txt3 {
+  width: 800px;
+  top: 500px;
 }
 .slider .slides .slide .overlay .right {
   position: absolute;
@@ -689,6 +709,7 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  letter-spacing: 1.5px;
 }
 .nav-bar .menu li {
   margin: 20px;
