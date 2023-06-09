@@ -172,6 +172,8 @@ h1, h2, h3 {
 .adminDashboard {
   display: flex;
   background-color: #860909;
+  height: 100%;
+  overflow: auto;
 }
 .adminDashboard .adminNavigation {
   display: flex;
@@ -195,7 +197,7 @@ h1, h2, h3 {
   margin: 0 auto 25px auto;
 }
 .adminDashboard .adminNavigation .greeting span {
-  color: #00EB96;
+  color: #1ECBE1;
 }
 .adminDashboard .adminNavigation .adminLinks {
   margin: 5px 0;
@@ -330,14 +332,6 @@ h1, h2, h3 {
   grid-area: e;
   background-color: #860909;
 }
-.adminDashboardContent__summaryContainer .LatestDonorApplication {
-  grid-area: f;
-  background-color: #136371;
-}
-.adminDashboardContent__summaryContainer .LatestDonorApplication h2 {
-  font-size: 30px;
-  margin: 10px;
-}
 
 /***********LATEST DONOR APPLICATION**************/
 .LatestDonorApplication {
@@ -346,7 +340,7 @@ h1, h2, h3 {
   background-color: #136371;
   border-radius: 20px;
   margin: 30px;
-  height: 450px;
+  height: 46vh;
   min-width: 720px;
 }
 .LatestDonorApplication__Title {
@@ -475,6 +469,12 @@ h1, h2, h3 {
     padding: 20px 20px 10px 20px;
   }
 }
+.content-fixed-container {
+  padding-bottom: 10px;
+  background-color: #e9e9e9;
+  border-radius: 25px 0 0 25px;
+}
+
 body {
   height: 100vh;
   overflow-y: hidden;
@@ -726,59 +726,137 @@ body {
   flex-direction: row;
   justify-content: space-between;
   margin: 10px 50px -35px 50px;
-  border: 1px dashed black;
+  transition: all 400ms ease-in-out;
 }
 .general-function_container .add-donor-applicant_container {
   display: flex;
   flex-direction: row;
   width: 200px;
   align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 100ms ease-in-out;
 }
 .general-function_container .add-donor-applicant_container .add-function-icon {
   padding-right: 5px;
+  fill: #136371;
 }
 .general-function_container .add-donor-applicant_container .add-function-text {
   font-size: 1.125rem;
 }
+.general-function_container .add-donor-applicant_container:hover {
+  color: #136371;
+}
+.general-function_container .add-donor-applicant_container:hover .add-function-icon {
+  transform: scale(1.06);
+}
+.general-function_container .add-donor-applicant_container:focus {
+  transform: scale(1.03);
+  color: #136371;
+}
 .general-function_container .select-function_container {
   display: flex;
   align-items: center;
+  /*{
+      border: 1px dashed blue;
+  }*/
 }
 .general-function_container .select-function_container .search-function {
   margin-bottom: -10px;
 }
-.general-function_container .select-function_container .search-function:hover {
-  color: #136371;
-}
 .general-function_container .select-function_container .search-function .search-input {
   background-image: url("../Images/DonorApplicant/icon-search.svg");
-  background-position: left;
+  background-position: 10px 0px;
   background-repeat: no-repeat;
-  padding-left: 30px;
+  padding-left: 40px;
   width: 150px;
   height: 30px;
   font-size: 1.125rem;
-  border-radius: 5px;
-  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  cursor: text;
   margin-right: 20px;
+  transition: 100ms ease-in-out;
+  background-color: rgb(211, 208, 208);
+  border-radius: #136371;
+}
+.general-function_container .select-function_container .search-function .search-input:hover {
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
+}
+.general-function_container .select-function_container .search-function .search-input:focus {
+  transform: scale(1.03);
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
 }
 .general-function_container .select-function_container .filter-function {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5;
   margin-bottom: -10px;
   margin-right: 20px;
   border: 1px solid;
   cursor: pointer;
   padding: 5px;
-  width: 170px;
-  height: 50px;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.125rem;
+  color: #292828;
+}
+.general-function_container .select-function_container .filter-function .filter-icon-function {
+  width: 25px;
+  height: 25px;
+  fill: #292828;
+}
+.general-function_container .select-function_container .filter-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.general-function_container .select-function_container .filter-function:hover .filter-icon-function {
+  fill: #6AAFAC;
+}
+.general-function_container .select-function_container .filter-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.general-function_container .select-function_container .filter-function:active .filter-icon-function {
+  fill: #136371;
 }
 .general-function_container .select-function_container .sort-function {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: -10px;
   margin-right: 20px;
   cursor: pointer;
   border: 1px solid;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 1.125rem;
+}
+.general-function_container .select-function_container .sort-function .sort-icon-function {
+  width: 30px;
+  height: 30px;
+}
+.general-function_container .select-function_container .sort-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.general-function_container .select-function_container .sort-function:hover .sort-icon-function {
+  fill: #6AAFAC;
+}
+.general-function_container .select-function_container .sort-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.general-function_container .select-function_container .sort-function:active .sort-icon-function {
+  fill: #136371;
 }
 
 /************************DONOR APPLICANT*********************/
@@ -788,12 +866,43 @@ body {
   background-color: #136371;
   border-radius: 20px;
   margin: 30px;
-  height: 450px;
+  height: 71vh;
   min-width: 720px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid black;
 }
-.DonorApplicant__Title {
-  padding: 25px 25px 10px 25px;
+.DonorApplicant__contentTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0px 30px;
   color: #e9e9e9;
+  font-size: 0.875rem;
+  border: 1px solid black;
+  background-color: #860909;
+}
+.DonorApplicant__contentTitle__ID {
+  width: 130px;
+}
+.DonorApplicant__contentTitle__Profile {
+  width: 240px;
+}
+.DonorApplicant__contentTitle__Contact {
+  width: 180px;
+  margin-left: 20px;
+}
+.DonorApplicant__contentTitle__BloodType {
+  width: 80px;
+  margin-left: 20px;
+}
+.DonorApplicant__contentTitle__Organ {
+  width: 80px;
+  margin-left: 20px;
+}
+.DonorApplicant__contentTitle__empty {
+  width: 270px;
 }
 .DonorApplicant .applicant_container {
   display: block;
@@ -824,23 +933,63 @@ body {
   padding: 10px 30px 10px 30px;
   border-radius: 15px;
   min-height: 100px;
+  /************************DATABASEEEEEE***************************/
+  /******************FUNCTIONS**********************/
 }
-.DonorApplicant .applicant_container .applicant__Image {
-  width: 60px;
-  height: 60px;
+.DonorApplicant .applicant_container .applicant__order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.DonorApplicant .applicant_container .applicant__Name {
-  color: #292828;
-  font-size: 25px;
+.DonorApplicant .applicant_container .applicant__order__applicationdate {
+  color: #6d6a6a;
+  font-size: 0.875rem;
 }
-.DonorApplicant .applicant_container .applicant__ApplicationDate {
-  color: #292828;
+.DonorApplicant .applicant_container .applicant__order__applicantID {
+  font-size: 1.875rem;
+}
+.DonorApplicant .applicant_container .applicant__personal {
+  display: flex;
+  align-items: center;
+}
+.DonorApplicant .applicant_container .applicant__personal__Image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.DonorApplicant .applicant_container .applicant__personal__name {
+  font-size: 1.125rem;
+}
+.DonorApplicant .applicant_container .applicant__personal__age {
+  font-size: 0.875rem;
+  color: #6d6a6a;
+}
+.DonorApplicant .applicant_container .applicant__personal__sex {
+  font-size: 0.875rem;
+  color: #6d6a6a;
+}
+.DonorApplicant .applicant_container .applicant__contact {
+  text-align: center;
+}
+.DonorApplicant .applicant_container .applicant__contact__applicantemail {
+  font-size: 0.875rem;
+}
+.DonorApplicant .applicant_container .applicant__contact__applicantnumber {
+  font-size: 0.875rem;
+}
+.DonorApplicant .applicant_container .applicant__bloodtype {
+  color: #860909;
+  font-size: 2.375rem;
 }
 .DonorApplicant .applicant_container .applicant__Organ {
   width: 60px;
   height: 60px;
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-edit {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
   cursor: pointer;
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-edit:hover {
@@ -851,6 +1000,9 @@ body {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-delete {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
   cursor: pointer;
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-delete:hover {
@@ -861,29 +1013,27 @@ body {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-accept {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-top: 8px;
   cursor: pointer;
   border-radius: 50%;
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-accept:hover {
   filter: invert(42%) sepia(45%) saturate(484%) hue-rotate(55deg) brightness(101%) contrast(88%);
-  transform: scale(1.03);
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-accept:active {
   filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-reject {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-top: 8px;
   border-radius: 50%;
   cursor: pointer;
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-reject:hover {
   filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
-  transform: scale(1.03);
 }
 .DonorApplicant .applicant_container .applicant .applicant-function-container .applicant-reject:active {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);

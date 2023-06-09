@@ -6,9 +6,8 @@
     
     display: flex;
     background-color: $primaryRed;
-    //height: 100%;
-    
-    //overflow: hidden;
+    height: 100%;
+    overflow: auto;
     //display: grid;
     //grid-template-columns: 1f 1fr;
     
@@ -188,7 +187,7 @@
     height: 100%;
     background-color: $offWhite;
     border-radius: 25px 0 0 25px;
-    //overflow: hidden;
+    //overflow: auto;
    
     .dashboard-title{
         font-size: 70px;
@@ -269,14 +268,7 @@
                 grid-area: e;
                 background-color: $primaryRed;
             }
-           .LatestDonorApplication{
-                grid-area: f;
-                background-color: $darkBlueGreen;
-                h2{
-                    font-size: 30px;
-                    margin: 10px;
-                }
-            }
+           
         }
     
 
@@ -291,7 +283,7 @@
             border-radius: 20px;
             margin: 30px;
             //display: block;
-            height: 450px;
+            height: 46vh;
             min-width: 720px;
             
             
@@ -486,8 +478,12 @@
 
         
     
-
-
+        //FIXED CONTAINER ISSUE
+        .content-fixed-container{
+            padding-bottom: 10px;
+            background-color: $offWhite;
+            border-radius: 25px 0 0 25px;
+        }
      
         
    
