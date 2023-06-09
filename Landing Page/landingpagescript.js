@@ -9,11 +9,11 @@ setInterval(function(){
 }, 5000);
 
 
-//sidenav open/close
+//sidenav slide in/out
 function openSidebar(selected) {
     if(selected) {
-        document.getElementById("sidenav").style.display = "";
+        document.getElementById("sidenav").style.right = "0px";
     } else {
-        document.getElementById("sidenav").style.display = "none";
+        document.getElementById("sidenav").style.right = "";
     }
 }
