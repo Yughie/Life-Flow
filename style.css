@@ -641,32 +641,33 @@ body {
   background-color: red;
 }
 
+.logo {
+  padding-left: 15px;
+}
+.logo img {
+  width: 135px;
+  border-radius: 10px;
+}
+.logo img:hover {
+  scale: 1.03;
+  transition: 0.25s ease-in-out;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+.logo img::after {
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.logo img:hover::after {
+  opacity: 1;
+}
+
 .nav-bar {
   background-color: #A00608;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.nav-bar .logo {
-  padding-left: 15px;
-}
-.nav-bar .logo img {
-  width: 135px;
-  border-radius: 10px;
-}
-.nav-bar .logo img:hover {
-  scale: 1.03;
-  transition: 0.25s ease-in-out;
-  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-}
-.nav-bar .logo img::after {
-  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  transition: opacity 0.25s ease-in-out;
-}
-.nav-bar .logo img:hover::after {
-  opacity: 1;
 }
 .nav-bar .toggle {
   display: none;
@@ -880,6 +881,27 @@ body {
 .signup-popup .su-btm #donorside {
   background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
   border-radius: 0px 20px 20px 0px;
+}
+
+.recipient-register {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto; /* You can specify ANY width values here */
+  background-color: rgba(39, 0, 1, 0.7450980392);
+  color: #ffffff;
+  font-weight: 550;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+}
+.recipient-register .rec-reg-right {
+  height: 397.33px;
+}
+.recipient-register .rec-reg-right img {
+  border-radius: 20px;
+  height: 397.33px;
 }
 
 @media screen and (max-width: 766px) {
