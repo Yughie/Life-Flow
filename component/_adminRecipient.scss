@@ -1,7 +1,7 @@
 @use "../abstract/index.scss" as *;
 
 
-.applicant-function_container{
+.recipient-function_container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,7 +9,7 @@
     transition: all 400ms ease-in-out;
     
     //FIRST FUNCTION
-    .applicant_add_container{
+    .recipient_add_container{
         display: flex;
         flex-direction: row;
         width: 200px;
@@ -17,11 +17,11 @@
         cursor: pointer;
         border-radius: 10px;
         transition: all 100ms ease-in-out;
-        .applicant-add-function-icon{
+        .recipient-add-function-icon{
             padding-right: 5px;
             fill: $darkBlueGreen;
         }
-        .applicant-add-function-text{
+        .recipient-add-function-text{
             font-size: $font-med;
         }
 
@@ -31,13 +31,13 @@
             
            // border: 2px solid $darkBlueGreen;
             //background-color: rgb(211, 208, 208);
-            .applicant-add-function-icon{
+            .recipient-add-function-icon{
                 transform: scale(1.06);
                 //transform: translate(65px,0px);
                 
                 
             }
-            .applicant-add-function-text{
+            .recipient-add-function-text{
                // display: none;
             }
     
@@ -54,17 +54,17 @@
 
 
     ///SECOND FUNCTION CONTAINER(SEARCH, FILTER, SORT)
-    .applicant-select-function_container{
+    .recipient-select-function_container{
         display: flex;
         align-items: center;
         /*{
             border: 1px dashed blue;
         }*/
-        .applicant-search-function{
+        .recipient-search-function{
            
             margin-bottom: -10px;
             
-            .applicant-search-input{
+            .recipient-search-input{
                 background-image: url("../Images/DonorApplicant/icon-search.svg");
                 background-position: 10px 0px;
                 background-repeat: no-repeat;
@@ -95,7 +95,7 @@
             }
 
         }
-        .applicant-filter-function{   
+        .recipient-filter-function{   
             display: flex;
             justify-content: center;
             align-items: center;
@@ -112,7 +112,7 @@
             font-size: $font-med;
             color: $offBlack;
 
-            .applicant-filter-function-icon{
+            .recipient-filter-function-icon{
                 width: 25px;
                 height: 25px;
                 fill: $offBlack;
@@ -122,7 +122,7 @@
                  color: $lightBlueGreen;
                  border: 2px solid $darkBlueGreen;
                  box-shadow: 0px 0px 5px 0px $lightBlueGreen;
-                 .applicant-filter-function-icon{
+                 .recipient-filter-function-icon{
                     fill: $lightBlueGreen;
                     
                     
@@ -132,13 +132,13 @@
                  transform: scale(1.03);
                  color: $darkBlueGreen;
                  
-                 .applicant-filter-function-icon{
+                 .recipient-filter-function-icon{
                     fill: $darkBlueGreen;
                  }
              }
             
         }
-        .applicant-sort-function{
+        .recipient-sort-function{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -152,7 +152,7 @@
             font-size: $font-med;
             
 
-            .applicant-sort-function-icon{
+            .recipient-sort-function-icon{
                 width: 30px;
                 height: 30px;
             }
@@ -170,7 +170,7 @@
                 transform: scale(1.03);
                 color: $darkBlueGreen;
                 
-                .applicant-sort-function-icon{
+                .recipient-sort-function-icon{
                    fill: $darkBlueGreen;
                 }
             }
@@ -184,8 +184,8 @@
 
 
 
-/************************DONOR APPLICANT*********************/
-.DonorApplicant{
+/************************ADMIN Recipient*********************/
+.adminRecipient{
     display: flex;
     flex-direction: column;
     background-color: $darkBlueGreen;
@@ -210,37 +210,40 @@
         font-size: $font-sm;
         border: 1px solid black;
         background-color: $primaryRed;
-        
-        *{
-            border: 1px solid yellow;
-        }
 
         &__ID{
-        width: 130px;
+        width: 100px;
         }
         &__Profile{
-        width: 180px;
+        width: 220px;
         }
         &__Contact{
-            width: 140px;
-            margin-left:  0px;
+            width: 150px;
+            margin-left:  5px;
         }
         &__BloodType{
             width: 80px;
            
-           margin-left:  0px;
+           margin-left:  5px;
         }
         &__Organ{
-            width: 80px;
-            margin-left:  0px;
+            width: 70px;
+            
+        }
+        &__DateRequired{
+            width: 110px;
+        }
+        &__Status{
+            
         }
         &__empty{
-            width: 200px;
+            width: 140px;
         }
+        
     }
 
 
-    .applicant_container{
+    .recipient_container{
     display: block;
     width: auto;
     overflow-y: auto;
@@ -265,7 +268,7 @@
         }
 
 
-        .applicant{
+        .recipient{
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -274,6 +277,10 @@
             padding: 10px 30px 10px 30px;
             border-radius: 15px;
             min-height: 100px;
+
+            *{
+                border: 1px dashed yellow;
+            }
             
             /************************DATABASEEEEEE***************************/
 
@@ -289,12 +296,13 @@
                     
                     
                 }
-                &__applicantID{
+                &__ID{
                     font-size: $font-bml;
+                    margin-left: 20px;
                 }
             }
 
-            //APPLICANT IMAGE
+            
             
 
             //PERSONAL INFORMATION
@@ -322,10 +330,10 @@
             //CONTACT INFORMATION
             &__contact{
                 text-align: center;
-                &__applicantemail{
+                &__email{
                     font-size: $font-sm
                 }
-                &__applicantnumber{
+                &__number{
                     font-size: $font-sm
                 }
             }
@@ -341,12 +349,24 @@
                 width: 60px;
                 height: 60px;
             }
+            //DATE REQUERED
+            &__daterequired{
+                //color: $offGrey
+            }
+            //RECIPIENT STATUS
+            &__status{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 1px solid $darkBlueGreen;
+                background-color: yellow;
+            }
 
 
            /******************FUNCTIONS**********************/
-           .applicant-function-container{
+           .recipient-function-container{
                 
-            .applicant-edit{
+            .recipient-edit{
                 width: 40px;
                 height: 40px;
                 margin-top: 8px;
@@ -360,7 +380,7 @@
                 }
                 
             }
-            .applicant-delete{
+            .recipient-delete{
                 width: 40px;
                 height: 40px;
                 margin-top: 8px;
@@ -374,35 +394,6 @@
                 }
             }
 
-
-            .applicant-accept{
-                width: 40px;
-                height: 40px;
-                margin-top: 8px;
-                cursor: pointer;
-                border-radius: 50%;
-                //box-shadow: 0px 0px 0px 15px #7ab858;
-                &:hover{
-                    filter: invert(42%) sepia(45%) saturate(484%) hue-rotate(55deg) brightness(101%) contrast(88%);
-                }
-                &:active{
-                    filter: invert(58%) sepia(76%) saturate(290%) hue-rotate(55deg) brightness(98%) contrast(87%);
-                }
-            }
-            .applicant-reject{
-                width: 40px;
-                height: 40px;
-                margin-top: 8px;
-                border-radius: 50%;
-                cursor: pointer;
-                //box-shadow: 0px 0px 0px 15px #c05a5a;
-                &:hover{
-                    filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
-                }
-                &:active{
-                    filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
-                }
-            }
 
            }
 
