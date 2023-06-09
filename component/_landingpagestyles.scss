@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow-y: hidden;
     .slides {
         display: flex;
         input {
@@ -199,24 +199,45 @@ body {
 
 .nav-bar {
     background-color: #A00608;
-    padding: 5px 20px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
     .logo {
+        padding-left: 15px;
         img {
             width: 135px;
+            border-radius: 10px;
+
+            &:hover {
+                scale: 1.03;
+                transition: .25s ease-in-out;
+                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+            }
+
+            &::after {
+                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                opacity: 0;
+                transition: opacity 0.25s ease-in-out;
+            }
+
+            &:hover::after {
+                opacity: 1;
+            }
         }
     }
 
     .toggle {
-        display: none;
+       display: none;
+       position: absolute;
+       right: 10px;
+       height: 60px;
     }
 
     .menuButton {
         scale: 0.5;
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -234,6 +255,9 @@ body {
 
         &:hover {
             border: 1px solid #d84a4c;
+            box-shadow: 8px 8px 14px #861315,
+                   -8px -8px 14px #be1e20;
+            scale: 0.502;
         }
 
         &:active {
@@ -254,36 +278,42 @@ body {
             appearance: none;
             display: none;
             visibility: hidden;
-        }
-    
-        input[type]:checked ~ span.top {
-        transform: translateY(290%)rotate(45deg);
-        width: 40px;
-        }
-    
-        input[type]:checked ~ span.bot {
-            transform: translateY(-270%) rotate(-45deg);
-            width: 40px;
-            box-shadow: 0 0 10px #495057;
-        }
-    
-        input[type]:checked ~ span.mid {
-            transform: translateX(-20px);
-            opacity: 0;
+        
+            &:checked ~ span.top {
+                transform: translateY(290%)rotate(45deg);
+                width: 40px;
+            }
+                
+            &:checked ~ span.bot {
+                transform: translateY(-270%) rotate(-45deg);
+                width: 40px;
+                box-shadow: 0 0 10px #495057;
+            }
+                
+            &:checked ~ span.mid {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+
+            &:checked ~ .lists {
+                transform: translateY(290%)rotate(45deg);
+                width: 40px;
+            }
         }
     }
 
     .menu {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         list-style: none;
         letter-spacing: 1.5px;
+        justify-content: center;
 
         li{
-            margin: 20px;
             transition: .2s ease-in-out;
             border-radius: 20px;
+            padding: 5px 15px;
+            margin: 0px 30px;
 
             &:hover {
                 scale: 1.03;
@@ -301,25 +331,89 @@ body {
                 opacity: 1;
             }
 
+            &:hover {
+                background-color: white;
+                color: red;
+
+                a{
+                    color: red;
+                }
+            }
+
             a {
                 color: rgb(255, 255, 255);
                 font-size: 15px;
                 font-weight: 700;
-                padding: 5px 15px;
                 text-transform: uppercase;
                 transition: .2s ease-in-out;
                 border-radius: 20px;
-
-                &:hover {
-                    color: red;
-                    background-color: white;
-                }
             }
         }
         
-        img {
-            width: 40px;
+        div {
+            margin-top: 6px;
+            img {
+                width: 40px;
+                margin: 5px 15px;
+
+                border-radius: 50px;
+                &:hover {
+                    scale: 1.03;
+                    transition: .25s ease-in-out;
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+                }
+        
+                &::after {
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                    opacity: 0;
+                    transition: opacity 0.25s ease-in-out;
+                }
+        
+                &:hover::after {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
 
+@media screen and (max-width: 810px) {
+    #nav {
+        display: block;
+        position: relative;
+        height: 60px;
+
+        #logoid {
+            padding-left: 15px;
+            padding-top: 4px;
+        }
+
+        #toggler {
+            display: block;
+            position: absolute;
+            top: 0px;
+        }
+
+        #lists {
+            background-color: #a00609b4;
+            height: 100vh;
+            z-index: 1;
+            position: absolute;
+            right: 0px;
+            margin-top: 3px;
+            width: 350px;
+
+            #navmenu {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 0px;
+                margin: 0px;
+                #list {
+                    margin: 25px 10px;
+                    text-align: center;
+                }
+            }   
+        }
+    }
+}
