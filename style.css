@@ -889,18 +889,28 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto; /* You can specify ANY width values here */
-  background-color: rgba(39, 0, 1, 0.7450980392);
-  color: #ffffff;
   font-weight: 550;
   border-radius: 20px;
   text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
 }
+.recipient-register #logoid {
+  padding: 10px 0px;
+}
+.recipient-register .rec-reg-left {
+  background-color: white;
+  width: 350px;
+}
+.recipient-register .rec-reg-left p {
+  margin: 0px;
+}
 .recipient-register .rec-reg-right {
+  width: 250px;
   height: 397.33px;
 }
 .recipient-register .rec-reg-right img {
-  border-radius: 20px;
   height: 397.33px;
 }
 

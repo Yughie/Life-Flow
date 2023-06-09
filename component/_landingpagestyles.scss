@@ -478,7 +478,6 @@ body {
         #donorside {
             background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
             border-radius: 0px 20px 20px 0px;
-            
         }
         
     }
@@ -490,22 +489,31 @@ body {
     left:50%; 
     transform:translate(-50%, -50%); 
     width: auto; /* You can specify ANY width values here */ 
-    background-color: #270001be;
-    color: #ffffff;
     font-weight: 550;
     border-radius: 20px;
     text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
 
     display: flex;
 
-    .rec-reg-left {
+    #logoid {
+        padding: 10px 0px;
+    }
 
+    .rec-reg-left {
+        background-color: white;
+        width: 350px;
+
+        p{
+            margin: 0px;
+        }
     }
 
     .rec-reg-right {
+        width: 250px;
         height: 397.33px;
         img {
-            border-radius: 20px;
             height: 397.33px;
         }
     }
