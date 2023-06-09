@@ -294,90 +294,91 @@ body {
                 transform: translateX(-20px);
                 opacity: 0;
             }
-
-            &:checked ~ .lists {
-                transform: translateY(290%)rotate(45deg);
-                width: 40px;
-            }
         }
     }
 
-    .menu {
-        display: flex;
-        align-items: center;
-        list-style: none;
-        letter-spacing: 1.5px;
-        justify-content: center;
-
-        li{
-            transition: .2s ease-in-out;
-            border-radius: 20px;
-            padding: 5px 15px;
-            margin: 0px 30px;
-
-            &:hover {
-                scale: 1.03;
-                transition: .25s ease-in-out;
-                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-            }
-
-            &::after {
-                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
-                opacity: 0;
-                transition: opacity 0.25s ease-in-out;
-            }
-
-            &:hover::after {
-                opacity: 1;
-            }
-
-            &:hover {
-                background-color: white;
-                color: red;
-
-                a{
-                    color: red;
-                }
-            }
-
-            a {
-                color: rgb(255, 255, 255);
-                font-size: 15px;
-                font-weight: 700;
-                text-transform: uppercase;
+    .sidebar {
+        .menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            letter-spacing: 1.5px;
+            justify-content: center;
+    
+            li{
                 transition: .2s ease-in-out;
                 border-radius: 20px;
-            }
-        }
-        
-        div {
-            margin-top: 6px;
-            img {
-                width: 40px;
-                margin: 5px 15px;
-
-                border-radius: 50px;
+                padding: 5px 15px;
+                margin: 0px 20px;
+    
                 &:hover {
                     scale: 1.03;
                     transition: .25s ease-in-out;
                     box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
                 }
-        
+    
                 &::after {
                     box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
                     opacity: 0;
                     transition: opacity 0.25s ease-in-out;
                 }
-        
+    
                 &:hover::after {
                     opacity: 1;
+                }
+    
+                &:hover {
+                    background-color: white;
+                    color: red;
+    
+                    a{
+                        color: red;
+                    }
+                }
+    
+                a {
+                    color: rgb(255, 255, 255);
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    transition: .2s ease-in-out;
+                    border-radius: 20px;
+                }
+            }
+            
+            div {
+                margin-top: 6px;
+                img {
+                    width: 40px;
+                    margin: 5px 15px;
+    
+                    border-radius: 50px;
+                    &:hover {
+                        scale: 1.03;
+                        transition: .25s ease-in-out;
+                        box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+                    }
+            
+                    &::after {
+                        box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                        opacity: 0;
+                        transition: opacity 0.25s ease-in-out;
+                    }
+            
+                    &:hover::after {
+                        opacity: 1;
+                    }
                 }
             }
         }
     }
+
+    #navmenu{
+        display: none;
+    }
 }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 766px) {
     #nav {
         display: block;
         position: relative;
@@ -394,14 +395,15 @@ body {
             top: 0px;
         }
 
-        #lists {
-            background-color: #a00609b4;
+        #sidenav {
+            background-color: #a00609b0;
             height: 100vh;
             z-index: 1;
             position: absolute;
             right: 0px;
             margin-top: 3px;
             width: 350px;
+
 
             #navmenu {
                 display: flex;
