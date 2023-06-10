@@ -137,12 +137,12 @@
         <div class="su-btm">
 
             <div class="sides" id="recipntside"  onclick="openRecReg()">
-                <h1>RECIPIENT</h1>
+                <h1 id="recH1">RECIPIENT</h1>
                 <p>By signing up as a recipient, you've taken a significant step towards finding a compatible donor</p>
             </div>
 
             <div class="sides" id="donorside"  onclick="openDonorReg()">
-                <h1>DONOR</h1>
+                <h1 id="donH1">DONOR</h1>
                 <p>Welcome, potential donor! Your registration brings hope for life-saving transplants. Let's make a different together!</p>
             </div>
         </div>
@@ -155,6 +155,37 @@
             </div>
             <h1>Hey there!</h1>
             <p>build your account</p>
+            <form class="recipient-signup-form">
+                <div id="fullname">
+                    <label>
+                        <input required="" placeholder="" type="text" minlength="2" class="input">
+                        <span>First name</span>
+                    </label>
+
+                    <label>
+                        <input required="" placeholder="" type="text" minlength="2" class="input">
+                        <span>Last name</span>
+                    </label>
+                </div>
+                <label>
+                    <input required="" placeholder="" type="email" class="input">
+                    <span>Email</span>
+                </label>
+                
+                <label>
+                    <input required="" placeholder="" type="password" pattern="{8,16}" class="input">
+                    <span>Password</span>
+                </label>
+                
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input">
+                    <span>Confirm password</span>
+                </label>
+                
+                <button class="submit">Sign up</button>
+
+                <p class="signin">Already have an acount? <a href="#">Sign in</a></p>
+            </form>
         </div>
         <div class="rec-reg-right">
             <button id="signupclosebtn" class="close-btn" onclick="closeRecReg()">

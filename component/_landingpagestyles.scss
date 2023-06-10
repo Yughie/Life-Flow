@@ -387,7 +387,7 @@ body {
     left: 50%; 
     transform:translate(-50%, -50%); 
     width: auto; /* You can specify ANY width values here */ 
-    background-color: #0a0000be;
+    background-color: #0a00009d;
     color: #ffffff;
     font-weight: 550;
     border-radius: 20px;
@@ -433,10 +433,19 @@ body {
             &:hover {
                 background-size: 105%;
                 cursor: pointer;
+
+                #recH1 {
+                    text-shadow:2px -1px 31px #e43131;
+                }
+
+                #donH1 {
+                    text-shadow:2px -1px 31px #31e4c6;
+                }
             }
 
             h1{
                 text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.8);
+                transition: .2s ease-in-out
             }
         
             p{
@@ -454,7 +463,7 @@ body {
 }
 
 .close-btn {
-    --bg: #34d39e;
+    --bg: #e74c3c;
     --text-color: #fff;
     position: relative;
     width: 25px;
@@ -468,7 +477,7 @@ body {
     opacity: 0.95;
     letter-spacing: 1px;
     padding: 0px 0px 0px 1px;
-    box-shadow: #1ba074 0px 7px 2px, #000 0px 8px 5px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
     margin-bottom: 7px;
 
     &:hover {
@@ -478,7 +487,7 @@ body {
 
     &:active {
         top: 4px;
-        box-shadow: #1ba074 0px 3px 2px,#000 0px 3px 5px;
+        box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
     }
 
     svg {
@@ -499,19 +508,35 @@ body {
     border-radius: 20px;
     overflow: hidden;
     z-index: 3;
-    opacity: 0;
+    display: flex;
+    //opacity: 0;
 
     transition: all .3s ease-in-out;
     #logoid {
-        padding: 10px 0px;
+        padding: 10px 10px;
     }
 
     .rec-reg-left {
         background-color: white;
         width: 350px;
 
+        .logo {
+            margin-top: 5px;
+            a { 
+                height: 0px;
+            }
+        }
+        
+        h1 {
+            font-size: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+            margin-top: -5px;
+        }
+
         p{
             margin: 0px;
+            font-size: 12px;
         }
     }
 
@@ -525,8 +550,99 @@ body {
             right: 25px;
             position: relative;
         }
+
+        #signupclosebtn {
+            position: absolute;
+            z-index: 1;
+            margin-left: 215px;
+            margin-top: 10px;
+        }
     }
 }
+
+//recipient sign up
+.recipient-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 200px;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    position: relative;
+
+    #fullname {
+        display: flex;
+        width: 100%;
+        gap: 6px;
+    }
+
+    label {
+        position: relative;
+
+        .input {
+            width: 100%;
+            padding: 10px 5px 14px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+
+            &+ span {
+                position: absolute;
+                left: 10px;
+                top: 15px;
+                color: grey;
+                font-size: 0.8em;
+                cursor: text;
+                transition: 0.3s ease;
+            }
+
+            &:placeholder-shown + span {
+                top: 15px;
+                font-size: 0.9em;
+            }
+
+            &:focus + span,.form label .input:valid + span {
+                top: 25px;
+                font-size: 0.7em;
+                font-weight: 600;
+            }
+
+            &:valid + span {
+                color: rgb(12, 173, 138);
+            }
+        }
+    }
+
+    .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 144px;
+        text-align: center;
+
+        a {
+            color: royalblue;
+            font-weight: 600;
+        }
+    }
+
+    .submit {
+        border: none;
+        outline: none;
+        background-color: #A00608;;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transform: .3s ease;
+        transition: .2s ease-in-out;
+
+        &:hover {
+            background-color: rgb(106, 175, 172);
+            cursor: pointer;
+        }
+    }
+}
+
 
 @media screen and (max-width: 766px) {
     #nav {
