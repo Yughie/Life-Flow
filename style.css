@@ -996,7 +996,7 @@ body {
   font-size: 0.9em;
 }
 .recipient-signup-form label .input:focus + span, .recipient-signup-form label .input .form label .input:valid + span {
-  top: 30px;
+  top: 25px;
   font-size: 0.7em;
   font-weight: 600;
 }
