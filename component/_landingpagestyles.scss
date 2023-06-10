@@ -3,14 +3,16 @@
 body {
     height: 100vh;
     overflow: hidden;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(122,221,217,1) 98%);
 }
 
 .slider {
-    height: 100vh;
+    height: calc(100vh);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow-y: hidden;
     .slides {
         display: flex;
         input {
@@ -160,8 +162,7 @@ body {
         justify-content: center;
         padding-left: 25px;
         position: absolute;
-        margin-top: 650px;
-        background-color: green;
+        bottom: 15px;
 
         .manual-btn {
             background-color: rgb(43, 43, 43);
@@ -176,7 +177,7 @@ body {
                 scale: 1.2;
                 cursor: pointer;
                 transition: .25s ease-in-out;
-                background-color: red;
+                background-color: #be0c0f;
                 box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
             }
 
@@ -197,26 +198,47 @@ body {
     background-color: red;
 }
 
+.logo {
+    padding-left: 15px;
+    img {
+        width: 135px;
+        border-radius: 10px;
+
+        &:hover {
+            scale: 1.03;
+            transition: .25s ease-in-out;
+            box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        &::after {
+            box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+            opacity: 0;
+            transition: opacity 0.25s ease-in-out;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+}
 .nav-bar {
     background-color: #A00608;
-    padding: 5px 20px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .logo {
-        img {
-            width: 135px;
-        }
-    }
 
     .toggle {
-        display: none;
+       display: none;
+       position: absolute;
+       right: 10px;
+       height: 60px;
     }
 
     .menuButton {
         scale: 0.5;
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -234,6 +256,9 @@ body {
 
         &:hover {
             border: 1px solid #d84a4c;
+            box-shadow: 8px 8px 14px #861315,
+                   -8px -8px 14px #be1e20;
+            scale: 0.502;
         }
 
         &:active {
@@ -254,72 +279,313 @@ body {
             appearance: none;
             display: none;
             visibility: hidden;
-        }
-    
-        input[type]:checked ~ span.top {
-        transform: translateY(290%)rotate(45deg);
-        width: 40px;
-        }
-    
-        input[type]:checked ~ span.bot {
-            transform: translateY(-270%) rotate(-45deg);
-            width: 40px;
-            box-shadow: 0 0 10px #495057;
-        }
-    
-        input[type]:checked ~ span.mid {
-            transform: translateX(-20px);
-            opacity: 0;
+        
+            &:checked ~ span.top {
+                transform: translateY(290%)rotate(45deg);
+                width: 40px;
+            }
+                
+            &:checked ~ span.bot {
+                transform: translateY(-270%) rotate(-45deg);
+                width: 40px;
+                box-shadow: 0 0 10px #495057;
+            }
+                
+            &:checked ~ span.mid {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
         }
     }
 
-    .menu {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        list-style: none;
-        letter-spacing: 1.5px;
-
-        li{
-            margin: 20px;
-            transition: .2s ease-in-out;
-            border-radius: 20px;
-
-            &:hover {
-                scale: 1.03;
-                transition: .25s ease-in-out;
-                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-            }
-
-            &::after {
-                box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
-                opacity: 0;
-                transition: opacity 0.25s ease-in-out;
-            }
-
-            &:hover::after {
-                opacity: 1;
-            }
-
-            a {
-                color: rgb(255, 255, 255);
-                font-size: 15px;
-                font-weight: 700;
-                padding: 5px 15px;
-                text-transform: uppercase;
+    .sidebar {
+        .menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            letter-spacing: 1.5px;
+            justify-content: center;
+    
+            li{
                 transition: .2s ease-in-out;
                 border-radius: 20px;
-
+                padding: 5px 15px;
+                margin: 0px 20px;
+    
                 &:hover {
-                    color: red;
+                    cursor: pointer;
+                    scale: 1.03;
+                    transition: .25s ease-in-out;
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+                }
+    
+                &::after {
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                    opacity: 0;
+                    transition: opacity 0.25s ease-in-out;
+                }
+    
+                &:hover::after {
+                    opacity: 1;
+                }
+    
+                &:hover {
                     background-color: white;
+                    color: red;
+    
+                    a{
+                        color: red;
+                    }
+                }
+    
+                a {
+                    color: rgb(255, 255, 255);
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    transition: .2s ease-in-out;
+                    border-radius: 20px;
+                }
+            }
+            
+            div {
+                margin-top: 6px;
+                img {
+                    width: 40px;
+                    margin: 5px 15px;
+    
+                    border-radius: 50px;
+                    &:hover {
+                        scale: 1.03;
+                        transition: .25s ease-in-out;
+                        box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+                    }
+            
+                    &::after {
+                        box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                        opacity: 0;
+                        transition: opacity 0.25s ease-in-out;
+                    }
+            
+                    &:hover::after {
+                        opacity: 1;
+                    }
                 }
             }
         }
+    }
+
+    #navmenu{
+        display: none;
+    }
+}
+
+.signuppopup {
+    position: absolute; 
+    top: 150%; 
+    left: 50%; 
+    transform:translate(-50%, -50%); 
+    width: auto; /* You can specify ANY width values here */ 
+    background-color: #270001be;
+    color: #ffffff;
+    font-weight: 550;
+    border-radius: 20px;
+    text-align: center;
+    opacity: 0;
+
+    //animation-name: fade;
+    transition: top .3s ease-in-out;
+
+    .su-top {
+        margin: 10px 15px;
+        text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-around;
+
+        p {
+            margin: 0px;
+        }
+
+        button {
+            --bg: #34d39e;
+            --text-color: #fff;
+            position: relative;
+            width: 25px;
+            border: none;
+            background: var(--bg);
+            color: var(--text-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.2s;
+            border-radius: 5px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            padding: 0px 0px 0px 1px;
+            box-shadow: #1ba074 0px 7px 2px, #000 0px 8px 5px;
+            margin-bottom: 7px;
+
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+            }
+
+            &:active {
+                top: 4px;
+                box-shadow: #1ba074 0px 3px 2px,#000 0px 3px 5px;
+            }
+
+            svg {
+                margin-top: 3px;
+                fill: white;
+            }
+        }
+    }
+    .su-btm {
+        display: flex;
+        justify-content: center;
+        height: 351px;
+        overflow: hidden;
+        border-radius: 20px;
+
+        .sides {
+            background-image: url('../Images/landing-page-assets/popups-assets/fltr recipient side.png');
+            background-size: 100%;
+            background-position: center;
+            border-radius: 20px 0px 0px 20px;
+            width: 300px;
+            height: 100%;
+            transition: all .2s ease-in-out;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+
+            &:hover {
+                background-size: 105%;
+                cursor: pointer;
+            }
+
+            h1{
+                text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.8);
+            }
         
-        img {
-            width: 40px;
+            p{
+                margin: 0px;
+                font-size: 15px;
+                text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.5);
+            }
+        }
+
+        #donorside {
+            background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
+            border-radius: 0px 20px 20px 0px;
         }
     }
 }
 
+.recipient-register {
+    position:absolute; 
+    top: 50%; 
+    left:50%; 
+    transform:translate(-50%, -50%); 
+    width: auto; 
+    font-weight: 550;
+    border-radius: 20px;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+
+    //display: flex;
+    display: none;
+
+    #logoid {
+        padding: 10px 0px;
+    }
+
+    .rec-reg-left {
+        background-color: white;
+        width: 350px;
+
+        p{
+            margin: 0px;
+        }
+    }
+
+    .rec-reg-right {
+        width: 250px;
+        height: 397.33px;
+        img {
+            height: 397.33px;
+        }
+    }
+}
+
+@media screen and (max-width: 766px) {
+    #nav {
+        display: block;
+        position: relative;
+        height: 60px;
+
+        #logoid {
+            padding-left: 15px;
+            padding-top: 4px;
+        }
+
+        #toggler {
+            display: block;
+            position: absolute;
+            top: 0px;
+        }
+
+        #sidenav {
+            background-color: #a00609b0;
+            height: 100vh;
+            z-index: 1;
+            position: absolute;
+            right: -350px;
+            transition: 0.3s ease-in-out;
+            margin-top: 3px;
+            width: 350px;
+
+
+            #navmenu {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 0px;
+                margin: 0px;
+                #list {
+                    margin: 25px 10px;
+                    text-align: center;
+                }
+            }   
+        }
+    }
+}
+
+// fade transition 
+@keyframes fade-in {
+    from {
+      opacity: 0;}
+    to {
+      opacity: 1;}
+}
+.fadein {
+    animation-name: fade-in;
+    animation-duration: .15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+    from {
+      opacity: 1;}
+    to {
+      opacity: 0;}
+}
+.fadeout {
+    animation-name: fade-out;
+    animation-duration: .15s;
+    animation-fill-mode: forwards;
+}

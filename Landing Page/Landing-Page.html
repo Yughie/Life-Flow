@@ -8,28 +8,42 @@
     <title>Life Flow</title>
     <link rel="icon" type="tab-icon" href="../Images/landing-page-assets/LOGO1x1.png">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"
+        integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI=" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
     <script src="landingpagescript.js"></script>
-    <div class="nav-bar">
-        <div class="logo">
+    <div class="nav-bar" id="nav">
+        <div class="logo" id="logoid" >
             <a href="#"><img src="../Images/LOGO.png"></a>
         </div>
-        <div class="toggle">
+
+        <div class="toggle" id="toggler">
             <label for="check" class="menuButton">
-                <input id="check" type="checkbox">
+                <input type="checkbox" onclick="openSidebar(this.checked);" class="slidecheck" id="check">
                 <span class="top"></span>
                 <span class="mid"></span>
                 <span class="bot"></span>
             </label>
         </div>
-        <ul class="menu">
-            <li><a href="#">home</a></li>
-            <li><a href="#">sign up</a></li>
-            <li><a href="#">learn about donation</a></li>
-            <div id="userprofilecvg"><a href="#"><img src="../Images/landing-page-assets/user default profile.svg"></a></div>
-        </ul>
+        
+        <div class="sidebar" id="sidenav">
+            <ul class="menu" id="navmenu">
+                <li id="list"><a href="#">home</a></li>
+                <li id="list" onclick="openSignUp()"><a href="#">sign up</a></li>
+                <li id="list"><a href="#">learn about donation</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar" id="topnav">
+            <ul class="menu" id="topnavmenu">
+                <li id="list"><a href="#">home</a></li>
+                <li id="list" onclick="openSignUp()"><a href="#">sign up</a></li>
+                <li id="list"><a href="#">learn about donation</a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="slider">
@@ -110,6 +124,40 @@
             <label for="radio1" class="manual-btn" id="manual-btn1"></label>
             <label for="radio2" class="manual-btn" id="manual-btn2"></label>
             <label for="radio3" class="manual-btn" id="manual-btn3"></label>
+        </div>
+    </div>
+
+    <div class="signuppopup" id="signup">
+        <div class="su-top">
+            <p>Select a role to proceed with the registration process</p>
+            <button id="close-btn" onclick="closeSignUp();">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
+        </div>
+        <div class="su-btm">
+
+            <div class="sides" id="recipntside">
+                <h1>RECIPIENT</h1>
+                <p>By signing up as a recipient, you've taken a significant step towards finding a compatible donor</p>
+            </div>
+
+            <div class="sides" id="donorside">
+                <h1>DONOR</h1>
+                <p>Welcome, potential donor! Your registration brings hope for life-saving transplants. Let's make a different together!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="recipient-register">
+        <div class="rec-reg-left">
+            <div class="logo" id="logoid rec-reg-logo">
+                <a href="#"><img src="../Images/LOGO.png"></a>
+            </div>
+            <h1>Hey there!</h1>
+            <p>build your account</p>
+        </div>
+        <div class="rec-reg-right">
+            <img src="..\Images\landing-page-assets\popups-assets\login side.png"></a>
         </div>
     </div>
 </body>
