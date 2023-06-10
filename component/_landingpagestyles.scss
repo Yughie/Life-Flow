@@ -163,6 +163,7 @@ body {
         padding-left: 25px;
         position: absolute;
         bottom: 15px;
+        z-index: 3;
 
         .manual-btn {
             background-color: rgb(43, 43, 43);
@@ -249,13 +250,13 @@ body {
         height: 3.5em;
         border-radius: 0.5em;
         background: #b41417;
-        border: 1px solid #e22528;
+        border: 1px solid #c9191c;
         transition: all .3s;
         box-shadow: 6px 6px 12px #861315,
                    -6px -6px 12px #be1e20;
 
         &:hover {
-            border: 1px solid #d84a4c;
+            border: 1px solid rgb(212, 67, 70);
             box-shadow: 8px 8px 14px #861315,
                    -8px -8px 14px #be1e20;
             scale: 0.502;
@@ -391,10 +392,11 @@ body {
     font-weight: 550;
     border-radius: 20px;
     text-align: center;
+    z-index: 3;
     opacity: 0;
 
     //animation-name: fade;
-    transition: top .3s ease-in-out;
+    transition: all .3s ease-in-out;
 
     .su-top {
         margin: 10px 15px;
@@ -496,9 +498,8 @@ body {
     text-align: center;
     border-radius: 20px;
     overflow: hidden;
-
-    //display: flex;
     display: none;
+    z-index: 3;
 
     #logoid {
         padding: 10px 0px;
@@ -516,8 +517,11 @@ body {
     .rec-reg-right {
         width: 250px;
         height: 397.33px;
+        overflow: hidden;
         img {
             height: 397.33px;
+            right: 25px;
+            position: relative;
         }
     }
 }
@@ -539,10 +543,14 @@ body {
             top: 0px;
         }
 
+        #topnav {
+            display: none;
+        }
+
         #sidenav {
             background-color: #a00609b0;
             height: 100vh;
-            z-index: 1;
+            z-index: 4;
             position: absolute;
             right: -350px;
             transition: 0.3s ease-in-out;
@@ -556,7 +564,7 @@ body {
                 flex-direction: column;
                 padding: 0px;
                 margin: 0px;
-                #list {
+                .list {
                     margin: 25px 10px;
                     text-align: center;
                 }
@@ -565,7 +573,7 @@ body {
     }
 }
 
-// fade transition 
+// fade transitions 
 @keyframes fade-in {
     from {
       opacity: 0;}

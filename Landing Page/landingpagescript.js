@@ -19,20 +19,20 @@ function openSidebar(selected) {
 }
 
 
-//slide up sign-up pop-up 
-function openSignUp(selected) {
+//fade-in/slideup sign-up pop-up 
+function openSignUp() {
     document.querySelector("#signup").style.top = "50%";
     document.querySelector("#signup").style.display = "block";
     document.querySelector('#signup').classList.add('fadein');
 }
 
 
-//slide down sign-up
-function closeSignUp(selected) {
+//fade-out/slidedown sign-up pop-up
+function closeSignUp() {
     document.querySelector("#signup").style.top = "150%";
     document.querySelector('#signup').classList.add('fadeout');
     setTimeout(() => {
         document.querySelector('#signup').classList.remove('fadeout');
     }, 300)
-} 
+}
 
