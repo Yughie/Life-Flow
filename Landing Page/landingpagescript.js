@@ -34,5 +34,9 @@ function closeSignUp(selected) {
     setTimeout(() => {
         document.querySelector('#signup').classList.remove('fadeout');
     }, 300)
-} 
+}
+
+// close recipient sign up pop-up on outside click
+
+
 

@@ -688,12 +688,12 @@ body {
   height: 3.5em;
   border-radius: 0.5em;
   background: #b41417;
-  border: 1px solid #e22528;
+  border: 1px solid #c9191c;
   transition: all 0.3s;
   box-shadow: 6px 6px 12px #861315, -6px -6px 12px #be1e20;
 }
 .nav-bar .menuButton:hover {
-  border: 1px solid #d84a4c;
+  border: 1px solid rgb(212, 67, 70);
   box-shadow: 8px 8px 14px #861315, -8px -8px 14px #be1e20;
   scale: 0.502;
 }
@@ -896,7 +896,7 @@ body {
   text-align: center;
   border-radius: 20px;
   overflow: hidden;
-  display: none;
+  display: flex;
 }
 .recipient-register #logoid {
   padding: 10px 0px;
@@ -911,9 +911,12 @@ body {
 .recipient-register .rec-reg-right {
   width: 250px;
   height: 397.33px;
+  overflow: hidden;
 }
 .recipient-register .rec-reg-right img {
   height: 397.33px;
+  right: 25px;
+  position: relative;
 }
 
 @media screen and (max-width: 766px) {
