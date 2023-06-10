@@ -805,7 +805,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto; /* You can specify ANY width values here */
-  background-color: rgba(10, 0, 0, 0.7450980392);
+  background-color: rgba(10, 0, 0, 0.6156862745);
   color: #ffffff;
   font-weight: 550;
   border-radius: 20px;
@@ -847,8 +847,15 @@ body {
   background-size: 105%;
   cursor: pointer;
 }
+.signuppopup .su-btm .sides:hover #recH1 {
+  text-shadow: 2px -1px 31px #e43131;
+}
+.signuppopup .su-btm .sides:hover #donH1 {
+  text-shadow: 2px -1px 31px #31e4c6;
+}
 .signuppopup .su-btm .sides h1 {
   text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.8);
+  transition: 0.2s ease-in-out;
 }
 .signuppopup .su-btm .sides p {
   margin: 0px;
@@ -903,18 +910,31 @@ body {
   border-radius: 20px;
   overflow: hidden;
   z-index: 3;
-  opacity: 0;
+  display: flex;
   transition: all 0.3s ease-in-out;
 }
 .recipient-register #logoid {
-  padding: 10px 0px;
+  padding: 10px 10px;
 }
 .recipient-register .rec-reg-left {
   background-color: white;
   width: 350px;
 }
+.recipient-register .rec-reg-left .logo {
+  margin-top: 5px;
+}
+.recipient-register .rec-reg-left .logo a {
+  height: 0px;
+}
+.recipient-register .rec-reg-left h1 {
+  font-size: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-top: -5px;
+}
 .recipient-register .rec-reg-left p {
   margin: 0px;
+  font-size: 12px;
 }
 .recipient-register .rec-reg-right {
   width: 250px;
@@ -931,6 +951,81 @@ body {
   z-index: 1;
   margin-left: 215px;
   margin-top: 10px;
+}
+
+.recipient-signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  position: relative;
+}
+.recipient-signup-form #fullname {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+.recipient-signup-form label {
+  position: relative;
+}
+.recipient-signup-form label .input {
+  width: 100%;
+  padding: 10px 5px 14px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+.recipient-signup-form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.8em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+.recipient-signup-form label .input:-moz-placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+.recipient-signup-form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+.recipient-signup-form label .input:focus + span, .recipient-signup-form label .input .form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+.recipient-signup-form label .input:valid + span {
+  color: rgb(12, 173, 138);
+}
+.recipient-signup-form .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 144px;
+  text-align: center;
+}
+.recipient-signup-form .signin a {
+  color: royalblue;
+  font-weight: 600;
+}
+.recipient-signup-form .submit {
+  border: none;
+  outline: none;
+  background-color: #A00608;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+  transition: 0.2s ease-in-out;
+}
+.recipient-signup-form .submit:hover {
+  background-color: rgb(106, 175, 172);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 766px) {

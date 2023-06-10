@@ -40,6 +40,7 @@ window.onload = function() {
     document.querySelector('#recipReg').style.display = 'none';
 };
 
+/*
 //open recipient sign up
 function openRecReg() {
     document.querySelector("#recipReg").style.top = "50%";
