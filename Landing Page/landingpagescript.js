@@ -18,12 +18,21 @@ function openSidebar(selected) {
     }
 }
 
+
 //slide up sign-up pop-up 
 function openSignUp(selected) {
-    document.getElementById("signup").style.top = "50%";
+    document.querySelector("#signup").style.top = "50%";
+    document.querySelector("#signup").style.display = "block";
+    document.querySelector('#signup').classList.add('fadein');
 }
+
 
 //slide down sign-up
 function closeSignUp(selected) {
-    document.getElementById("signup").style.top = "200%";
-}
+    document.querySelector("#signup").style.top = "150%";
+    document.querySelector('#signup').classList.add('fadeout');
+    setTimeout(() => {
+        document.querySelector('#signup').classList.remove('fadeout');
+    }, 300)
+} 
+
