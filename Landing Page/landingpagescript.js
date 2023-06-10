@@ -36,3 +36,24 @@ function closeSignUp() {
     }, 300)
 }
 
+window.onload = function() {
+    document.querySelector('#recipReg').style.display = 'none';
+};
+
+//open recipient sign up
+function openRecReg() {
+    document.querySelector("#recipReg").style.top = "50%";
+    document.querySelector("#recipReg").style.display = "flex";
+    document.querySelector('#recipReg').classList.add('fadein');
+    closeSignUp();
+}
+
+//fade-out/slidedown recipient sign up
+function closeRecReg() {
+    document.querySelector("#recipReg").style.top = "150%";
+    document.querySelector('#recipReg').classList.add('fadeout');
+    setTimeout(() => {
+        document.querySelector('#recipReg').classList.remove('fadeout');
+    }, 300)
+}
+
