@@ -454,7 +454,7 @@ body {
 }
 
 .close-btn {
-    --bg: #34d39e;
+    --bg: #e74c3c;
     --text-color: #fff;
     position: relative;
     width: 25px;
@@ -468,7 +468,7 @@ body {
     opacity: 0.95;
     letter-spacing: 1px;
     padding: 0px 0px 0px 1px;
-    box-shadow: #1ba074 0px 7px 2px, #000 0px 8px 5px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
     margin-bottom: 7px;
 
     &:hover {
@@ -478,7 +478,7 @@ body {
 
     &:active {
         top: 4px;
-        box-shadow: #1ba074 0px 3px 2px,#000 0px 3px 5px;
+        box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
     }
 
     svg {
@@ -524,6 +524,13 @@ body {
             height: 397.33px;
             right: 25px;
             position: relative;
+        }
+
+        #signupclosebtn {
+            position: absolute;
+            z-index: 1;
+            margin-left: 215px;
+            margin-top: 10px;
         }
     }
 }
