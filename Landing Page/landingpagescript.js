@@ -36,26 +36,3 @@ function closeSignUp() {
     }, 300)
 }
 
-// close when div's outside is clicked 
-
-
-window.onload = function () {
-    var recipRegArea = document.getElementById('recipReg');
-    var closeArea = document.getElementById('closeArea');
-    var toggleSignUp = document.getElementById('signupbtn');
-
-    recipRegArea.style.display = 'none';
-    closeArea.style.display = 'block';
-
-    document.onclick = function (e) {
-        if (e.target.id == 'closeArea') {
-            toggleSignUp.style.display = 'none';
-            closeArea.style.display = 'none';
-        }
-
-        if (e.target == openButton) {
-            recipRegArea.style.display = 'block';
-            closeArea.style.display = 'block';
-        }
-    };
-};
