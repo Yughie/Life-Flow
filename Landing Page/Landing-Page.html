@@ -31,20 +31,22 @@
         
         <div class="sidebar" id="sidenav">
             <ul class="menu" id="navmenu">
-                <li id="list"><a href="#">home</a></li>
-                <li id="list" onclick="openSignUp()"><a href="#">sign up</a></li>
-                <li id="list"><a href="#">learn about donation</a></li>
+                <li class="list"><a href="#">home</a></li>
+                <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
+                <li class="list"><a href="#">learn about donation</a></li>
             </ul>
         </div>
 
         <div class="sidebar" id="topnav">
             <ul class="menu" id="topnavmenu">
-                <li id="list"><a href="#">home</a></li>
-                <li id="list" onclick="openSignUp()"><a href="#">sign up</a></li>
-                <li id="list"><a href="#">learn about donation</a></li>
+                <li class="list"><a href="#">home</a></li>
+                <li class="list openSignUp" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
+                <li class="list"><a href="#">learn about donation</a></li>
             </ul>
         </div>
     </div>
+
+    <div id="closeArea"></div>
 
     <div class="slider">
         <div class="slides">
@@ -148,7 +150,7 @@
         </div>
     </div>
 
-    <div class="recipient-register">
+    <div class="recipient-register" id="recipReg">
         <div class="rec-reg-left">
             <div class="logo" id="logoid rec-reg-logo">
                 <a href="#"><img src="../Images/LOGO.png"></a>

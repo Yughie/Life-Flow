@@ -19,16 +19,16 @@ function openSidebar(selected) {
 }
 
 
-//slide up sign-up pop-up 
-function openSignUp(selected) {
+//fade-in/slideup sign-up pop-up 
+function openSignUp() {
     document.querySelector("#signup").style.top = "50%";
     document.querySelector("#signup").style.display = "block";
     document.querySelector('#signup').classList.add('fadein');
 }
 
 
-//slide down sign-up
-function closeSignUp(selected) {
+//fade-out/slidedown sign-up pop-up
+function closeSignUp() {
     document.querySelector("#signup").style.top = "150%";
     document.querySelector('#signup').classList.add('fadeout');
     setTimeout(() => {
@@ -36,7 +36,26 @@ function closeSignUp(selected) {
     }, 300)
 }
 
-// close recipient sign up pop-up on outside click
+// close when div's outside is clicked 
 
 
+window.onload = function () {
+    var recipRegArea = document.getElementById('recipReg');
+    var closeArea = document.getElementById('closeArea');
+    var toggleSignUp = document.getElementById('signupbtn');
 
+    recipRegArea.style.display = 'none';
+    closeArea.style.display = 'block';
+
+    document.onclick = function (e) {
+        if (e.target.id == 'closeArea') {
+            toggleSignUp.style.display = 'none';
+            closeArea.style.display = 'none';
+        }
+
+        if (e.target == openButton) {
+            recipRegArea.style.display = 'block';
+            closeArea.style.display = 'block';
+        }
+    };
+};
