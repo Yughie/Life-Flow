@@ -107,14 +107,10 @@
                     
                 }
             }
-            &__Recipient{
-                
-                h2{
-                    margin-bottom: -10px;
-                }
+            &__DonorApplication{
                 &:hover{
                     img{
-                        content: url('Images/AdminDashboard/Icon-Recipient-current.svg');
+                        content: url('Images/AdminDashboard/icon-donorApplicant-current.svg');
                     }
                     
                 }
@@ -135,14 +131,20 @@
                     
                 }
             }
-            &__DonorApplication{
+            &__Recipient{
+                
+                h2{
+                    margin-bottom: -10px;
+                }
                 &:hover{
                     img{
-                        content: url('Images/AdminDashboard/icon-donorApplicant-current.svg');
+                        content: url('Images/AdminDashboard/Icon-Recipient-current.svg');
                     }
                     
                 }
             }
+
+            
             &__BloodTransfusion{
                 &:hover{
                     img{
@@ -155,6 +157,14 @@
                 &:hover{
                     img{
                         content: url('Images/AdminDashboard/Icon-LogOut-current.svg');
+                    }
+                    
+                }
+            }
+            &__Transplant{
+                &:hover{
+                    img{
+                        content: url('../Images/AdminDashboard/icon-transplant-current.svg');
                     }
                     
                 }
