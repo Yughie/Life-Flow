@@ -37,11 +37,9 @@ function closeSignUp() {
 }
 
 window.onload = function() {
-    document.querySelector('#recipReg').style.display = 'none';
+    document.querySelector('#recipReg').style.display = 'flex';
 };
-
-/*
-//open recipient sign up
+// open recipient sign up form 
 function openRecReg() {
     document.querySelector("#recipReg").style.top = "50%";
     document.querySelector("#recipReg").style.display = "flex";
@@ -49,7 +47,7 @@ function openRecReg() {
     closeSignUp();
 }
 
-//fade-out/slidedown recipient sign up
+// close recipient sign up form 
 function closeRecReg() {
     document.querySelector("#recipReg").style.top = "150%";
     document.querySelector('#recipReg').classList.add('fadeout');
@@ -58,3 +56,14 @@ function closeRecReg() {
     }, 300)
 }
 
+// checks if password matches
+var check = function() {
+    if (document.getElementById('passInput').value == document.getElementById('confirmPassInput').value) {
+        document.getElementById('indicator').style.color = 'rgb(12, 173, 138)';
+        document.getElementById('indicator2').style.color = 'rgb(12, 173, 138)';
+    } else {
+        document.getElementById('indicator').style.color = 'red';
+        document.getElementById('indicator2').style.color = 'red';
+    }
+}
+  

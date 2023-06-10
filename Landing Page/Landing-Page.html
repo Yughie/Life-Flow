@@ -86,7 +86,7 @@
                         <div class="text" id="txt2">
                             Make a life-saving difference by becoming an organ donor. Your selfless act can bring hope to those in need. Each year, thousands of lives are transformed through organ transplantation. Join the cause and give the gift of life.
                         </div>
-                        <button id="btn2">Get Started</button>
+                        <button>Get Started</button>
                     </div>
                     <div class="right">
                         <img src="../Images/landing-page-assets/organ donate.png">
@@ -173,13 +173,13 @@
                 </label>
                 
                 <label>
-                    <input required="" placeholder="" type="password" pattern="{8,16}" class="input">
-                    <span>Password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
+                    <span id="indicator" onkeyup='check();'>Password</span>
                 </label>
                 
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input">
-                    <span>Confirm password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();'/>
+                    <span id="indicator2">Confirm password</span>
                 </label>
                 
                 <button class="submit">Sign up</button>
