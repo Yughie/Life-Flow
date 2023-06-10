@@ -1,7 +1,7 @@
 @use "../abstract/index.scss" as *;
 
 
-.recipient-function_container{
+.organDonor-function_container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,7 +9,7 @@
     transition: all 400ms ease-in-out;
     
     //FIRST FUNCTION
-    .recipient_add_container{
+    .organDonor_add_container{
         display: flex;
         flex-direction: row;
         width: 200px;
@@ -17,11 +17,11 @@
         cursor: pointer;
         border-radius: 10px;
         transition: all 100ms ease-in-out;
-        .recipient-add-function-icon{
+        .organDonor-add-function-icon{
             padding-right: 5px;
             fill: $darkBlueGreen;
         }
-        .recipient-add-function-text{
+        .organDonor-add-function-text{
             font-size: $font-med;
         }
 
@@ -31,13 +31,13 @@
             
            // border: 2px solid $darkBlueGreen;
             //background-color: rgb(211, 208, 208);
-            .recipient-add-function-icon{
+            .organDonor-add-function-icon{
                 transform: scale(1.06);
                 //transform: translate(65px,0px);
                 
                 
             }
-            .recipient-add-function-text{
+            .organDonor-add-function-text{
                // display: none;
             }
     
@@ -54,17 +54,17 @@
 
 
     ///SECOND FUNCTION CONTAINER(SEARCH, FILTER, SORT)
-    .recipient-select-function_container{
+    .organDonor-select-function_container{
         display: flex;
         align-items: center;
         /*{
             border: 1px dashed blue;
         }*/
-        .recipient-search-function{
+        .organDonor-search-function{
            
             margin-bottom: -10px;
             
-            .recipient-search-input{
+            .organDonor-search-input{
                 background-image: url("../Images/DonorApplicant/icon-search.svg");
                 background-position: 10px 0px;
                 background-repeat: no-repeat;
@@ -95,7 +95,7 @@
             }
 
         }
-        .recipient-filter-function{   
+        .organDonor-filter-function{   
             display: flex;
             justify-content: center;
             align-items: center;
@@ -112,7 +112,7 @@
             font-size: $font-med;
             color: $offBlack;
 
-            .recipient-filter-function-icon{
+            .organDonor-filter-function-icon{
                 width: 25px;
                 height: 25px;
                 fill: $offBlack;
@@ -122,7 +122,7 @@
                  color: $lightBlueGreen;
                  border: 2px solid $darkBlueGreen;
                  box-shadow: 0px 0px 5px 0px $lightBlueGreen;
-                 .recipient-filter-function-icon{
+                 .organDonor-filter-function-icon{
                     fill: $lightBlueGreen;
                     
                     
@@ -132,13 +132,13 @@
                  transform: scale(1.03);
                  color: $darkBlueGreen;
                  
-                 .recipient-filter-function-icon{
+                 .organDonor-filter-function-icon{
                     fill: $darkBlueGreen;
                  }
              }
             
         }
-        .recipient-sort-function{
+        .organDonor-sort-function{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -152,7 +152,7 @@
             font-size: $font-med;
             
 
-            .recipient-sort-function-icon{
+            .organDonor-sort-function-icon{
                 width: 30px;
                 height: 30px;
             }
@@ -170,7 +170,7 @@
                 transform: scale(1.03);
                 color: $darkBlueGreen;
                 
-                .recipient-sort-function-icon{
+                .organDonor-sort-function-icon{
                    fill: $darkBlueGreen;
                 }
             }
@@ -184,8 +184,8 @@
 
 
 
-/************************ADMIN Recipient*********************/
-.adminRecipient{
+/************************ADMIN organDonor*********************/
+.adminorganDonor{
     display: flex;
     flex-direction: column;
     background-color: $darkBlueGreen;
@@ -198,7 +198,7 @@
     padding-bottom: 20px;
     border: 1px solid black;
 
-    
+
     //CONTENT TITLE's
     &__contentTitle{
         display: flex;
@@ -215,10 +215,10 @@
         width: 100px;
         }
         &__Profile{
-        width: 220px;
+        width: 240px;
         }
         &__Contact{
-            width: 150px;
+            width: 160px;
             margin-left:  5px;
         }
         &__BloodType{
@@ -228,6 +228,7 @@
         }
         &__Organ{
             width: 70px;
+            margin-right: -30px;
             
         }
         &__DateRequired{
@@ -237,13 +238,13 @@
             
         }
         &__empty{
-            width: 140px;
+            width: 190px;
         }
         
     }
 
 
-    .recipient_container{
+    .organDonor_container{
     display: block;
     width: auto;
     overflow-y: auto;
@@ -268,7 +269,7 @@
         }
 
 
-        .recipient{
+        .organDonor{
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -345,24 +346,11 @@
                 width: 60px;
                 height: 60px;
             }
-            //DATE REQUERED
-            &__daterequired{
-                //color: $offGrey
-            }
-            //RECIPIENT STATUS
-            &__status{
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                border: 1px solid $darkBlueGreen;
-                background-color: yellow;
-            }
-
 
            /******************FUNCTIONS**********************/
-           .recipient-function-container{
+           .organDonor-function-container{
                 
-            .recipient-edit{
+            .organDonor-edit{
                 width: 40px;
                 height: 40px;
                 margin-top: 8px;
@@ -376,7 +364,7 @@
                 }
                 
             }
-            .recipient-delete{
+            .organDonor-delete{
                 width: 40px;
                 height: 40px;
                 margin-top: 8px;
@@ -389,10 +377,7 @@
                     filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
                 }
             }
-
-
            }
-
         }
     }
 }
