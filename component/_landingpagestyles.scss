@@ -313,6 +313,7 @@ body {
                 margin: 0px 20px;
     
                 &:hover {
+                    cursor: pointer;
                     scale: 1.03;
                     transition: .25s ease-in-out;
                     box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
@@ -379,10 +380,10 @@ body {
     }
 }
 
-.signup-popup {
-    position:absolute; 
-    top: 200%; 
-    left:50%; 
+.signuppopup {
+    position: absolute; 
+    top: 150%; 
+    left: 50%; 
     transform:translate(-50%, -50%); 
     width: auto; /* You can specify ANY width values here */ 
     background-color: #270001be;
@@ -390,7 +391,9 @@ body {
     font-weight: 550;
     border-radius: 20px;
     text-align: center;
+    opacity: 0;
 
+    //animation-name: fade;
     transition: top .3s ease-in-out;
 
     .su-top {
@@ -479,7 +482,6 @@ body {
             background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
             border-radius: 0px 20px 20px 0px;
         }
-        
     }
 }
 
@@ -488,14 +490,15 @@ body {
     top: 50%; 
     left:50%; 
     transform:translate(-50%, -50%); 
-    width: auto; /* You can specify ANY width values here */ 
+    width: auto; 
     font-weight: 550;
     border-radius: 20px;
     text-align: center;
     border-radius: 20px;
     overflow: hidden;
 
-    display: flex;
+    //display: flex;
+    display: none;
 
     #logoid {
         padding: 10px 0px;
@@ -560,4 +563,29 @@ body {
             }   
         }
     }
+}
+
+// fade transition 
+@keyframes fade-in {
+    from {
+      opacity: 0;}
+    to {
+      opacity: 1;}
+}
+.fadein {
+    animation-name: fade-in;
+    animation-duration: .15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+    from {
+      opacity: 1;}
+    to {
+      opacity: 0;}
+}
+.fadeout {
+    animation-name: fade-out;
+    animation-duration: .15s;
+    animation-fill-mode: forwards;
 }

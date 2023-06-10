@@ -742,6 +742,7 @@ body {
   margin: 0px 20px;
 }
 .nav-bar .sidebar .menu li:hover {
+  cursor: pointer;
   scale: 1.03;
   transition: 0.25s ease-in-out;
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
@@ -794,9 +795,9 @@ body {
   display: none;
 }
 
-.signup-popup {
+.signuppopup {
   position: absolute;
-  top: 200%;
+  top: 150%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto; /* You can specify ANY width values here */
@@ -805,18 +806,19 @@ body {
   font-weight: 550;
   border-radius: 20px;
   text-align: center;
+  opacity: 0;
   transition: top 0.3s ease-in-out;
 }
-.signup-popup .su-top {
+.signuppopup .su-top {
   margin: 10px 15px;
   text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.5);
   display: flex;
   justify-content: space-around;
 }
-.signup-popup .su-top p {
+.signuppopup .su-top p {
   margin: 0px;
 }
-.signup-popup .su-top button {
+.signuppopup .su-top button {
   --bg: #34d39e;
   --text-color: #fff;
   position: relative;
@@ -834,26 +836,26 @@ body {
   box-shadow: #1ba074 0px 7px 2px, #000 0px 8px 5px;
   margin-bottom: 7px;
 }
-.signup-popup .su-top button:hover {
+.signuppopup .su-top button:hover {
   opacity: 1;
   cursor: pointer;
 }
-.signup-popup .su-top button:active {
+.signuppopup .su-top button:active {
   top: 4px;
   box-shadow: #1ba074 0px 3px 2px, #000 0px 3px 5px;
 }
-.signup-popup .su-top button svg {
+.signuppopup .su-top button svg {
   margin-top: 3px;
   fill: white;
 }
-.signup-popup .su-btm {
+.signuppopup .su-btm {
   display: flex;
   justify-content: center;
   height: 351px;
   overflow: hidden;
   border-radius: 20px;
 }
-.signup-popup .su-btm .sides {
+.signuppopup .su-btm .sides {
   background-image: url("../Images/landing-page-assets/popups-assets/fltr recipient side.png");
   background-size: 100%;
   background-position: center;
@@ -866,19 +868,19 @@ body {
   justify-content: center;
   align-items: center;
 }
-.signup-popup .su-btm .sides:hover {
+.signuppopup .su-btm .sides:hover {
   background-size: 105%;
   cursor: pointer;
 }
-.signup-popup .su-btm .sides h1 {
+.signuppopup .su-btm .sides h1 {
   text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.8);
 }
-.signup-popup .su-btm .sides p {
+.signuppopup .su-btm .sides p {
   margin: 0px;
   font-size: 15px;
   text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.5);
 }
-.signup-popup .su-btm #donorside {
+.signuppopup .su-btm #donorside {
   background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
   border-radius: 0px 20px 20px 0px;
 }
@@ -888,13 +890,13 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: auto; /* You can specify ANY width values here */
+  width: auto;
   font-weight: 550;
   border-radius: 20px;
   text-align: center;
   border-radius: 20px;
   overflow: hidden;
-  display: flex;
+  display: none;
 }
 .recipient-register #logoid {
   padding: 10px 0px;
@@ -951,6 +953,34 @@ body {
     text-align: center;
   }
 }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadein {
+  animation-name: fade-in;
+  animation-duration: 0.15s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fadeout {
+  animation-name: fade-out;
+  animation-duration: 0.15s;
+  animation-fill-mode: forwards;
+}
+
 .applicant-function_container {
   display: flex;
   flex-direction: row;
