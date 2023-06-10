@@ -36,3 +36,17 @@ function closeSignUp() {
     }, 300)
 }
 
+//fade-in recipient sign up 
+window.onload = function() {
+    document.querySelector('#recipReg').style.display = 'none';
+};
+
+function openRecipientReg() {
+    document.querySelector("#recipReg").style.display = "flex";
+    document.querySelector('#recipReg').classList.add('fadein');
+    closeSignUp();
+    openSignUp = undefined;
+}
+
+
+

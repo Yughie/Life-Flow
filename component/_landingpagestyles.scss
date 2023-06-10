@@ -498,8 +498,8 @@ body {
     text-align: center;
     border-radius: 20px;
     overflow: hidden;
-    display: none;
     z-index: 3;
+    display: flex;
 
     #logoid {
         padding: 10px 0px;
