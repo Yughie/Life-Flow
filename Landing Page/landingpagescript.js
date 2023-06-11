@@ -57,15 +57,13 @@ function closeRecReg() {
 }
 
 // checks if password matches
-function checkPasswordMatch() {
-    const passwordInput = document.getElementById('passInput');
-    const confirmPasswordInput = document.getElementById('confirmPassInput');
-    const indicator = document.getElementById('indicator');
-
-    if (confirmPasswordInput.value === passwordInput.value) {
-        indicator.style.color = 'rgb(12, 173, 138)';
+var check = function() {
+    if (document.getElementById('passInput').value == document.getElementById('confirmPassInput').value) {
+        document.getElementById('indicator').style.color = 'rgb(12, 173, 138)';
+        document.getElementById('indicator2').style.color = 'rgb(12, 173, 138)';
     } else {
-        confirmPasswordMessage.style.color = 'red';
+        document.getElementById('indicator').style.color = 'red';
+        document.getElementById('indicator2').style.color = 'red';
     }
 }
   

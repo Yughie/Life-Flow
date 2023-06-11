@@ -174,12 +174,12 @@
                 
                 <label>
                     <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
-                    <span id="indicator">Password</span>
+                    <span id="indicator" onkeyup='check();'>Password</span>
                 </label>
                 
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" required oninput="checkPasswordMatch()">
-                    <span id="indicator">Confirm password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();'/>
+                    <span id="indicator2">Confirm password</span>
                 </label>
                 
                 <button class="submit">Sign up</button>
