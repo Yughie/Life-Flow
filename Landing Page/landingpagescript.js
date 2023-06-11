@@ -37,7 +37,7 @@ function closeSignUp() {
 }
 
 window.onload = function() {
-    document.querySelector('#recipReg').style.display = 'flex';
+    document.querySelector('#recipReg').style.display = 'none';
 };
 // open recipient sign up form 
 function openRecReg() {
