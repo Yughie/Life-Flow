@@ -950,8 +950,8 @@ body {
 }
 
 #donReg {
-  display: flex;
   flex-direction: row-reverse;
+  display: none;
 }
 #donReg #donsignupclosebtn {
   position: absolute;
@@ -973,14 +973,14 @@ body {
 .popup-form label {
   position: relative;
 }
-.popup-form label .input {
+.popup-form label input {
   width: 100%;
   padding: 10px 5px 14px 10px;
   outline: 0;
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 10px;
 }
-.popup-form label .input + span {
+.popup-form label input + span {
   position: absolute;
   left: 10px;
   top: 15px;
@@ -989,25 +989,25 @@ body {
   cursor: text;
   transition: 0.3s ease;
 }
-.popup-form label .input:-moz-placeholder-shown + span {
+.popup-form label input:-moz-placeholder-shown + span {
   top: 15px;
   font-size: 0.9em;
 }
-.popup-form label .input:placeholder-shown + span {
+.popup-form label input:placeholder-shown + span {
   top: 15px;
   font-size: 0.9em;
 }
-.popup-form label .input:focus + span, .popup-form label .input .form label {
+.popup-form label input:focus + span, .popup-form label input .form label {
   top: 25px;
   font-size: 0.7em;
   font-weight: 600;
 }
-.popup-form label .input:valid + span {
+.popup-form label input:valid + span {
   top: 25px;
   font-size: 0.7em;
   font-weight: 600;
 }
-.popup-form label .input:valid + span {
+.popup-form label input:valid + span {
   color: rgb(12, 173, 138);
 }
 .popup-form .signin {
@@ -1110,6 +1110,61 @@ body {
   animation-fill-mode: forwards;
 }
 
+/*
+.loader {
+    transform: rotate(45deg);
+    width: 100vh;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 46.05%;
+    animation: loader 1s 2s ease-in forwards;
+    z-index: 2;
+
+    background-color: white;
+}
+*/
+.loader {
+  width: 100%;
+  height: 100%;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(221, 238, 255) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: loader 0.5s 2.2s ease-in forwards;
+  z-index: 99;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  top: calc(50% - 1px);
+  left: calc(50% - 100px);
+  border-left: 0;
+}
+
+.progress-bar:before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 5px;
+  position: absolute;
+  animation: progress 2s ease-in-out forwards;
+}
+
+@keyframes loader {
+  to {
+    left: -100vw;
+  }
+}
+@keyframes progress {
+  to {
+    border-left: 200px solid rgb(255, 0, 0);
+  }
+}
 .applicant-function_container {
   display: flex;
   flex-direction: row;
