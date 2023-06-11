@@ -661,6 +661,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 4;
 }
 .nav-bar .toggle {
   display: none;
@@ -887,11 +888,12 @@ body {
   fill: white;
 }
 
-.recipient-register {
+.popup {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 20px;
   width: auto;
   font-weight: 550;
   border-radius: 20px;
@@ -900,49 +902,58 @@ body {
   overflow: hidden;
   z-index: 3;
   display: flex;
+  box-shadow: 0 0 0 1600px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease-in-out;
 }
-.recipient-register #logoid {
-  padding: 10px 10px;
-}
-.recipient-register .rec-reg-left {
+.popup .popup-left {
   background-color: white;
   width: 350px;
 }
-.recipient-register .rec-reg-left .logo {
+.popup .popup-left .logo {
   margin-top: 5px;
 }
-.recipient-register .rec-reg-left .logo a {
+.popup .popup-left .logo a {
   height: 0px;
 }
-.recipient-register .rec-reg-left h1 {
+.popup .popup-left #logopopup {
+  padding: 0px;
+}
+.popup .popup-left h1 {
   font-size: 30px;
   height: 30px;
   margin-bottom: 10px;
   margin-top: -5px;
 }
-.recipient-register .rec-reg-left p {
+.popup .popup-left p {
   margin: 0px;
   font-size: 12px;
 }
-.recipient-register .rec-reg-right {
+.popup .rec-reg-right {
   width: 250px;
   height: 397.33px;
   overflow: hidden;
 }
-.recipient-register .rec-reg-right img {
+.popup .rec-reg-right img {
   height: 397.33px;
   right: 25px;
   position: relative;
 }
-.recipient-register .rec-reg-right #signupclosebtn {
+.popup .rec-reg-right #signupclosebtn {
   position: absolute;
   z-index: 1;
   margin-left: 215px;
   margin-top: 10px;
 }
 
-.recipient-signup-form {
+#recipReg {
+  display: none;
+}
+
+#donReg {
+  display: none;
+}
+
+.popup-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -952,22 +963,17 @@ body {
   border-radius: 20px;
   position: relative;
 }
-.recipient-signup-form #fullname {
-  display: flex;
-  width: 100%;
-  gap: 6px;
-}
-.recipient-signup-form label {
+.popup-form label {
   position: relative;
 }
-.recipient-signup-form label .input {
+.popup-form label .input {
   width: 100%;
   padding: 10px 5px 14px 10px;
   outline: 0;
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 10px;
 }
-.recipient-signup-form label .input + span {
+.popup-form label .input + span {
   position: absolute;
   left: 10px;
   top: 15px;
@@ -976,50 +982,57 @@ body {
   cursor: text;
   transition: 0.3s ease;
 }
-.recipient-signup-form label .input:-moz-placeholder-shown + span {
+.popup-form label .input:-moz-placeholder-shown + span {
   top: 15px;
   font-size: 0.9em;
 }
-.recipient-signup-form label .input:placeholder-shown + span {
+.popup-form label .input:placeholder-shown + span {
   top: 15px;
   font-size: 0.9em;
 }
-.recipient-signup-form label .input:focus + span, .recipient-signup-form label .input .form label {
+.popup-form label .input:focus + span, .popup-form label .input .form label {
   top: 25px;
   font-size: 0.7em;
   font-weight: 600;
 }
-.recipient-signup-form label .input:valid + span {
+.popup-form label .input:valid + span {
   top: 25px;
   font-size: 0.7em;
   font-weight: 600;
 }
-.recipient-signup-form label .input:valid + span {
+.popup-form label .input:valid + span {
   color: rgb(12, 173, 138);
 }
-.recipient-signup-form .signin {
+.popup-form .signin {
   color: rgba(88, 87, 87, 0.822);
   font-size: 144px;
   text-align: center;
 }
-.recipient-signup-form .signin a {
+.popup-form .signin a {
   color: royalblue;
   font-weight: 600;
 }
-.recipient-signup-form .submit {
+.popup-form .submit {
   border: none;
   outline: none;
   background-color: #A00608;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 25px;
   color: #fff;
   font-size: 16px;
   transform: 0.3s ease;
   transition: 0.2s ease-in-out;
+  width: 120px;
 }
-.recipient-signup-form .submit:hover {
+.popup-form .submit:hover {
   background-color: rgb(106, 175, 172);
   cursor: pointer;
+}
+
+#loginLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media screen and (max-width: 766px) {

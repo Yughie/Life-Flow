@@ -209,12 +209,14 @@ body {
         }
     }
 }
+
 .nav-bar {
     background-color: #A00608;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 4;
 
 
     .toggle {
@@ -483,11 +485,12 @@ body {
     }
 }
 
-.recipient-register {
+.popup {
     position:absolute; 
     top: 50%; 
     left: 50%; 
-    transform:translate(-50%, -50%); 
+    transform:translate(-50%, -50%);
+    border-radius: 20px;
     width: auto; 
     font-weight: 550;
     border-radius: 20px;
@@ -496,14 +499,12 @@ body {
     overflow: hidden;
     z-index: 3;
     display: flex;
+    box-shadow:0 0 0 1600px rgba(0, 0, 0, 0.25);
     //opacity: 0;
 
     transition: all .3s ease-in-out;
-    #logoid {
-        padding: 10px 10px;
-    }
 
-    .rec-reg-left {
+    .popup-left {
         background-color: white;
         width: 350px;
 
@@ -512,6 +513,10 @@ body {
             a { 
                 height: 0px;
             }
+        }
+
+        #logopopup {
+            padding: 0px;
         }
         
         h1 {
@@ -547,8 +552,15 @@ body {
     }
 }
 
-//recipient sign up
-.recipient-signup-form {
+#recipReg {
+    display: none;
+}
+
+#donReg {
+    display: none;
+}
+
+.popup-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -557,12 +569,6 @@ body {
     padding: 10px 20px;
     border-radius: 20px;
     position: relative;
-
-    #fullname {
-        display: flex;
-        width: 100%;
-        gap: 6px;
-    }
 
     label {
         position: relative;
@@ -623,18 +629,25 @@ body {
         outline: none;
         background-color: #A00608;;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 25px;
         color: #fff;
         font-size: 16px;
         transform: .3s ease;
         transition: .2s ease-in-out;
-
+        width: 120px;
         &:hover {
             background-color: rgb(106, 175, 172);
             cursor: pointer;
         }
     }
 }
+
+#loginLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 
 @media screen and (max-width: 766px) {
