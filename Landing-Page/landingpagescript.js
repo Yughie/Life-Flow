@@ -108,7 +108,7 @@ function closeLogin() {
     }, 300)
 }
 
-// checks if password matches
+// checks if password matches (for span indicator)
 var check = function() {
     if (document.getElementById('passInput').value == document.getElementById('confirmPassInput').value) {
         document.getElementById('indicator').style.color = 'rgb(12, 173, 138)';
@@ -118,7 +118,6 @@ var check = function() {
         document.getElementById('indicator2').style.color = 'red';
     }
 }
-
 
 // valide user's input in sign up (to be edited for php)
 var form = document.getElementById("signupForm");
@@ -139,5 +138,4 @@ form.addEventListener("submit", function (event) {
         window.location.href = "success.html";
     }
 });
-  
 
