@@ -1,4 +1,4 @@
-//carorousel auto play
+// carorousel auto play
 var counter = 1;
 setInterval(function(){
     document.getElementById('radio' + counter).checked = true;
@@ -9,7 +9,7 @@ setInterval(function(){
 }, 5000);
 
 
-//slide in/out sidenav
+// slide in/out sidenav
 function openSidebar(selected) {
     if(selected) {
         document.getElementById("sidenav").style.right = "0px";
@@ -19,20 +19,106 @@ function openSidebar(selected) {
 }
 
 
-//slide up sign-up pop-up 
-function openSignUp(selected) {
+// fade-in/slideup sign-up pop-up 
+function openSignUp() {
     document.querySelector("#signup").style.top = "50%";
+    document.querySelector('#signup').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
     document.querySelector("#signup").style.display = "block";
     document.querySelector('#signup').classList.add('fadein');
 }
-
-
-//slide down sign-up
-function closeSignUp(selected) {
+// fade-out/slidedown sign-up pop-up
+function closeSignUp() {
     document.querySelector("#signup").style.top = "150%";
+    document.querySelector('#signup').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
     document.querySelector('#signup').classList.add('fadeout');
     setTimeout(() => {
         document.querySelector('#signup').classList.remove('fadeout');
     }, 300)
-} 
+}
 
+
+//---------------RECIPIENT SIGN-UP FORM---------------//
+window.onload = function() {
+    document.querySelector('#recipReg').style.display = 'none';
+};
+// open recipient sign up form 
+function openRecReg() {
+    document.querySelector("#recipReg").style.top = "50%";
+    document.querySelector('#recipReg').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
+    document.querySelector("#recipReg").style.display = "flex";
+    document.querySelector('#recipReg').classList.add('fadein');
+    closeSignUp();
+    closeLogin();
+}
+// close recipient sign up form 
+function closeRecReg() {
+    document.querySelector("#recipReg").style.top = "150%";
+    document.querySelector('#recipReg').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+    document.querySelector('#recipReg').classList.add('fadeout');
+    setTimeout(() => {
+        document.querySelector('#recipReg').classList.remove('fadeout');
+    }, 300)
+}
+
+//---------------DONOR SIGN-UP FORM---------------//
+window.onload = function() {
+    document.querySelector('#donReg').style.display = 'none';
+};
+// open donor sign up form 
+function openDonReg() {
+    document.querySelector("#donReg").style.top = "50%";
+    document.querySelector('#donReg').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
+    document.querySelector("#donReg").style.display = "flex";
+    document.querySelector('#donReg').classList.add('fadein');
+    closeSignUp();
+    closeLogin();
+}
+
+// close donor sign up form 
+function closeDonReg() {
+    document.querySelector("#donReg").style.top = "150%";
+    document.querySelector('#donReg').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+    document.querySelector('#donReg').classList.add('fadeout');
+    setTimeout(() => {
+        document.querySelector('#donReg').classList.remove('fadeout');
+    }, 300)
+}
+
+
+//---------------LOGIN POP-UP---------------//
+window.onload = function() {
+    document.querySelector('#login').style.display = 'none';
+};
+// open login popup
+function openLogin() {
+    document.querySelector("#login").style.top = "50%";
+    document.querySelector('#login').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
+    document.querySelector("#login").style.display = "flex";
+    document.querySelector('#login').classList.add('fadein');
+    closeRecReg();
+    closeDonReg()
+}
+// close login popup 
+function closeLogin() {
+    document.querySelector("#login").style.top = "150%";
+    document.querySelector('#login').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+    document.querySelector('#login').classList.add('fadeout');
+    setTimeout(() => {
+        document.querySelector('#login').classList.remove('fadeout');
+    }, 300)
+}
+
+
+
+// checks if password matches
+var check = function() {
+    if (document.getElementById('passInput').value == document.getElementById('confirmPassInput').value) {
+        document.getElementById('indicator').style.color = 'rgb(12, 173, 138)';
+        document.getElementById('indicator2').style.color = 'rgb(12, 173, 138)';
+    } else {
+        document.getElementById('indicator').style.color = 'red';
+        document.getElementById('indicator2').style.color = 'red';
+    }
+}
+  
+// page loader

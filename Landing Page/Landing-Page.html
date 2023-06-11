@@ -15,6 +15,9 @@
 
 <body>
     <script src="landingpagescript.js"></script>
+    <div class="loader">
+        <div class="progress-bar"></div>
+    </div>
     <div class="nav-bar" id="nav">
         <div class="logo" id="logoid" >
             <a href="#"><img src="../Images/LOGO.png"></a>
@@ -31,17 +34,17 @@
         
         <div class="sidebar" id="sidenav">
             <ul class="menu" id="navmenu">
-                <li id="list"><a href="#">home</a></li>
-                <li id="list" onclick="openSignUp()"><a href="#">sign up</a></li>
-                <li id="list"><a href="#">learn about donation</a></li>
+                <li class="list"><a href="#">home</a></li>
+                <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
+                <li class="list"><a href="#">learn about donation</a></li>
             </ul>
         </div>
 
         <div class="sidebar" id="topnav">
             <ul class="menu" id="topnavmenu">
-                <li id="list"><a href="#">home</a></li>
-                <li id="list" onclick="openSignUp()"><a href="#">sign up</a></li>
-                <li id="list"><a href="#">learn about donation</a></li>
+                <li class="list"><a href="#">home</a></li>
+                <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
+                <li class="list"><a href="#">learn about donation</a></li>
             </ul>
         </div>
     </div>
@@ -64,7 +67,7 @@
                         <div class="text">
                             Simplifying the process of sharing the life's gift, we connect donors with recipients seamlessly. Together, we save lives and inspire and hope for a brigther future.
                         </div>
-                        <button>Get Started</button>
+                        <button onclick="openSignUp()">Get Started</button>
                     </div>
                     <div class="right">
                         <img src="../Images/landing-page-assets/donate.png">
@@ -86,7 +89,7 @@
                         <div class="text" id="txt2">
                             Make a life-saving difference by becoming an organ donor. Your selfless act can bring hope to those in need. Each year, thousands of lives are transformed through organ transplantation. Join the cause and give the gift of life.
                         </div>
-                        <button id="btn2">Get Started</button>
+                        <button onclick="openSignUp()">Get Started</button>
                     </div>
                     <div class="right">
                         <img src="../Images/landing-page-assets/organ donate.png">
@@ -108,7 +111,7 @@
                         <div class="text" id="txt3">
                             Donate blood and make a direct impact on someone's life. Every drop counts. Blood donations are crucial for medical emergencies, surgeries, and treating various conditions. Your generosity can provide hope and healing to those in need. Join the cause and become a blood donor today.
                         </div>
-                        <button>Get Started</button>
+                        <button onclick="openSignUp()">Get Started</button>
                     </div>
                     <div class="right">
                         <img src="../Images/landing-page-assets/blood donate.png" class="img2">
@@ -130,33 +133,140 @@
     <div class="signuppopup" id="signup">
         <div class="su-top">
             <p>Select a role to proceed with the registration process</p>
-            <button id="close-btn" onclick="closeSignUp();">
+            <button id="signupclosebtn" class="close-btn" onclick="closeSignUp()">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
             </button>
         </div>
         <div class="su-btm">
 
-            <div class="sides" id="recipntside">
-                <h1>RECIPIENT</h1>
+            <div class="sides" id="recipntside"  onclick="openRecReg()">
+                <h1 id="recH1">RECIPIENT</h1>
                 <p>By signing up as a recipient, you've taken a significant step towards finding a compatible donor</p>
             </div>
 
-            <div class="sides" id="donorside">
-                <h1>DONOR</h1>
+            <div class="sides" id="donorside" onclick="openDonReg()">
+                <h1 id="donH1">DONOR</h1>
                 <p>Welcome, potential donor! Your registration brings hope for life-saving transplants. Let's make a different together!</p>
             </div>
         </div>
     </div>
 
-    <div class="recipient-register">
-        <div class="rec-reg-left">
-            <div class="logo" id="logoid rec-reg-logo">
+    <div class="popup" id="recipReg">
+        <div class="popup-left">
+            <div class="logo" id="logopopup">
                 <a href="#"><img src="../Images/LOGO.png"></a>
             </div>
             <h1>Hey there!</h1>
             <p>build your account</p>
+            <form class="popup-form">
+                <label>
+                    <input required="" placeholder="" type="text" minlength="5" class="input">
+                    <span>Username</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="email" class="input">
+                    <span>Email</span>
+                </label>
+                
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
+                    <span id="indicator" onkeyup='check();'>Password</span>
+                </label>
+                
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();'/>
+                    <span id="indicator2">Confirm password</span>
+                </label>
+                
+                <div class="submitbtn">
+                    <button class="submit">Sign up</button>
+                </div>
+                
+                <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
+            </form>
         </div>
         <div class="rec-reg-right">
+            <button id="signupclosebtn" class="close-btn" onclick="closeRecReg()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
+            <img src="..\Images\landing-page-assets\popups-assets\login side.png"></a>
+        </div>
+    </div>
+
+    <div class="popup" id="donReg">
+        <div class="popup-left">
+            <div class="logo" id="logopopup">
+                <a href="#"><img src="../Images/LOGO.png"></a>
+            </div>
+            <h1>Hey there!</h1>
+            <p>build your account</p>
+            <form class="popup-form">
+                <label>
+                    <input required="" placeholder="" type="text" minlength="5" class="input">
+                    <span>Username</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="email" class="input">
+                    <span>Email</span>
+                </label>
+                
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
+                    <span id="indicator" onkeyup='check();'>Password</span>
+                </label>
+                
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();'/>
+                    <span id="indicator2">Confirm password</span>
+                </label>
+                
+                <div class="submitbtn">
+                    <button class="submit">Sign up</button>
+                </div>
+                
+                <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
+            </form>
+        </div>
+        <div class="rec-reg-right">
+            <button id="donsignupclosebtn" class="close-btn" onclick="closeDonReg()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
+            <img src="..\Images\landing-page-assets\popups-assets\login side.png"></a>
+        </div>
+    </div>
+
+    <div class="popup" id="login">
+        <div class="popup-left" id="loginLeft">
+            <div class="logo" id="logoid">
+                <a href="#"><img src="../Images/LOGO.png"></a>
+            </div>
+            <h1>Hi there!</h1>
+            <p>sign in to your account</p>
+            <div class="loginFormContainer">
+                <form class="popup-form" id="loginForm">
+                    <label>
+                        <input required="" placeholder="" type="text" minlength="5" class="input">
+                        <span>Username</span>
+                    </label>
+                    
+                    <label>
+                        <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
+                        <span id="indicator">Password</span>
+                    </label>
+                    
+                    <div class="submitbtn">
+                        <button class="submit">Sign in</button>
+                    </div>
+                    
+                    <p class="signin">Don't have an acount? <a href="#" onclick="openRecReg()">Sign up</a></p>
+                </form>
+            </div>
+            
+        </div>
+        <div class="rec-reg-right">
+            <button id="signupclosebtn" class="close-btn" onclick="closeLogin()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
             <img src="..\Images\landing-page-assets\popups-assets\login side.png"></a>
         </div>
     </div>

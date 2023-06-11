@@ -105,7 +105,6 @@ Bnegative.addEventListener('click', function(){
         count3.style.height = "100%";
         count3.style.visibility = "visible";
     }
-
 });
 
 /********************4*********************** */

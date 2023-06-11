@@ -71,8 +71,8 @@ body {
                         text-transform: uppercase;
                         letter-spacing: 2.5px;
                         font-weight: 600;
-                        color: #000;
-                        background-color: #45ffe0;
+                        color: #fff;
+                        background-color: #c42323;
                         border: none;
                         border-radius: 45px;
                         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -83,25 +83,12 @@ body {
                         left: 93px;
                         top: 650px;
                         &:hover {
-                            background-color: #c42323;
                             box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
-                            color: #fff;
                             transform: translateY(-7px);
                         }
     
                         &:active {
                             transform: translateY(-1px);
-                        }
-                    }
-
-                    #btn2 {
-                        background-color: white;
-
-                        &:hover {
-                            background-color: #c42323;
-                            box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
-                            color: #fff;
-                            transform: translateY(-7px);
                         }
                     }
                 }
@@ -163,6 +150,7 @@ body {
         padding-left: 25px;
         position: absolute;
         bottom: 15px;
+        z-index: 3;
 
         .manual-btn {
             background-color: rgb(43, 43, 43);
@@ -221,12 +209,14 @@ body {
         }
     }
 }
+
 .nav-bar {
     background-color: #A00608;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 4;
 
 
     .toggle {
@@ -249,13 +239,13 @@ body {
         height: 3.5em;
         border-radius: 0.5em;
         background: #b41417;
-        border: 1px solid #e22528;
+        border: 1px solid #c9191c;
         transition: all .3s;
         box-shadow: 6px 6px 12px #861315,
                    -6px -6px 12px #be1e20;
 
         &:hover {
-            border: 1px solid #d84a4c;
+            border: 1px solid rgb(212, 67, 70);
             box-shadow: 8px 8px 14px #861315,
                    -8px -8px 14px #be1e20;
             scale: 0.502;
@@ -386,15 +376,16 @@ body {
     left: 50%; 
     transform:translate(-50%, -50%); 
     width: auto; /* You can specify ANY width values here */ 
-    background-color: #270001be;
+    background-color: #0a00009d;
     color: #ffffff;
     font-weight: 550;
     border-radius: 20px;
     text-align: center;
+    z-index: 3;
     opacity: 0;
 
     //animation-name: fade;
-    transition: top .3s ease-in-out;
+    transition: all .3s ease-in-out;
 
     .su-top {
         margin: 10px 15px;
@@ -404,40 +395,6 @@ body {
 
         p {
             margin: 0px;
-        }
-
-        button {
-            --bg: #34d39e;
-            --text-color: #fff;
-            position: relative;
-            width: 25px;
-            border: none;
-            background: var(--bg);
-            color: var(--text-color);
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.2s;
-            border-radius: 5px;
-            opacity: 0.8;
-            letter-spacing: 1px;
-            padding: 0px 0px 0px 1px;
-            box-shadow: #1ba074 0px 7px 2px, #000 0px 8px 5px;
-            margin-bottom: 7px;
-
-            &:hover {
-                opacity: 1;
-                cursor: pointer;
-            }
-
-            &:active {
-                top: 4px;
-                box-shadow: #1ba074 0px 3px 2px,#000 0px 3px 5px;
-            }
-
-            svg {
-                margin-top: 3px;
-                fill: white;
-            }
         }
     }
     .su-btm {
@@ -465,10 +422,19 @@ body {
             &:hover {
                 background-size: 105%;
                 cursor: pointer;
+
+                #recH1 {
+                    text-shadow:2px -1px 31px #e43131;
+                }
+
+                #donH1 {
+                    text-shadow:2px -1px 31px #31e4c6;
+                }
             }
 
             h1{
                 text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.8);
+                transition: .2s ease-in-out
             }
         
             p{
@@ -485,42 +451,212 @@ body {
     }
 }
 
-.recipient-register {
+.close-btn {
+    --bg: #e74c3c;
+    --text-color: #fff;
+    position: relative;
+    width: 25px;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.95;
+    letter-spacing: 1px;
+    padding: 0px 0px 0px 1px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    margin-bottom: 7px;
+
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    &:active {
+        top: 4px;
+        box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
+    }
+
+    svg {
+        margin-top: 3px;
+        fill: white;
+    }
+}
+
+.popup {
     position:absolute; 
     top: 50%; 
-    left:50%; 
-    transform:translate(-50%, -50%); 
+    left: 50%; 
+    transform:translate(-50%, -50%);
+    border-radius: 20px;
     width: auto; 
     font-weight: 550;
     border-radius: 20px;
     text-align: center;
     border-radius: 20px;
     overflow: hidden;
+    z-index: 3;
+    display: flex;
+    box-shadow:0 0 0 1600px rgba(0, 0, 0, 0.25);
+    //opacity: 0;
 
-    //display: flex;
-    display: none;
+    transition: all .3s ease-in-out;
 
-    #logoid {
-        padding: 10px 0px;
-    }
-
-    .rec-reg-left {
+    .popup-left {
         background-color: white;
         width: 350px;
 
+        .logo {
+            margin-top: 5px;
+            a { 
+                height: 0px;
+            }
+        }
+
+        #logopopup {
+            padding: 0px;
+        }
+        
+        h1 {
+            font-size: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+            margin-top: -5px;
+        }
+
         p{
             margin: 0px;
+            font-size: 12px;
         }
     }
 
     .rec-reg-right {
         width: 250px;
         height: 397.33px;
+        overflow: hidden;
+
         img {
             height: 397.33px;
+            right: 25px;
+            position: relative;
+        }
+
+        #signupclosebtn {
+            position: absolute;
+            z-index: 1;
+            margin-left: 215px;
+            margin-top: 10px;
         }
     }
 }
+
+#recipReg {
+    display: none;
+}
+
+#donReg {
+    flex-direction: row-reverse;
+    display: none;
+
+    #donsignupclosebtn {
+        position: absolute;
+        z-index: 1;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 200px;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    position: relative;
+
+    label {
+        position: relative;
+
+        input {
+            width: 100%;
+            padding: 10px 5px 14px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+
+            &+ span {
+                position: absolute;
+                left: 10px;
+                top: 15px;
+                color: grey;
+                font-size: 0.8em;
+                cursor: text;
+                transition: 0.3s ease;
+            }
+
+            &:placeholder-shown + span {
+                top: 15px;
+                font-size: 0.9em;
+            }
+
+            &:focus + span,.form label {
+                top: 25px;
+                font-size: 0.7em;
+                font-weight: 600;
+            }
+
+            &:valid + span {
+                top: 25px;
+                font-size: 0.7em;
+                font-weight: 600;
+            }
+
+            &:valid + span {
+                color: rgb(12, 173, 138);
+            }
+        }
+    }
+
+    .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 144px;
+        text-align: center;
+
+        a {
+            color: royalblue;
+            font-weight: 600;
+        }
+    }
+
+    .submit {
+        border: none;
+        outline: none;
+        background-color: #A00608;;
+        padding: 10px;
+        border-radius: 25px;
+        color: #fff;
+        font-size: 16px;
+        transform: .3s ease;
+        transition: .2s ease-in-out;
+        width: 120px;
+        &:hover {
+            background-color: rgb(106, 175, 172);
+            cursor: pointer;
+        }
+    }
+}
+
+#loginLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 
 @media screen and (max-width: 766px) {
     #nav {
@@ -539,10 +675,14 @@ body {
             top: 0px;
         }
 
+        #topnav {
+            display: none;
+        }
+
         #sidenav {
             background-color: #a00609b0;
             height: 100vh;
-            z-index: 1;
+            z-index: 4;
             position: absolute;
             right: -350px;
             transition: 0.3s ease-in-out;
@@ -556,7 +696,7 @@ body {
                 flex-direction: column;
                 padding: 0px;
                 margin: 0px;
-                #list {
+                .list {
                     margin: 25px 10px;
                     text-align: center;
                 }
@@ -565,7 +705,7 @@ body {
     }
 }
 
-// fade transition 
+// fade transitions 
 @keyframes fade-in {
     from {
       opacity: 0;}
@@ -588,4 +728,63 @@ body {
     animation-name: fade-out;
     animation-duration: .15s;
     animation-fill-mode: forwards;
+}
+
+// page loader
+
+/*
+.loader {
+    transform: rotate(45deg);
+    width: 100vh;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 46.05%;
+    animation: loader 1s 2s ease-in forwards;
+    z-index: 2;
+
+    background-color: white;
+}
+*/
+.loader {
+    width: 100%;
+    height: 100%;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(221,238,255,1) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 0.5s 2.2s ease-in forwards;
+    z-index: 99;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    top: calc(50% - 1px);
+    left: calc(50% - 100px);
+    border-left: 0;
+}
+
+.progress-bar:before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 5px;
+    position: absolute;
+    animation: progress 2s ease-in-out forwards;
+}
+
+@keyframes loader {
+    to {
+        left: -100vw;
+    }
+}
+
+@keyframes progress {
+    to {
+        border-left: 200px solid rgb(255, 0, 0);
+    }
 }
