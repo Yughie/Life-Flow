@@ -2381,4 +2381,354 @@ body {
 }
 .adminbloodDonor .bloodDonor_container .bloodDonor .bloodDonor-function-container .bloodDonor-delete:active {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+}
+
+.bloodType_Container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.bloodType_Container .bloodtype {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  text-align: center;
+  height: 130px;
+  background-color: #136371;
+  color: #e9e9e9;
+  border-radius: 20px;
+  cursor: pointer;
+  /*
+          &:hover{
+              animation: beat 1000ms infinite alternate;
+
+              .bloodtype__name{
+                  height: 100%;
+              }
+              .bloodtype__count{
+                  display: none;
+                  height: 0px;
+              }
+          }
+
+          */
+}
+.bloodType_Container .bloodtype__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  background-color: #860909;
+  font-size: 2.375rem;
+  border-radius: 20px;
+  transition: all 200ms ease-in-out;
+}
+.bloodType_Container .bloodtype__count {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.875rem;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.transfusion-function_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 50px -15px 50px;
+  transition: all 400ms ease-in-out;
+}
+.transfusion-function_container .transfusion_add_container {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 100ms ease-in-out;
+}
+.transfusion-function_container .transfusion_add_container .transfusion-add-function-icon {
+  padding-right: 5px;
+  fill: #136371;
+}
+.transfusion-function_container .transfusion_add_container .transfusion-add-function-text {
+  font-size: 1.125rem;
+}
+.transfusion-function_container .transfusion_add_container:hover {
+  color: #136371;
+}
+.transfusion-function_container .transfusion_add_container:hover .transfusion-add-function-icon {
+  transform: scale(1.06);
+}
+.transfusion-function_container .transfusion_add_container:focus {
+  transform: scale(1.03);
+  color: #136371;
+}
+.transfusion-function_container .transfusion-select-function_container {
+  display: flex;
+  align-items: center;
+  /*{
+      border: 1px dashed blue;
+  }*/
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-search-function {
+  margin-bottom: -10px;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-search-function .transfusion-search-input {
+  background-image: url("../Images/DonorApplicant/icon-search.svg");
+  background-position: 10px 0px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  width: 150px;
+  height: 30px;
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 20px;
+  cursor: text;
+  margin-right: 20px;
+  transition: 100ms ease-in-out;
+  background-color: rgb(211, 208, 208);
+  border-radius: #136371;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-search-function .transfusion-search-input:hover {
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-search-function .transfusion-search-input:focus {
+  transform: scale(1.03);
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-filter-function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5;
+  margin-bottom: -10px;
+  margin-right: 20px;
+  border: 1px solid;
+  cursor: pointer;
+  padding: 5px;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.125rem;
+  color: #292828;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-filter-function .transfusion-filter-function-icon {
+  width: 25px;
+  height: 25px;
+  fill: #292828;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-filter-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-filter-function:hover .transfusion-filter-function-icon {
+  fill: #6AAFAC;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-filter-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-filter-function:active .transfusion-filter-function-icon {
+  fill: #136371;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-sort-function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -10px;
+  margin-right: 20px;
+  cursor: pointer;
+  border: 1px solid;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 1.125rem;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-sort-function .transfusion-sort-function-icon {
+  width: 30px;
+  height: 30px;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-sort-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-sort-function:hover .sort-icon-function {
+  fill: #6AAFAC;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-sort-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.transfusion-function_container .transfusion-select-function_container .transfusion-sort-function:active .transfusion-sort-function-icon {
+  fill: #136371;
+}
+
+/************************ADMIN transfusion*********************/
+.admintransfusion {
+  display: flex;
+  flex-direction: column;
+  background-color: #136371;
+  border-radius: 20px;
+  margin: 30px;
+  height: 71vh;
+  min-width: 720px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid black;
+}
+.admintransfusion__contentTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0px 30px;
+  color: #e9e9e9;
+  font-size: 0.875rem;
+  border: 1px solid black;
+  background-color: #860909;
+}
+.admintransfusion__contentTitle * {
+  border: 1px dashed yellow;
+}
+.admintransfusion__contentTitle__ID {
+  width: 100px;
+}
+.admintransfusion__contentTitle__Profile {
+  width: 220px;
+}
+.admintransfusion__contentTitle__Contact {
+  width: 150px;
+  margin-left: 5px;
+}
+.admintransfusion__contentTitle__BloodType {
+  width: 80px;
+  margin-left: 5px;
+}
+.admintransfusion__contentTitle__Organ {
+  width: 70px;
+}
+.admintransfusion__contentTitle__DateRequired {
+  width: 110px;
+}
+.admintransfusion__contentTitle__Status {
+  margin-right: 30px;
+}
+.admintransfusion__contentTitle__empty {
+  width: 95px;
+}
+.admintransfusion .transfusion_container {
+  display: block;
+  width: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  border-radius: 15px;
+}
+.admintransfusion .transfusion_container::-webkit-scrollbar {
+  width: 1em;
+  border-radius: 15px;
+}
+.admintransfusion .transfusion_container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+.admintransfusion .transfusion_container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 15px;
+}
+.admintransfusion .transfusion_container .transfusion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e9e9e9;
+  margin: 10px 30px;
+  padding: 10px 30px 10px 30px;
+  border-radius: 15px;
+  min-height: 100px;
+  /************************DATABASEEEEEE***************************/
+  /******************FUNCTIONS**********************/
+}
+.admintransfusion .transfusion_container .transfusion__order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admintransfusion .transfusion_container .transfusion__order__applicationdate {
+  color: #6d6a6a;
+  font-size: 0.875rem;
+}
+.admintransfusion .transfusion_container .transfusion__order__ID {
+  font-size: 1.875rem;
+  margin-left: 20px;
+}
+.admintransfusion .transfusion_container .transfusion__personal {
+  display: flex;
+  align-items: center;
+}
+.admintransfusion .transfusion_container .transfusion__personal__Image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.admintransfusion .transfusion_container .transfusion__personal__name {
+  font-size: 1.125rem;
+}
+.admintransfusion .transfusion_container .transfusion__personal__age {
+  font-size: 0.875rem;
+  color: #6d6a6a;
+}
+.admintransfusion .transfusion_container .transfusion__personal__sex {
+  font-size: 0.875rem;
+  color: #6d6a6a;
+}
+.admintransfusion .transfusion_container .transfusion__contact {
+  text-align: center;
+}
+.admintransfusion .transfusion_container .transfusion__contact__email {
+  font-size: 0.875rem;
+}
+.admintransfusion .transfusion_container .transfusion__contact__number {
+  font-size: 0.875rem;
+}
+.admintransfusion .transfusion_container .transfusion__bloodtype {
+  color: #860909;
+  font-size: 2.375rem;
+}
+.admintransfusion .transfusion_container .transfusion__Organ {
+  width: 60px;
+  height: 60px;
+}
+.admintransfusion .transfusion_container .transfusion__status {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #136371;
+  background-color: yellow;
+}
+.admintransfusion .transfusion_container .transfusion .transfusion-function-container .transfusion__function {
+  width: 50px;
+  height: 40px;
+  fill: #860909;
+}
+.admintransfusion .transfusion_container .transfusion .transfusion-function-container .transfusion__function:hover {
+  animation: beat 400ms infinite alternate;
+}
+@keyframes beat {
+  0% {
+    scale: 1.03;
+  }
+  100% {
+    scale: 1;
+  }
 }/*# sourceMappingURL=style.css.map */
