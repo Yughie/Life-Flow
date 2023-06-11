@@ -1,0 +1,473 @@
+@use "../abstract/index.scss" as *;
+
+@include breakpoint-down(medium){
+}
+
+.bloodType_Container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+    .bloodtype{
+        display: flex;
+        flex-direction: column;
+        min-width: 120px;
+        text-align: center;
+        height: 130px;
+        background-color: $darkBlueGreen;
+        color: $offWhite;
+        border-radius: 20px;
+        cursor: pointer;
+        
+        
+        &__name{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40%;
+            background-color: $primaryRed;
+            font-size: $font-lg;
+            border-radius: 20px;
+            transition: all 200ms ease-in-out;
+        }
+        &__count{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-bml;
+            transition: all 200ms ease-in-out;
+            cursor: pointer;
+            
+        }
+        
+
+  
+/*
+        &:hover{
+            animation: beat 1000ms infinite alternate;
+
+            .bloodtype__name{
+                height: 100%;
+            }
+            .bloodtype__count{
+                display: none;
+                height: 0px;
+            }
+        }
+    
+        */
+        
+    }
+}
+
+
+
+
+
+
+
+.transfusion-function_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 50px -15px 50px;
+    transition: all 400ms ease-in-out;
+
+    
+    //FIRST FUNCTION
+    .transfusion_add_container{
+        display: flex;
+        flex-direction: row;
+        width: 200px;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: all 100ms ease-in-out;
+        .transfusion-add-function-icon{
+            padding-right: 5px;
+            fill: $darkBlueGreen;
+        }
+        .transfusion-add-function-text{
+            font-size: $font-med;
+        }
+
+
+        &:hover{
+            color: $darkBlueGreen;
+            
+           // border: 2px solid $darkBlueGreen;
+            //background-color: rgb(211, 208, 208);
+            .transfusion-add-function-icon{
+                transform: scale(1.06);
+                //transform: translate(65px,0px);
+                
+                
+            }
+            .transfusion-add-function-text{
+               // display: none;
+            }
+    
+
+         }
+         &:focus{
+             
+             transform: scale(1.03);
+             color: $darkBlueGreen;
+         }
+    }
+
+
+
+
+    ///SECOND FUNCTION CONTAINER(SEARCH, FILTER, SORT)
+    .transfusion-select-function_container{
+        display: flex;
+        align-items: center;
+        /*{
+            border: 1px dashed blue;
+        }*/
+        .transfusion-search-function{
+           
+            margin-bottom: -10px;
+            
+            .transfusion-search-input{
+                background-image: url("../Images/DonorApplicant/icon-search.svg");
+                background-position: 10px 0px;
+                background-repeat: no-repeat;
+                padding-left: 40px;
+                width: 150px;
+                height: 30px;
+                font-size: $font-med;
+                border: none;
+                border-radius: 20px;
+                cursor: text;
+                margin-right: 20px;
+                transition: 100ms ease-in-out;
+                background-color: rgb(211, 208, 208);
+                border-radius: $darkBlueGreen;
+                
+                &:hover{
+                   // border: 1px solid $lightBlueGreen;
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
+                &:focus{
+                    //border: 1px solid $lightBlueGreen;
+                    transform: scale(1.03);
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
+                
+            }
+
+        }
+        .transfusion-filter-function{   
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5;
+            margin-bottom: -10px;
+            margin-right: 20px;
+            border: 1px solid;
+            cursor: pointer;
+            padding: 5px;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: $font-med;
+            color: $offBlack;
+
+            .transfusion-filter-function-icon{
+                width: 25px;
+                height: 25px;
+                fill: $offBlack;
+            }
+
+            &:hover{
+                 color: $lightBlueGreen;
+                 border: 2px solid $darkBlueGreen;
+                 box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                 .transfusion-filter-function-icon{
+                    fill: $lightBlueGreen;
+                    
+                    
+                 }
+             }
+             &:active{
+                 transform: scale(1.03);
+                 color: $darkBlueGreen;
+                 
+                 .transfusion-filter-function-icon{
+                    fill: $darkBlueGreen;
+                 }
+             }
+            
+        }
+        .transfusion-sort-function{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -10px;
+            margin-right: 20px;
+            cursor: pointer;
+            border: 1px solid;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            font-size: $font-med;
+            
+
+            .transfusion-sort-function-icon{
+                width: 30px;
+                height: 30px;
+            }
+
+            &:hover{
+                color: $lightBlueGreen;
+                border: 2px solid $darkBlueGreen;
+                box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                .sort-icon-function{
+                   fill: $lightBlueGreen;
+                   
+                }
+            }
+            &:active{
+                transform: scale(1.03);
+                color: $darkBlueGreen;
+                
+                .transfusion-sort-function-icon{
+                   fill: $darkBlueGreen;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+/************************ADMIN transfusion*********************/
+.admintransfusion{
+    display: flex;
+    flex-direction: column;
+    background-color: $darkBlueGreen;
+    border-radius: 20px;
+    margin: 30px;
+    //display: block;
+    height: 71vh;
+    min-width: 720px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+
+    
+    //CONTENT TITLE's
+    &__contentTitle{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 0px 30px;
+        color: $offWhite;
+        font-size: $font-sm;
+        border: 1px solid black;
+        background-color: $primaryRed;
+        *{
+            border: 1px dashed yellow;
+        }
+
+        &__ID{
+        width: 100px;
+        }
+        &__Profile{
+        width: 220px;
+        }
+        &__Contact{
+            width: 150px;
+            margin-left:  5px;
+        }
+        &__BloodType{
+            width: 80px;
+           
+           margin-left:  5px;
+        }
+        &__Organ{
+            width: 70px;
+            
+        }
+        &__DateRequired{
+            width: 110px;
+        }
+        &__Status{
+            margin-right: 30px;
+        }
+        &__empty{
+            width: 95px;
+        }
+
+        
+    }
+
+
+    .transfusion_container{
+    display: block;
+    width: auto;
+    overflow-y: auto;
+    white-space: nowrap;
+    border-radius: 15px;
+    
+        &::-webkit-scrollbar {
+            width: 1em;
+            border-radius: 15px;
+           
+        }
+        &::-webkit-scrollbar-track {
+            
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+            border-radius: 15px;
+            
+        }
+
+
+        .transfusion{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $offWhite;
+            margin: 10px 30px;
+            padding: 10px 30px 10px 30px;
+            border-radius: 15px;
+            min-height: 100px;
+            
+            /************************DATABASEEEEEE***************************/
+
+            //DATE AND ID
+            &__order{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &__applicationdate{
+                    color: $offGrey;
+                    font-size: $font-sm;
+                    
+                    
+                }
+                &__ID{
+                    font-size: $font-bml;
+                    margin-left: 20px;
+                }
+            }
+
+            
+            
+
+            //PERSONAL INFORMATION
+            &__personal{
+                display: flex;
+                align-items: center;
+                &__Image{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+                &__name{
+                    font-size: $font-med;
+                }
+                &__age{
+                    font-size: $font-sm;
+                    color: $offGrey;
+                }
+                &__sex{
+                    font-size: $font-sm;
+                    color: $offGrey;
+                }
+            }
+            //CONTACT INFORMATION
+            &__contact{
+                text-align: center;
+                &__email{
+                    font-size: $font-sm
+                }
+                &__number{
+                    font-size: $font-sm
+                }
+            }
+
+            //Blood TYPE 
+            &__bloodtype{
+                color: $primaryRed;
+                font-size: $font-lg;
+            }
+
+            //ORGAN TYPE
+            &__Organ{
+                width: 60px;
+                height: 60px;
+            }
+            //DATE REQUERED
+            &__daterequired{
+                //color: $offGrey
+            }
+            //transfusion STATUS
+            &__status{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 1px solid $darkBlueGreen;
+                background-color: yellow;
+            }
+
+
+           /******************FUNCTIONS**********************/
+           .transfusion-function-container{
+                
+            .transfusion__function{
+                width: 50px;
+                height: 40px;
+                fill: $primaryRed;
+
+                &:hover{
+                    animation: beat 400ms infinite alternate;
+                }
+            }
+
+            @keyframes beat {
+                0%{
+                    scale: 1.03;
+                }
+                100%{
+                    scale: 1;
+                }
+            }
+
+           }
+
+        }
+    }
+}
+
+
+
+@include breakpoint-down(large){
+    .LatestDonorApplication{
+        //
+    }
+}
+
+
