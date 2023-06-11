@@ -158,7 +158,7 @@
             </div>
             <h1>Hey there!</h1>
             <p>build your account</p>
-            <form class="popup-form" action="process_recipient_signup.php" method="POST">
+            <form class="popup-form" action="process_signup.php" method="POST">
                 <label>
                     <input required="" placeholder="" type="text" minlength="5" class="input" name="recip_username">
                     <span>Username</span>
@@ -169,7 +169,7 @@
                 </label>
                 <label>
                     <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput" name="recip_pass">
-                    <span id="indicator" onkeyup='check();'>Password</span>
+                    <span id="indicator">Password</span>
                 </label>  
                 <label>
                     <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();' name="recip_confirmPass"/>
@@ -194,24 +194,22 @@
             </div>
             <h1>Hey there!</h1>
             <p>build your account</p>
-            <form class="popup-form">
+            <form class="popup-form" action="process_signup.php" method="POST">
                 <label>
-                    <input required="" placeholder="" type="text" minlength="5" class="input">
+                    <input required="" placeholder="" type="text" minlength="5" class="input" name="don_username">
                     <span>Username</span>
                 </label>
                 <label>
-                    <input required="" placeholder="" type="email" class="input">
+                    <input required="" placeholder="" type="email" class="input" name="don_email">
                     <span>Email</span>
                 </label>
-                
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
-                    <span id="indicator" onkeyup='check();'>Password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="donPassInput"  name="don_pass">
+                    <span id="indicator3">Password</span>
                 </label>
-                
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();'/>
-                    <span id="indicator2">Confirm password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="donConfirmPassInput" onkeyup='donCheck();' name="don_confirmPass">
+                    <span id="indicator4">Confirm password</span>
                 </label>
                 
                 <button type="submit" id="button">Sign up</button>
