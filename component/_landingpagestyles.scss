@@ -1,6 +1,6 @@
 @use "../abstract/index.scss" as *;
 
-body {
+.landingPageBody {
     height: 100vh;
     overflow: hidden;
     background: rgb(255,255,255);
@@ -288,7 +288,7 @@ body {
         }
     }
 
-    .sidebar {
+    .navigation {
         .menu {
             display: flex;
             align-items: center;
@@ -581,12 +581,13 @@ body {
     padding: 10px 20px;
     border-radius: 20px;
     position: relative;
+    align-items: center;
 
     label {
         position: relative;
 
         input {
-            width: 100%;
+            width: 310px;
             padding: 10px 5px 14px 10px;
             outline: 0;
             border: 1px solid rgba(105, 105, 105, 0.397);
@@ -637,7 +638,7 @@ body {
         }
     }
 
-    .submit {
+    button {
         border: none;
         outline: none;
         background-color: #A00608;;

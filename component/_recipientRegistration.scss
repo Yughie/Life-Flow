@@ -1,0 +1,165 @@
+@use "../abstract/index.scss" as *;
+
+.recipientRegistrationBody {
+    background-color: white;
+}
+
+.nav-bar {
+    background-color: #A00608;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 4;
+
+
+    .toggle {
+       display: none;
+       position: absolute;
+       right: 10px;
+       height: 60px;
+    }
+
+    .menuButton {
+        scale: 0.5;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 13%;
+        color: #090909;
+        width: 3.5em;
+        height: 3.5em;
+        border-radius: 0.5em;
+        background: #b41417;
+        border: 1px solid #c9191c;
+        transition: all .3s;
+        box-shadow: 6px 6px 12px #861315,
+                   -6px -6px 12px #be1e20;
+
+        &:hover {
+            border: 1px solid rgb(212, 67, 70);
+            box-shadow: 8px 8px 14px #861315,
+                   -8px -8px 14px #be1e20;
+            scale: 0.502;
+        }
+
+        &:active {
+            color: #666;
+            box-shadow: inset 4px 4px 12px #861315,
+                       inset -4px -4px 12px #be1e20;
+        }
+
+        span {
+            width: 30px;
+            height: 4px;
+            background: #ffffff;
+            border-radius: 100px;
+            transition: 0.3s ease;
+        }
+
+        input[type = "checkbox"] {
+            appearance: none;
+            display: none;
+            visibility: hidden;
+        
+            &:checked ~ span.top {
+                transform: translateY(290%)rotate(45deg);
+                width: 40px;
+            }
+                
+            &:checked ~ span.bot {
+                transform: translateY(-270%) rotate(-45deg);
+                width: 40px;
+                box-shadow: 0 0 10px #495057;
+            }
+                
+            &:checked ~ span.mid {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+        }
+    }
+
+    .topbar {
+        .menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            letter-spacing: 1.5px;
+            justify-content: center;
+    
+            li{
+                transition: .2s ease-in-out;
+                border-radius: 20px;
+                padding: 5px 15px;
+                margin: 0px 20px;
+    
+                &:hover {
+                    cursor: pointer;
+                    scale: 1.03;
+                    transition: .25s ease-in-out;
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+                }
+    
+                &:after {
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                    opacity: 0;
+                    transition: opacity 0.25s ease-in-out;
+                }
+    
+                &:hover:after {
+                    opacity: 1;
+                }
+    
+                &:hover {
+                    background-color: white;
+                    color: red;
+    
+                    a{
+                        color: red;
+                    }
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+    
+                a {
+                    color: rgb(255, 255, 255);
+                    font-size: 15px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    transition: .2s ease-in-out;
+                    border-radius: 20px;
+                }
+            }
+            
+            div {
+                margin-top: 6px;
+                img {
+                    width: 40px;
+                    margin: 5px 15px;
+    
+                    border-radius: 50px;
+                    &:hover {
+                        scale: 1.03;
+                        transition: .25s ease-in-out;
+                        box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+                    }
+            
+                    &::after {
+                        box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                        opacity: 0;
+                        transition: opacity 0.25s ease-in-out;
+                    }
+            
+                    &:hover::after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

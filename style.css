@@ -479,7 +479,7 @@ h1, h2, h3 {
   border-radius: 25px 0 0 25px;
 }
 
-body {
+.landingPageBody {
   height: 100vh;
   overflow: hidden;
   background: rgb(255, 255, 255);
@@ -722,44 +722,44 @@ body {
   transform: translateX(-20px);
   opacity: 0;
 }
-.nav-bar .sidebar .menu {
+.nav-bar .navigation .menu {
   display: flex;
   align-items: center;
   list-style: none;
   letter-spacing: 1.5px;
   justify-content: center;
 }
-.nav-bar .sidebar .menu li {
+.nav-bar .navigation .menu li {
   transition: 0.2s ease-in-out;
   border-radius: 20px;
   padding: 5px 15px;
   margin: 0px 20px;
 }
-.nav-bar .sidebar .menu li:hover {
+.nav-bar .navigation .menu li:hover {
   cursor: pointer;
   scale: 1.03;
   transition: 0.25s ease-in-out;
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
 }
-.nav-bar .sidebar .menu li:after {
+.nav-bar .navigation .menu li:after {
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
-.nav-bar .sidebar .menu li:hover:after {
+.nav-bar .navigation .menu li:hover:after {
   opacity: 1;
 }
-.nav-bar .sidebar .menu li:hover {
+.nav-bar .navigation .menu li:hover {
   background-color: white;
   color: red;
 }
-.nav-bar .sidebar .menu li:hover a {
+.nav-bar .navigation .menu li:hover a {
   color: red;
 }
-.nav-bar .sidebar .menu li:active {
+.nav-bar .navigation .menu li:active {
   transform: translateY(1px);
 }
-.nav-bar .sidebar .menu li a {
+.nav-bar .navigation .menu li a {
   color: rgb(255, 255, 255);
   font-size: 15px;
   font-weight: 700;
@@ -767,25 +767,25 @@ body {
   transition: 0.2s ease-in-out;
   border-radius: 20px;
 }
-.nav-bar .sidebar .menu div {
+.nav-bar .navigation .menu div {
   margin-top: 6px;
 }
-.nav-bar .sidebar .menu div img {
+.nav-bar .navigation .menu div img {
   width: 40px;
   margin: 5px 15px;
   border-radius: 50px;
 }
-.nav-bar .sidebar .menu div img:hover {
+.nav-bar .navigation .menu div img:hover {
   scale: 1.03;
   transition: 0.25s ease-in-out;
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
 }
-.nav-bar .sidebar .menu div img::after {
+.nav-bar .navigation .menu div img::after {
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
-.nav-bar .sidebar .menu div img:hover::after {
+.nav-bar .navigation .menu div img:hover::after {
   opacity: 1;
 }
 .nav-bar #navmenu {
@@ -972,12 +972,13 @@ body {
   padding: 10px 20px;
   border-radius: 20px;
   position: relative;
+  align-items: center;
 }
 .popup-form label {
   position: relative;
 }
 .popup-form label input {
-  width: 100%;
+  width: 310px;
   padding: 10px 5px 14px 10px;
   outline: 0;
   border: 1px solid rgba(105, 105, 105, 0.397);
@@ -1025,7 +1026,7 @@ body {
   color: royalblue;
   font-weight: 600;
 }
-.popup-form .submit {
+.popup-form button {
   border: none;
   outline: none;
   background-color: #A00608;
@@ -1037,7 +1038,7 @@ body {
   transition: 0.2s ease-in-out;
   width: 120px;
 }
-.popup-form .submit:hover {
+.popup-form button:hover {
   background-color: rgb(106, 175, 172);
   cursor: pointer;
 }
@@ -2731,4 +2732,142 @@ body {
   100% {
     scale: 1;
   }
+}
+
+.recipientRegistrationBody {
+  background-color: white;
+}
+
+.nav-bar {
+  background-color: #A00608;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+}
+.nav-bar .toggle {
+  display: none;
+  position: absolute;
+  right: 10px;
+  height: 60px;
+}
+.nav-bar .menuButton {
+  scale: 0.5;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 13%;
+  color: #090909;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 0.5em;
+  background: #b41417;
+  border: 1px solid #c9191c;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #861315, -6px -6px 12px #be1e20;
+}
+.nav-bar .menuButton:hover {
+  border: 1px solid rgb(212, 67, 70);
+  box-shadow: 8px 8px 14px #861315, -8px -8px 14px #be1e20;
+  scale: 0.502;
+}
+.nav-bar .menuButton:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #861315, inset -4px -4px 12px #be1e20;
+}
+.nav-bar .menuButton span {
+  width: 30px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 100px;
+  transition: 0.3s ease;
+}
+.nav-bar .menuButton input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: none;
+  visibility: hidden;
+}
+.nav-bar .menuButton input[type=checkbox]:checked ~ span.top {
+  transform: translateY(290%) rotate(45deg);
+  width: 40px;
+}
+.nav-bar .menuButton input[type=checkbox]:checked ~ span.bot {
+  transform: translateY(-270%) rotate(-45deg);
+  width: 40px;
+  box-shadow: 0 0 10px #495057;
+}
+.nav-bar .menuButton input[type=checkbox]:checked ~ span.mid {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.nav-bar .topbar .menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  letter-spacing: 1.5px;
+  justify-content: center;
+}
+.nav-bar .topbar .menu li {
+  transition: 0.2s ease-in-out;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin: 0px 20px;
+}
+.nav-bar .topbar .menu li:hover {
+  cursor: pointer;
+  scale: 1.03;
+  transition: 0.25s ease-in-out;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+.nav-bar .topbar .menu li:after {
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.nav-bar .topbar .menu li:hover:after {
+  opacity: 1;
+}
+.nav-bar .topbar .menu li:hover {
+  background-color: white;
+  color: red;
+}
+.nav-bar .topbar .menu li:hover a {
+  color: red;
+}
+.nav-bar .topbar .menu li:active {
+  transform: translateY(1px);
+}
+.nav-bar .topbar .menu li a {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.2s ease-in-out;
+  border-radius: 20px;
+}
+.nav-bar .topbar .menu div {
+  margin-top: 6px;
+}
+.nav-bar .topbar .menu div img {
+  width: 40px;
+  margin: 5px 15px;
+  border-radius: 50px;
+}
+.nav-bar .topbar .menu div img:hover {
+  scale: 1.03;
+  transition: 0.25s ease-in-out;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+.nav-bar .topbar .menu div img::after {
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.nav-bar .topbar .menu div img:hover::after {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */
