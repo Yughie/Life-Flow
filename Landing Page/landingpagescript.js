@@ -108,8 +108,6 @@ function closeLogin() {
     }, 300)
 }
 
-
-
 // checks if password matches
 var check = function() {
     if (document.getElementById('passInput').value == document.getElementById('confirmPassInput').value) {
@@ -120,5 +118,26 @@ var check = function() {
         document.getElementById('indicator2').style.color = 'red';
     }
 }
+
+
+// valide user's input in sign up (to be edited for php)
+var form = document.getElementById("signupForm");
+
+form.addEventListener("submit", function (event) {
+    // Get the input field values
+    var name = document.getElementById("signupName").value;
+    var email = document.getElementById("signupEmail").value;
+
+    // Perform your validation checks
+    if (name === "" || email === "") {
+        // Show error message or popup
+        alert("Please fill in all required fields.");
+        // Prevent form submission
+        event.preventDefault();
+    } else {
+        // Validation passed, redirect to another page
+        window.location.href = "success.html";
+    }
+});
   
-// page loader
+
