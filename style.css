@@ -995,7 +995,12 @@ body {
   top: 15px;
   font-size: 0.9em;
 }
-.recipient-signup-form label .input:focus + span, .recipient-signup-form label .input .form label .input:valid + span {
+.recipient-signup-form label .input:focus + span, .recipient-signup-form label .input .form label {
+  top: 25px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+.recipient-signup-form label .input:valid + span {
   top: 25px;
   font-size: 0.7em;
   font-weight: 600;

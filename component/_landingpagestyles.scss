@@ -602,7 +602,13 @@ body {
                 font-size: 0.9em;
             }
 
-            &:focus + span,.form label .input:valid + span {
+            &:focus + span,.form label {
+                top: 25px;
+                font-size: 0.7em;
+                font-weight: 600;
+            }
+
+            &:valid + span {
                 top: 25px;
                 font-size: 0.7em;
                 font-weight: 600;
