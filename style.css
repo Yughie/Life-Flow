@@ -741,12 +741,12 @@ body {
   transition: 0.25s ease-in-out;
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
 }
-.nav-bar .sidebar .menu li::after {
+.nav-bar .sidebar .menu li:after {
   box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
-.nav-bar .sidebar .menu li:hover::after {
+.nav-bar .sidebar .menu li:hover:after {
   opacity: 1;
 }
 .nav-bar .sidebar .menu li:hover {
@@ -755,6 +755,9 @@ body {
 }
 .nav-bar .sidebar .menu li:hover a {
   color: red;
+}
+.nav-bar .sidebar .menu li:active {
+  transform: translateY(1px);
 }
 .nav-bar .sidebar .menu li a {
   color: rgb(255, 255, 255);
@@ -988,6 +991,9 @@ body {
   font-size: 0.8em;
   cursor: text;
   transition: 0.3s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .popup-form label input:-moz-placeholder-shown + span {
   top: 15px;

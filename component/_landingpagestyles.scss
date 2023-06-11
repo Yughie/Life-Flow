@@ -309,13 +309,13 @@ body {
                     box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
                 }
     
-                &::after {
+                &:after {
                     box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
                     opacity: 0;
                     transition: opacity 0.25s ease-in-out;
                 }
     
-                &:hover::after {
+                &:hover:after {
                     opacity: 1;
                 }
     
@@ -326,6 +326,10 @@ body {
                     a{
                         color: red;
                     }
+                }
+
+                &:active {
+                    transform: translateY(1px);
                 }
     
                 a {
@@ -596,6 +600,7 @@ body {
                 font-size: 0.8em;
                 cursor: text;
                 transition: 0.3s ease;
+                user-select: none;
             }
 
             &:placeholder-shown + span {
