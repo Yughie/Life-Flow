@@ -173,13 +173,13 @@
                 </label>
                 
                 <label>
-                    <input required="" placeholder="" type="password" pattern="{8,16}" class="input">
-                    <span>Password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
+                    <span id="indicator">Password</span>
                 </label>
                 
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input">
-                    <span>Confirm password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" required oninput="checkPasswordMatch()">
+                    <span id="indicator">Confirm password</span>
                 </label>
                 
                 <button class="submit">Sign up</button>
