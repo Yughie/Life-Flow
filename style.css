@@ -2866,6 +2866,64 @@ h1, h2, h3 {
 .nav-bar .navigation .menu div img:hover::after {
   opacity: 1;
 }
+.nav-bar #navmenu {
+  display: none;
+}
+
+@media screen and (max-width: 766px) {
+  #nav {
+    display: block;
+    height: 60px;
+    position: sticky;
+    top: 0px;
+    padding: 0px 0px;
+  }
+  #nav #logoid {
+    padding-left: 15px;
+    padding-top: 4px;
+  }
+  #nav #toggler {
+    display: block;
+    position: absolute;
+    top: 0px;
+  }
+  #nav #topnav {
+    display: none;
+  }
+  #nav #sidenav {
+    background-color: rgba(160, 6, 9, 0.6901960784);
+    height: 100vh;
+    z-index: 4;
+    position: absolute;
+    right: -350px;
+    transition: 0.3s ease-in-out;
+    margin-top: 3px;
+    width: 350px;
+  }
+  #nav #sidenav #navmenu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+  }
+  #nav #sidenav #navmenu .list {
+    margin: 25px 10px;
+    text-align: center;
+  }
+}
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(106, 175, 172);
+}
 
 .transplantRecipient-function_container {
   display: flex;

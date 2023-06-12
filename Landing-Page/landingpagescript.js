@@ -129,4 +129,3 @@ let donCheck = function() {
         document.getElementById('indicator4').style.color = 'red';
     }
 }
-
