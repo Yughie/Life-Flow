@@ -655,6 +655,15 @@ h1, h2, h3 {
   opacity: 1;
 }
 
+.logoPU {
+  padding-left: 15px;
+}
+.logoPU img {
+  width: 135px;
+  border-radius: 10px;
+  padding-top: 4px;
+}
+
 .nav-bar {
   background-color: #A00608;
   height: 60px;
