@@ -676,13 +676,40 @@
         }
     }
 
+    .match-function-container{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+        .match-function{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            width:150px;
+            align-items: center;
+            align-self: center;
+            background-color: $darkBlueGreen;
+            padding: 10px;
+            border-radius: 10px;
+            color: $offWhite;
+            font-size: $font-sm;
+            margin-bottom: 20px;
+            margin-top: -10px;
+            img{
+                width: 40px;
+            }
 
-    .match-button_container{
-        width: 100%;
-        height: 50px;
-        border: 1px dashed yellow;
+            &:hover{
+                background-color: $lightBlueGreen;
+                scale: 1.03;
+            }
+            &:active{
+                background-color: $darkBlueGreen;
+                scale: 1;
+            }
+        }
+    
     }
-
+    
 
 @include breakpoint-down(large){
     .LatestDonorApplication{
