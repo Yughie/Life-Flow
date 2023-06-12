@@ -1,44 +1,262 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Home</title>
-    
+    <title>Life Flow</title>
+    <link rel="icon" type="tab-icon" href="../Images/landing-page-assets/LOGO1x1.png">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"
+        integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI=" crossorigin="anonymous">
+    </script>
 </head>
-<body>
-    <header class="header ">
+
+<body class="landingPageBody">
+    <script src="landingpagescript.js"></script>
+    <div class="loader">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="nav-bar" id="nav">
+        <div class="logo" id="logoid" >
+            <a href="index.html"><img src="../Images/LOGO.png"></a>
+        </div>
+
+        <div class="toggle" id="toggler">
+            <label for="check" class="menuButton">
+                <input type="checkbox" onclick="openSidebar(this.checked);" class="slidecheck" id="check">
+                <span class="top"></span>
+                <span class="mid"></span>
+                <span class="bot"></span>
+            </label>
+        </div>
         
-        <nav>
+        <div class="navigation" id="sidenav">
+            <ul class="menu" id="navmenu">
+                <li class="list"><a href="index.html">home</a></li>
+                <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
+                <li class="list"><a href="#">learn about donation</a></li>
+            </ul>
+        </div>
 
-          <a href="#" class="header__logo">
-            <img class="" src="images/LOGO.png" alt="EasyBank">
-          </a>
+        <div class="navigation" id="topnav">
+            <ul class="menu" id="topnavmenu">
+                <li class="list"><a href="index.html">home</a></li>
+                <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
+                <li class="list"><a href="#">learn about donation</a></li>
+            </ul>
+        </div>
+    </div>
 
-          <div id="btnHamburger" class="header__toggle hide-for-desktop">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <div class="slider">
+        <div class="slides">
+            <input type="radio" checked="" name="btn" id="radio1">
+            <input type="radio" name="btn" id="radio2">
+            <input type="radio" name="btn" id="radio3">
 
-            <div class="header_container ">
-                <div class="header__links hide-for-mobile">
-                    <a href="#">HOME</a>
-                    <a href="#">SIGN UP</a>
-                    <a href="#">LEARN ABOUT DONATION</a>
-                    
+            <div class="slide first">
+                <div class="overlay">
+                    <div class="left">
+                        <div class="heading">
+                            <div class="red">
+                                Sharing Life's Gift:
+                            </div>
+                            Streamlined Organ<br>Donation Management
+                        </div>
+                        <div class="text">
+                            Simplifying the process of sharing the life's gift, we connect donors with recipients seamlessly. Together, we save lives and inspire and hope for a brigther future.
+                        </div>
+                        <button onclick="openSignUp()">Get Started</button>
+                    </div>
+                    <div class="right">
+                        <img src="../Images/landing-page-assets/donate.png">
+                    </div>
                 </div>
-                  <a href="">
-                    <img class="adminButton hide-for-mobile" src="images/adminButton.svg" alt="">
-                  </a>
+                <div class="bg">
+                    <img src="../Images/landing-page-assets/slide1.png">
+                </div>
             </div>
-        </nav>
-    
-        
-      </header>
+            <div class="slide">
+                <div class="overlay">
+                    <div class="left" id="lft2">
+                        <div class="heading" id="hd2">
+                            <div class="red">
+                                Donate Organ:
+                            </div>
+                            Saving Lives
+                        </div>
+                        <div class="text" id="txt2">
+                            Make a life-saving difference by becoming an organ donor. Your selfless act can bring hope to those in need. Each year, thousands of lives are transformed through organ transplantation. Join the cause and give the gift of life.
+                        </div>
+                        <button onclick="openSignUp()">Get Started</button>
+                    </div>
+                    <div class="right">
+                        <img src="../Images/landing-page-assets/organ donate.png">
+                    </div>
+                </div>
+                <div class="bg">
+                    <img src="../Images/landing-page-assets/slide2.png">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="overlay">
+                    <div class="left" id="lft3">
+                        <div class="heading" id="hd3">
+                            <div class="red">
+                                Donate Blood:
+                            </div>
+                            Give Life, Give Blood
+                        </div>
+                        <div class="text" id="txt3">
+                            Donate blood and make a direct impact on someone's life. Every drop counts. Blood donations are crucial for medical emergencies, surgeries, and treating various conditions. Your generosity can provide hope and healing to those in need. Join the cause and become a blood donor today.
+                        </div>
+                        <button onclick="openSignUp()">Get Started</button>
+                    </div>
+                    <div class="right">
+                        <img src="../Images/landing-page-assets/blood donate.png" class="img2">
+                    </div>
+                </div>
+                <div class="bg">
+                    <img src="../Images/landing-page-assets/slide3.png">
+                </div>
+            </div>
+        </div>
 
-    <script src="app/script.json"></script>
+        <div class="manual-nav">
+            <label for="radio1" class="manual-btn" id="manual-btn1"></label>
+            <label for="radio2" class="manual-btn" id="manual-btn2"></label>
+            <label for="radio3" class="manual-btn" id="manual-btn3"></label>
+        </div>
+    </div>
+
+    <div class="signuppopup" id="signup">
+        <div class="su-top">
+            <p>Select a role to proceed with the registration process</p>
+            <button id="signupclosebtn" class="close-btn" onclick="closeSignUp()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
+        </div>
+        <div class="su-btm">
+
+            <div class="sides" id="recipntside"  onclick="openRecReg()">
+                <h1 id="recH1">RECIPIENT</h1>
+                <p>By signing up as a recipient, you've taken a significant step towards finding a compatible donor</p>
+            </div>
+
+            <div class="sides" id="donorside" onclick="openDonReg()">
+                <h1 id="donH1">DONOR</h1>
+                <p>Welcome, potential donor! Your registration brings hope for life-saving transplants. Let's make a different together!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="recipReg">
+        <div class="popup-left">
+            <div class="logoPU" id="logopopup">
+                <a href="#"><img src="../Images/LOGO.png"></a>
+            </div>
+            <h1>Hey there!</h1>
+            <p>build your account</p>
+            <form class="popup-form" action="process_signup.php" method="POST">
+                <label>
+                    <input required="" placeholder="" type="text" minlength="5" class="input" name="recip_username">
+                    <span>Username</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="email" class="input" name="recip_email">
+                    <span>Email</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput" name="recip_pass">
+                    <span id="indicator">Password</span>
+                </label>  
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();' name="recip_confirmPass"/>
+                    <span id="indicator2">Confirm password</span>
+                </label>           
+                <button type="submit" id="button">Sign up</button>    
+                <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
+            </form>
+        </div>
+        <div class="rec-reg-right">
+            <button id="signupclosebtn" class="close-btn" onclick="closeRecReg()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
+            <img src="..\Images\landing-page-assets\popups-assets\login side.png"></a>
+        </div>
+    </div>
+
+    <div class="popup" id="donReg">
+        <div class="popup-left">
+            <div class="logoPU" id="logopopup">
+                <a href="#"><img src="../Images/LOGO.png"></a>
+            </div>
+            <h1>Hey there!</h1>
+            <p>build your account</p>
+            <form class="popup-form" action="process_signup.php" method="POST">
+                <label>
+                    <input required="" placeholder="" type="text" minlength="5" class="input" name="don_username">
+                    <span>Username</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="email" class="input" name="don_email">
+                    <span>Email</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="donPassInput"  name="don_pass">
+                    <span id="indicator3">Password</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="donConfirmPassInput" onkeyup='donCheck();' name="don_confirmPass">
+                    <span id="indicator4">Confirm password</span>
+                </label>
+                
+                <button type="submit" id="button">Sign up</button>
+                
+                <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
+            </form>
+        </div>
+        <div class="rec-reg-right">
+            <button id="donsignupclosebtn" class="close-btn" onclick="closeDonReg()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
+            <img src="..\Images\landing-page-assets\popups-assets\login side.png"></a>
+        </div>
+    </div>
+
+    <div class="popup" id="login">
+        <div class="popup-left" id="loginLeft">
+            <div class="logo" id="logoid">
+                <a href="#"><img src="../Images/LOGO.png"></a>
+            </div>
+            <h1>Hi there!</h1>
+            <p>sign in to your account</p>
+            <div class="loginFormContainer">
+                <form class="popup-form" id="loginForm">
+                    <label>
+                        <input required="" placeholder="" type="text" minlength="5" class="input">
+                        <span>Username</span>
+                    </label>
+                    
+                    <label>
+                        <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
+                        <span id="indicator">Password</span>
+                    </label>
+                    
+                    <button type="submit" id="button">Sign in</button>
+                    
+                    <p class="signin">Don't have an acount? <a href="#" onclick="openRecReg()">Sign up</a></p>
+                </form>
+            </div>
+        </div>
+        <div class="rec-reg-right">
+            <button id="signupclosebtn" class="close-btn" onclick="closeLogin()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
+            <img src="..\Images\landing-page-assets\popups-assets\login side.png"></a>
+        </div>
+    </div>
 </body>
+
 </html>
