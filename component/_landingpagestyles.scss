@@ -593,7 +593,7 @@
             border: 1px solid rgba(105, 105, 105, 0.397);
             border-radius: 10px;
 
-            &+ span {
+            & + span {
                 position: absolute;
                 left: 10px;
                 top: 15px;
@@ -609,7 +609,7 @@
                 font-size: 0.9em;
             }
 
-            &:focus + span,.form label {
+            &:focus + span, .form label {
                 top: 25px;
                 font-size: 0.7em;
                 font-weight: 600;
@@ -619,9 +619,6 @@
                 top: 25px;
                 font-size: 0.7em;
                 font-weight: 600;
-            }
-
-            &:valid + span {
                 color: rgb(12, 173, 138);
             }
         }
