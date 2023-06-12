@@ -3,6 +3,13 @@
 @include breakpoint-down(medium){
 }
 
+
+.hide-radio{
+    position: absolute;
+     opacity: 0;
+     pointer-events: none;
+}
+
 .bloodType_Container{
     display: flex;
     width: 100%;
