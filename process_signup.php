@@ -31,7 +31,7 @@ if ($recip_username && $recip_email && $recip_pass && $recip_pass === $recip_con
     if (mysqli_num_rows($query) > 0) {
         // Username already taken
         echo "<script language='javascript'>alert('Username is already taken. Please choose a different username.')</script>";
-        echo "<script>window.location.href='Landing-Page.html';</script>";
+        echo "<script>window.location.href='index.html';</script>";
     } else {
         // Insert into the table
         $query = mysqli_query($connect, "INSERT INTO recipientsignup_tbl(recip_username, recip_email, recip_pass) VALUES('$recip_username', '$recip_email', '$recip_pass')");
@@ -42,7 +42,7 @@ if ($recip_username && $recip_email && $recip_pass && $recip_pass === $recip_con
 // if passwords don't match
 if ($recip_username && $recip_email && $recip_pass && $recip_pass !== $recip_confirmPass) {
     echo "<script language='javascript'>alert('Passwords do not match, please try again.')</script>";
-    echo "<script>window.location.href='Landing-Page.html';</script>";
+    echo "<script>window.location.href='index.html';</script>";
 }
 
 // ------------ DONOR SIGN UP ------------ //
@@ -52,7 +52,7 @@ if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) 
     if (mysqli_num_rows($query) > 0) {
         // Username already taken
         echo "<script language='javascript'>alert('Username is already taken. Please choose a different username.')</script>";
-        echo "<script>window.location.href='Landing-Page.html';</script>";
+        echo "<script>window.location.href='index.html';</script>";
     } else {
         // Insert into the table
         $query = mysqli_query($connect, "INSERT INTO donorsignup_tbl(don_username, don_email, don_pass) VALUES('$don_username', '$don_email', '$don_pass')");
