@@ -3733,4 +3733,78 @@ h1, h2, h3 {
 .match-function-container .match-function:active {
   background-color: #136371;
   scale: 1;
+}
+
+#topnav {
+  display: flex;
+}
+#topnav .dp {
+  display: flex;
+  align-items: center;
+}
+#topnav .dp img {
+  margin-right: 15px;
+  height: 45px;
+}
+
+.organordon {
+  display: flex;
+  margin: 0px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.organordon p.organordontxt {
+  margin-top: 4px;
+  margin-left: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #A00608;
+}
+
+.intro {
+  text-indent: 20px;
+  text-align: justify;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 15px 0px;
+}
+.intro .driverlicense {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0px;
+}
+.intro .driverlicense img {
+  width: 500px;
+  border-radius: 25px;
+}
+.intro .introtxt {
+  background-color: rgb(182, 206, 206);
+  border-radius: 10px;
+  padding: 10px;
+}
+.intro .registerbtn {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.intro .registerbtn #registerbtn {
+  border: none;
+  outline: none;
+  background-color: #A00608;
+  padding: 10px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+  transition: 0.2s ease-in-out;
+  width: 220px;
+}
+.intro .registerbtn #registerbtn:hover {
+  background-color: rgb(106, 175, 172);
+  cursor: pointer;
+  scale: 1.02;
+}
+
+#txt1 {
+  margin-top: -20px;
 }/*# sourceMappingURL=style.css.map */
