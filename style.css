@@ -2804,10 +2804,6 @@ h1, h2, h3 {
   transform: translateX(-20px);
   opacity: 0;
 }
-.nav-bar .navigation {
-  display: flex;
-  align-items: center;
-}
 .nav-bar .navigation .menu {
   display: flex;
   align-items: center;
