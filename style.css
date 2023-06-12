@@ -2588,9 +2588,6 @@ h1, h2, h3 {
   border: 1px solid black;
   background-color: #860909;
 }
-.admintransfusion__contentTitle * {
-  border: 1px dashed yellow;
-}
 .admintransfusion__contentTitle__ID {
   width: 100px;
 }
@@ -3701,8 +3698,34 @@ h1, h2, h3 {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
-.match-button_container {
-  width: 100%;
-  height: 50px;
-  border: 1px dashed yellow;
+.match-function-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.match-function-container .match-function {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 150px;
+  align-items: center;
+  align-self: center;
+  background-color: #136371;
+  padding: 10px;
+  border-radius: 10px;
+  color: #e9e9e9;
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+.match-function-container .match-function img {
+  width: 40px;
+}
+.match-function-container .match-function:hover {
+  background-color: #6AAFAC;
+  scale: 1.03;
+}
+.match-function-container .match-function:active {
+  background-color: #136371;
+  scale: 1;
 }/*# sourceMappingURL=style.css.map */
