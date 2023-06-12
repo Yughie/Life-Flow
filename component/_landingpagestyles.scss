@@ -409,7 +409,7 @@
         border-radius: 20px;
 
         .sides {
-            background-image: url('../Images/landing-page-assets/popups-assets/fltr recipient side.png');
+            background-image: url('Images/landing-page-assets/popups-assets/fltr donor side.png');
             background-size: 100%;
             background-position: center;
             border-radius: 20px 0px 0px 20px;
@@ -449,7 +449,7 @@
         }
 
         #donorside {
-            background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
+            background-image: url("Images/landing-page-assets/popups-assets/fltr donor side.png");
             border-radius: 0px 20px 20px 0px;
         }
     }
@@ -627,18 +627,7 @@
         }
     }
 
-    .signin {
-        color: rgba(88, 87, 87, 0.822);
-        font-size: 144px;
-        text-align: center;
-
-        a {
-            color: royalblue;
-            font-weight: 600;
-        }
-    }
-
-    button {
+    #button {
         border: none;
         outline: none;
         background-color: #A00608;;
@@ -652,6 +641,17 @@
         &:hover {
             background-color: rgb(106, 175, 172);
             cursor: pointer;
+        }
+    }
+
+    .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 144px;
+        text-align: center;
+
+        a {
+            color: royalblue;
+            font-weight: 600;
         }
     }
 }
