@@ -6,3 +6,4 @@ function openSidebar(selected) {
         document.getElementById("sidenav").style.right = "";
     }
 }
+
