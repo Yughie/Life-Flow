@@ -2,7 +2,9 @@
 
 .recipientRegistrationBody {
     background-color: white;
+    overflow-x: hidden;
 }
+
 
 .nav-bar {
     background-color: #A00608;
@@ -10,8 +12,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 4;
-
+    position: sticky;
+    top: 0px;
+    padding: 0px 0px;
 
     .toggle {
        display: none;
@@ -82,7 +85,7 @@
         }
     }
 
-    .topbar {
+    .navigation {
         .menu {
             display: flex;
             align-items: center;
@@ -162,5 +165,73 @@
             }
         }
     }
+
+    #navmenu{
+        display: none;
+    }
 }
 
+@media screen and (max-width: 766px) {
+    #nav {
+        display: block;
+        height: 60px;
+        position: sticky;
+        top: 0px;
+        padding: 0px 0px;
+
+        #logoid {
+            padding-left: 15px;
+            padding-top: 4px;
+        }
+
+        #toggler {
+            display: block;
+            position: absolute;
+            top: 0px;
+        }
+
+        #topnav {
+            display: none;
+        }
+
+        #sidenav {
+            background-color: #a00609b0;
+            height: 100vh;
+            z-index: 4;
+            position: absolute;
+            right: -350px;
+            transition: 0.3s ease-in-out;
+            margin-top: 3px;
+            width: 350px;
+
+
+            #navmenu {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 0px;
+                margin: 0px;
+                .list {
+                    margin: 25px 10px;
+                    text-align: center;
+                }
+            }   
+        }
+    }
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: #ffffff;
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color:rgb(106, 175, 172);
+}

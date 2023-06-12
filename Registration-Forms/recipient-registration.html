@@ -11,19 +11,38 @@
 </head>
 
 <body class="recipientRegistrationBody">
+    <script src="recipientregistrationscript.js"></script>
     <div class="nav-bar" id="nav">
         <div class="logo" id="logoid" >
             <a href="/Landing-Page/Landing-Page.html"><img src="../Images/LOGO.png"></a>
         </div>
-        <div class="topbar" id="topnav">
+        <div class="toggle" id="toggler">
+            <label for="check" class="menuButton">
+                <input type="checkbox" onclick="openSidebar(this.checked);" class="slidecheck" id="check">
+                <span class="top"></span>
+                <span class="mid"></span>
+                <span class="bot"></span>
+            </label>
+        </div>
+        <div class="navigation" id="sidenav">
+            <ul class="menu" id="navmenu">
+                <li class="list"><a href="../Landing-Page/Landing-Page.html">home</a></li>
+                <li class="list"><a href="#">learn about donation</a></li>
+            </ul>
+        </div>
+        <div class="navigation" id="topnav">
             <ul class="menu" id="topnavmenu">
                 <li class="list"><a href="/Landing-Page/Landing-Page.html">home</a></li>
                 <li class="list"><a href="#">learn about donation</a></li>
             </ul>
         </div>
-
-        
     </div>
+
+    <form action="process_signup.php" method="POST">
+            <h1>recipient registration form</h1>
+            <p>Personal Information</p>
+    </form>
+
 </body>
 
 </html>

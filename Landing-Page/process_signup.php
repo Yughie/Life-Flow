@@ -25,25 +25,44 @@ if (mysqli_connect_errno()) {
 }
 
 // ------------ RECIPIENT SIGN UP ------------ //
-// insert user input into table
+// check if the recipient username already exists
 if ($recip_username && $recip_email && $recip_pass && $recip_pass === $recip_confirmPass) {
-    $query = mysqli_query($connect, "INSERT INTO recipientsignup_tbl(recip_username, recip_email, recip_pass) VALUES('$recip_username', '$recip_email', '$recip_pass')");
-    echo "<script>window.location.href='../Registration-Forms/recipient-registration.html';</script>";
-} 
+    $query = mysqli_query($connect, "SELECT * FROM recipientsignup_tbl WHERE recip_username='$recip_username'");
+    if (mysqli_num_rows($query) > 0) {
+        // Username already taken
+        echo "<script language='javascript'>alert('Username is already taken. Please choose a different username.')</script>";
+        echo "<script>window.location.href='Landing-Page.html';</script>";
+    } else {
+        // Insert into the table
+        $query = mysqli_query($connect, "INSERT INTO recipientsignup_tbl(recip_username, recip_email, recip_pass) VALUES('$recip_username', '$recip_email', '$recip_pass')");
+        echo "<script>window.location.href='../Registration-Forms/recipient-registration.html';</script>";
+    }
+}
 
+// if passwords don't match
 if ($recip_username && $recip_email && $recip_pass && $recip_pass !== $recip_confirmPass) {
     echo "<script language='javascript'>alert('Passwords do not match, please try again.')</script>";
     echo "<script>window.location.href='Landing-Page.html';</script>";
-} 
+}
 
 // ------------ DONOR SIGN UP ------------ //
+// check if the donor username already exists
 if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) {
-    $query = mysqli_query($connect, "INSERT INTO donorsignup_tbl(don_username, don_email, don_pass) VALUES('$don_username', '$don_email', '$don_pass')");
-    echo "<script>window.location.href='../Registration-Forms/donor-registration.html';</script>";
-} 
+    $query = mysqli_query($connect, "SELECT * FROM donorsignup_tbl WHERE don_username='$don_username'");
+    if (mysqli_num_rows($query) > 0) {
+        // Username already taken
+        echo "<script language='javascript'>alert('Username is already taken. Please choose a different username.')</script>";
+        echo "<script>window.location.href='Landing-Page.html';</script>";
+    } else {
+        // Insert into the table
+        $query = mysqli_query($connect, "INSERT INTO donorsignup_tbl(don_username, don_email, don_pass) VALUES('$don_username', '$don_email', '$don_pass')");
+        echo "<script>window.location.href='../Registration-Forms/donor-registration.html';</script>";
+    }
+}
 
+// if passwords don't match
 if ($don_username && $don_email && $don_pass && $don_pass !== $don_confirmPass) {
     echo "<script language='javascript'>alert('Passwords do not match, please try again.')</script>";
-    echo "<script>window.location.href='Landing-Page.html';</script>";
-} 
+}
+
 ?>
