@@ -1,0 +1,693 @@
+@use "../abstract/index.scss" as *;
+
+
+.transplantRecipient-function_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 50px -10px 50px;
+    transition: all 400ms ease-in-out;
+    
+
+
+    // RECIPIENT FUNCTION CONTAINER(SEARCH, FILTER, SORT)
+    .transplantRecipient-select-function_container{
+        display: flex;
+        align-items: center;
+        /*{
+            border: 1px dashed blue;
+        }*/
+        .transplantRecipient-search-function{
+           
+            margin-bottom: -10px;
+            
+            .transplantRecipient-search-input{
+                background-image: url("../Images/DonorApplicant/icon-search.svg");
+                background-position: 10px 0px;
+                background-repeat: no-repeat;
+                padding-left: 40px;
+                width: 150px;
+                height: 30px;
+                font-size: $font-med;
+                border: none;
+                border-radius: 20px;
+                cursor: text;
+                margin-right: 20px;
+                transition: 100ms ease-in-out;
+                background-color: rgb(211, 208, 208);
+                border-radius: $darkBlueGreen;
+                
+                &:hover{
+                   // border: 1px solid $lightBlueGreen;
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
+                &:focus{
+                    //border: 1px solid $lightBlueGreen;
+                    transform: scale(1.03);
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
+                
+            }
+
+        }
+        .transplantRecipient-filter-function{   
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5;
+            margin-bottom: -10px;
+            margin-right: 20px;
+            border: 1px solid;
+            cursor: pointer;
+            padding: 5px;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: $font-med;
+            color: $offBlack;
+
+            .transplantRecipient-filter-function-icon{
+                width: 25px;
+                height: 25px;
+                fill: $offBlack;
+            }
+
+            &:hover{
+                 color: $lightBlueGreen;
+                 border: 2px solid $darkBlueGreen;
+                 box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                 .transplantRecipient-filter-function-icon{
+                    fill: $lightBlueGreen;
+                    
+                    
+                 }
+             }
+             &:active{
+                 transform: scale(1.03);
+                 color: $darkBlueGreen;
+                 
+                 .transplantRecipient-filter-function-icon{
+                    fill: $darkBlueGreen;
+                 }
+             }
+            
+        }
+        .transplantRecipient-sort-function{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -10px;
+            margin-right: 20px;
+            cursor: pointer;
+            border: 1px solid;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            font-size: $font-med;
+            
+
+            .transplantRecipient-sort-function-icon{
+                width: 30px;
+                height: 30px;
+            }
+
+            &:hover{
+                color: $lightBlueGreen;
+                border: 2px solid $darkBlueGreen;
+                box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                .sort-icon-function{
+                   fill: $lightBlueGreen;
+                   
+                }
+            }
+            &:active{
+                transform: scale(1.03);
+                color: $darkBlueGreen;
+                
+                .transplantRecipient-sort-function-icon{
+                   fill: $darkBlueGreen;
+                }
+            }
+
+        }
+    }
+
+
+    // RECIPIENT FUNCTION CONTAINER(SEARCH, FILTER, SORT)
+    .transplantDonor-select-function_container{
+        display: flex;
+        align-items: center;
+        /*{
+            border: 1px dashed blue;
+        }*/
+        .transplantDonor-search-function{
+           
+            margin-bottom: -10px;
+            
+            .transplantDonor-search-input{
+                background-image: url("../Images/DonorApplicant/icon-search.svg");
+                background-position: 10px 0px;
+                background-repeat: no-repeat;
+                padding-left: 40px;
+                width: 150px;
+                height: 30px;
+                font-size: $font-med;
+                border: none;
+                border-radius: 20px;
+                cursor: text;
+                margin-right: 20px;
+                transition: 100ms ease-in-out;
+                background-color: rgb(211, 208, 208);
+                border-radius: $darkBlueGreen;
+                
+                &:hover{
+                   // border: 1px solid $lightBlueGreen;
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
+                &:focus{
+                    //border: 1px solid $lightBlueGreen;
+                    transform: scale(1.03);
+                    color: $darkBlueGreen;
+                    box-shadow: 0px 0px 10px 0px $darkBlueGreen;
+                }
+                
+            }
+
+        }
+        .transplantDonor-filter-function{   
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5;
+            margin-bottom: -10px;
+            margin-right: 20px;
+            border: 1px solid;
+            cursor: pointer;
+            padding: 5px;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: $font-med;
+            color: $offBlack;
+
+            .transplantDonor-filter-function-icon{
+                width: 25px;
+                height: 25px;
+                fill: $offBlack;
+            }
+
+            &:hover{
+                 color: $lightBlueGreen;
+                 border: 2px solid $darkBlueGreen;
+                 box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                 .transplantDonor-filter-function-icon{
+                    fill: $lightBlueGreen;
+                    
+                    
+                 }
+             }
+             &:active{
+                 transform: scale(1.03);
+                 color: $darkBlueGreen;
+                 
+                 .transplantDonor-filter-function-icon{
+                    fill: $darkBlueGreen;
+                 }
+             }
+            
+        }
+        .transplantDonor-sort-function{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -10px;
+            margin-right: 20px;
+            cursor: pointer;
+            border: 1px solid;
+            width: 140px;
+            height: 35px;
+            border-radius: 10px;
+            font-size: $font-med;
+            
+
+            .transplantDonor-sort-function-icon{
+                width: 30px;
+                height: 30px;
+            }
+
+            &:hover{
+                color: $lightBlueGreen;
+                border: 2px solid $darkBlueGreen;
+                box-shadow: 0px 0px 5px 0px $lightBlueGreen;
+                .sort-icon-function{
+                   fill: $lightBlueGreen;
+                   
+                }
+            }
+            &:active{
+                transform: scale(1.03);
+                color: $darkBlueGreen;
+                
+                .transplantDonor-sort-function-icon{
+                   fill: $darkBlueGreen;
+                }
+            }
+
+        }
+    }
+}
+@include breakpoint-down(medium){
+    .adminDashboardContent{
+        width: 43em;
+    }
+    .transplantRecipient-function_container{
+        margin-left: -20px;
+        .transplantRecipient-select-function_container{
+            scale: 0.7;
+        }
+
+        .transplantDonor-select-function_container{
+            scale: 0.7;
+            margin-left: -130px;
+        }
+        .transplantDonor-function-container{
+            margin-left: 100px;
+        }
+    }   
+}
+
+
+
+
+
+
+/************************ADMIN transplantRecipient*********************/
+.admintransplantRecipient{
+    display: flex;
+    flex-direction: row;
+    background-color: $darkBlueGreen;
+    border-radius: 20px;
+    margin: 30px;
+    //display: block;
+    height: 75vh;
+    min-width: 710px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+
+    
+    //CONTENT TITLE's
+    &__contentTitle{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 0px 30px;
+        color: $offWhite;
+        font-size: $font-sm;
+        border: 1px solid black;
+        background-color: $primaryRed;
+
+        &__ID{
+        width: 100px;
+        }
+        &__Profile{
+        width: 220px;
+        }
+        &__Contact{
+            width: 150px;
+            margin-left:  5px;
+        }
+        &__BloodType{
+            width: 80px;
+           
+           margin-left:  5px;
+        }
+        &__Organ{
+            width: 70px;
+            
+        }
+        &__DateRequired{
+            width: 110px;
+        }
+        &__Status{
+            
+        }
+        &__empty{
+            width: 140px;
+        }
+        
+    }
+
+    .transplant-content-container{
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        min-width: inherit;
+
+    }
+
+
+
+
+    //CONTAINER RECIPIENT
+    .transplantRecipient_container{
+    display: block;
+    width: 50%;
+    overflow-y: auto;
+    white-space: nowrap;
+    border-radius: 15px;
+    
+        &::-webkit-scrollbar {
+            width: 1em;
+            border-radius: 15px;
+           
+        }
+        &::-webkit-scrollbar-track {
+            
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+            border-radius: 15px;
+            
+        }
+
+
+        .transplantRecipient{
+            display: flex;
+            align-items: center;
+            //justify-content: space-between;
+            background-color: $offWhite;
+            margin: 10px 30px;
+            border-radius: 15px;
+            max-height: 100px;
+            min-height: 100px;
+            min-width: 445px;
+            
+            /************************DATABASEEEEEE***************************/
+
+            &__profile{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                min-height: 100px;
+            }
+            //DATE AND ID
+            &__order{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &__applicationdate{
+                    color: $offGrey;
+                    font-size: $font-sm;
+                    
+                    
+                }
+                &__ID{
+                    font-size: 25px;
+                    margin-left: 20px;
+                }
+            }
+
+            
+            
+
+            //PERSONAL INFORMATION
+            &__personal{
+                display: flex;
+                align-items: center;
+                &__Image{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+                &__name{
+                    font-size: $font-sm;
+                }
+                &__age{
+                    font-size: 12px;
+                    color: $offGrey;
+                }
+                &__sex{
+                    font-size: 12px;
+                    color: $offGrey;
+                }
+            }
+            //CONTACT INFORMATION
+
+            //Blood TYPE 
+            &__bloodtype{
+                color: $primaryRed;
+                font-size: $font-lg;
+            }
+
+            //ORGAN TYPE
+            &__Organ{
+                width: 40px;
+                height: 40px;
+            }
+            //DATE REQUERED
+            &__daterequired{
+                //color: $offGrey
+                font-size: $font-sm;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $offGrey;
+            }
+            //transplantRecipient STATUS
+            &__status{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 1px solid $darkBlueGreen;
+                background-color: yellow;
+            }
+
+
+           /******************FUNCTIONS**********************/
+           .transplantRecipient-function-container{
+                
+            .transplantRecipient-edit{
+                width: 40px;
+                height: 40px;
+                margin-top: 8px;
+                cursor: pointer;
+                &:hover{
+                    filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
+                    transform: scale(1.03);
+                }
+                &:active{
+                    filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+                }
+                
+            }
+            .transplantRecipient-delete{
+                width: 40px;
+                height: 40px;
+                margin-top: 8px;
+                cursor: pointer;
+                &:hover{
+                    filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
+                    transform: scale(1.03);
+                }
+                &:active{
+                    filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+                }
+            }
+
+
+           }
+
+        }
+    }
+}
+
+
+
+
+/************************TRANSPLANT DONORS*********************************/
+
+.transplantDonor_container{
+    display: block;
+    width: 50%;
+    overflow-y: auto;
+    white-space: nowrap;
+    border-radius: 15px;
+    
+        &::-webkit-scrollbar {
+            width: 1em;
+            border-radius: 15px;
+           
+        }
+        &::-webkit-scrollbar-track {
+            
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+            border-radius: 15px;
+            
+        }
+
+
+        .transplantDonor{
+            display: flex;
+            align-items: center;
+            //justify-content: space-between;
+            background-color: $offWhite;
+            margin: 10px 30px;
+            border-radius: 15px;
+            max-height: 100px;
+            min-height: 100px;
+            min-width: 445px;
+            
+            /************************DATABASEEEEEE***************************/
+
+            &__profile{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+                min-height: 100px;
+            }
+            //DATE AND ID
+            &__order{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &__applicationdate{
+                    color: $offGrey;
+                    font-size: $font-sm;
+                    
+                    
+                }
+                &__ID{
+                    font-size: 25px;
+                    margin-left: 20px;
+                }
+            }
+
+            
+            
+
+            //PERSONAL INFORMATION
+            &__personal{
+                display: flex;
+                align-items: center;
+                &__Image{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+                &__name{
+                    font-size: $font-sm;
+                }
+                &__age{
+                    font-size: 12px;
+                    color: $offGrey;
+                }
+                &__sex{
+                    font-size: 12px;
+                    color: $offGrey;
+                }
+            }
+            //CONTACT INFORMATION
+
+            //Blood TYPE 
+            &__bloodtype{
+                color: $primaryRed;
+                font-size: $font-lg;
+            }
+
+            //ORGAN TYPE
+            &__Organ{
+                width: 40px;
+                height: 40px;
+            }
+            //DATE REQUERED
+            &__daterequired{
+                //color: $offGrey
+                font-size: $font-sm;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $offGrey;
+            }
+            //transplantDonor STATUS
+            &__status{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                border: 1px solid $darkBlueGreen;
+                background-color: yellow;
+            }
+
+
+           /******************FUNCTIONS**********************/
+           .transplantDonor-function-container{
+                
+            .transplantDonor-edit{
+                width: 40px;
+                height: 40px;
+                margin-top: 8px;
+                cursor: pointer;
+                &:hover{
+                    filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
+                    transform: scale(1.03);
+                }
+                &:active{
+                    filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+                }
+                
+            }
+            .transplantRecipient-delete{
+                width: 40px;
+                height: 40px;
+                margin-top: 8px;
+                cursor: pointer;
+                &:hover{
+                    filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%); 
+                    transform: scale(1.03);
+                }
+                &:active{
+                    filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+                }
+            }
+
+
+           }
+
+        }
+    }
+
+
+    .match-button_container{
+        width: 100%;
+        height: 50px;
+        border: 1px dashed yellow;
+    }
+
+
+@include breakpoint-down(large){
+    .LatestDonorApplication{
+        //
+    }
+}
+
+
