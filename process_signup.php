@@ -35,7 +35,7 @@ if ($recip_username && $recip_email && $recip_pass && $recip_pass === $recip_con
     } else {
         // Insert into the table
         $query = mysqli_query($connect, "INSERT INTO recipientsignup_tbl(recip_username, recip_email, recip_pass) VALUES('$recip_username', '$recip_email', '$recip_pass')");
-        echo "<script>window.location.href='../Registration-Forms/recipient-registration.html';</script>";
+        echo "<script>window.location.href='Registration-Forms/recipient-registration.html';</script>";
     }
 }
 
@@ -56,7 +56,7 @@ if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) 
     } else {
         // Insert into the table
         $query = mysqli_query($connect, "INSERT INTO donorsignup_tbl(don_username, don_email, don_pass) VALUES('$don_username', '$don_email', '$don_pass')");
-        echo "<script>window.location.href='../Registration-Forms/donor-registration.html';</script>";
+        echo "<script>window.location.href='Registration-Forms\donor-registration.html';</script>";
     }
 }
 
