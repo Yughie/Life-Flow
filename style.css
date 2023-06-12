@@ -192,7 +192,7 @@ h1, h2, h3 {
   margin: 25px auto 25px auto;
 }
 .adminDashboard .adminNavigation .greeting {
-  font-size: 30px;
+  font-size: 1.125rem;
 }
 .adminDashboard .adminNavigation .greeting h1 {
   margin: 0 auto 25px auto;
@@ -2370,6 +2370,12 @@ h1, h2, h3 {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
+.hide-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .bloodType_Container {
   display: flex;
   width: 100%;
@@ -2860,61 +2866,541 @@ h1, h2, h3 {
 .nav-bar .navigation .menu div img:hover::after {
   opacity: 1;
 }
-.nav-bar #navmenu {
-  display: none;
+
+.transplantRecipient-function_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 50px -10px 50px;
+  transition: all 400ms ease-in-out;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container {
+  display: flex;
+  align-items: center;
+  /*{
+      border: 1px dashed blue;
+  }*/
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-search-function {
+  margin-bottom: -10px;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-search-function .transplantRecipient-search-input {
+  background-image: url("../Images/DonorApplicant/icon-search.svg");
+  background-position: 10px 0px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  width: 150px;
+  height: 30px;
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 20px;
+  cursor: text;
+  margin-right: 20px;
+  transition: 100ms ease-in-out;
+  background-color: rgb(211, 208, 208);
+  border-radius: #136371;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-search-function .transplantRecipient-search-input:hover {
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-search-function .transplantRecipient-search-input:focus {
+  transform: scale(1.03);
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-filter-function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5;
+  margin-bottom: -10px;
+  margin-right: 20px;
+  border: 1px solid;
+  cursor: pointer;
+  padding: 5px;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.125rem;
+  color: #292828;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-filter-function .transplantRecipient-filter-function-icon {
+  width: 25px;
+  height: 25px;
+  fill: #292828;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-filter-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-filter-function:hover .transplantRecipient-filter-function-icon {
+  fill: #6AAFAC;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-filter-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-filter-function:active .transplantRecipient-filter-function-icon {
+  fill: #136371;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-sort-function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -10px;
+  margin-right: 20px;
+  cursor: pointer;
+  border: 1px solid;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 1.125rem;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-sort-function .transplantRecipient-sort-function-icon {
+  width: 30px;
+  height: 30px;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-sort-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-sort-function:hover .sort-icon-function {
+  fill: #6AAFAC;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-sort-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.transplantRecipient-function_container .transplantRecipient-select-function_container .transplantRecipient-sort-function:active .transplantRecipient-sort-function-icon {
+  fill: #136371;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container {
+  display: flex;
+  align-items: center;
+  /*{
+      border: 1px dashed blue;
+  }*/
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-search-function {
+  margin-bottom: -10px;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-search-function .transplantDonor-search-input {
+  background-image: url("../Images/DonorApplicant/icon-search.svg");
+  background-position: 10px 0px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  width: 150px;
+  height: 30px;
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 20px;
+  cursor: text;
+  margin-right: 20px;
+  transition: 100ms ease-in-out;
+  background-color: rgb(211, 208, 208);
+  border-radius: #136371;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-search-function .transplantDonor-search-input:hover {
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-search-function .transplantDonor-search-input:focus {
+  transform: scale(1.03);
+  color: #136371;
+  box-shadow: 0px 0px 10px 0px #136371;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-filter-function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5;
+  margin-bottom: -10px;
+  margin-right: 20px;
+  border: 1px solid;
+  cursor: pointer;
+  padding: 5px;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.125rem;
+  color: #292828;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-filter-function .transplantDonor-filter-function-icon {
+  width: 25px;
+  height: 25px;
+  fill: #292828;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-filter-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-filter-function:hover .transplantDonor-filter-function-icon {
+  fill: #6AAFAC;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-filter-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-filter-function:active .transplantDonor-filter-function-icon {
+  fill: #136371;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-sort-function {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -10px;
+  margin-right: 20px;
+  cursor: pointer;
+  border: 1px solid;
+  width: 140px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 1.125rem;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-sort-function .transplantDonor-sort-function-icon {
+  width: 30px;
+  height: 30px;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-sort-function:hover {
+  color: #6AAFAC;
+  border: 2px solid #136371;
+  box-shadow: 0px 0px 5px 0px #6AAFAC;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-sort-function:hover .sort-icon-function {
+  fill: #6AAFAC;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-sort-function:active {
+  transform: scale(1.03);
+  color: #136371;
+}
+.transplantRecipient-function_container .transplantDonor-select-function_container .transplantDonor-sort-function:active .transplantDonor-sort-function-icon {
+  fill: #136371;
 }
 
-@media screen and (max-width: 766px) {
-  #nav {
-    display: block;
-    height: 60px;
-    position: sticky;
-    top: 0px;
-    padding: 0px 0px;
+@media (max-width: 63.9375em) {
+  .adminDashboardContent {
+    width: 43em;
   }
-  #nav #logoid {
-    padding-left: 15px;
-    padding-top: 4px;
+  .transplantRecipient-function_container {
+    margin-left: -20px;
   }
-  #nav #toggler {
-    display: block;
-    position: absolute;
-    top: 0px;
+  .transplantRecipient-function_container .transplantRecipient-select-function_container {
+    scale: 0.7;
   }
-  #nav #topnav {
-    display: none;
+  .transplantRecipient-function_container .transplantDonor-select-function_container {
+    scale: 0.7;
+    margin-left: -130px;
   }
-  #nav #sidenav {
-    background-color: rgba(160, 6, 9, 0.6901960784);
-    height: 100vh;
-    z-index: 4;
-    position: absolute;
-    right: -350px;
-    transition: 0.3s ease-in-out;
-    margin-top: 3px;
-    width: 350px;
-  }
-  #nav #sidenav #navmenu {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 0px;
-    margin: 0px;
-  }
-  #nav #sidenav #navmenu .list {
-    margin: 25px 10px;
-    text-align: center;
+  .transplantRecipient-function_container .transplantDonor-function-container {
+    margin-left: 100px;
   }
 }
-::-webkit-scrollbar-track {
-  background-color: #ffffff;
+/************************ADMIN transplantRecipient*********************/
+.admintransplantRecipient {
+  display: flex;
+  flex-direction: row;
+  background-color: #136371;
+  border-radius: 20px;
+  margin: 30px;
+  height: 75vh;
+  min-width: 710px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid black;
+}
+.admintransplantRecipient__contentTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0px 30px;
+  color: #e9e9e9;
+  font-size: 0.875rem;
+  border: 1px solid black;
+  background-color: #860909;
+}
+.admintransplantRecipient__contentTitle__ID {
+  width: 100px;
+}
+.admintransplantRecipient__contentTitle__Profile {
+  width: 220px;
+}
+.admintransplantRecipient__contentTitle__Contact {
+  width: 150px;
+  margin-left: 5px;
+}
+.admintransplantRecipient__contentTitle__BloodType {
+  width: 80px;
+  margin-left: 5px;
+}
+.admintransplantRecipient__contentTitle__Organ {
+  width: 70px;
+}
+.admintransplantRecipient__contentTitle__DateRequired {
+  width: 110px;
+}
+.admintransplantRecipient__contentTitle__empty {
+  width: 140px;
+}
+.admintransplantRecipient .transplant-content-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  min-width: inherit;
+}
+.admintransplantRecipient .transplantRecipient_container {
+  display: block;
+  width: 50%;
+  overflow-y: auto;
+  white-space: nowrap;
+  border-radius: 15px;
+}
+.admintransplantRecipient .transplantRecipient_container::-webkit-scrollbar {
+  width: 1em;
+  border-radius: 15px;
+}
+.admintransplantRecipient .transplantRecipient_container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+.admintransplantRecipient .transplantRecipient_container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 15px;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient {
+  display: flex;
+  align-items: center;
+  background-color: #e9e9e9;
+  margin: 10px 30px;
+  border-radius: 15px;
+  max-height: 100px;
+  min-height: 100px;
+  min-width: 445px;
+  /************************DATABASEEEEEE***************************/
+  /******************FUNCTIONS**********************/
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100px;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__order__applicationdate {
+  color: #6d6a6a;
+  font-size: 0.875rem;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__order__ID {
+  font-size: 25px;
+  margin-left: 20px;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__personal {
+  display: flex;
+  align-items: center;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__personal__Image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__personal__name {
+  font-size: 0.875rem;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__personal__age {
+  font-size: 12px;
+  color: #6d6a6a;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__personal__sex {
+  font-size: 12px;
+  color: #6d6a6a;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__bloodtype {
+  color: #860909;
+  font-size: 2.375rem;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__Organ {
+  width: 40px;
+  height: 40px;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__daterequired {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6d6a6a;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient__status {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #136371;
+  background-color: yellow;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient .transplantRecipient-function-container .transplantRecipient-edit {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient .transplantRecipient-function-container .transplantRecipient-edit:hover {
+  filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
+  transform: scale(1.03);
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient .transplantRecipient-function-container .transplantRecipient-edit:active {
+  filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient .transplantRecipient-function-container .transplantRecipient-delete {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient .transplantRecipient-function-container .transplantRecipient-delete:hover {
+  filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
+  transform: scale(1.03);
+}
+.admintransplantRecipient .transplantRecipient_container .transplantRecipient .transplantRecipient-function-container .transplantRecipient-delete:active {
+  filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-  background-color: #ffffff;
+/************************TRANSPLANT DONORS*********************************/
+.transplantDonor_container {
+  display: block;
+  width: 50%;
+  overflow-y: auto;
+  white-space: nowrap;
+  border-radius: 15px;
+}
+.transplantDonor_container::-webkit-scrollbar {
+  width: 1em;
+  border-radius: 15px;
+}
+.transplantDonor_container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+.transplantDonor_container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 15px;
+}
+.transplantDonor_container .transplantDonor {
+  display: flex;
+  align-items: center;
+  background-color: #e9e9e9;
+  margin: 10px 30px;
+  border-radius: 15px;
+  max-height: 100px;
+  min-height: 100px;
+  min-width: 445px;
+  /************************DATABASEEEEEE***************************/
+  /******************FUNCTIONS**********************/
+}
+.transplantDonor_container .transplantDonor__profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 100px;
+}
+.transplantDonor_container .transplantDonor__order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.transplantDonor_container .transplantDonor__order__applicationdate {
+  color: #6d6a6a;
+  font-size: 0.875rem;
+}
+.transplantDonor_container .transplantDonor__order__ID {
+  font-size: 25px;
+  margin-left: 20px;
+}
+.transplantDonor_container .transplantDonor__personal {
+  display: flex;
+  align-items: center;
+}
+.transplantDonor_container .transplantDonor__personal__Image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.transplantDonor_container .transplantDonor__personal__name {
+  font-size: 0.875rem;
+}
+.transplantDonor_container .transplantDonor__personal__age {
+  font-size: 12px;
+  color: #6d6a6a;
+}
+.transplantDonor_container .transplantDonor__personal__sex {
+  font-size: 12px;
+  color: #6d6a6a;
+}
+.transplantDonor_container .transplantDonor__bloodtype {
+  color: #860909;
+  font-size: 2.375rem;
+}
+.transplantDonor_container .transplantDonor__Organ {
+  width: 40px;
+  height: 40px;
+}
+.transplantDonor_container .transplantDonor__daterequired {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6d6a6a;
+}
+.transplantDonor_container .transplantDonor__status {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #136371;
+  background-color: yellow;
+}
+.transplantDonor_container .transplantDonor .transplantDonor-function-container .transplantDonor-edit {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.transplantDonor_container .transplantDonor .transplantDonor-function-container .transplantDonor-edit:hover {
+  filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
+  transform: scale(1.03);
+}
+.transplantDonor_container .transplantDonor .transplantDonor-function-container .transplantDonor-edit:active {
+  filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+}
+.transplantDonor_container .transplantDonor .transplantDonor-function-container .transplantRecipient-delete {
+  width: 40px;
+  height: 40px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.transplantDonor_container .transplantDonor .transplantDonor-function-container .transplantRecipient-delete:hover {
+  filter: invert(17%) sepia(31%) saturate(4340%) hue-rotate(341deg) brightness(82%) contrast(80%);
+  transform: scale(1.03);
+}
+.transplantDonor_container .transplantDonor .transplantDonor-function-container .transplantRecipient-delete:active {
+  filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgb(106, 175, 172);
+.match-button_container {
+  width: 100%;
+  height: 50px;
+  border: 1px dashed yellow;
 }/*# sourceMappingURL=style.css.map */
