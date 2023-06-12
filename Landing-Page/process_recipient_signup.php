@@ -26,20 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     matches = redirect to registration form
     doesn't match = nothing happens
 */
-if ($recip_pass !== $recip_confirmPass) {
-} else {
-    header("Recipient Registration Form/recipient-registration.html");
-    exit();
-}
+
+// no code yet
 
 
 // insert user input into table
 if ($recip_username && $recip_email && $recip_pass) {
     $query = mysqli_query($connect, "INSERT INTO recipient_tbl(recip_username, recip_email, recip_pass) VALUES('$recip_username', '$recip_email', '$recip_pass')");
 }
-
-
-
 ?>
 
 
