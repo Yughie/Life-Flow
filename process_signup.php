@@ -56,7 +56,7 @@ if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) 
     } else {
         // Insert into the table
         $query = mysqli_query($connect, "INSERT INTO donorsignup_tbl(don_username, don_email, don_pass) VALUES('$don_username', '$don_email', '$don_pass')");
-        echo "<script>window.location.href='Registration-Forms\donor-registration.html';</script>";
+        echo "<script>window.location.href='Registration-Forms/recipient-registration.html";
     }
 }
 
