@@ -108,8 +108,8 @@ function closeLogin() {
     }, 300)
 }
 
-// checks if password matches
-var check = function() {
+// checks if recipient password matches (for span indicator)
+let check = function() {
     if (document.getElementById('passInput').value == document.getElementById('confirmPassInput').value) {
         document.getElementById('indicator').style.color = 'rgb(12, 173, 138)';
         document.getElementById('indicator2').style.color = 'rgb(12, 173, 138)';
@@ -119,25 +119,14 @@ var check = function() {
     }
 }
 
-
-// valide user's input in sign up (to be edited for php)
-var form = document.getElementById("signupForm");
-
-form.addEventListener("submit", function (event) {
-    // Get the input field values
-    var name = document.getElementById("signupName").value;
-    var email = document.getElementById("signupEmail").value;
-
-    // Perform your validation checks
-    if (name === "" || email === "") {
-        // Show error message or popup
-        alert("Please fill in all required fields.");
-        // Prevent form submission
-        event.preventDefault();
+// checks if donor password matches (for span indicator)
+let donCheck = function() {
+    if (document.getElementById('donPassInput').value == document.getElementById('donConfirmPassInput').value) {
+        document.getElementById('indicator3').style.color = 'rgb(12, 173, 138)';
+        document.getElementById('indicator4').style.color = 'rgb(12, 173, 138)';
     } else {
-        // Validation passed, redirect to another page
-        window.location.href = "success.html";
+        document.getElementById('indicator3').style.color = 'red';
+        document.getElementById('indicator4').style.color = 'red';
     }
-});
-  
+}
 

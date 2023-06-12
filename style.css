@@ -536,7 +536,7 @@ h1, h2, h3 {
   top: 560px;
   font-style: normal;
   font-weight: 550;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 29px;
   color: #161616;
 }
@@ -824,7 +824,7 @@ h1, h2, h3 {
   border-radius: 20px;
 }
 .signuppopup .su-btm .sides {
-  background-image: url("../Images/landing-page-assets/popups-assets/fltr recipient side.png");
+  background-image: url("Images/landing-page-assets/popups-assets/fltr donor side.png");
   background-size: 100%;
   background-position: center;
   border-radius: 20px 0px 0px 20px;
@@ -856,7 +856,7 @@ h1, h2, h3 {
   text-shadow: 2px 2px 5px rgba(13, 0, 0, 0.5);
 }
 .signuppopup .su-btm #donorside {
-  background-image: url("../Images/landing-page-assets/popups-assets/fltr donor side.png");
+  background-image: url("Images/landing-page-assets/popups-assets/fltr donor side.png");
   border-radius: 0px 20px 20px 0px;
 }
 
@@ -1017,16 +1017,7 @@ h1, h2, h3 {
 .popup-form label input:valid + span {
   color: rgb(12, 173, 138);
 }
-.popup-form .signin {
-  color: rgba(88, 87, 87, 0.822);
-  font-size: 144px;
-  text-align: center;
-}
-.popup-form .signin a {
-  color: royalblue;
-  font-weight: 600;
-}
-.popup-form button {
+.popup-form #button {
   border: none;
   outline: none;
   background-color: #A00608;
@@ -1038,9 +1029,18 @@ h1, h2, h3 {
   transition: 0.2s ease-in-out;
   width: 120px;
 }
-.popup-form button:hover {
+.popup-form #button:hover {
   background-color: rgb(106, 175, 172);
   cursor: pointer;
+}
+.popup-form .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 144px;
+  text-align: center;
+}
+.popup-form .signin a {
+  color: royalblue;
+  font-weight: 600;
 }
 
 #loginLeft {

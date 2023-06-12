@@ -20,7 +20,7 @@
     </div>
     <div class="nav-bar" id="nav">
         <div class="logo" id="logoid" >
-            <a href="../Landing Page/Landing-Page.html"><img src="../Images/LOGO.png"></a>
+            <a href="../Landing-Page/Landing-Page.html"><img src="../Images/LOGO.png"></a>
         </div>
 
         <div class="toggle" id="toggler">
@@ -34,7 +34,7 @@
         
         <div class="navigation" id="sidenav">
             <ul class="menu" id="navmenu">
-                <li class="list"><a href="../Landing Page/Landing-Page.html">home</a></li>
+                <li class="list"><a href="../Landing-Page/Landing-Page.html">home</a></li>
                 <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
                 <li class="list"><a href="#">learn about donation</a></li>
             </ul>
@@ -42,7 +42,7 @@
 
         <div class="navigation" id="topnav">
             <ul class="menu" id="topnavmenu">
-                <li class="list"><a href="../Landing Page/Landing-Page.html">home</a></li>
+                <li class="list"><a href="../Landing-Page/Landing-Page.html">home</a></li>
                 <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
                 <li class="list"><a href="#">learn about donation</a></li>
             </ul>
@@ -158,28 +158,24 @@
             </div>
             <h1>Hey there!</h1>
             <p>build your account</p>
-            <form class="popup-form">
+            <form class="popup-form" action="process_signup.php" method="POST">
                 <label>
-                    <input required="" placeholder="" type="text" minlength="5" class="input">
+                    <input required="" placeholder="" type="text" minlength="5" class="input" name="recip_username">
                     <span>Username</span>
                 </label>
                 <label>
-                    <input required="" placeholder="" type="email" class="input">
+                    <input required="" placeholder="" type="email" class="input" name="recip_email">
                     <span>Email</span>
                 </label>
-                
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
-                    <span id="indicator" onkeyup='check();'>Password</span>
-                </label>
-                
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput" name="recip_pass">
+                    <span id="indicator">Password</span>
+                </label>  
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();'/>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();' name="recip_confirmPass"/>
                     <span id="indicator2">Confirm password</span>
-                </label>
-                
-                <button class="submit">Sign up</button>
-                
+                </label>           
+                <button type="submit" id="button">Sign up</button>    
                 <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
             </form>
         </div>
@@ -194,31 +190,29 @@
     <div class="popup" id="donReg">
         <div class="popup-left">
             <div class="logo" id="logopopup">
-                <a href="../Landing Page/Landing-Page.html"><img src="../Images/LOGO.png"></a>
+                <a href="../Landing-Page/Landing-Page.html"><img src="../Images/LOGO.png"></a>
             </div>
             <h1>Hey there!</h1>
             <p>build your account</p>
-            <form class="popup-form">
+            <form class="popup-form" action="process_signup.php" method="POST">
                 <label>
-                    <input required="" placeholder="" type="text" minlength="5" class="input">
+                    <input required="" placeholder="" type="text" minlength="5" class="input" name="don_username">
                     <span>Username</span>
                 </label>
                 <label>
-                    <input required="" placeholder="" type="email" class="input">
+                    <input required="" placeholder="" type="email" class="input" name="don_email">
                     <span>Email</span>
                 </label>
-                
                 <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
-                    <span id="indicator" onkeyup='check();'>Password</span>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="donPassInput"  name="don_pass">
+                    <span id="indicator3">Password</span>
+                </label>
+                <label>
+                    <input required="" placeholder="" type="password" minlength="8" class="input" id="donConfirmPassInput" onkeyup='donCheck();' name="don_confirmPass">
+                    <span id="indicator4">Confirm password</span>
                 </label>
                 
-                <label>
-                    <input required="" placeholder="" type="password" minlength="8" class="input" id="confirmPassInput" onkeyup='check();'/>
-                    <span id="indicator2">Confirm password</span>
-                </label>
-                
-                <button class="submit">Sign up</button>
+                <button type="submit" id="button">Sign up</button>
                 
                 <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
             </form>
@@ -250,12 +244,11 @@
                         <span id="indicator">Password</span>
                     </label>
                     
-                    <button class="submit">Sign in</button>
+                    <button type="submit" id="button">Sign in</button>
                     
                     <p class="signin">Don't have an acount? <a href="#" onclick="openRecReg()">Sign up</a></p>
                 </form>
             </div>
-            
         </div>
         <div class="rec-reg-right">
             <button id="signupclosebtn" class="close-btn" onclick="closeLogin()">
