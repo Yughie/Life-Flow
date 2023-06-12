@@ -2938,7 +2938,8 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   row-gap: 14px;
-  width: 90%;
+  width: 80%;
+  max-width: 1000px;
   justify-content: center;
   padding: 20px;
   margin: auto;
