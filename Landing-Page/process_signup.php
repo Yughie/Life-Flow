@@ -24,11 +24,11 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_errno();
 }
 
-// ------------ recipient sign up ------------ //
+// ------------ RECIPIENT SIGN UP ------------ //
 // insert user input into table
 if ($recip_username && $recip_email && $recip_pass && $recip_pass === $recip_confirmPass) {
     $query = mysqli_query($connect, "INSERT INTO recipientsignup_tbl(recip_username, recip_email, recip_pass) VALUES('$recip_username', '$recip_email', '$recip_pass')");
-    echo "<script>window.location.href='../Registration-Form/recipient-registration.html';</script>";
+    echo "<script>window.location.href='../Registration-Forms/recipient-registration.html';</script>";
 } 
 
 if ($recip_username && $recip_email && $recip_pass && $recip_pass !== $recip_confirmPass) {
@@ -36,10 +36,10 @@ if ($recip_username && $recip_email && $recip_pass && $recip_pass !== $recip_con
     echo "<script>window.location.href='Landing-Page.html';</script>";
 } 
 
-// ------------ donor sign up ------------ //
+// ------------ DONOR SIGN UP ------------ //
 if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) {
     $query = mysqli_query($connect, "INSERT INTO donorsignup_tbl(don_username, don_email, don_pass) VALUES('$don_username', '$don_email', '$don_pass')");
-    echo "<script>window.location.href='../Registration-Form/donor-registration.html';</script>";
+    echo "<script>window.location.href='../Registration-Forms/donor-registration.html';</script>";
 } 
 
 if ($don_username && $don_email && $don_pass && $don_pass !== $don_confirmPass) {
