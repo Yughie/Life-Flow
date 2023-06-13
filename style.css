@@ -2936,7 +2936,7 @@ h1, h2, h3 {
   background-color: rgb(106, 175, 172);
 }
 
-.recipForm {
+.registrationForm {
   display: flex;
   flex-direction: column;
   row-gap: 14px;
@@ -2946,60 +2946,60 @@ h1, h2, h3 {
   padding: 20px;
   margin: auto;
 }
-.recipForm .h1 {
+.registrationForm .h1 {
   font-size: 25px;
   text-transform: uppercase;
   color: #ca0407;
 }
-.recipForm .p {
+.registrationForm .p {
   margin: 0px;
   font-weight: 550;
 }
-.recipForm .personalInfo {
+.registrationForm .personalInfo {
   display: grid;
   gap: 20px;
   margin-bottom: 10px;
 }
-.recipForm .personalInfo .p {
+.registrationForm .personalInfo .p {
   margin-bottom: -15px;
 }
-.recipForm .fullname, .recipForm .info2, .recipForm .streetadd, .recipForm .address, .recipForm .phonenum {
+.registrationForm .fullname, .registrationForm .info2, .registrationForm .streetadd, .registrationForm .address, .registrationForm .phonenum {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-.recipForm .info2 .input {
+.registrationForm .info2 .input {
   width: 200px;
 }
-.recipForm .userprofile {
+.registrationForm .userprofile {
   display: flex;
   flex-direction: column;
 }
-.recipForm .optionalInfo .p {
+.registrationForm .optionalInfo .p {
   margin-bottom: 7px;
 }
-.recipForm .recipsNeed {
+.registrationForm .recipsNeed {
   display: grid;
 }
-.recipForm .recipsNeed p {
+.registrationForm .recipsNeed p {
   margin-top: 10px;
 }
-.recipForm .needsText {
+.registrationForm .needsText {
   display: flex;
   margin: 0px;
   margin-top: 3px;
   margin-bottom: 3px;
 }
-.recipForm .needsText p {
+.registrationForm .needsText p {
   margin: 4px;
   font-size: 14px;
   font-weight: 500;
   color: #A00608;
 }
-.recipForm #needsTextbtm {
+.registrationForm #needsTextbtm {
   margin-top: 8px;
 }
-.recipForm .label {
+.registrationForm .label {
   border: 1px solid rgb(219, 219, 219);
   display: flex;
   align-items: center;
@@ -3011,7 +3011,7 @@ h1, h2, h3 {
   border-radius: 5px;
   box-sizing: border-box;
 }
-.recipForm .label .input {
+.registrationForm .label .input {
   background: inherit;
   border: 0;
   outline: none;
@@ -3026,7 +3026,7 @@ h1, h2, h3 {
       color: rgb(98, 184, 179);
   } */
 }
-.recipForm .label .input + .span {
+.registrationForm .label .input + .span {
   position: absolute;
   text-overflow: ellipsis;
   transform-origin: left;
@@ -3035,31 +3035,32 @@ h1, h2, h3 {
   pointer-events: none;
   transition: all 0.1s ease-in-out;
 }
-.recipForm .label .input:valid + .span {
+.registrationForm .label .input:valid + .span {
   transform: scale(0.8333333333) translateY(-10px);
 }
-.recipForm .label .input:valid {
+.registrationForm .label .input:valid {
   padding: 18px 0px 2px 8px;
   font-size: 12px;
 }
-.recipForm .label .input:focus {
+.registrationForm .label .input:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
 }
-.recipForm .label .select {
+.registrationForm .label .select {
   width: 100%;
   background: inherit;
   border: 0;
   outline: none;
-  padding: 9px 8px 7px 8px;
   text-overflow: ellipsis;
   font-size: 16px;
   transition: border 0.1s ease-in-out;
+  padding: 14px 0px 2px 4px;
+  font-size: 12px;
 }
-.recipForm .label .select option:checked {
+.registrationForm .label .select option:checked {
   background-color: rgb(106, 175, 172);
 }
-.recipForm .label .select + .span {
+.registrationForm .label .select + .span {
   position: absolute;
   text-overflow: ellipsis;
   transform-origin: left;
@@ -3067,23 +3068,24 @@ h1, h2, h3 {
   left: 8px;
   pointer-events: none;
   transition: all 0.1s ease-in-out;
-}
-.recipForm .label .select:valid + .span {
   transform: scale(0.8333333333) translateY(-10px);
 }
-.recipForm .label .select:valid {
-  padding: 14px 0 2px 8px;
+.registrationForm .label .select:valid + .span {
+  transform: scale(0.8333333333) translateY(-10px);
+}
+.registrationForm .label .select:valid {
+  padding: 14px 0 2px 4px;
   font-size: 12px;
 }
-.recipForm .label .select:focus {
+.registrationForm .label .select:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
 }
-.recipForm .needOrgan {
+.registrationForm .needOrgan {
   display: grid;
   gap: 3px;
 }
-.recipForm #ui-checkbox {
+.registrationForm #ui-checkbox {
   --primary-color: rgb(106, 175, 172);
   --secondary-color: #fff;
   --primary-hover-color: rgb(106, 175, 172);
@@ -3094,11 +3096,11 @@ h1, h2, h3 {
   --checkbox-border-style: solid;
   --checkmark-size: 1.2;
 }
-.recipForm #ui-checkbox,
-.recipForm #ui-checkbox *, .recipForm #ui-checkbox::before, .recipForm #ui-checkbox::after {
+.registrationForm #ui-checkbox,
+.registrationForm #ui-checkbox *, .registrationForm #ui-checkbox::before, .registrationForm #ui-checkbox::after {
   box-sizing: border-box;
 }
-.recipForm #ui-checkbox {
+.registrationForm #ui-checkbox {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -3111,7 +3113,7 @@ h1, h2, h3 {
   cursor: pointer;
   position: relative;
 }
-.recipForm #ui-checkbox::after {
+.registrationForm #ui-checkbox::after {
   content: "";
   position: absolute;
   top: 0;
@@ -3123,7 +3125,7 @@ h1, h2, h3 {
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
 }
-.recipForm #ui-checkbox::before {
+.registrationForm #ui-checkbox::before {
   top: 40%;
   left: 50%;
   content: "";
@@ -3136,29 +3138,29 @@ h1, h2, h3 {
   opacity: 0;
   transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
 }
-.recipForm #ui-checkbox:hover {
+.registrationForm #ui-checkbox:hover {
   border-color: var(--primary-color);
 }
-.recipForm #ui-checkbox:checked {
+.registrationForm #ui-checkbox:checked {
   background: var(--primary-color);
   border-color: transparent;
 }
-.recipForm #ui-checkbox:checked::before {
+.registrationForm #ui-checkbox:checked::before {
   opacity: 1;
   transform: translate(-50%, -30%) rotate(45deg) scale(var(--checkmark-size));
   transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
 }
-.recipForm #ui-checkbox:active:not(:checked)::after {
+.registrationForm #ui-checkbox:active:not(:checked)::after {
   transition: none;
   box-shadow: none;
   opacity: 1;
 }
-.recipForm .btn_wrapper {
+.registrationForm .btn_wrapper {
   display: flex;
   justify-content: center;
   margin-top: 7px;
 }
-.recipForm .btn_wrapper #registerbtn {
+.registrationForm .btn_wrapper #registerbtn {
   border: none;
   outline: none;
   background-color: #A00608;
@@ -3170,7 +3172,7 @@ h1, h2, h3 {
   transition: 0.2s ease-in-out;
   width: 120px;
 }
-.recipForm .btn_wrapper #registerbtn:hover {
+.registrationForm .btn_wrapper #registerbtn:hover {
   background-color: rgb(106, 175, 172);
   cursor: pointer;
 }

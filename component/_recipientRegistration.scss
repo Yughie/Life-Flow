@@ -245,7 +245,7 @@
 }
 
 
-.recipForm {
+.registrationForm {
     display: flex;
     flex-direction: column;
     row-gap: 14px;
@@ -381,10 +381,12 @@
             background: inherit;
             border: 0;
             outline: none;
-            padding: 9px 8px 7px 8px;
+            // padding: 9px 8px 7px 8px;
             text-overflow: ellipsis;
             font-size: 16px;
             transition: border 0.1s ease-in-out;
+            padding: 14px 0px 2px 4px;
+            font-size: 12px;
 
             option:checked {
                 background-color: rgb(106, 175, 172);
@@ -398,14 +400,15 @@
                 left: 8px;
                 pointer-events: none;
                 transition: all .1s ease-in-out;
+                transform: scale(calc(10/12)) translateY(-10px);
             }
     
             &:valid + .span {
-                transform: scale(calc(10 / 12)) translateY(-10px);
+                transform: scale(calc(10 / 12)) translateY(-10px);  
             }
     
             &:valid {
-                padding: 14px 0 2px 8px;
+                padding: 14px 0 2px 4px;
                 font-size: 12px;
             }
 
