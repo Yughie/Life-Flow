@@ -36,3 +36,7 @@ document.getElementById("recipFormID").addEventListener("submit", function(event
     }
 });
 
+// disable dropdown for organs if checkbox is not checked
+window.onload = function() {
+    document.querySelector('#donorGiftOrgan').style.display = 'none';
+};

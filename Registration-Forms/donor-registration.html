@@ -8,9 +8,9 @@
     <link rel="icon" type="tab-icon" href="../Images/landing-page-assets/LOGO1x1.png">
     <link rel="stylesheet" href="../style.css">
 </head>
-
+<script src="registrationscript.js"></script>
 <body class="donorRegistrationBody">
-    <script src="registrationscript.js"></script>
+    
     <div class="nav-bar" id="nav">
         <div class="logo" id="logoid" >
             <a href="../index.html"><img src="../Images/LOGO.png"></a>
@@ -88,25 +88,25 @@
                 <label class="label">
                     <select id="sex" required="" name="don_sex" class="select">
                         <option value="" disabled hidden selected>Select</option>
-                        <option value="">Male</option>
-                        <option value="">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                     <span class="span">Sex</span>
                 </label class="label">
                 <label class="label">
-                    <select id="bloodtype" required="" name="don_bloodType" class="select">
+                    <select id="bloodtype" required name="don_bloodType" class="select">
                         <option value="" disabled hidden selected>Select</option>
-                        <option value="">O+</option>
-                        <option value="">O-</option>
-                        <option value="">B+</option>
-                        <option value="">B-</option>
-                        <option value="">A+</option>
-                        <option value="">A-</option>
-                        <option value="">AB+</option>
-                        <option value="">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
                     </select>
                     <span class="span">Blood Type</span>
-                </label class="label">
+                </label>
             </div>
 
             <div class="streetadd">
@@ -131,9 +131,9 @@
                 </label class="label">
             </div>
 
-            <div class="phonenum">
+            <div class="phonenum" id="donPhoneNum">
                 <label class="label">
-                    <input class="input" id="phoneNum" required="" type="number" name="don_phoneNum">
+                    <input class="input" required="" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="">
                     <span class="span">Phone Number 9XX-XXX-XXXX</span>
                 </label class="label">
             </div>
@@ -147,17 +147,17 @@
         <div class="optionalInfo" id="donorOptionalInfo">
             <p class="p">Optional Information</p>
             <label class="label">
-                <select id="ethnicity" required="" name="don_ethnicity" class="select">
+                <select id="ethnicity" required name="don_ethnicity" class="select">
                     <option value="" disabled hidden selected>Select</option>
-                    <option value="">African</option>
-                    <option value="">European</option>
-                    <option value="">Indigenous</option>
-                    <option value="">Middle Eastern</option>
-                    <option value="">North American</option>
-                    <option value="">South American</option>
-                    <option value="">Oceanian</option>
-                    <option value="">South Asian</option>
-                    <option value="">Southeast Asian</option>
+                    <option value="African">African</option>
+                    <option value="European">European</option>
+                    <option value="Indigenous">Indigenous</option>
+                    <option value="Middle Eastern">Middle Eastern</option>
+                    <option value="North American">North American</option>
+                    <option value="South American">South American</option>
+                    <option value="Oceanian">Oceanian</option>
+                    <option value="South Asian">South Asian</option>
+                    <option value="Southeast Asian">Southeast Asian</option>
                 </select>
                 <span class="span">Ethnicity</span>
             </label class="label">
@@ -170,30 +170,30 @@
                 <p>Blood</p>
             </div>
             <div class="organordon">
-                <input class="input" type="checkbox" id="ui-checkbox" name="don_boolOrganTissue" value="1">
+                <input class="input" type="checkbox" id="ui-checkboxdon" name="don_boolOrganTissue" value="1">
                 <p class="organordontxt">Organ and/or Tissue</p>
             </div>
             <div class="needOrgan" id="donorGiftOrgan">
                 <label class="label">
-                    <select name="don_giftOrgan" class="select">
+                    <select name="don_giftOrgan" class="select" id="don_gift">
                         <option value="" disabled hidden selected>Select</option>
-                        <option value="">Kidney</option>
-                        <option value="">Liver</option>
-                        <option value="">Lungs</option>
-                        <option value="">Heart</option>
-                        <option value="">Pancreas</option>
-                        <option value="">Intestines</option>
-                        <option value="">Hands and Face</option>
-                        <option value="">Corneas</option>
+                        <option value="Kidney">Kidney</option>
+                        <option value="Liver">Liver</option>
+                        <option value="Lungs">Lungs</option>
+                        <option value="Heart">Heart</option>
+                        <option value="Pancreas">Pancreas</option>
+                        <option value="Intestines">Intestines</option>
+                        <option value="Hands and Face">Hands and Face</option>
+                        <option value="Corneas">Corneas</option>
                     </select>
                     <span class="span">Specify Gift of Donation</span>
-                </label class="label">
+                </label>
             </div>
         </div>
         <div class="btn_wrapper">
             <button type="submit" id="registerbtn">Register</button>
         </div>
-</form>
+    </form>
 </body>
 
 </html>
