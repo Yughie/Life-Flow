@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <form class="recipForm" id="recipFromID" action="process_donor_registration.php" method="POST">
+    <form class="registrationForm" id="donorFormn" action="process_donor_registration.php" method="POST">
         <div class="intro">
             <div class="introtxt" id="txt1">
                 Congratulations on making the important decision to sign up as an organ, eye and tissue donor! Your decision can have a huge impact on the lives of others. <br>
@@ -76,7 +76,7 @@
                 </label class="label">
             </div>
 
-            <div class="info2">
+            <div class="info2" id="donorInfo2">
                 <label class="label">
                     <input class="input" required="" type="date" name="don_bday" value="2023-12-30">
                     <span class="span">Date of Birth</span>
@@ -144,7 +144,7 @@
             </div>
         </div>
 
-        <div class="optionalInfo">
+        <div class="optionalInfo" id="donorOptionalInfo">
             <p class="p">Optional Information</p>
             <label class="label">
                 <select id="ethnicity" required="" name="don_ethnicity" class="select">
@@ -173,7 +173,7 @@
                 <input class="input" type="checkbox" id="ui-checkbox" name="don_boolOrganTissue" value="1">
                 <p class="organordontxt">Organ and/or Tissue</p>
             </div>
-            <div class="needOrgan">
+            <div class="needOrgan" id="donorGiftOrgan">
                 <label class="label">
                     <select name="don_giftOrgan" class="select">
                         <option value="" disabled hidden selected>Select</option>
