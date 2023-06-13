@@ -32,6 +32,12 @@ if ($recip_username && $recip_email && $recip_pass && $recip_pass === $recip_con
         // Username already taken
         echo "<script language='javascript'>alert('Username is already taken. Please choose a different username.')</script>";
         echo "<script>window.location.href='index.html';</script>";
+    }
+    $query = mysqli_query($connect, "SELECT * FROM recipientsignup_tbl WHERE recip_email='$recip_email'");
+    if (mysqli_num_rows($query) > 0) {
+        // e-mail already in use
+        echo "<script language='javascript'>alert('E-mail is already registered.')</script>";
+        echo "<script>window.location.href='index.html';</script>";
     } else {
         // Insert into the table
         $query = mysqli_query($connect, "INSERT INTO recipientsignup_tbl(recip_username, recip_email, recip_pass) VALUES('$recip_username', '$recip_email', '$recip_pass')");
@@ -52,6 +58,12 @@ if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) 
     if (mysqli_num_rows($query) > 0) {
         // Username already taken
         echo "<script language='javascript'>alert('Username is already taken. Please choose a different username.')</script>";
+        echo "<script>window.location.href='index.html';</script>";
+    }
+    $query = mysqli_query($connect, "SELECT * FROM donorsignup_tbl WHERE don_email='$don_email'");
+    if (mysqli_num_rows($query) > 0) {
+        // e-mail already in use
+        echo "<script language='javascript'>alert('E-mail is already registered.')</script>";
         echo "<script>window.location.href='index.html';</script>";
     } else {
         // Insert into the table
