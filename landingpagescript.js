@@ -1,4 +1,5 @@
 // carorousel auto play
+
 var counter = 1;
 setInterval(function(){
     document.getElementById('radio' + counter).checked = true;
@@ -6,7 +7,8 @@ setInterval(function(){
         if(counter > 3){
             counter = 1;
         }
-}, 5000);
+}, 5000); 
+
 
 
 // slide in/out sidenav
