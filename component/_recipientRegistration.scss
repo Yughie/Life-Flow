@@ -288,6 +288,11 @@
         }
     }
 
+    .userprofile {
+        display: flex;
+        flex-direction: column;
+    }
+    
     .optionalInfo {
         .p {
             margin-bottom: 7px;

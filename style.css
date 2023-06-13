@@ -2971,6 +2971,10 @@ h1, h2, h3 {
 .recipForm .info2 .input {
   width: 200px;
 }
+.recipForm .userprofile {
+  display: flex;
+  flex-direction: column;
+}
 .recipForm .optionalInfo .p {
   margin-bottom: 7px;
 }

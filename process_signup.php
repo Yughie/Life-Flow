@@ -56,13 +56,14 @@ if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) 
     } else {
         // Insert into the table
         $query = mysqli_query($connect, "INSERT INTO donorsignup_tbl(don_username, don_email, don_pass) VALUES('$don_username', '$don_email', '$don_pass')");
-        echo "<script>window.location.href='Registration-Forms/recipient-registration.html";
+        echo "<script>window.location.href='Registration-Forms/donor-registration.html';</script>";
     }
 }
 
 // if passwords don't match
 if ($don_username && $don_email && $don_pass && $don_pass !== $don_confirmPass) {
     echo "<script language='javascript'>alert('Passwords do not match, please try again.')</script>";
+    echo "<script>window.location.href='index.html';</script>";
 }
 
 ?>
