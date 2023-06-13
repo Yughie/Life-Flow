@@ -7,8 +7,7 @@ function openSidebar(selected) {
     }
 }
 
-//file size
-
+// user profile file size
 function checkFileSize(input) {
     if (input.files.length > 0) {
         var fileSize = input.files[0].size; // File size in bytes
@@ -20,4 +19,20 @@ function checkFileSize(input) {
         }
     }
 }
+
+// lengths in number inputs
+document.getElementById("recipFormID").addEventListener("submit", function(event) {
+    var phoneInput = document.getElementById("phoneNum");
+    var postal = document.getElementById("postal");
+
+    if (phoneInput.value.length > 11) {
+        event.preventDefault(); // Prevent form submission
+        alert("Phone number should not exceed 11 digits.");
+    }
+
+    if (postal.value.length > 4) {
+        event.preventDefault(); // Prevent form submission
+        alert("Postal code should not exceed 4 digits.");
+    }
+});
 

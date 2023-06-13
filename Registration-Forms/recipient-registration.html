@@ -110,15 +110,15 @@
                         <span class="span">State/Province</span>
                     </label class="label">
                     <label class="label">
-                        <input class="input" required="" type="number" minlength="4" name="">
+                        <input class="input" required="" type="number"  pattern="[0-9]{4}" name="">
                         <span class="span">Postal Code</span>
                     </label class="label">
                 </div>
     
                 <div class="phonenum">
                     <label class="label">
-                        <input class="input" required="" type="number" minlength="11" maxlength="11" name="">
-                        <span class="span">Phone Number</span>
+                        <input class="input" required="" type="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="">
+                    <span class="span">Phone Number 9XX-XXX-XXXX</span>
                     </label class="label">
                 </div>
 
