@@ -3741,6 +3741,10 @@ h1, h2, h3 {
   scale: 1;
 }
 
+.donorRegistrationBody {
+  overflow-x: hidden;
+}
+
 #topnav {
   display: flex;
 }
@@ -3765,6 +3769,11 @@ h1, h2, h3 {
   font-size: 14px;
   font-weight: 500;
   color: #A00608;
+}
+
+.userprofile .span {
+  font-weight: 550;
+  margin-bottom: 5px;
 }
 
 .intro {
