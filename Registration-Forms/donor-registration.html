@@ -8,9 +8,9 @@
     <link rel="icon" type="tab-icon" href="../Images/landing-page-assets/LOGO1x1.png">
     <link rel="stylesheet" href="../style.css">
 </head>
-<script src="registrationscript.js"></script>
+
 <body class="donorRegistrationBody">
-    
+    <script src="registrationscript.js"></script>
     <div class="nav-bar" id="nav">
         <div class="logo" id="logoid" >
             <a href="../index.html"><img src="../Images/LOGO.png"></a>
@@ -133,7 +133,7 @@
 
             <div class="phonenum" id="donPhoneNum">
                 <label class="label">
-                    <input class="input" required="" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="">
+                    <input class="input" required="" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="don_phoneNum">
                     <span class="span">Phone Number 9XX-XXX-XXXX</span>
                 </label class="label">
             </div>
@@ -146,8 +146,8 @@
 
         <div class="optionalInfo" id="donorOptionalInfo">
             <p class="p">Optional Information</p>
-            <label class="label">
-                <select id="ethnicity" required name="don_ethnicity" class="select">
+            <label class="label" for="ethnicity">
+                <select id="ethnicity" required="" name="don_ethnicity" class="select">
                     <option value="" disabled hidden selected>Select</option>
                     <option value="African">African</option>
                     <option value="European">European</option>
@@ -166,13 +166,14 @@
         <div class="recipsNeed">
             <p class="p">Your Donation Can Help Save and Heal Lives</p>
             <div class="needsText">
-                <input class="input" type="checkbox" id="ui-checkbox" name="don_boolBlood" value="1">
+                <input class="input" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1">
                 <p>Blood</p>
             </div>
             <div class="organordon">
                 <input class="input" type="checkbox" id="ui-checkboxdon" name="don_boolOrganTissue" value="1">
                 <p class="organordontxt">Organ and/or Tissue</p>
             </div>
+            <div id="blocker">fds</div>
             <div class="needOrgan" id="donorGiftOrgan">
                 <label class="label">
                     <select name="don_giftOrgan" class="select" id="don_gift">
