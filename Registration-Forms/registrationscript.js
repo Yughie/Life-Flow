@@ -35,3 +35,58 @@ document.getElementById("recipFormID").addEventListener("submit", function(event
         alert("Postal code should not exceed 4 digits.");
     }
 });
+
+// disable dropdown for organs if checkbox is not checked
+window.onload = function() {
+    document.querySelector('#donorGiftOrgan').style.display = 'none';
+};
+//RECIPIENT REGISTRATION 
+
+//BLOOD
+let boolBlood = document.querySelector('#recip_boolBlood');
+let transfusionUrgency = doucment.querySelector('#recip_bloodUrgency');
+//ORGAN TISSUE
+let boolOrgan = document.querySelector('#recip_neededOrgan');
+let neededOrgan = document.querySelector('#recip_neededOrgan');
+let transplantUrgency =  document.querySelectorAll('#recip_organUrgency');
+
+
+boolBlood.addEventListener('click' = () => {
+    if(boolBlood.checked){
+        
+        boolOrgan.checked = true;
+        neededOrgan.disabled = true;
+        transplantUrgency.disabled = true
+    }
+    else{
+        boolBlood.checked = false;
+    }
+});
+
+boolOrgan.addEventListener('change' = () => {
+    if(boolOrgan.checked){
+       
+    }
+});
+
+
+
+let findSelected = () => {
+    selected = document.querySelector("input[name='recip_bloodOrgan']:checked").value;
+    if(selected == 1){
+        transfusionUrgency.disabled = true;
+        neededOrgan.disabled = false;
+        transplantUrgency.disabled = false;
+        
+    }
+    else{
+        transfusionUrgency.disabled = false;
+        neededOrgan.disabled = true;
+        transplantUrgency.disabled = true;
+    }
+}
+
+
+recipBlood.forEach(recipBlood => {
+    recipBlood.addEventListener("change", findSelected);
+  })

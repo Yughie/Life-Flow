@@ -3827,4 +3827,8 @@ h1, h2, h3 {
 
 #donorGiftOrgan {
   background-color: red;
+}
+
+#blocker {
+  background-color: rgba(255, 0, 0, 0.514);
 }/*# sourceMappingURL=style.css.map */

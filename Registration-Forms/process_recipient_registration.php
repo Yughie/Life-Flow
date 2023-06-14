@@ -1,42 +1,72 @@
 <?php
-
 $servername = "db4free.net";
+//$servername = "localhost";
 $username = "lifeflow";
+//$username = "root";
 $password = "2023LifeFlowProject!";
+//$password = "";
 $database = "lifeflow_db";
 
 $connect = mysqli_connect($servername, $username, $password, $database);
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $recip_firstName = filter_input(INPUT_POST, "recip_firstName", FILTER_SANITIZE_STRING);
-    $recip_midName = filter_input(INPUT_POST, "recip_midName", FILTER_SANITIZE_STRING);
-    $recip_lastName = filter_input(INPUT_POST, "recip_lastName", FILTER_SANITIZE_STRING);
-    $recip_bDay = filter_input(INPUT_POST, "recip_bDay", FILTER_SANITIZE_STRING);
-    $recip_age = filter_input(INPUT_POST, "recip_age", FILTER_SANITIZE_NUMBER_INT);
-    $recip_sex = filter_input(INPUT_POST, "recip_sex", FILTER_SANITIZE_STRING);
-    $recip_bloodType = filter_input(INPUT_POST, "recip_bloodType", FILTER_SANITIZE_STRING);
-    $recip_streetAdd = filter_input(INPUT_POST, "recip_streetAdd", FILTER_SANITIZE_STRING);
-    $recip_city =filter_input(INPUT_POST, "recip_city", FILTER_SANITIZE_STRING);
-    $recip_province = filter_input(INPUT_POST, "recip_province", FILTER_SANITIZE_STRING);
-    $recip_postal = filter_input(INPUT_POST, "recip_postal", FILTER_SANITIZE_STRING);
-    $recip_phoneNum = filter_input(INPUT_POST, "recip_phoneNum", FILTER_SANITIZE_STRING);
-    $recip_ethnicity = filter_input(INPUT_POST, "recip_ethnicity", FILTER_SANITIZE_STRING);
-    $recip_boolBlood = filter_input(INPUT_POST, "recip_boolBlood", FILTER_SANITIZE_BOOLEAN);
-    $recip_bloodUrgency = filter_input(INPUT_POST, "recip_bloodUrgency", FILTER_SANITIZE_STRING);
-    $recip_boolOrganTissue = filter_input(INPUT_POST, "recip_boolOrganTissue", FILTER_SANITIZE_BOOLEAN);
-    $recip_neededOrgan = filter_input(INPUT_POST, "recip_neededOrgan", FILTER_SANITIZE_STRING);
-    $recip_organUrgency = filter_input(INPUT_POST, "recip_organUrgency", FILTER_SANITIZE_STRING);
+
+    $recip_firstName = $_POST["recip_firstName"];
+    $recip_midName = $_POST["recip_midName"];
+    $recip_lastName = $_POST["recip_lastName"];
+    $recip_bDay = $_POST["recip_bDay"];
+    $formatted_bDay = date('Y-m-d', strtotime($recip_bDay));
+    $recip_age = $_POST["recip_age"];
+    $recip_sex= isset($_POST["recip_sex"]) ? $_POST["recip_sex"] : "";
+    $recip_bloodType= isset($_POST["recip_bloodType"]) ? $_POST["recip_bloodType"] : "";
+    $recip_streetAdd = $_POST["recip_streetAdd"];
+    $recip_city = $_POST["recip_city"];
+    $recip_province = $_POST["recip_province"];
+    $recip_postal = $_POST["recip_postal"];
+    $recip_phoneNum = $_POST["recip_phoneNum"];
+    $recip_ethnicity = isset($_POST["recip_ethnicity"]) ? $_POST["recip_ethnicity"] : "";
+    //bool
+    $recip_boolBlood = isset($_POST["recip_boolBlood"]) ? 1 : 0;
+    $recip_bloodUrgency = $_POST["recip_bloodUrgency"];
+    $recip_neededOrgan= isset($_POST["recip_neededOrgan"]) ? $_POST["recip_neededOrgan"] : "";
+    $recip_organUrgency = $_POST["recip_organUrgency"];
+
+
+    $stmt = $connect->prepare("INSERT INTO recipient_info_tbl (recip_firstName, recip_midName, recip_lastName, recip_bDay, recip_age, recip_sex, recip_bloodType, recip_streetAdd, recip_city, recip_province, recip_postal, recip_phoneNum, recip_ethnicity, recip_boolBlood, recip_bloodUrgency, recip_neededOrgan, recip_organUrgency) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $stmt->bind_param("ssssissssssssisss", $recip_firstName, $recip_midName, $recip_lastName, $recip_bDay, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_bloodUrgency, $recip_neededOrgan, $recip_organUrgency);
+
+    echo "sex: " . $recip_sex . "<br>";
+    echo "bloodTYpe : " . $recip_bloodType . "<br>";
+    echo "Ethnicity: " . $recip_ethnicity . "<br>";
+    echo "needed Organ: " . $recip_neededOrgan;
+
+    $stmt->execute();
+
+    
+
+
+
+
+
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_errno();
+    }
 }
 
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_errno();
-}
-
-$stmt = $connect->prepare("INSERT INTO Recipient_tbl (recip_firstName, recip_midName, recip_lastName, recip_bDay, recip_age, recip_sex, recip_bloodType, recip_streetAdd, recip_city, recip_province, recip_postal, recip_phoneNum, recip_ethnicity, recip_boolBlood, recip_bloodUrgency, recip_boolOrganTissue, recip_neededOrgan, recip_organUrgency) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-$stmt->bind_param("ssssissssssssisiss", $recip_firstName, $recip_midName, $recip_lastName, $recip_bDay, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_bloodUrgency, $recip_boolOrganTissue, $recip_neededOrgan, $recip_organUrgency);
 
 
-$stmt->execute();
+/*
+if ($recip_firstName && $recip_midName && $recip_lastName && $recip_bday && $recip_age && $recip_sex && $recip_bloodType && $recip_streetAdd && $recip_city && $recip_province && $recip_postal && $recip_phoneNum && $recip_ethnicity && $recip_giftOrgan && $recip_boolBlood || $recip_boolOrganTissue) {
+    $query = "INSERT INTO recipor_info_tbl(recip_firstName, recip_midName, recip_lastName, recip_bday, recip_age, recip_sex, recip_bloodType, recip_streetAdd, recip_city, recip_province, recip_postal, recip_phoneNum, recip_ethnicity, recip_boolBlood, recip_boolOrganTissue, recip_giftOrgan) VALUES ($recip_firstName, $recip_midName, $recip_lastNam, $recip_bday, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_boolOrganTissue, $recip_giftOrgan)";
+    $stmt = mysqli_prepare($connect, $query);
+    mysqli_stmt_bind_param($stmt, "sssssssssssssss", $recip_firstName, $recip_midName, $recip_lastName, $recip_bday, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_boolOrganTissue, $recip_giftOrgan);
+    mysqli_stmt_execute($stmt);
+}*/
 
-
+/*
+if ($recip_firstName && $recip_midName && $recip_lastName && $recip_bday && $recip_age && $recip_sex && $recip_bloodType && $recip_streetAdd && $recip_city && $recip_province && $recip_postal && $recip_phoneNum && $recip_ethnicity && $recip_giftOrgan && $recip_boolBlood || $recip_boolOrganTissue) {
+    $query = mysqli_query($connect, "INSERT INTO recipor_info_tbl(recip_firstName, recip_midName, recip_lastName, recip_bday, recip_age, recip_sex, recip_bloodType, recip_streetAdd, recip_city, recip_province, recip_postal, recip_phoneNum, recip_ethnicity, recip_boolBlood, recip_boolOrganTissue, recip_giftOrgan) VALUES('$recip_firstName', '$recip_midName', '$recip_lastName', '$recip_bday', '$recip_age', '$recip_sex', '$recip_bloodType', '$recip_streetAdd', '$recip_city', '$recip_province', '$recip_postal', '$recip_phoneNum', '$recip_ethnicity', '$recip_boolBlood', '$recip_boolOrganTissue', '$recip_giftOrgan')");
+}*/
+?>
