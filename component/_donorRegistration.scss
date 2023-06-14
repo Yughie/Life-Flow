@@ -1,0 +1,85 @@
+@use "../abstract/index.scss" as *;
+
+#topnav {
+    display: flex;
+
+    .dp {
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-right: 15px;
+            height: 45px;
+        }
+    }
+}
+
+.organordon {
+    display: flex;
+    margin: 0px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    p.organordontxt {
+        margin-top: 4px;
+        margin-left: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #A00608;
+    }
+}
+
+.intro {
+    text-indent: 20px;
+    text-align: justify;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 15px 0px;
+
+    .driverlicense {
+        display: flex;
+        justify-content: center;
+        margin: 15px 0px;
+
+        img {
+            width: 500px;
+            border-radius: 25px;
+        }
+    }
+
+    .introtxt {
+        background-color: rgb(182, 206, 206);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .registerbtn {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0px;
+
+        #registerbtn {
+            border: none;
+            outline: none;
+            background-color: #A00608;
+            ;
+            padding: 10px;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 16px;
+            transform: .3s ease;
+            transition: .2s ease-in-out;
+            width: 220px;
+
+            &:hover {
+                background-color: rgb(106, 175, 172);
+                cursor: pointer;
+                scale: 1.02;
+            }
+        }
+    }
+}
+
+#txt1 {
+    margin-top: -20px;
+}
