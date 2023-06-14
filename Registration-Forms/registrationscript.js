@@ -35,8 +35,3 @@ document.getElementById("recipFormID").addEventListener("submit", function(event
         alert("Postal code should not exceed 4 digits.");
     }
 });
-
-// disable dropdown for organs if checkbox is not checked
-window.onload = function() {
-    document.querySelector('#donorGiftOrgan').style.display = 'none';
-};
