@@ -1,0 +1,95 @@
+@use "../abstract/index.scss" as *;
+
+
+
+.dashboard-popup{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    transition: all 300ms ease-in-out;
+    scale: 0;
+    .dashboard-overlay{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.7);
+
+       
+    }
+    .dashboard-content{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        height: 100vh;
+        transform: translate(-50%, -50%);
+        background-color: $offWhite;
+        
+        
+    }
+    .dashboard-overflow_container{
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        padding-bottom: 30px;
+
+        
+    }
+    .dashboard-close-btn{
+        cursor: pointer;
+        position: absolute;
+        right:20px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        background-color: $lightBlueGreen;
+        color: #fff;
+        font-weight: 600;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
+
+        &:hover{
+            background-color: $darkBlueGreen;
+        }
+    }
+}
+
+/*
+ .dashboard-popup .dashboard-overlay{
+    position: fixed;
+    top:0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    //display: none;
+}
+
+
+ .dashboard-content{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 50%) scale(0);
+    width: 450px;
+    height: 220px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #b42525;
+}
+
+
+ .dashboard-close-btn{
+    
+}
+ .dashboard-popup.active .dashboard-overlay{
+    display: block; 
+ }
+ .dashboard-popup.active .dashboard-content{
+    transition: all 300ms ease-in-out;
+    transform: translate(50%, 50%) scale(1);
+}
+
+*/
