@@ -36,57 +36,41 @@ document.getElementById("recipFormID").addEventListener("submit", function(event
     }
 });
 
-// disable dropdown for organs if checkbox is not checked
-window.onload = function() {
-    document.querySelector('#donorGiftOrgan').style.display = 'none';
-};
-//RECIPIENT REGISTRATION 
 
-//BLOOD
-let boolBlood = document.querySelector('#recip_boolBlood');
-let transfusionUrgency = doucment.querySelector('#recip_bloodUrgency');
-//ORGAN TISSUE
-let boolOrgan = document.querySelector('#recip_neededOrgan');
-let neededOrgan = document.querySelector('#recip_neededOrgan');
-let transplantUrgency =  document.querySelectorAll('#recip_organUrgency');
+function donblocker() {
+    var blocker = document.querySelector("#blocker");
+    var checkbox = document.querySelector("#ui-checkboxdonorg");
 
-
-boolBlood.addEventListener('click' = () => {
-    if(boolBlood.checked){
-        
-        boolOrgan.checked = true;
-        neededOrgan.disabled = true;
-        transplantUrgency.disabled = true
-    }
-    else{
-        boolBlood.checked = false;
-    }
-});
-
-boolOrgan.addEventListener('change' = () => {
-    if(boolOrgan.checked){
-       
-    }
-});
-
-
-
-let findSelected = () => {
-    selected = document.querySelector("input[name='recip_bloodOrgan']:checked").value;
-    if(selected == 1){
-        transfusionUrgency.disabled = true;
-        neededOrgan.disabled = false;
-        transplantUrgency.disabled = false;
-        
-    }
-    else{
-        transfusionUrgency.disabled = false;
-        neededOrgan.disabled = true;
-        transplantUrgency.disabled = true;
+    if (checkbox.checked) {
+        blocker.style.display = "none";
+    } else {
+        blocker.style.display = "block";
     }
 }
 
+function bloodblock() {
+    var bloodblocker = document.querySelector("#bloodblocker");
+    var organblocker = document.querySelector("#organblocker");
+    var organblocker2 = document.querySelector("#organblocker2");
+    var radio = document.querySelector("#recip_boolBlood");
 
-recipBlood.forEach(recipBlood => {
-    recipBlood.addEventListener("change", findSelected);
-  })
+    if (radio.checked) {
+        bloodblocker.style.display = "none";
+        organblocker.style.display = "block";
+        organblocker2.style.display = "block";
+    }
+}
+
+function organblock() {
+    var bloodblocker = document.querySelector("#bloodblocker");
+    var organblocker = document.querySelector("#organblocker");
+    var organblocker2 = document.querySelector("#organblocker2");
+    var radio = document.querySelector("#recip_boolOrganTissue");
+
+    if (radio.checked) {
+        bloodblocker.style.display = "block";
+        organblocker.style.display = "none";
+        organblocker2.style.display = "none";
+    }
+}
+

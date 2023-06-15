@@ -166,15 +166,15 @@
         <div class="recipsNeed">
             <p class="p">Your Donation Can Help Save and Heal Lives</p>
             <div class="needsText">
-                <input class="input" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1">
+                <input class="chkbx" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1">
                 <p>Blood</p>
             </div>
             <div class="organordon">
-                <input class="input" type="checkbox" id="ui-checkboxdon" name="don_boolOrganTissue" value="1">
+                <input class="chkbx" type="checkbox" id="ui-checkboxdonorg" name="don_boolOrganTissue" value="1" onclick="donblocker()">
                 <p class="organordontxt">Organ and/or Tissue</p>
             </div>
-            <div id="blocker">fds</div>
             <div class="needOrgan" id="donorGiftOrgan">
+                <div id="blocker"></div>
                 <label class="label">
                     <select name="don_giftOrgan" class="select" id="don_gift">
                         <option value="" disabled hidden selected>Select</option>
