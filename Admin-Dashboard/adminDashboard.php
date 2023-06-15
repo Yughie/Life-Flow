@@ -2,6 +2,8 @@
     require_once ('admin-php/connection.php');
     require 'admin-php/functions.php'; 
 
+    $query = "SELECT * FROM donor_info_tbl WHERE isNewApplicant = 1";
+    $result = mysqli_query($conn, $query);
 
 
 
@@ -135,7 +137,8 @@
                 <div class="LatestDonorApplication">
                     <h2 class="LatestDonorApplication__Title">Latest Donor Application</h2>
                     <div class="latestApplication_container">
-                        <div class="profile1 profile">
+                        
+                            <!--  
                             <h1 class="profile__ID">1</h1>
                             <img class="profile__Image" src="../Images/AdminDashboard/profile-default.svg"
                                 alt="default profile">
@@ -147,7 +150,35 @@
                                     alt="accept applicant">
                                 <img class="applicant-reject" src="../Images/AdminDashboard/icon-reject.svg"
                                     alt="rejectapplicant">
+                            -->
+                            <?php
+                            
+                            while($row = mysqli_fetch_assoc($result)){
+                                
+                          
+                            ?>
+                            <div class="profile1 profile">  
+                             <h1 class="profile__ID"><?php echo $row['id'];?></h1>
+                             <img class="profile__Image" src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
+                             <h3 class="profile__Name"><?php echo $row['don_firstName'] . $row['don_midName'] .$row['don_lastName'];?></h3>
+                             <h3 class="profile__ApplicationDate"><?php echo $row['created_at'];?></h3>
+                            
+                             <div class="applicatiion-function-container">
+            
+                                <img class="applicant-accept" src="../Images/AdminDashboard/icon-accept.svg"
+                                        alt="accept applicant">
+                                <img class="applicant-reject" src="../Images/AdminDashboard/icon-reject.svg"
+                                        alt="rejectapplicant">
+
                             </div>
+
+                             </div>
+                            <?php 
+                              }
+                            ?>
+
+
+                            
                         </div>
                         <div class="profile2 profile"></div>
                         <div class="profile3 profile"></div>
