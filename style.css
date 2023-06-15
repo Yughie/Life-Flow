@@ -2734,6 +2734,14 @@ h1, h2, h3 {
   background-color: white;
   overflow-x: hidden;
 }
+.recipientRegistrationBody #bloodblocker, .recipientRegistrationBody #organblocker, .recipientRegistrationBody #organblocker2 {
+  background-color: rgb(43, 0, 145);
+  position: absolute;
+  height: 38px;
+  width: 960px;
+  z-index: 1;
+  opacity: 0;
+}
 
 .nav-bar {
   background-color: #A00608;
@@ -3085,7 +3093,7 @@ h1, h2, h3 {
   display: grid;
   gap: 3px;
 }
-.registrationForm #ui-checkbox, .registrationForm #ui-checkboxdon {
+.registrationForm .chkbx {
   --primary-color: rgb(106, 175, 172);
   --secondary-color: #fff;
   --primary-hover-color: rgb(106, 175, 172);
@@ -3096,12 +3104,11 @@ h1, h2, h3 {
   --checkbox-border-style: solid;
   --checkmark-size: 1.2;
 }
-.registrationForm #ui-checkbox,
-.registrationForm #ui-checkbox *, .registrationForm #ui-checkbox::before, .registrationForm #ui-checkbox::after, .registrationForm #ui-checkboxdon,
-.registrationForm #ui-checkboxdon *, .registrationForm #ui-checkboxdon::before, .registrationForm #ui-checkboxdon::after {
+.registrationForm .chkbx,
+.registrationForm .chkbx *, .registrationForm .chkbx::before, .registrationForm .chkbx::after {
   box-sizing: border-box;
 }
-.registrationForm #ui-checkbox, .registrationForm #ui-checkboxdon {
+.registrationForm .chkbx {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -3114,7 +3121,7 @@ h1, h2, h3 {
   cursor: pointer;
   position: relative;
 }
-.registrationForm #ui-checkbox::after, .registrationForm #ui-checkboxdon::after {
+.registrationForm .chkbx::after {
   content: "";
   position: absolute;
   top: 0;
@@ -3126,7 +3133,7 @@ h1, h2, h3 {
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
 }
-.registrationForm #ui-checkbox::before, .registrationForm #ui-checkboxdon::before {
+.registrationForm .chkbx::before {
   top: 40%;
   left: 50%;
   content: "";
@@ -3139,22 +3146,27 @@ h1, h2, h3 {
   opacity: 0;
   transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
 }
-.registrationForm #ui-checkbox:hover, .registrationForm #ui-checkboxdon:hover {
+.registrationForm .chkbx:hover {
   border-color: var(--primary-color);
 }
-.registrationForm #ui-checkbox:checked, .registrationForm #ui-checkboxdon:checked {
+.registrationForm .chkbx:checked {
   background: var(--primary-color);
   border-color: transparent;
 }
-.registrationForm #ui-checkbox:checked::before, .registrationForm #ui-checkboxdon:checked::before {
+.registrationForm .chkbx:checked::before {
   opacity: 1;
-  transform: translate(-50%, -30%) rotate(45deg) scale(var(--checkmark-size));
+  transform: translate(-50%, -40%) rotate(45deg) scale(var(--checkmark-size));
   transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
 }
-.registrationForm #ui-checkbox:active:not(:checked)::after, .registrationForm #ui-checkboxdon:active:not(:checked)::after {
+.registrationForm .chkbx:active:not(:checked)::after {
   transition: none;
   box-shadow: none;
   opacity: 1;
+}
+.registrationForm #ui-checkboxdon:checked::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+  transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
 }
 .registrationForm .btn_wrapper {
   display: flex;
@@ -3744,6 +3756,14 @@ h1, h2, h3 {
 
 .donorRegistrationBody {
   overflow-x: hidden;
+}
+.donorRegistrationBody #blocker {
+  background-color: rgb(43, 0, 145);
+  position: absolute;
+  height: 38px;
+  width: 960px;
+  z-index: 1;
+  opacity: 0;
 }
 
 #topnav {
