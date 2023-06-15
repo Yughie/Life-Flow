@@ -2742,6 +2742,15 @@ h1, h2, h3 {
   z-index: 1;
   opacity: 0;
 }
+.recipientRegistrationBody #inputdate {
+  font-size: 12px;
+  padding: 18px 0px 2px 8px;
+}
+.recipientRegistrationBody #spandate {
+  padding: 18px 0px 2px 0px;
+  font-size: 12px;
+  transform: scale(0.8333333333) translateY(-18px);
+}
 
 .nav-bar {
   background-color: #A00608;
@@ -3766,6 +3775,15 @@ h1, h2, h3 {
   width: 960px;
   z-index: 1;
   opacity: 0;
+}
+.donorRegistrationBody #inputdate {
+  font-size: 12px;
+  padding: 18px 0px 2px 8px;
+}
+.donorRegistrationBody #spandate {
+  padding: 18px 0px 2px 0px;
+  font-size: 12px;
+  transform: scale(0.8333333333) translateY(-18px);
 }
 
 #topnav {
