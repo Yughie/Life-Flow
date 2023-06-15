@@ -185,7 +185,7 @@
     background-color: red;
 }
 
-.logo {
+.navlogo {
     padding-left: 15px;
     img {
         width: 135px;
@@ -206,6 +206,14 @@
         &:hover::after {
             opacity: 1;
         }
+    }
+}
+
+.logo {
+    padding-left: 15px;
+    img {
+        width: 135px;
+        border-radius: 10px;
     }
 }
 
@@ -576,9 +584,39 @@
 
     #donsignupclosebtn {
         position: absolute;
-        z-index: 1;
-        margin-left: 10px;
+        margin-left: 139px;
         margin-top: 10px;
+        position: absolute;
+    }
+}
+
+#donorlogin {
+    flex-direction: row-reverse;
+
+    #signupclosebtn {
+        margin-left: 315px;
+        margin-bottom: 360px;
+        position: absolute;
+    }
+
+    #logoid {
+        padding-left: 0px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+}
+
+#reciplogin {
+    #logoid {
+        padding-left: 0px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 15px;
     }
 }
 

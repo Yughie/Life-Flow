@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <form class="registrationForm" id="donorFormn" action="process_donor_registration.php" method="POST">
+    <form class="registrationForm" id="donorFormn" action="process_donor_registration.php" method="POST" enctype="multipart/form-data">
         <div class="intro">
             <div class="introtxt" id="txt1">
                 Congratulations on making the important decision to sign up as an organ, eye and tissue donor! Your decision can have a huge impact on the lives of others. <br>
@@ -65,26 +65,26 @@
                 <label class="label">
                     <input class="input" required="" type="text" name="don_firstName">
                     <span class="span">First Name</span>
-                </label class="label">
+                </label>
                 <label class="label">
                     <input class="input" required="" type="text" name="don_midName">
                     <span class="span">Middle Name</span>
-                </label class="label">
+                </label>
                 <label class="label">
                     <input class="input" required="" type="text" name="don_lastName">
                     <span class="span">Last Name</span>
-                </label class="label">
+                </label>
             </div>
 
             <div class="info2" id="donorInfo2">
                 <label class="label">
-                    <input class="input" required="" type="date" name="don_bday" value="2023-12-30">
-                    <span class="span">Date of Birth</span>
-                </label class="label">
+                    <input class="input" required="" type="date" name="don_bday" value="" id="inputdate">
+                    <span class="span" id="spandate">Date of Birth</span>
+                </label>
                 <label class="label">
                     <input class="input" id="age" required="" type="number" name="don_age" min="18" minlength="2" maxlength="2">
                     <span class="span">Age</span>
-                </label class="label">
+                </label>
                 <label class="label">
                     <select id="sex" required="" name="don_sex" class="select">
                         <option value="" disabled hidden selected>Select</option>
@@ -92,7 +92,7 @@
                         <option value="Female">Female</option>
                     </select>
                     <span class="span">Sex</span>
-                </label class="label">
+                </label>
                 <label class="label">
                     <select id="bloodtype" required name="don_bloodType" class="select">
                         <option value="" disabled hidden selected>Select</option>
@@ -140,7 +140,7 @@
 
             <div class="userprofile">
                 <span class="span">Choose Profile Photo</span>
-                <input class="input" type="file" name="don_userProfile" onchange="checkFileSize(this)">
+                <input class="input" type="file" name="don_userProfile" onchange="checkFileSize(this)" >
             </div>
         </div>
 

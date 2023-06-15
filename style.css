@@ -641,25 +641,33 @@ h1, h2, h3 {
   background-color: red;
 }
 
+.navlogo {
+  padding-left: 15px;
+}
+.navlogo img {
+  width: 135px;
+  border-radius: 10px;
+}
+.navlogo img:hover {
+  scale: 1.03;
+  transition: 0.25s ease-in-out;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+.navlogo img::after {
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.navlogo img:hover::after {
+  opacity: 1;
+}
+
 .logo {
   padding-left: 15px;
 }
 .logo img {
   width: 135px;
   border-radius: 10px;
-}
-.logo img:hover {
-  scale: 1.03;
-  transition: 0.25s ease-in-out;
-  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-}
-.logo img::after {
-  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  transition: opacity 0.25s ease-in-out;
-}
-.logo img:hover::after {
-  opacity: 1;
 }
 
 .logoPU {
@@ -974,9 +982,33 @@ h1, h2, h3 {
 }
 #donReg #donsignupclosebtn {
   position: absolute;
-  z-index: 1;
-  margin-left: 10px;
+  margin-left: 139px;
   margin-top: 10px;
+  position: absolute;
+}
+
+#donorlogin {
+  flex-direction: row-reverse;
+}
+#donorlogin #signupclosebtn {
+  margin-left: 315px;
+  margin-bottom: 360px;
+  position: absolute;
+}
+#donorlogin #logoid {
+  padding-left: 0px;
+  margin-bottom: 15px;
+}
+#donorlogin p {
+  margin-bottom: 15px;
+}
+
+#reciplogin #logoid {
+  padding-left: 0px;
+  margin-bottom: 15px;
+}
+#reciplogin p {
+  margin-bottom: 15px;
 }
 
 .popup-form {
@@ -2764,6 +2796,15 @@ h1, h2, h3 {
   z-index: 1;
   opacity: 0;
 }
+.recipientRegistrationBody #inputdate {
+  font-size: 12px;
+  padding: 18px 0px 2px 8px;
+}
+.recipientRegistrationBody #spandate {
+  padding: 18px 0px 2px 0px;
+  font-size: 12px;
+  transform: scale(0.8333333333) translateY(-18px);
+}
 
 .nav-bar {
   background-color: #A00608;
@@ -3075,6 +3116,7 @@ h1, h2, h3 {
 .registrationForm .label .input:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
+  height: 38px;
 }
 .registrationForm .label .select {
   width: 100%;
@@ -3110,6 +3152,7 @@ h1, h2, h3 {
 .registrationForm .label .select:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
+  height: 38px;
 }
 .registrationForm .needOrgan {
   display: grid;
@@ -3786,6 +3829,15 @@ h1, h2, h3 {
   width: 960px;
   z-index: 1;
   opacity: 0;
+}
+.donorRegistrationBody #inputdate {
+  font-size: 12px;
+  padding: 18px 0px 2px 8px;
+}
+.donorRegistrationBody #spandate {
+  padding: 18px 0px 2px 0px;
+  font-size: 12px;
+  transform: scale(0.8333333333) translateY(-18px);
 }
 
 #topnav {
