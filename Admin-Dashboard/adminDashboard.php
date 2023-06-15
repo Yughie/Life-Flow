@@ -1,3 +1,20 @@
+<?php 
+    require_once ('admin-php/connection.php');
+    require 'admin-php/functions.php'; 
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+<!------------HTML---------------->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +24,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>Admin Dashboard</title>
-
 </head>
 
 <body>
@@ -78,19 +94,35 @@
                 <div class="adminDashboardContent__summaryContainer">
                     <div class="grid-item totalApplication">
                         <h2 class="flash-Title">Total Application</h2>
-                        <h1 class="statistic-total">03</h1>
+                        <h1 class="statistic-total">
+                            <?php 
+                                echo display_applicationCount();                          
+                            ?>
+                        </h1>
                     </div>
                     <div class="grid-item TotalOrganDonor">
                         <h2 class="flash-Title">Total Organ Donation</h2>
-                        <h1 class="statistic-total">03</h1>
+                        <h1 class="statistic-total">
+                            <?php 
+                                echo display_organCount();                           
+                            ?>
+                        </h1>
                     </div>
                     <div class="grid-item OrganTransplantCandidate">
                         <h2 class="flash-Title">Organ Transplant Candidate</h2>
-                        <h1 class="statistic-total">03</h1>
+                        <h1 class="statistic-total">
+                            <?php 
+                                echo display_transplantCandidate();                               
+                            ?>
+                        </h1>
                     </div>
                     <div class="grid-item BloodRequest">
                         <h2 class="flash-Title">Blood Request</h2>
-                        <h1 class="statistic-total">03</h1>
+                        <h1 class="statistic-total">
+                            <?php 
+                                echo display_bloodRequestCount();                  
+                            ?>
+                        </h1>
                     </div>
                     <div class="grid-item TotalBloodSupply">
                         <h2 class="flash-Title">Total Blood Supply</h2>
