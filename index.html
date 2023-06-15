@@ -19,7 +19,7 @@
         <div class="progress-bar"></div>
     </div>
     <div class="nav-bar" id="nav">
-        <div class="logo" id="logoid" >
+        <div class="logo navlogo" id="logoid" >
             <a href="index.html"><img src="Images/LOGO.png"></a>
         </div>
 
@@ -157,7 +157,7 @@
                 <a href="#"><img src="Images/LOGO.png"></a>
             </div>
             <h1>Hey there!</h1>
-            <p>build your account</p>
+            <p>build your recipient account</p>
             <form class="popup-form" action="process_signup.php" method="POST">
                 <label>
                     <input required="" placeholder="" type="text" minlength="5" class="input" name="recip_username">
@@ -176,7 +176,7 @@
                     <span id="indicator2">Confirm password</span>
                 </label>           
                 <button type="submit" id="button">Sign up</button>    
-                <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
+                <p class="signin">Already have an acount? <a href="#" onclick="openRecipLogin()">Sign in</a></p>
             </form>
         </div>
         <div class="rec-reg-right">
@@ -189,11 +189,14 @@
 
     <div class="popup" id="donReg">
         <div class="popup-left">
+            <button id="donsignupclosebtn" class="close-btn" onclick="closeDonReg()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
             <div class="logoPU" id="logopopup">
                 <a href="#"><img src="Images/LOGO.png"></a>
             </div>
             <h1>Hey there!</h1>
-            <p>build your account</p>
+            <p>build your donor account</p>
             <form class="popup-form" action="process_signup.php" method="POST">
                 <label>
                     <input required="" placeholder="" type="text" minlength="5" class="input" name="don_username">
@@ -214,24 +217,24 @@
             
                 <button type="submit" id="button">Sign up</button>
                 
-                <p class="signin">Already have an acount? <a href="#" onclick="openLogin()">Sign in</a></p>
+                <p class="signin">Already have an acount? <a href="#" onclick="openDonorLogin()">Sign in</a></p>
             </form>
         </div>
         <div class="rec-reg-right">
-            <button id="donsignupclosebtn" class="close-btn" onclick="closeDonReg()">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
-            </button>
             <img src="Images\landing-page-assets\popups-assets\login side.png"></a>
         </div>
     </div>
 
-    <div class="popup" id="login">
+    <div class="popup" id="donorlogin">
         <div class="popup-left" id="loginLeft">
+            <button id="signupclosebtn" class="close-btn" onclick="closeDonorLogin()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+            </button>
             <div class="logo" id="logoid">
                 <a href="#"><img src="Images/LOGO.png"></a>
             </div>
             <h1>Hi there!</h1>
-            <p>sign in to your account</p>
+            <p>signing in as a donor</p>
             <div class="loginFormContainer">
                 <form class="popup-form" id="loginForm" action="process_donor_login.php" method="POST">
                     <label>
@@ -248,12 +251,44 @@
                 
                     <button type="submit" id="button">Sign in</button>
                                     
+                    <p class="signin">Don't have an account? <a href="#" onclick="openDonReg()">Sign up</a></p>
+                </form>
+            </div>
+        </div>
+        <div class="rec-reg-right">
+            <img src="Images\landing-page-assets\popups-assets\login side.png"></a>
+        </div>
+    </div>
+
+    <div class="popup" id="reciplogin">
+        <div class="popup-left" id="loginLeft">
+            <div class="logo" id="logoid">
+                <a href="#"><img src="Images/LOGO.png"></a>
+            </div>
+            <h1>Hi there!</h1>
+            <p>signing in as a recipient</p>
+            <div class="loginFormContainer">
+                <form class="popup-form" id="loginForm" action="process_recip_login.php" method="POST">
+                    <label>
+                        <input required="" placeholder="" type="text" name="recip_username" minlength="5" class="input">
+                        <span>Username</span>
+                    </label>
+                                    
+                    <label>
+                        <input required="" placeholder="" type="password" name="recip_pass" minlength="8" class="input" id="passInput">
+                        <span id="indicator">Password</span>
+                    </label>
+                
+                    <input type="hidden" name="userType" value="recipient">
+                
+                    <button type="submit" id="button">Sign in</button>
+                                    
                     <p class="signin">Don't have an account? <a href="#" onclick="openRecReg()">Sign up</a></p>
                 </form>
             </div>
         </div>
         <div class="rec-reg-right">
-            <button id="signupclosebtn" class="close-btn" onclick="closeLogin()">
+            <button id="signupclosebtn" class="close-btn" onclick="closeRecipLogin()">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
             </button>
             <img src="Images\landing-page-assets\popups-assets\login side.png"></a>

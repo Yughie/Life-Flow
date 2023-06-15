@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result && mysqli_num_rows($result) > 0) {
             // Login successful
             $_SESSION['is_signed_in_donor'] = true;
-            header('Location: donor-account.php'); // Replace with the donor's account page
+            echo "logged in beh hfjdshfa";
+            //header('Location: donor-account.php'); // Replace with the donor's account page
             exit();
         } else {
             // Login failed
