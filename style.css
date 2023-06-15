@@ -3845,14 +3845,6 @@ h1, h2, h3 {
   margin-top: -20px;
 }
 
-#donorGiftOrgan {
-  background-color: red;
-}
-
-#blocker {
-  background-color: rgba(255, 0, 0, 0.514);
-}
-
 .dashboard-popup {
   position: fixed;
   top: 0px;
