@@ -50,7 +50,7 @@ function openRecReg() {
     document.querySelector("#recipReg").style.display = "flex";
     document.querySelector('#recipReg').classList.add('fadein');
     closeSignUp();
-    closeLogin();
+    closeRecipLogin();
 }
 // close recipient sign up form 
 function closeRecReg() {
@@ -73,7 +73,8 @@ function openDonReg() {
     document.querySelector("#donReg").style.display = "flex";
     document.querySelector('#donReg').classList.add('fadein');
     closeSignUp();
-    closeLogin();
+    closeRecipLogin();
+    closeDonorLogin();
 }
 
 // close donor sign up form 
@@ -89,26 +90,47 @@ function closeDonReg() {
 
 //---------------LOGIN POP-UP---------------//
 window.onload = function() {
-    document.querySelector('#login').style.display = 'none';
+    document.querySelector('#donorlogin').style.display = 'none';
+    document.querySelector('#reciplogin').style.display = 'none';
 };
 // open login popup
-function openLogin() {
-    document.querySelector("#login").style.top = "50%";
-    document.querySelector('#login').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
-    document.querySelector("#login").style.display = "flex";
-    document.querySelector('#login').classList.add('fadein');
+function openDonorLogin() {
+    document.querySelector("#donorlogin").style.top = "50%";
+    document.querySelector('#donorlogin').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
+    document.querySelector("#donorlogin").style.display = "flex";
+    document.querySelector('#donorlogin').classList.add('fadein');
     closeRecReg();
     closeDonReg()
 }
 // close login popup 
-function closeLogin() {
-    document.querySelector("#login").style.top = "150%";
-    document.querySelector('#login').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
-    document.querySelector('#login').classList.add('fadeout');
+function closeDonorLogin() {
+    document.querySelector("#donorlogin").style.top = "150%";
+    document.querySelector('#donorlogin').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+    document.querySelector('#donorlogin').classList.add('fadeout');
     setTimeout(() => {
-        document.querySelector('#login').classList.remove('fadeout');
+        document.querySelector('#donorlogin').classList.remove('fadeout');
     }, 300)
 }
+
+function openRecipLogin() {
+    document.querySelector("#reciplogin").style.top = "50%";
+    document.querySelector('#reciplogin').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
+    document.querySelector("#reciplogin").style.display = "flex";
+    document.querySelector('#reciplogin').classList.add('fadein');
+    closeRecReg();
+    closeDonReg()
+    closeSignUp();
+}
+function closeRecipLogin() {
+    document.querySelector("#reciplogin").style.top = "150%";
+    document.querySelector('#reciplogin').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+    document.querySelector('#reciplogin').classList.add('fadeout');
+    setTimeout(() => {
+        document.querySelector('#reciplogin').classList.remove('fadeout');
+    }, 300)
+}
+
+
 
 // checks if recipient password matches (for span indicator)
 let check = function() {

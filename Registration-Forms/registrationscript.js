@@ -7,6 +7,7 @@ function openSidebar(selected) {
     }
 }
 
+/*
 // user profile file size
 function checkFileSize(input) {
     if (input.files.length > 0) {
@@ -18,7 +19,7 @@ function checkFileSize(input) {
             input.value = ''; // Clear the file input field
         }
     }
-}
+} */
 
 // lengths in number inputs
 document.getElementById("recipFormID").addEventListener("submit", function(event) {
