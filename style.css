@@ -3053,6 +3053,7 @@ h1, h2, h3 {
 .registrationForm .label .input:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
+  height: 38px;
 }
 .registrationForm .label .select {
   width: 100%;
@@ -3088,6 +3089,7 @@ h1, h2, h3 {
 .registrationForm .label .select:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
+  height: 38px;
 }
 .registrationForm .needOrgan {
   display: grid;
