@@ -3255,6 +3255,10 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
+.organOption {
+  display: none;
+}
+
 .transplantRecipient-function_container {
   display: flex;
   flex-direction: row;
