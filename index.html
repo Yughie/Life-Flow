@@ -233,20 +233,22 @@
             <h1>Hi there!</h1>
             <p>sign in to your account</p>
             <div class="loginFormContainer">
-                <form class="popup-form" id="loginForm">
+                <form class="popup-form" id="loginForm" action="process_login.php" method="POST">
                     <label>
-                        <input required="" placeholder="" type="text" minlength="5" class="input">
+                        <input required="" placeholder="" type="text" name="don_username" minlength="5" class="input">
                         <span>Username</span>
                     </label>
-                    
+                                    
                     <label>
-                        <input required="" placeholder="" type="password" minlength="8" class="input" id="passInput">
+                        <input required="" placeholder="" type="password" name="don_pass" minlength="8" class="input" id="passInput">
                         <span id="indicator">Password</span>
                     </label>
-                    
+                
+                    <input type="hidden" name="userType" value="donor">
+                
                     <button type="submit" id="button">Sign in</button>
-                    
-                    <p class="signin">Don't have an acount? <a href="#" onclick="openRecReg()">Sign up</a></p>
+                                    
+                    <p class="signin">Don't have an account? <a href="#" onclick="openRecReg()">Sign up</a></p>
                 </form>
             </div>
         </div>

@@ -4,11 +4,17 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-// Database connection
+/*
 $servername = "db4free.net";
 $username = "lifeflow";
 $password = "2023LifeFlowProject!";
-$database = "lifeflow_db";
+$database = "lifeflow_db"; 
+*/
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "lifeflow_db"; 
 
 $connect = mysqli_connect($servername, $username, $password, $database);
 
@@ -81,6 +87,9 @@ if ($don_username && $don_email && $don_pass && $don_pass === $don_confirmPass) 
     
     // Set session variable to indicate user is signed in as a donor
     $_SESSION['is_signed_in_donor'] = true;
+
+    // username retrieval in regform
+    $_SESSION['don_username'] = $don_username;
     
     // Redirect to the donor's account page
     header('Location: Registration-Forms/donor-registration.html');
