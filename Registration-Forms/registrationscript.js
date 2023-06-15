@@ -40,10 +40,12 @@ document.getElementById("recipFormID").addEventListener("submit", function(event
 function donblocker() {
     var blocker = document.querySelector("#blocker");
     var checkbox = document.querySelector("#ui-checkboxdonorg");
+    var select = document.querySelector("#don_gift");
 
     if (checkbox.checked) {
         blocker.style.display = "none";
     } else {
+        select.selectedIndex = 0;
         blocker.style.display = "block";
     }
 }
@@ -53,11 +55,17 @@ function bloodblock() {
     var organblocker = document.querySelector("#organblocker");
     var organblocker2 = document.querySelector("#organblocker2");
     var radio = document.querySelector("#recip_boolBlood");
+    var select = document.querySelector("#recip_neededOrgan");
 
     if (radio.checked) {
         bloodblocker.style.display = "none";
         organblocker.style.display = "block";
         organblocker2.style.display = "block";
+        select.selectedIndex = 0; // Reset the selected index to 0 (default option)
+    } else {
+        bloodblocker.style.display = "block";
+        organblocker.style.display = "none";
+        organblocker2.style.display = "none";
     }
 }
 
@@ -66,11 +74,14 @@ function organblock() {
     var organblocker = document.querySelector("#organblocker");
     var organblocker2 = document.querySelector("#organblocker2");
     var radio = document.querySelector("#recip_boolOrganTissue");
+    var select = document.querySelector("#recip_neededOrgan");
 
     if (radio.checked) {
         bloodblocker.style.display = "block";
         organblocker.style.display = "none";
         organblocker2.style.display = "none";
+    } else {
+        select.value = "Select";
     }
 }
 

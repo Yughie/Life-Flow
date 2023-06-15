@@ -11,6 +11,17 @@
         z-index: 1;
         opacity: 0;
     }
+    
+    #inputdate {
+        font-size: 12px;
+        padding: 18px 0px 2px 8px;
+    }
+
+    #spandate {
+        padding: 18px 0px 2px 0px;
+        font-size: 12px;
+        transform: scale(calc(10 / 12)) translateY(-18px);
+    }
 }
 
 #topnav {

@@ -2742,6 +2742,15 @@ h1, h2, h3 {
   z-index: 1;
   opacity: 0;
 }
+.recipientRegistrationBody #inputdate {
+  font-size: 12px;
+  padding: 18px 0px 2px 8px;
+}
+.recipientRegistrationBody #spandate {
+  padding: 18px 0px 2px 0px;
+  font-size: 12px;
+  transform: scale(0.8333333333) translateY(-18px);
+}
 
 .nav-bar {
   background-color: #A00608;
@@ -3053,6 +3062,7 @@ h1, h2, h3 {
 .registrationForm .label .input:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
+  height: 38px;
 }
 .registrationForm .label .select {
   width: 100%;
@@ -3088,6 +3098,7 @@ h1, h2, h3 {
 .registrationForm .label .select:focus {
   border: 2px solid rgb(98, 184, 179);
   border-radius: 5px;
+  height: 38px;
 }
 .registrationForm .needOrgan {
   display: grid;
@@ -3765,6 +3776,15 @@ h1, h2, h3 {
   z-index: 1;
   opacity: 0;
 }
+.donorRegistrationBody #inputdate {
+  font-size: 12px;
+  padding: 18px 0px 2px 8px;
+}
+.donorRegistrationBody #spandate {
+  padding: 18px 0px 2px 0px;
+  font-size: 12px;
+  transform: scale(0.8333333333) translateY(-18px);
+}
 
 #topnav {
   display: flex;
@@ -3843,14 +3863,6 @@ h1, h2, h3 {
 
 #txt1 {
   margin-top: -20px;
-}
-
-#donorGiftOrgan {
-  background-color: red;
-}
-
-#blocker {
-  background-color: rgba(255, 0, 0, 0.514);
 }
 
 .dashboard-popup {
