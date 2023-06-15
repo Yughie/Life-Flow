@@ -18,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recip_bDay = $_POST["recip_bDay"];
     $formatted_bDay = date('Y-m-d', strtotime($recip_bDay));
     $recip_age = $_POST["recip_age"];
-    $recip_sex= $_POST["recip_sex"];
-    $recip_bloodType= $_POST["recip_bloodType"];
+    $recip_sex= isset($_POST["recip_sex"]) ? $_POST["recip_sex"] : "";
+    $recip_bloodType= isset($_POST["recip_bloodType"]) ? $_POST["recip_bloodType"] : "";
     $recip_streetAdd = $_POST["recip_streetAdd"];
     $recip_city = $_POST["recip_city"];
     $recip_province = $_POST["recip_province"];
     $recip_postal = $_POST["recip_postal"];
     $recip_phoneNum = $_POST["recip_phoneNum"];
-    $recip_ethnicity = $_POST["recip_ethnicity"];
+    $recip_ethnicity = isset($_POST["recip_ethnicity"]) ? $_POST["recip_ethnicity"] : "";
     //bool
     $recip_boolBlood = isset($_POST["recip_boolBlood"]) ? 1 : 0;
     $recip_bloodUrgency = $_POST["recip_bloodUrgency"];
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $connect->prepare("INSERT INTO recipient_info_tbl (recip_firstName, recip_midName, recip_lastName, recip_bDay, recip_age, recip_sex, recip_bloodType, recip_streetAdd, recip_city, recip_province, recip_postal, recip_phoneNum, recip_ethnicity, recip_boolBlood, recip_bloodUrgency, recip_neededOrgan, recip_organUrgency) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("sssssisssssssisss", $recip_firstName, $recip_midName, $recip_lastName, $recip_bDay, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_bloodUrgency, $recip_neededOrgan, $recip_organUrgency);
+    $stmt->bind_param("ssssissssssssisss", $recip_firstName, $recip_midName, $recip_lastName, $recip_bDay, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_bloodUrgency, $recip_neededOrgan, $recip_organUrgency);
 
     echo "sex: " . $recip_sex . "<br>";
     echo "bloodTYpe : " . $recip_bloodType . "<br>";
