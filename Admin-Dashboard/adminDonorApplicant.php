@@ -33,43 +33,43 @@
                 <h1>Hi <span>Admin</span>!</h1>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Dashboard" href="./adminDashboard.html">
+                <a class="adminLinks__Dashboard" href="./adminDashboard.php">
                     <img src="../Images/AdminDashboard/icon-dashboard-standby.svg" alt="Dashboard Icon">
                     <h2>Dashboard</h2>
                 </a>
             </div>
             <div class="adminLinks current">
-                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.html">
+                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.php">
                     <img src="../Images/AdminDashboard/Icon-donorApplicant-current.svg" alt="Donor Applicant Icon">
                     <h2>Donor Applicant</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.html">
+                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.php">
                     <img src="../Images/AdminDashboard/icon-organDonor-standby.svg" alt="Organ Donor Icon">
                     <h2>Organ Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.html">
+                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.php">
                     <img src="../Images/AdminDashboard/Icon-BloodDonor-standby.svg" alt="Blood Donor Icon">
                     <h2>Blood Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Recipient" href="./adminRecipient.html">
+                <a class="adminLinks__Recipient" href="./adminRecipient.php">
                     <img src="../Images/AdminDashboard/Icon-Recipient-standby.svg" alt="Recipient Icon">
                     <h2>Recipient</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.html">
+                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.php">
                     <img src="../Images/AdminDashboard/icon-bloodTransfusion-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transfusion Registry</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.html">
+                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.php">
                     <img src="../Images/AdminDashboard/Icon-transplant-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transplant Registry</h2>
                 </a>
@@ -199,6 +199,20 @@
                             </div>
                         </div>
                         -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
                         <?php   
                             while($row = mysqli_fetch_assoc($result)){
                             ?>
@@ -298,10 +312,15 @@
                                             <img class="applicant__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
                                             <?php
                                         }
+                                        else{
+                                        ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                                        <?php
+                                        }
                                         ?>
                                 
-                                    <!---FUNCTIONS----->
-                                    <div class="applicant-function-container">
+                                        <!---FUNCTIONS----->
+                                        <div class="applicant-function-container">
                                         <img class="applicant-edit"
                                             src="../Images/DonorApplicant/icon-editApplicant.svg" alt="">
                                         <img class="applicant-delete"
