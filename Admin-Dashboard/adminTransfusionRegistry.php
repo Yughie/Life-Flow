@@ -1,3 +1,15 @@
+<?php 
+    require_once ('admin-php/connection.php');
+    require 'admin-php/functions.php'; 
+
+    $query = "SELECT * FROM recipient_info_tbl WHERE recip_boolBlood =1 AND recip_status != '1'";
+    $result = mysqli_query($conn, $query);
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,43 +32,43 @@
                 <h1>Hi <span>Admin</span>!</h1>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Dashboard" href="./adminDashboard.html">
+                <a class="adminLinks__Dashboard" href="./adminDashboard.php">
                     <img src="../Images/AdminDashboard/icon-dashboard-standby.svg" alt="Dashboard Icon">
                     <h2>Dashboard</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.html">
+                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.php">
                     <img src="../Images/AdminDashboard/icon-donorApplicant-standby.svg" alt="Donor Applicant Icon">
                     <h2>Donor Applicant</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.html">
+                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.php">
                     <img src="../Images/AdminDashboard/icon-organDonor-standby.svg" alt="Organ Donor Icon">
                     <h2>Organ Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.html">
+                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.php">
                     <img src="../Images/AdminDashboard/Icon-BloodDonor-standby.svg" alt="Blood Donor Icon">
                     <h2>Blood Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Recipient" href="./adminRecipient.html">
+                <a class="adminLinks__Recipient" href="./adminRecipient.php">
                     <img src="../Images/AdminDashboard/Icon-Recipient-standby.svg" alt="Recipient Icon">
                     <h2>Recipient</h2>
                 </a>
             </div>
             <div class="adminLinks current">
-                <a class="adminLinks__BloodTransfusion" href="adminTransfusionRegistry.html">
+                <a class="adminLinks__BloodTransfusion" href="adminTransfusionRegistry.php">
                     <img src="../Images/AdminDashboard/icon-bloodTransfusion-current.svg" alt="Blood Transfusion Icon">
                     <h2>Transfusion Registry</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.html">
+                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.php">
                     <img src="../Images/AdminDashboard/Icon-transplant-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transplant Registry</h2>
                 </a>
@@ -82,7 +94,7 @@
                     <label for="option1">
                         <div class="bloodtype1 bloodtype">
                             <div class="bloodtype__name bloodtype__name1" for="onegative">O-</div>
-                            <div class="bloodtype__count bloodtype__count1">30</div>
+                            <div class="bloodtype__count bloodtype__count1"><?php echo display_TypeONegativeCount(); ?></div>
 
                         </div>
                     </label>
@@ -90,49 +102,49 @@
                     <label for="option2">
                         <div class="bloodtype2 bloodtype">
                             <div class="bloodtype__name bloodtype__name2">O+</div>
-                            <div class="bloodtype__count bloodtype__count2">14</div>
+                            <div class="bloodtype__count bloodtype__count2"><?php echo display_TypeOPositiveCount(); ?></div>
                         </div>
                     </label>
                     <input type="radio" name="blooodtype" id="option3" value="3" class="option hide-radio">
                     <label for="option3">
                         <div class="bloodtype3 bloodtype">
                             <div class="bloodtype__name bloodtype__name3">B-</div>
-                            <div class="bloodtype__count bloodtype__count3">24</div>
+                            <div class="bloodtype__count bloodtype__count3"><?php echo display_TypeBNegativeCount(); ?></div>
                         </div>
                     </label>
                     <input type="radio" name="blooodtype" id="option4" value="4" class="option hide-radio">
                     <label for="option4">
                         <div class="bloodtype4 bloodtype">
                             <div class="bloodtype__name bloodtype__name4">B+</div>
-                            <div class="bloodtype__count bloodtype__count4">12</div>
+                            <div class="bloodtype__count bloodtype__count4"><?php echo display_TypeBPositiveCount(); ?></div>
                         </div>
                     </label>
                     <input type="radio" name="blooodtype" id="option5" value="5" class="option hide-radio">
                     <label for="option5">
                         <div class="bloodtype5 bloodtype">
                             <div class="bloodtype__name bloodtype__name5">A-</div>
-                            <div class="bloodtype__count bloodtype__count5">32</div>
+                            <div class="bloodtype__count bloodtype__count5"><?php echo display_TypeANegativeCount(); ?></div>
                         </div>
                     </label>
                     <input type="radio" name="blooodtype" id="option6" value="6" class="option hide-radio">
                     <label for="option6">
                         <div class="bloodtype6 bloodtype">
                             <div class="bloodtype__name bloodtype__name6">A+</div>
-                            <div class="bloodtype__count bloodtype__count6">17</div>
+                            <div class="bloodtype__count bloodtype__count6"><?php echo display_TypeAPositiveCount(); ?></div>
                         </div>
                     </label>
                     <input type="radio" name="blooodtype" id="option7" value="7" class="option hide-radio">
                     <label for="option7">
                         <div class="bloodtype7 bloodtype">
                             <div class="bloodtype__name bloodtype__name7">AB-</div>
-                            <div class="bloodtype__count bloodtype__count7">4</div>
+                            <div class="bloodtype__count bloodtype__count7"><?php echo display_TypeABNegativeCount(); ?></div>
                         </div>
                     </label>
                     <input type="radio" name="blooodtype" id="option8" value="8" class="option hide-radio">
                     <label for="option8">
                         <div class="bloodtype8 bloodtype">
                             <div class="bloodtype__name bloodtype__name8">AB+</div>
-                            <div class="bloodtype__count bloodtype__count8">2</div>
+                            <div class="bloodtype__count bloodtype__count8"><?php echo display_TypeABPositiveCount(); ?></div>
                         </div>
                     </label>
                 </div>
@@ -183,12 +195,15 @@
                         <div class="admintransfusion__contentTitle__empty"></div>
                     </div>
                     <div class="transfusion_container">
+
+
+                        <!---
                         <div class="transfusion1 transfusion">
-                            <!----ID/DATE------>
+                            <!----ID/DATE-----
                             <div class="transfusion__order">
                                 <h1 class="transfusion__order__ID">1</h1>
                             </div>
-                            <!---PERSONAL INFORMATION-->
+                            <!---PERSONAL INFORMATION-
                             <div class="transfusion__personal">
                                 <div>
                                     <img class="transfusion__personal__Image"
@@ -202,21 +217,91 @@
                                             class="personal__sex_value">Male</span></h3>
                                 </div>
                             </div>
-                            <!---CONTACT INFO----->
+                            <!---CONTACT INFO----
                             <div class="transfusion__contact">
                                 <h3 class="transfusion__contact__email">yughiep@gmail.com</h3>
                                 <h3 class="transfusion__contact__number">092381293241</h3>
                             </div>
-                            <!---BLOOD TYPE--->
+                            <!---BLOOD TYPE---
                             <h3 class="transfusion__bloodtype">O+</h3>
                             <!---ORGAN IMAGE
                                 <img class="transfusion__Organ" src="../Images/Organ-Assets/organ-liver.svg" alt="liver image">
                                 ----->
-                            <!-------DATE REQUIRED--------->
+                            <!-------DATE REQUIRED---------
                             <h3 class="transfusion__daterequired">09-12-01</h3>
 
-                            <!-----------STATUS------------->
+                            <!-----------STATUS-------------
                             <div class="transfusion__status"></div>
+                            <!-----------FUNCTION-------------------
+                            <div class="transfusion-function-container">
+                                <svg class="transfusion__function" width="60" height="50" viewBox="0 0 60 50"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M49.5837 42.5172H35.4774C35.1953 43.1974 34.8191 43.8777 34.3019 44.4533C33.2439 45.6307 31.8568 46.2586 30.3521 46.2586C28.8474 46.2586 27.4603 45.6307 26.4023 44.4533L16.4809 33.4122C16.0342 32.9151 16.0342 32.1825 16.4809 31.6854C16.9276 31.1883 17.5859 31.1883 18.0326 31.6854L28.0246 42.805C29.3176 44.244 31.4336 44.244 32.7737 42.805C34.0668 41.366 34.0668 39.0113 32.7737 37.5199L20.3366 23.6794C18.2677 21.377 15.5875 20.2781 12.9308 20.1996H0V35.0867H6.2538C7.71145 35.0867 9.09858 35.7146 10.2036 36.892L18.8554 46.5202C20.9714 48.875 23.9337 50 26.6609 50H49.5837C51.4175 50 52.9222 48.3255 52.9222 46.2848C52.9222 44.244 51.4175 42.5172 49.5837 42.5172ZM56.4958 19.938C60.7042 15.8303 61.2214 8.66142 57.5068 3.89964C53.8156 -0.783659 47.3737 -1.35926 43.0948 2.7746L41.6371 4.18744L40.1795 2.7746C35.9711 -1.3331 29.4587 -0.783659 25.7675 3.89964C22.0529 8.58293 22.5701 15.8303 26.7785 19.938L41.402 36.6304L56.4958 19.938Z" />
+                                </svg>
+                            </div>
+
+                        </div>
+                         --->
+
+                        <?php   
+                            while($row = mysqli_fetch_assoc($result)){
+                        ?>
+                            <div class="transfusion1 transfusion">
+                            <!----ID/DATE------>
+                            <div class="transfusion__order">
+                                <h1 class="transfusion__order__ID"><?php echo $row['recipID']; ?></h1>
+                            </div>
+                            <!---PERSONAL INFORMATION-->
+                            <div class="transfusion__personal">
+                                <div>
+                                    <img class="transfusion__personal__Image"
+                                        src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
+                                </div>
+                                <div>
+                                <h3 class="transfusion__personal__name">
+                                            <?php echo $row['recip_lastName'] ." " . $row['recip_firstName'] . ",";?>
+                                    </h3>
+                                    <h3 class="transfusion__personal__name">
+                                        <?php echo $row['recip_midName']; ?>
+                                    </h3>
+                                    <h3 class="transfusion__personal__age">Age: <span
+                                            class="personal__age__value"><?php echo $row['recip_age']; ?></span></h3>
+                                    <h3 class="transfusion__personal__sex">Sex: <span
+                                            class="personal__sex_value"><?php echo $row['recip_sex']; ?></span></h3>
+                                </div>
+                            </div>
+                            <!---CONTACT INFO----->
+                            <div class="transfusion__contact">
+                                
+                                <h3 class="transfusion__contact__number"><?php echo $row['recip_phoneNum']; ?></h3>
+                            </div>
+                                <!---BLOOD TYPE--->
+                            <h3 class="transfusion__bloodtype"><?php echo $row['recip_bloodType']; ?></h3>
+                            <!---ORGAN IMAGE
+                                <img class="transfusion__Organ" src="../Images/Organ-Assets/organ-liver.svg" alt="liver image">
+                                ----->
+                            <!-------DATE REQUIRED--------->
+                            <h3 class="transfusion__daterequired"><?php echo $row['recip_Urgency']; ?></h3>
+
+                            <!-----------STATUS------------->
+                            <?php 
+                                if($row['recip_status'] == 1){
+                            ?>
+                               <div class="transfusion__status" style="background-color: green;"></div>
+                            <?php 
+                            }
+                            else if($row['recip_status'] == 0){
+                            ?>
+                                <div class="transfusion__status" style="background-color: yellow;"></div>
+                            <?php 
+                             }   
+                                else if($row['recip_status'] == -1){
+                            ?>
+                            <div class="transfusion__status" style="background-color: red;"></div>
+                            <?php 
+                             } 
+                            ?>
                             <!-----------FUNCTION------------------->
                             <div class="transfusion-function-container">
                                 <svg class="transfusion__function" width="60" height="50" viewBox="0 0 60 50"
@@ -227,11 +312,14 @@
                             </div>
 
                         </div>
-                        <div class="transfusion2 transfusion"></div>
-                        <div class="transfusion3 transfusion"></div>
-                        <div class="transfusion3 transfusion"></div>
-                        <div class="transfusion3 transfusion"></div>
-                        <div class="transfusion3 transfusion"></div>
+
+
+
+
+
+                        <?php 
+                            }
+                        ?>
                     </div>
 
                 </div>

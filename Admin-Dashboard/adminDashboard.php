@@ -39,43 +39,43 @@
                 <h1>Hi <span>Admin</span>!</h1>
             </div>
             <div class="adminLinks current">
-                <a class="adminLinks__Dashboard" href="./adminDashboard.html">
+                <a class="adminLinks__Dashboard" href="./adminDashboard.php">
                     <img src="../Images/AdminDashboard/icon-dashboard-current.svg" alt="Dashboard Icon">
                     <h2>Dashboard</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.html">
+                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.php">
                     <img src="../Images/AdminDashboard/icon-donorApplicant-standby.svg" alt="Donor Applicant Icon">
                     <h2>Donor Applicant</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.html">
+                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.php">
                     <img src="../Images/AdminDashboard/icon-organDonor-standby.svg" alt="Organ Donor Icon">
                     <h2>Organ Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.html">
+                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.php">
                     <img src="../Images/AdminDashboard/Icon-BloodDonor-standby.svg" alt="Blood Donor Icon">
                     <h2>Blood Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Recipient" href="./adminRecipient.html">
+                <a class="adminLinks__Recipient" href="./adminRecipient.php">
                     <img src="../Images/AdminDashboard/Icon-Recipient-standby.svg" alt="Recipient Icon">
                     <h2>Recipient</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.html">
+                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.php">
                     <img src="../Images/AdminDashboard/icon-bloodTransfusion-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transfusion Registry</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.html">
+                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.php">
                     <img src="../Images/AdminDashboard/Icon-transplant-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transplant Registry</h2>
                 </a>
@@ -128,7 +128,11 @@
                     </div>
                     <div class="grid-item TotalBloodSupply">
                         <h2 class="flash-Title">Total Blood Supply</h2>
-                        <h1 class="statistic-total">03</h1>
+                        <h1 class="statistic-total">
+                            <?php
+                                echo display_bloodCount();
+                            ?>
+                        </h1>
                     </div>
                 </div>
 
