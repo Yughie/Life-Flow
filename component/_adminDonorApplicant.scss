@@ -57,9 +57,7 @@
     .applicant-select-function_container{
         display: flex;
         align-items: center;
-        /*{
-            border: 1px dashed blue;
-        }*/
+
         .applicant-search-function{
            
             margin-bottom: -10px;
@@ -197,8 +195,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border: 1px solid black;
-
     
+
     //CONTENT TITLE's
     &__contentTitle{
         display: flex;
@@ -207,19 +205,22 @@
         text-align: center;
         padding: 0px 30px;
         color: $offWhite;
-        font-size: $font-sm;
+        font-size: $font-xsm;
         border: 1px solid black;
         background-color: $primaryRed;
-        
+
+        *{
+            border: 1px dashed yellow;
+        }
     
         &__ID{
-        width: 130px;
+        width: 150px;
         }
         &__Profile{
-        width: 180px;
+        width: 300px;
         }
         &__Contact{
-            width: 140px;
+            width: 90px;
             margin-left:  0px;
         }
         &__BloodType{
@@ -232,7 +233,7 @@
             margin-left:  0px;
         }
         &__empty{
-            width: 200px;
+            width: 210px;
         }
     }
 
@@ -260,7 +261,7 @@
             border-radius: 15px;
             
         }
-
+ 
 
         .applicant{
             display: flex;
@@ -270,7 +271,10 @@
             margin: 10px 30px;
             padding: 10px 30px 10px 30px;
             border-radius: 15px;
+            min-width: 1000px;
             min-height: 100px;
+            font-size: $font-sm;
+           
             
             /************************DATABASEEEEEE***************************/
 
@@ -278,21 +282,22 @@
             &__order{
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: center;  
+                justify-content: center;
+                width: 90px; 
+
+                
 
                 &__applicationdate{
                     color: $offGrey;
                     font-size: $font-sm;
-                    
+                    word-wrap: break-word; 
                     
                 }
                 &__applicantID{
                     font-size: $font-bml;
                 }
             }
-
-            //APPLICANT IMAGE
-            
 
             //PERSONAL INFORMATION
             &__personal{
@@ -305,7 +310,9 @@
                     margin-right: 10px;
                 }
                 &__name{
-                    font-size: $font-med;
+                    font-size: $font-sm;
+                    width: 220px;
+                    word-break: break-all;
                 }
                 &__age{
                     font-size: $font-sm;
@@ -319,14 +326,16 @@
             //CONTACT INFORMATION
             &__contact{
                 text-align: center;
+                width: 100px;
                 &__applicantemail{
-                    font-size: $font-sm
+                    font-size: $font-sm;
+                    
                 }
                 &__applicantnumber{
-                    font-size: $font-sm
+                  
+                    font-size: $font-sm;
                 }
             }
-
             //Blood TYPE 
             &__bloodtype{
                 color: $primaryRed;

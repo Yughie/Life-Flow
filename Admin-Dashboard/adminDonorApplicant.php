@@ -1,3 +1,16 @@
+<?php 
+    require_once ('admin-php/connection.php');
+    require 'admin-php/functions.php'; 
+
+    $query = "SELECT * FROM donor_info_tbl WHERE isNewApplicant = 1";
+    $result = mysqli_query($conn, $query);
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,43 +33,43 @@
                 <h1>Hi <span>Admin</span>!</h1>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Dashboard" href="./adminDashboard.html">
+                <a class="adminLinks__Dashboard" href="./adminDashboard.php">
                     <img src="../Images/AdminDashboard/icon-dashboard-standby.svg" alt="Dashboard Icon">
                     <h2>Dashboard</h2>
                 </a>
             </div>
             <div class="adminLinks current">
-                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.html">
+                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.php">
                     <img src="../Images/AdminDashboard/Icon-donorApplicant-current.svg" alt="Donor Applicant Icon">
                     <h2>Donor Applicant</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.html">
+                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.php">
                     <img src="../Images/AdminDashboard/icon-organDonor-standby.svg" alt="Organ Donor Icon">
                     <h2>Organ Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.html">
+                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.php">
                     <img src="../Images/AdminDashboard/Icon-BloodDonor-standby.svg" alt="Blood Donor Icon">
                     <h2>Blood Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Recipient" href="./adminRecipient.html">
+                <a class="adminLinks__Recipient" href="./adminRecipient.php">
                     <img src="../Images/AdminDashboard/Icon-Recipient-standby.svg" alt="Recipient Icon">
                     <h2>Recipient</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.html">
+                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.php">
                     <img src="../Images/AdminDashboard/icon-bloodTransfusion-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transfusion Registry</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.html">
+                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.php">
                     <img src="../Images/AdminDashboard/Icon-transplant-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transplant Registry</h2>
                 </a>
@@ -127,7 +140,7 @@
                 </div>
 
 
-                <!--------------LATEST DONOR APPLICATION----------------->
+                <!--------------DONOR APPLICATION----------------->
                 <div class="DonorApplicant">
                     <div class="DonorApplicant__contentTitle">
                         <h2 class="DonorApplicant__contentTitle__ID">ID</h2>
@@ -138,6 +151,10 @@
                         <div class="DonorApplicant__contentTitle__empty"></div>
                     </div>
                     <div class="applicant_container">
+                    
+
+                    
+                        <!--
                         <div class="applicant1 applicant">
                             <div class="applicant__order">
                                 <h3 class="applicant__order__applicationdate">09-12-2001</h3>
@@ -145,7 +162,7 @@
                             </div>
 
 
-                            <!---PERSONAL INFORMATION-->
+                            <!---PERSONAL INFORMATION-
                             <div class="applicant__personal">
                                 <div>
                                     <img class="applicant__personal__Image"
@@ -159,17 +176,17 @@
                                             class="personal__sex_value">Male</span></h3>
                                 </div>
                             </div>
-                            <!---CONTACT INFO----->
+                            <!---CONTACT INFO----
                             <div class="applicant__contact">
                                 <h3 class="applicant__contact__applicantemail">yughiep@gmail.com</h3>
                                 <h3 class="applicant__contact__applicantnumber">092381293241</h3>
                             </div>
-                            <!---BLOOD TYPE--->
+                            <!---BLOOD TYPE--
                             <h3 class="applicant__bloodtype">O+</h3>
-                            <!---ORGAN IMAGE----->
+                            <!---ORGAN IMAGE----
                             <img class="applicant__Organ" src="../Images/Organ-Assets/organ-liver.svg"
                                 alt="liver image">
-                            <!---FUNCTIONS----->
+                            <!---FUNCTIONS----
                             <div class="applicant-function-container">
                                 <img class="applicant-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="">
@@ -181,17 +198,146 @@
                                     alt="rejectapplicant">
                             </div>
                         </div>
-                        <div class="applicant2 applicant"></div>
-                        <div class="applicant3 applicant"></div>
-                        <div class="applicant3 applicant"></div>
-                        <div class="applicant3 applicant"></div>
-                        <div class="applicant3 applicant"></div>
+                        -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                        <?php   
+                            while($row = mysqli_fetch_assoc($result)){
+                            ?>
+
+                                    <div class="applicant1 applicant">
+                                        <div class="applicant__order">
+                                            <h3 class="applicant__order__applicationdate">
+                                                <?php 
+                                                echo $dateOnly = date("Y-m-d", strtotime($row['created_at']));
+                                                ?>
+                                                <h3 class="applicant__order__applicationdate">
+                                                <?php
+                                                echo $dateOnly = date("H-i-s", strtotime($row['created_at']));
+                                               
+                                               
+                                                 ?>
+                                                </h3>
+                                                
+                                            </h3>
+                                            <h1 class="applicant__order__applicantID">
+                                                <?php echo $row['id'];?>
+                                            </h1>
+                                        </div>
+                                        <!---PERSONAL INFORMATION-->
+                                        <div class="applicant__personal">
+                                            <div>
+                                                <img class="applicant__personal__Image"
+                                                    src="../Images/AdminDashboard/profile-default.svg"
+                                                    alt="default profile">
+                                            </div>
+                                            <div>
+                                                <h3 class="applicant__personal__name">
+                                                    <?php echo $row['don_lastName'] . $row['don_firstName'] . ",";?>
+                                                </h3>
+                                                <h3 class="applicant__personal__name">
+                                                    <?php echo $row['don_midName']; ?>
+                                                </h3>
+                                                
+                                                <h3 class="applicant__personal__age"> Age:<span
+                                                        class="personal__age__value">
+                                                        <?php echo $row['don_age'] ?>
+                                                    </span></h3>
+                                                <h3 class="applicant__personal__sex">Sex: <span class="personal__sex_value">
+                                                        <?php echo $row['don_sex']?>
+                                                    </span></h3>
+                                            </div>
+                                        </div>
+                                        <!---CONTACT INFO----->
+                                        <div class="applicant__contact">
+                                            <h3 class="applicant__contact__applicantnumber">
+                                                <?php echo $row['don_phoneNum'] ?>
+                                            </h3>
+                                        </div>
+                                        <!---BLOOD TYPE--->
+                                        <h3 class="applicant__bloodtype">
+                                            <?php echo $row['don_bloodType'] ?>
+                                        </h3>
+                                        <!---ORGAN IMAGE----->
+                                        <?php 
+                                        if($row['don_giftOrgan'] == "Kidney"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
+                                            <?php
+                                        }
+                                        else if($row['don_giftOrgan'] == "Liver"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                            <?php
+                                        }
+                                        else if($row['don_giftOrgan'] == "Lungs"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
+                                            <?php
+                                        }
+                                        else if($row['don_giftOrgan'] == "Heart"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
+                                            <?php
+                                        }
+                                        else if($row['don_giftOrgan'] == "Pancreas"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
+                                            <?php
+                                        }
+                                        else if($row['don_giftOrgan'] == "Intestines"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                            <?php
+                                        }
+                                        else if($row['don_giftOrgan'] == "Hands and Face"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/handsandface.png" alt="hands and face">
+                                            <?php
+                                        }
+                                        else if($row['don_giftOrgan'] == "Corneas"){
+                                            ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
+                                            <?php
+                                        }
+                                        else{
+                                        ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                                        <?php
+                                        }
+                                        ?>
+                                
+                                        <!---FUNCTIONS----->
+                                        <div class="applicant-function-container">
+                                        <img class="applicant-edit"
+                                            src="../Images/DonorApplicant/icon-editApplicant.svg" alt="">
+                                        <img class="applicant-delete"
+                                            src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="">
+                                        <img class="applicant-accept" src="../Images/AdminDashboard/icon-accept.svg"
+                                            alt="accept applicant">
+                                        <img class="applicant-reject" src="../Images/AdminDashboard/icon-reject.svg"
+                                            alt="rejectapplicant">
+                                    </div>
+                                </div>
+                                    <?php  
+                              }
+                            ?>
+                        </div>
                     </div>
 
                 </div>
-            </div>
-
-        </div>
 
 
     </nav>

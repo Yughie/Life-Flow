@@ -207,37 +207,37 @@
         text-align: center;
         padding: 0px 30px;
         color: $offWhite;
-        font-size: $font-sm;
+        font-size: $font-xsm;
         border: 1px solid black;
         background-color: $primaryRed;
 
         &__ID{
-        width: 100px;
+        width: 120px;
         }
         &__Profile{
-        width: 220px;
+        width: 320px;
         }
         &__Contact{
-            width: 150px;
+            width: 110px;
             margin-left:  5px;
         }
         &__BloodType{
-            width: 80px;
+            width: 90px;
            
            margin-left:  5px;
         }
         &__Organ{
-            width: 70px;
+            width: 60px;
             
         }
         &__DateRequired{
-            width: 110px;
+            width: 100px;
         }
         &__Status{
             
         }
         &__empty{
-            width: 140px;
+            width: 150px;
         }
         
     }
@@ -277,6 +277,7 @@
             padding: 10px 30px 10px 30px;
             border-radius: 15px;
             min-height: 100px;
+            min-width: 1000px;
             
             /************************DATABASEEEEEE***************************/
 
@@ -285,6 +286,8 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                width: 80px;
+                justify-content: center;
 
                 &__applicationdate{
                     color: $offGrey;
@@ -294,7 +297,6 @@
                 }
                 &__ID{
                     font-size: $font-bml;
-                    margin-left: 20px;
                 }
             }
 
@@ -313,6 +315,7 @@
                 }
                 &__name{
                     font-size: $font-med;
+                    width: 230px;
                 }
                 &__age{
                     font-size: $font-sm;
@@ -326,6 +329,7 @@
             //CONTACT INFORMATION
             &__contact{
                 text-align: center;
+                width: 100px;
                 &__email{
                     font-size: $font-sm
                 }
@@ -338,6 +342,7 @@
             &__bloodtype{
                 color: $primaryRed;
                 font-size: $font-lg;
+                width: 55px;
             }
 
             //ORGAN TYPE
@@ -348,6 +353,8 @@
             //DATE REQUERED
             &__daterequired{
                 //color: $offGrey
+                font-size: $font-sm;
+                width: 80px;
             }
             //RECIPIENT STATUS
             &__status{

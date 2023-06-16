@@ -1,10 +1,14 @@
 <?php
+/*
 $servername = "db4free.net";
-//$servername = "localhost";
 $username = "lifeflow";
-//$username = "root";
 $password = "2023LifeFlowProject!";
-//$password = "";
+$database = "lifeflow_db";\
+*/
+
+$servername = "localhost";
+$username = "root";
+$password = "";
 $database = "lifeflow_db";
 
 $connect = mysqli_connect($servername, $username, $password, $database);
@@ -27,15 +31,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recip_phoneNum = $_POST["recip_phoneNum"];
     $recip_ethnicity = isset($_POST["recip_ethnicity"]) ? $_POST["recip_ethnicity"] : "";
     //bool
-    $recip_boolBlood = isset($_POST["recip_boolBlood"]) ? 1 : 0;
-    $recip_bloodUrgency = $_POST["recip_bloodUrgency"];
+    $recip_boolBlood = isset($_POST["recip_boolBlood"]) ? $_POST["recip_boolBlood"] : "";
+    $recip_Urgency = $_POST["recip_Urgency"];
     $recip_neededOrgan= isset($_POST["recip_neededOrgan"]) ? $_POST["recip_neededOrgan"] : "";
-    $recip_organUrgency = $_POST["recip_organUrgency"];
+    $recip_Urgency = isset($_POST["recip_Urgency"]) ? $_POST["recip_Urgency"] : ""; 
 
 
-    $stmt = $connect->prepare("INSERT INTO recipient_info_tbl (recip_firstName, recip_midName, recip_lastName, recip_bDay, recip_age, recip_sex, recip_bloodType, recip_streetAdd, recip_city, recip_province, recip_postal, recip_phoneNum, recip_ethnicity, recip_boolBlood, recip_bloodUrgency, recip_neededOrgan, recip_organUrgency) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $connect->prepare("INSERT INTO recipient_info_tbl (recip_firstName, recip_midName, recip_lastName, recip_bDay, recip_age, recip_sex, recip_bloodType, recip_streetAdd, recip_city, recip_province, recip_postal, recip_phoneNum, recip_ethnicity, recip_boolBlood, recip_Urgency, recip_neededOrgan ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("ssssissssssssisss", $recip_firstName, $recip_midName, $recip_lastName, $recip_bDay, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_bloodUrgency, $recip_neededOrgan, $recip_organUrgency);
+    $stmt->bind_param("ssssissssssssiss", $recip_firstName, $recip_midName, $recip_lastName, $recip_bDay, $recip_age, $recip_sex, $recip_bloodType, $recip_streetAdd, $recip_city, $recip_province, $recip_postal, $recip_phoneNum, $recip_ethnicity, $recip_boolBlood, $recip_Urgency, $recip_neededOrgan);
 
     echo "sex: " . $recip_sex . "<br>";
     echo "bloodTYpe : " . $recip_bloodType . "<br>";

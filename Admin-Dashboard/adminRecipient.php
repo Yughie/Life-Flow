@@ -1,3 +1,14 @@
+<?php 
+    require_once ('admin-php/connection.php');
+    require 'admin-php/functions.php'; 
+
+    $query = "SELECT * FROM recipient_info_tbl";
+    $result = mysqli_query($conn, $query);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,43 +31,43 @@
                 <h1>Hi <span>Admin</span>!</h1>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__Dashboard" href="./adminDashboard.html">
+                <a class="adminLinks__Dashboard" href="./adminDashboard.php">
                     <img src="../Images/AdminDashboard/icon-dashboard-standby.svg" alt="Dashboard Icon">
                     <h2>Dashboard</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.html">
+                <a class="adminLinks__DonorApplication" href="./adminDonorApplicant.php">
                     <img src="../Images/AdminDashboard/icon-donorApplicant-standby.svg" alt="Donor Applicant Icon">
                     <h2>Donor Applicant</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.html">
+                <a class="adminLinks__OrganDonor" href="./adminOrganDonor.php">
                     <img src="../Images/AdminDashboard/icon-organDonor-standby.svg" alt="Organ Donor Icon">
                     <h2>Organ Donor</h2>
                 </a>
             </div>
             <div class="adminLinks">
-                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.html">
+                <a class="adminLinks__BloodDonor" href="./adminBloodDonor.php">
                     <img src="../Images/AdminDashboard/Icon-BloodDonor-standby.svg" alt="Blood Donor Icon">
                     <h2>Blood Donor</h2>
                 </a>
             </div>
             <div class="adminLinks  current">
-                <a class="adminLinks__Recipient" href="./adminRecipient.html">
+                <a class="adminLinks__Recipient" href="./adminRecipient.php">
                     <img src="../Images/AdminDashboard/Icon-Recipient-current.svg" alt="Recipient Icon">
                     <h2>Recipient</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.html">
+                <a class="adminLinks__BloodTransfusion" href="./adminTransfusionRegistry.php">
                     <img src="../Images/AdminDashboard/icon-bloodTransfusion-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transfusion Registry</h2>
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.html">
+                <a class="adminLinks__Transplant" href="./adminTransplantRegistry.php">
                     <img src="../Images/AdminDashboard/Icon-transplant-standby.svg" alt="Blood Transfusion Icon">
                     <h2>Transplant Registry</h2>
                 </a>
@@ -138,12 +149,14 @@
                         <div class="adminRecipient__contentTitle__empty"></div>
                     </div>
                     <div class="recipient_container">
+
+                <!---
                         <div class="recipient1 recipient">
-                            <!----ID/DATE------>
+                            <!----ID/DATE-----
                             <div class="recipient__order">
                                 <h1 class="recipient__order__ID">1</h1>
                             </div>
-                            <!---PERSONAL INFORMATION-->
+                            <!---PERSONAL INFORMATION--
                             <div class="recipient__personal">
                                 <div>
                                     <img class="recipient__personal__Image"
@@ -157,23 +170,23 @@
                                             class="personal__sex_value">Male</span></h3>
                                 </div>
                             </div>
-                            <!---CONTACT INFO----->
+                            <!---CONTACT INFO----
                             <div class="recipient__contact">
                                 <h3 class="recipient__contact__email">yughiep@gmail.com</h3>
                                 <h3 class="recipient__contact__number">092381293241</h3>
                             </div>
-                            <!---BLOOD TYPE--->
+                            <!---BLOOD TYPE--
                             <h3 class="recipient__bloodtype">O+</h3>
-                            <!---ORGAN IMAGE----->
+                            <!---ORGAN IMAGE----
                             <img class="recipient__Organ" src="../Images/Organ-Assets/organ-liver.svg"
                                 alt="liver image">
 
-                            <!-------DATE REQUIRED--------->
+                            <!-------DATE REQUIRED--------
                             <h3 class="recipient__daterequired">09-12-01</h3>
 
-                            <!-----------STATUS------------->
+                            <!-----------STATUS------------
                             <div class="recipient__status"></div>
-                            <!---FUNCTIONS----->
+                            <!---FUNCTIONS----
                             <div class="recipient-function-container">
                                 <img class="recipient-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
@@ -181,11 +194,141 @@
                                     alt="Trash can">
                             </div>
                         </div>
-                        <div class="recipient2 recipient"></div>
-                        <div class="recipient3 recipient"></div>
-                        <div class="recipient3 recipient"></div>
-                        <div class="recipient3 recipient"></div>
-                        <div class="recipient3 recipient"></div>
+            ---->
+
+
+
+
+                        <?php   
+                            while($row = mysqli_fetch_assoc($result)){
+                        ?>
+                              <div class="recipient1 recipient">
+                            <!----ID/DATE----->
+                            <div class="recipient__order">
+                                <h1 class="recipient__order__ID"><?php echo $row['recipID']; ?></h1>
+                            </div>
+                            <!---PERSONAL INFORMATION-->
+                            <div class="recipient__personal">
+                                <div>
+                                    <img class="recipient__personal__Image"
+                                        src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
+                                </div>
+                                <div>
+                                    <h3 class="recipient__personal__name">
+                                            <?php echo $row['recip_lastName'] ." " . $row['recip_firstName'] . ",";?>
+                                    </h3>
+                                    <h3 class="recipient__personal__name">
+                                        <?php echo $row['recip_midName']; ?>
+                                    </h3>
+                                    <h3 class="recipient__personal__age">Age: <span
+                                            class="personal__age__value"><?php echo $row['recip_age']; ?></span></h3>
+                                    <h3 class="recipient__personal__sex">Sex: <span
+                                            class="personal__sex_value"><?php echo $row['recip_sex']; ?></span></h3>
+                                </div>
+                            </div>
+                                <!---CONTACT INFO---->
+                            <div class="recipient__contact">
+                                <h3 class="recipient__contact__number"><?php echo $row['recip_phoneNum']; ?></h3>
+                            </div>
+                            <!---BLOOD TYPE-->
+                            <h3 class="recipient__bloodtype"><?php echo $row['recip_bloodType']; ?></h3>
+                            <!---ORGAN IMAGE---->
+                            <?php 
+                                        if($row['recip_neededOrgan'] == "Kidney"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Liver"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Lungs"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Heart"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Pancreas"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Intestines"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Hands and Face"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/handsandface.png" alt="hands and face">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Corneas"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
+                                            <?php
+                                        }
+                                        else{
+                                        ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                                        <?php
+                                        }
+                                        ?>
+
+
+
+
+
+
+                            <!-------DATE REQUIRED-------->
+                        
+                            <h3 class="recipient__daterequired"><?php echo $row['recip_Urgency']; ?></h3>
+                        
+                            <!-----------STATUS------------>
+                            <?php 
+                                if($row['recip_status'] == 1){
+                            ?>
+                               <div class="recipient__status" style="background-color: green;"></div>
+                            <?php 
+                            }
+                            else if($row['recip_status'] == 0){
+                            ?>
+                                <div class="recipient__status" style="background-color: yellow;"></div>
+                            <?php 
+                             }   
+                                else if($row['recip_status'] == -1){
+                            ?>
+                            <div class="recipient__status" style="background-color: red;"></div>
+                            <?php 
+                             } 
+                            ?>
+
+                            <!---FUNCTIONS---->
+                            <div class="recipient-function-container">
+                                <img class="recipient-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
+                                    alt="edit applicant icon">
+                                <img class="recipient-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
+                                    alt="Trash can">
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                        <?php  
+                            }
+                        ?>
+
                     </div>
 
                 </div>

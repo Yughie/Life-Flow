@@ -165,7 +165,7 @@ body {
             &__Transplant{
                 &:hover{
                     img{
-                        content: url('../Images/AdminDashboard/icon-transplant-current.svg');
+                        content: url('Images/AdminDashboard/icon-transplant-current.svg');
                     }
                     
                 }
@@ -347,7 +347,7 @@ body {
                     
 
                     &__ID{
-
+                        width: 60px;
                     }
                     &__Image{
                     width: 60px;
@@ -357,14 +357,19 @@ body {
                    }
                    &__Name{
                     color: $offBlack;
-                    font-size: 25px;
+                    font-size: $font-med;
+                    width: 320px;
+                    
                    }
                    &__ApplicationDate{
-                    color: $offBlack;
+                    color: $offGrey;
+                    font-size: $font-med;
+                    width: 200px;
                    }
                    &__Organ{
                         width: 60px;
                         height: 60px;
+                        margin-right: -20px;
                    }
 
                    .applicatiion-function-container{
