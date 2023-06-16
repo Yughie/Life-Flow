@@ -1240,9 +1240,6 @@ h1, h2, h3 {
 .applicant-function_container .applicant-select-function_container {
   display: flex;
   align-items: center;
-  /*{
-      border: 1px dashed blue;
-  }*/
 }
 .applicant-function_container .applicant-select-function_container .applicant-search-function {
   margin-bottom: -10px;
@@ -1365,9 +1362,6 @@ h1, h2, h3 {
   font-size: 0.75rem;
   border: 1px solid black;
   background-color: #860909;
-}
-.DonorApplicant__contentTitle * {
-  border: 1px dashed yellow;
 }
 .DonorApplicant__contentTitle__ID {
   width: 150px;

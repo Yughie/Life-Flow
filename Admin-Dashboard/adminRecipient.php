@@ -233,8 +233,58 @@
                             <!---BLOOD TYPE-->
                             <h3 class="recipient__bloodtype"><?php echo $row['recip_bloodType']; ?></h3>
                             <!---ORGAN IMAGE---->
-                            <img class="recipient__Organ" src="../Images/Organ-Assets/organ-liver.svg"
-                                alt="liver image">
+                            <?php 
+                                        if($row['recip_neededOrgan'] == "Kidney"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Liver"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Lungs"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Heart"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Pancreas"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Intestines"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Hands and Face"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/handsandface.png" alt="hands and face">
+                                            <?php
+                                        }
+                                        else if($row['recip_neededOrgan'] == "Corneas"){
+                                            ?>
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
+                                            <?php
+                                        }
+                                        else{
+                                        ?>
+                                            <img class="applicant__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                                        <?php
+                                        }
+                                        ?>
+
+
+
+
+
 
                             <!-------DATE REQUIRED-------->
                         
