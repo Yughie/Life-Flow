@@ -1,0 +1,174 @@
+@use "../abstract/index.scss" as *;
+
+.recip_dashb_body {
+    height: 100vh;
+    display: flex;
+}
+
+#sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-width: 275px;
+    background-color: white;   
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+    width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+    display: none;
+    }
+
+    .logoandcorner {
+        display: flex;
+        height: 100px;
+
+        .logo {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+            padding: 0px;
+            img {
+                width: 135px;
+                border-radius: 10px;
+        
+                &:hover {
+                    scale: 1.03;
+                    transition: .25s ease-in-out;
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+                }
+        
+                &::after {
+                    box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0,0,0,0.4);
+                    opacity: 0;
+                    transition: opacity 0.25s ease-in-out;
+                }
+        
+                &:hover::after {
+                    opacity: 1;
+                }
+            }        
+        }
+    
+        .toggler {
+                background-color: transparent;
+                margin-right: -15px;
+                margin-top: 35px;
+                z-index: 1;
+                svg {
+                    background-color: rgb(94, 182, 192);
+                    fill: white;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 30px;
+                    transition: 0.2s ease-in-out;
+                    
+                    &:hover {
+                        cursor: pointer;
+                        background-color: rgb(255, 101, 167);
+                    }
+                }
+            }
+        }
+    }
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 60px;
+    }
+    h1 {
+        margin-top: 10px;
+    }
+    p {
+        margin: 0px;
+    }
+}
+    
+.menu {
+    // min-height: 100vh;
+}
+
+.menu-bar {
+    .menu {
+        .menu-links {
+            display: flex;
+            justify-content: center;
+            padding: 0px;
+            .nav-link {
+                display: flex;
+                flex-direction: column;
+        
+                a {
+                    margin: 10px 0px;
+                    padding: 15px 30px;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                    font-size: 15px;
+                    transition: .1s ease-in-out;
+                    
+                    svg {
+                        height: 25px;
+                    }
+        
+                    .text {
+                        margin-left: 15px;
+                        width: 100px;
+                        color: black;
+                        font-weight: 600;
+                    }
+
+                    &:hover {
+                        background-color: rgb(245, 247, 251);
+                        cursor: pointer;
+                    }
+                }
+
+                .learndon {
+                    height: 55px;
+                }
+        
+                .aLogout {
+                    //bottom: 50px;
+                    //position: absolute;
+                    .logout {
+                        width: 37px;
+                        height: 25px;
+                        margin-left: -5px;
+                        fill: rgb(193, 26, 29);
+                    }
+                } 
+            }
+        }
+    }
+}
+
+.contentWrapper {
+    display: flex;
+    width: calc(100%);
+    .corner {
+        width: 25px;
+        min-height: calc(100vh);
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        background-color: rgb(245, 247, 251);
+    }
+
+    .recipDashb {
+        width: 100%;
+        background-color: rgb(245, 247, 251);
+    }
+}

@@ -641,33 +641,27 @@ h1, h2, h3 {
   background-color: red;
 }
 
-.navlogo {
-  padding-left: 15px;
-}
-.navlogo img {
-  width: 135px;
-  border-radius: 10px;
-}
-.navlogo img:hover {
-  scale: 1.03;
-  transition: 0.25s ease-in-out;
-  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-}
-.navlogo img::after {
-  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  transition: opacity 0.25s ease-in-out;
-}
-.navlogo img:hover::after {
-  opacity: 1;
-}
-
 .logo {
   padding-left: 15px;
 }
 .logo img {
   width: 135px;
   border-radius: 10px;
+  transition: 0.1s ease-in-out;
+}
+.logo img:hover {
+  transition: 0.1s ease-in-out;
+  scale: 1.03;
+  transition: 0.25s ease-in-out;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+.logo img::after {
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.logo img:hover::after {
+  opacity: 1;
 }
 
 .logoPU {
@@ -3014,6 +3008,7 @@ h1, h2, h3 {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(106, 175, 172);
+  border-radius: 100px;
 }
 
 .registrationForm {
@@ -4015,4 +4010,146 @@ h1, h2, h3 {
     transform: translate(50%, 50%) scale(1);
 }
 
-*//*# sourceMappingURL=style.css.map */
+*/
+.recip_dashb_body {
+  height: 100vh;
+  display: flex;
+}
+
+#sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-width: 275px;
+  background-color: white;
+  overflow-y: scroll;
+}
+#sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+#sidebar::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+#sidebar::-webkit-scrollbar-thumb {
+  display: none;
+}
+#sidebar .logoandcorner {
+  display: flex;
+  height: 100px;
+}
+#sidebar .logoandcorner .logo {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  padding: 0px;
+}
+#sidebar .logoandcorner .logo img {
+  width: 135px;
+  border-radius: 10px;
+}
+#sidebar .logoandcorner .logo img:hover {
+  scale: 1.03;
+  transition: 0.25s ease-in-out;
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+}
+#sidebar .logoandcorner .logo img::after {
+  box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#sidebar .logoandcorner .logo img:hover::after {
+  opacity: 1;
+}
+#sidebar .logoandcorner .toggler {
+  background-color: transparent;
+  margin-right: -15px;
+  margin-top: 35px;
+  z-index: 1;
+}
+#sidebar .logoandcorner .toggler svg {
+  background-color: rgb(94, 182, 192);
+  fill: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  transition: 0.2s ease-in-out;
+}
+#sidebar .logoandcorner .toggler svg:hover {
+  cursor: pointer;
+  background-color: rgb(255, 101, 167);
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user img {
+  width: 60px;
+}
+.user h1 {
+  margin-top: 10px;
+}
+.user p {
+  margin: 0px;
+}
+
+.menu-bar .menu .menu-links {
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+}
+.menu-bar .menu .menu-links .nav-link {
+  display: flex;
+  flex-direction: column;
+}
+.menu-bar .menu .menu-links .nav-link a {
+  margin: 10px 0px;
+  padding: 15px 30px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  transition: 0.1s ease-in-out;
+}
+.menu-bar .menu .menu-links .nav-link a svg {
+  height: 25px;
+}
+.menu-bar .menu .menu-links .nav-link a .text {
+  margin-left: 15px;
+  width: 100px;
+  color: black;
+  font-weight: 600;
+}
+.menu-bar .menu .menu-links .nav-link a:hover {
+  background-color: rgb(245, 247, 251);
+  cursor: pointer;
+}
+.menu-bar .menu .menu-links .nav-link .learndon {
+  height: 55px;
+}
+.menu-bar .menu .menu-links .nav-link .aLogout .logout {
+  width: 37px;
+  height: 25px;
+  margin-left: -5px;
+  fill: rgb(193, 26, 29);
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+}
+.contentWrapper .corner {
+  width: 25px;
+  min-height: 100vh;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  background-color: rgb(245, 247, 251);
+}
+.contentWrapper .recipDashb {
+  width: 100%;
+  background-color: rgb(245, 247, 251);
+}/*# sourceMappingURL=style.css.map */
