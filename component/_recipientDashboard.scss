@@ -13,6 +13,19 @@
     min-width: 275px;
     background-color: white;   
     overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+    width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+    display: none;
+    }
+
     .logoandcorner {
         display: flex;
         height: 100px;
@@ -97,33 +110,45 @@
             .nav-link {
                 display: flex;
                 flex-direction: column;
-
-                background-color: white;
         
                 a {
-                    padding: 30px 0px;
+                    margin: 10px 0px;
+                    padding: 15px 30px;
+                    border-radius: 15px;
                     display: flex;
                     align-items: center;
                     font-size: 15px;
-        
+                    transition: .1s ease-in-out;
+                    
                     svg {
                         height: 25px;
                     }
         
                     .text {
                         margin-left: 15px;
+                        width: 100px;
                         color: black;
                         font-weight: 600;
                     }
+
+                    &:hover {
+                        background-color: rgb(245, 247, 251);
+                        cursor: pointer;
+                    }
+                }
+
+                .learndon {
+                    height: 55px;
                 }
         
                 .aLogout {
+                    //bottom: 50px;
+                    //position: absolute;
                     .logout {
                         width: 37px;
                         height: 25px;
                         margin-left: -5px;
                         fill: rgb(193, 26, 29);
-                        bottom: 50px;
                     }
                 } 
             }

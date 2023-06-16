@@ -2977,6 +2977,7 @@ h1, h2, h3 {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(106, 175, 172);
+  border-radius: 100px;
 }
 
 .registrationForm {
@@ -3989,6 +3990,15 @@ h1, h2, h3 {
   background-color: white;
   overflow-y: scroll;
 }
+#sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+#sidebar::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+#sidebar::-webkit-scrollbar-thumb {
+  display: none;
+}
 #sidebar .logoandcorner {
   display: flex;
   height: 100px;
@@ -4060,28 +4070,37 @@ h1, h2, h3 {
 .menu-bar .menu .menu-links .nav-link {
   display: flex;
   flex-direction: column;
-  background-color: white;
 }
 .menu-bar .menu .menu-links .nav-link a {
-  padding: 30px 0px;
+  margin: 10px 0px;
+  padding: 15px 30px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   font-size: 15px;
+  transition: 0.1s ease-in-out;
 }
 .menu-bar .menu .menu-links .nav-link a svg {
   height: 25px;
 }
 .menu-bar .menu .menu-links .nav-link a .text {
   margin-left: 15px;
+  width: 100px;
   color: black;
   font-weight: 600;
+}
+.menu-bar .menu .menu-links .nav-link a:hover {
+  background-color: rgb(245, 247, 251);
+  cursor: pointer;
+}
+.menu-bar .menu .menu-links .nav-link .learndon {
+  height: 55px;
 }
 .menu-bar .menu .menu-links .nav-link .aLogout .logout {
   width: 37px;
   height: 25px;
   margin-left: -5px;
   fill: rgb(193, 26, 29);
-  bottom: 50px;
 }
 
 .contentWrapper {
