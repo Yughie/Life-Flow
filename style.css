@@ -1240,9 +1240,6 @@ h1, h2, h3 {
 .applicant-function_container .applicant-select-function_container {
   display: flex;
   align-items: center;
-  /*{
-      border: 1px dashed blue;
-  }*/
 }
 .applicant-function_container .applicant-select-function_container .applicant-search-function {
   margin-bottom: -10px;
@@ -2436,6 +2433,10 @@ h1, h2, h3 {
 }
 .adminbloodDonor .bloodDonor_container .bloodDonor .bloodDonor-function-container .bloodDonor-delete:active {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
+}
+
+* {
+  border: 1px dashed yellow;
 }
 
 .hide-radio {
