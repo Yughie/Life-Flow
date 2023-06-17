@@ -179,13 +179,14 @@
         flex-direction: column;
 
         .recipTop {
-            background-color: pink;
-            height: 70px;
+            //background-color: pink;
+            height: 40px;
             grid-area: header;
             display: flex;
             align-items: center;
             font-size: 18px;
-            
+            margin-top: 10px;
+
             .user {
                 padding-left: 15px;
                 color: red;
@@ -198,23 +199,115 @@
             grid-area: bottom;
             grid-template-areas: 'left right';
             height: calc(100%);
-            gap: 15px;
+            gap: 25px;
             
             .recipLeft{
-                background-color: lightblue;
+                //background-color: lightblue;
                 margin-top: 15px;
                 grid-area: left;
                 display: grid;
-
+                gap: 25px;
+                margin-bottom: 25px;
+                width: 600px;
                 .organDon {
-                    background-color: lightseagreen;
+                    background-color: rgb(221, 233, 255);
                     border-radius: 25px;
-                    margin: 15px 0px;
+                    height: min-content;
+                    p {
+                        width: 200px;
+                        margin: 10px 0px;
+                        padding-left: 25px;
+                        color: rgb(54, 90, 142);
+                        font-weight: 600;
+                    }
+
+                    .orgsWrapper {
+                        display: grid;
+                        grid-template-areas: 'orgRow1''orgRow2';
+                        gap: 15px;
+                        margin-bottom: 25px;
+                        
+                        .orgRow1 {
+                            display: grid;
+                            grid-area: orgRow1;
+                            grid-template-columns: repeat(4, .1fr);
+                            gap: 15px;
+                            justify-items: center;
+                            justify-content: center;
+                            .org1 {
+                                background-color: white;
+                                width: 125px;
+                                height: 125px;
+                                border-radius: 15px;
+                            }
+                        }
+    
+                        .orgRow2 {
+                            display: grid;
+                            grid-area: orgRow2;
+                            grid-template-columns: repeat(4, .1fr);
+                            gap: 15px;
+                            justify-items: center;
+                            justify-content: center;
+                            .org2 {
+                                background-color: white;
+                                width: 125px;
+                                height: 125px;
+                                border-radius: 15px;
+                            }
+                        }
+                    }
                 }
+                
                 .bloodDon {
-                    background-color: lightcoral;
+                    background-color: rgb(255, 204, 212);
                     border-radius: 25px;
-                    margin: 15px 0px;
+                    height: min-content;
+
+                    p {
+                        width: 200px;
+                        margin: 10px 0px;
+                        padding-left: 25px;
+                        color: rgb(195, 27, 84);
+                        font-weight: 600;
+                    }
+
+                    .bloodsWrapper {
+                        display: grid;
+                        grid-template-areas: 'orgRow1''orgRow2';
+                        gap: 15px;
+                        margin-bottom: 25px;
+                        
+                        .bloodRow1 {
+                            display: grid;
+                            grid-area: orgRow1;
+                            grid-template-columns: repeat(4, .1fr);
+                            gap: 15px;
+                            justify-items: center;
+                            justify-content: center;
+                            .blood1 {
+                                background-color: white;
+                                width: 125px;
+                                height: 125px;
+                                border-radius: 15px;
+                            }
+                        }
+    
+                        .bloodRow2 {
+                            display: grid;
+                            grid-area: orgRow2;
+                            grid-template-columns: repeat(4, .1fr);
+                            gap: 15px;
+                            justify-items: center;
+                            justify-content: center;
+                            .blood2 {
+                                background-color: white;
+                                width: 125px;
+                                height: 125px;
+                                border-radius: 15px;
+                            }
+                        }
+                    }
                 }
             }
     
@@ -222,7 +315,8 @@
                 margin-top: 15px;
                 background-color: lightgreen;
                 grid-area: right;
-
+                margin-bottom: 25px;
+                width: 645px;
             }
         }
     }
