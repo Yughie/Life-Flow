@@ -2,7 +2,7 @@
     require_once ('admin-php/connection.php');
     require 'admin-php/functions.php'; 
 
-    $query = "SELECT * FROM donor_info_tbl WHERE don_boolOrganTissue =1 AND isNewApplicant =0  AND isDeceased =1 AND isOrganAvailable =1";
+    $query = "SELECT * FROM donor_info_tbl WHERE don_boolOrganTissue =1 AND isNewApplicant =0  AND isOrganAvailable =1";
     $result = mysqli_query($conn, $query);
 
 ?>
@@ -194,10 +194,12 @@
                         <?php   
                             while($row = mysqli_fetch_assoc($result)){
                         ?>
-                            <div class="organDonor1 organDonor">
+                        <div class="organDonor1 organDonor">
                             <!----ID/DATE---->
                             <div class="organDonor__order">
-                                <h1 class="organDonor__order__ID"><?php echo $row['id']; ?></h1>
+                                <h1 class="organDonor__order__ID">
+                                    <?php echo $row['id']; ?>
+                                </h1>
                             </div>
                             <!---PERSONAL INFORMATION--->
                             <div class="organDonor__personal">
@@ -206,144 +208,127 @@
                                         src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
                                 </div>
                                 <div>
-                                <h3 class="organDonor__personal__name">
-                                         <?php echo $row['don_lastName'] . " " . $row['don_firstName'] . ",";?>
-                                </h3>
-                                <h3 class="organDonor__personal__name">
-                                     <?php echo $row['don_midName']; ?>
-                                </h3>
-                                    <h3 class="organDonor__personal__age">Age: <span
-                                            class="personal__age__value"><?php echo $row['don_age']; ?></span></h3>
-                                    <h3 class="organDonor__personal__sex">Sex: <span
-                                            class="personal__sex_value"><?php echo $row['don_sex']; ?></span></h3>
+                                    <h3 class="organDonor__personal__name">
+                                        <?php echo $row['don_lastName'] . " " . $row['don_firstName'] . ",";?>
+                                    </h3>
+                                    <h3 class="organDonor__personal__name">
+                                        <?php echo $row['don_midName']; ?>
+                                    </h3>
+                                    <h3 class="organDonor__personal__age">Age: <span class="personal__age__value">
+                                            <?php echo $row['don_age']; ?>
+                                        </span></h3>
+                                    <h3 class="organDonor__personal__sex">Sex: <span class="personal__sex_value">
+                                            <?php echo $row['don_sex']; ?>
+                                        </span></h3>
                                 </div>
                             </div>
-                                 <!---CONTACT INFO---->
+                            <!---CONTACT INFO---->
                             <div class="organDonor__contact">
-                                
-                                <h3 class="organDonor__contact__number"><?php echo $row['don_phoneNum']; ?></h3>
+
+                                <h3 class="organDonor__contact__number">
+                                    <?php echo $row['don_phoneNum']; ?>
+                                </h3>
                             </div>
                             <!---BLOOD TYPE--->
-                            <h3 class="organDonor__bloodtype"><?php echo $row['don_bloodType']; ?></h3>
+                            <h3 class="organDonor__bloodtype">
+                                <?php echo $row['don_bloodType']; ?>
+                            </h3>
                             <!---ORGAN IMAGE----->
                             <?php 
                                         if($row['don_giftOrgan'] == "Kidney"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
+                            <?php
                                         }
                                         else if($row['don_giftOrgan'] == "Liver"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
+                            <?php
                                         }
                                         else if($row['don_giftOrgan'] == "Lungs"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
+                            <?php
                                         }
                                         else if($row['don_giftOrgan'] == "Heart"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
+                            <?php
                                         }
                                         else if($row['don_giftOrgan'] == "Pancreas"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
+                            <?php
                                         }
                                         else if($row['don_giftOrgan'] == "Intestines"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                            <?php
                                         }
                                         else if($row['don_giftOrgan'] == "Hands and Face"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/handsandface.png" alt="hands and face">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/handsandface.png"
+                                alt="hands and face">
+                            <?php
                                         }
                                         else if($row['don_giftOrgan'] == "Corneas"){
                                             ?>
-                                            <img class="organDonor__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
-                                            <?php
+                            <img class="organDonor__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
+                            <?php
                                         }
                                         else{
                                         ?>
-                                            <img class="applicant__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
-                                        <?php
+                            <img class="applicant__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                            <?php
                                         }
                                         ?>
 
 
 
-                                        <!---FUNCTIONS---->
+                            <!---FUNCTIONS---->
                             <div class="organDonor-function-container">
                                 <img class="organDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
                                 <img class="organDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
                                     alt="Trash can">
                             </div>
-                        </div>
-
-
-                        <?php 
-                            }
-                        ?>
-
-
-
-
-
-                        <div class="organDonor2 organDonor"></div>
-                        <div class="organDonor3 organDonor"></div>
-                        <div class="organDonor3 organDonor"></div>
-                        <div class="organDonor3 organDonor"></div>
-                        <div class="organDonor3 organDonor"></div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-
-    </nav>
-        <!----------POP UP------------------------>
-    <div class="dashboard-popup" id="dashboard-popup-1">
+                            <div class="dashboard-popup" id="dashboard-popup-1">
         <div class="dashboard-overlay"></div>
 
         <div class="dashboard-content">
             <div class="dashboard-overflow_container">
-                <form class="registrationForm" id="donorFormn" action="../Registration-Forms/process_donor_registration.php" method="POST">
+                <form class="registrationForm" id="donorFormn" action="./admin-add/organDonor_registration.php" method="POST"
+                    enctype="multipart/form-data">
 
-                    <h1 class="h1">donor registration form</h1>
+
+                    <h1 class="h1">organ registration form</h1>
                     <div class="personalInfo">
                         <p class="p">Personal Information</p>
                         <div class="fullname">
                             <label class="label">
                                 <input class="input" required="" type="text" name="don_firstName">
                                 <span class="span">First Name</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <input class="input" required="" type="text" name="don_midName">
                                 <span class="span">Middle Name</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <input class="input" required="" type="text" name="don_lastName">
                                 <span class="span">Last Name</span>
-                            </label class="label">
+                            </label>
                         </div>
 
                         <div class="info2" id="donorInfo2">
                             <label class="label">
-                                <input class="input" required="" type="date" name="don_bday" value="2023-12-30">
-                                <span class="span">Date of Birth</span>
-                            </label class="label">
+                                <input class="input" required="" type="date" name="don_bday" value="" id="inputdate">
+                                <span class="span" id="spandate">Date of Birth</span>
+                            </label>
                             <label class="label">
                                 <input class="input" id="age" required="" type="number" name="don_age" min="18"
                                     minlength="2" maxlength="2">
                                 <span class="span">Age</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <select id="sex" required="" name="don_sex" class="select">
                                     <option value="" disabled hidden selected>Select</option>
@@ -351,7 +336,7 @@
                                     <option value="Female">Female</option>
                                 </select>
                                 <span class="span">Sex</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <select id="bloodtype" required name="don_bloodType" class="select">
                                     <option value="" disabled hidden selected>Select</option>
@@ -394,7 +379,7 @@
                         <div class="phonenum" id="donPhoneNum">
                             <label class="label">
                                 <input class="input" required="" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                    name="">
+                                    name="don_phoneNum">
                                 <span class="span">Phone Number 9XX-XXX-XXXX</span>
                             </label class="label">
                         </div>
@@ -407,8 +392,8 @@
 
                     <div class="optionalInfo" id="donorOptionalInfo">
                         <p class="p">Optional Information</p>
-                        <label class="label">
-                            <select id="ethnicity" required name="don_ethnicity" class="select">
+                        <label class="label" for="ethnicity">
+                            <select id="ethnicity" required="" name="don_ethnicity" class="select">
                                 <option value="" disabled hidden selected>Select</option>
                                 <option value="African">African</option>
                                 <option value="European">European</option>
@@ -426,45 +411,224 @@
 
                     <div class="recipsNeed">
                         <p class="p">Your Donation Can Help Save and Heal Lives</p>
+                        <!---
                         <div class="needsText">
-                            <input class="input" type="checkbox" id="ui-checkbox" name="don_boolBlood" value="1">
+                            <input class="chkbx" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1">
                             <p>Blood</p>
                         </div>
-                        <!----------FOR ORGAN DONOR---
-                <div class="organordon">
-                    <input class="input" type="checkbox" id="ui-checkboxdon" name="don_boolOrganTissue" value="1">
-                    <p class="organordontxt">Organ and/or Tissue</p>
-                </div>
-                <div class="needOrgan" id="donorGiftOrgan">
-                    <label class="label">
-                        <select name="don_giftOrgan" class="select" id="don_gift">
-                            <option value="" disabled hidden selected>Select</option>
-                            <option value="Kidney">Kidney</option>
-                            <option value="Liver">Liver</option>
-                            <option value="Lungs">Lungs</option>
-                            <option value="Heart">Heart</option>
-                            <option value="Pancreas">Pancreas</option>
-                            <option value="Intestines">Intestines</option>
-                            <option value="Hands and Face">Hands and Face</option>
-                            <option value="Corneas">Corneas</option>
-                        </select>
-                        <span class="span">Specify Gift of Donation</span>
-                    </label>
-                </div>
-            </div>
-            -------------->
-                        <div class="btn_wrapper">
-                            <button type="submit" id="registerbtn">Register</button>
+                        -->
+                        <div class="organordon">
+                            <input class="chkbx" type="checkbox" id="ui-checkboxdonorg" name="don_boolOrganTissue"
+                                value="1" onclick="donblocker()" require>
+                            <p class="organordontxt">Organ and/or Tissue</p>
                         </div>
+                        <div class="needOrgan" id="donorGiftOrgan">
+                            <div id="blocker"></div>
+                            <label class="label">
+                                <select name="don_giftOrgan" class="select" id="don_gift">
+                                    <option value="" disabled hidden selected>Select</option>
+                                    <option value="Kidney">Kidney</option>
+                                    <option value="Liver">Liver</option>
+                                    <option value="Lungs">Lungs</option>
+                                    <option value="Heart">Heart</option>
+                                    <option value="Pancreas">Pancreas</option>
+                                    <option value="Intestines">Intestines</option>
+                                    <option value="Hands and Face">Hands and Face</option>
+                                    <option value="Corneas">Corneas</option>
+                                </select>
+                                <span class="span">Specify Gift of Donation</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="btn_wrapper">
+                        <button type="submit" id="registerbtn">Register</button>
+                    </div>
                 </form>
             </div>
+            <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
         </div>
-        <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
+    </div>
+                        </div>
 
+
+                        <?php 
+                            }
+                        ?>
+
+
+
+
+
+                     
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </nav>
+    <!----------POP UP------------------------>
+    <div class="dashboard-popup" id="dashboard-popup-1">
+        <div class="dashboard-overlay"></div>
+
+        <div class="dashboard-content">
+            <div class="dashboard-overflow_container">
+                <form class="registrationForm" id="donorFormn" action="./admin-add/organDonor_registration.php" method="POST"
+                    enctype="multipart/form-data">
+
+
+                    <h1 class="h1">organ registration form</h1>
+                    <div class="personalInfo">
+                        <p class="p">Personal Information</p>
+                        <div class="fullname">
+                            <label class="label">
+                                <input class="input" required="" type="text" name="don_firstName">
+                                <span class="span">First Name</span>
+                            </label>
+                            <label class="label">
+                                <input class="input" required="" type="text" name="don_midName">
+                                <span class="span">Middle Name</span>
+                            </label>
+                            <label class="label">
+                                <input class="input" required="" type="text" name="don_lastName">
+                                <span class="span">Last Name</span>
+                            </label>
+                        </div>
+
+                        <div class="info2" id="donorInfo2">
+                            <label class="label">
+                                <input class="input" required="" type="date" name="don_bday" value="" id="inputdate">
+                                <span class="span" id="spandate">Date of Birth</span>
+                            </label>
+                            <label class="label">
+                                <input class="input" id="age" required="" type="number" name="don_age" min="18"
+                                    minlength="2" maxlength="2">
+                                <span class="span">Age</span>
+                            </label>
+                            <label class="label">
+                                <select id="sex" required="" name="don_sex" class="select">
+                                    <option value="" disabled hidden selected>Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <span class="span">Sex</span>
+                            </label>
+                            <label class="label">
+                                <select id="bloodtype" required name="don_bloodType" class="select">
+                                    <option value="" disabled hidden selected>Select</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                                <span class="span">Blood Type</span>
+                            </label>
+                        </div>
+
+                        <div class="streetadd">
+                            <label class="label">
+                                <input class="input" required="" type="text" name="don_streetAdd">
+                                <span class="span">Street Address</span>
+                            </label class="label">
+                        </div>
+
+                        <div class="address">
+                            <label class="label">
+                                <input class="input" required="" type="text" name="don_city">
+                                <span class="span">City</span>
+                            </label class="label">
+                            <label class="label">
+                                <input class="input" required="" type="text" name="don_province">
+                                <span class="span">State/Province</span>
+                            </label class="label">
+                            <label class="label">
+                                <input class="input" id="postal" required="" type="number" pattern="[0-9]{4}"
+                                    name="don_postal">
+                                <span class="span">Postal Code</span>
+                            </label class="label">
+                        </div>
+
+                        <div class="phonenum" id="donPhoneNum">
+                            <label class="label">
+                                <input class="input" required="" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                    name="don_phoneNum">
+                                <span class="span">Phone Number 9XX-XXX-XXXX</span>
+                            </label class="label">
+                        </div>
+
+                        <div class="userprofile">
+                            <span class="span">Choose Profile Photo</span>
+                            <input class="input" type="file" name="don_userProfile" onchange="checkFileSize(this)">
+                        </div>
+                    </div>
+
+                    <div class="optionalInfo" id="donorOptionalInfo">
+                        <p class="p">Optional Information</p>
+                        <label class="label" for="ethnicity">
+                            <select id="ethnicity" required="" name="don_ethnicity" class="select">
+                                <option value="" disabled hidden selected>Select</option>
+                                <option value="African">African</option>
+                                <option value="European">European</option>
+                                <option value="Indigenous">Indigenous</option>
+                                <option value="Middle Eastern">Middle Eastern</option>
+                                <option value="North American">North American</option>
+                                <option value="South American">South American</option>
+                                <option value="Oceanian">Oceanian</option>
+                                <option value="South Asian">South Asian</option>
+                                <option value="Southeast Asian">Southeast Asian</option>
+                            </select>
+                            <span class="span">Ethnicity</span>
+                        </label class="label">
+                    </div>
+
+                    <div class="recipsNeed">
+                        <p class="p">Your Donation Can Help Save and Heal Lives</p>
+                        <!---
+                        <div class="needsText">
+                            <input class="chkbx" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1">
+                            <p>Blood</p>
+                        </div>
+                        -->
+                        <div class="organordon">
+                            <input class="chkbx" type="checkbox" id="ui-checkboxdonorg" name="don_boolOrganTissue"
+                                value="1" onclick="donblocker()" require>
+                            <p class="organordontxt">Organ and/or Tissue</p>
+                        </div>
+                        <div class="needOrgan" id="donorGiftOrgan">
+                            <div id="blocker"></div>
+                            <label class="label">
+                                <select name="don_giftOrgan" class="select" id="don_gift">
+                                    <option value="" disabled hidden selected>Select</option>
+                                    <option value="Kidney">Kidney</option>
+                                    <option value="Liver">Liver</option>
+                                    <option value="Lungs">Lungs</option>
+                                    <option value="Heart">Heart</option>
+                                    <option value="Pancreas">Pancreas</option>
+                                    <option value="Intestines">Intestines</option>
+                                    <option value="Hands and Face">Hands and Face</option>
+                                    <option value="Corneas">Corneas</option>
+                                </select>
+                                <span class="span">Specify Gift of Donation</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="btn_wrapper">
+                        <button type="submit" id="registerbtn">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
+        </div>
     </div>
 
     <script src="../app/popUpDashboard.js"></script>
 </body>
-    
+
 
 </html>

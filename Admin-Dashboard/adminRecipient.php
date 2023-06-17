@@ -150,7 +150,7 @@
                     </div>
                     <div class="recipient_container">
 
-                <!---
+                        <!---
                         <div class="recipient1 recipient">
                             <!----ID/DATE-----
                             <div class="recipient__order">
@@ -202,82 +202,92 @@
                         <?php   
                             while($row = mysqli_fetch_assoc($result)){
                         ?>
-                              <div class="recipient1 recipient">
+                        <div class="recipient1 recipient">
                             <!----ID/DATE----->
                             <div class="recipient__order">
-                                <h1 class="recipient__order__ID"><?php echo $row['recipID']; ?></h1>
+                                <h1 class="recipient__order__ID">
+                                    <?php echo $row['recipID']; ?>
+                                </h1>
                             </div>
                             <!---PERSONAL INFORMATION-->
                             <div class="recipient__personal">
                                 <div>
+                                    
                                     <img class="recipient__personal__Image"
                                         src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
                                 </div>
                                 <div>
                                     <h3 class="recipient__personal__name">
-                                            <?php echo $row['recip_lastName'] ." " . $row['recip_firstName'] . ",";?>
+                                        <?php echo $row['recip_lastName'] ." " . $row['recip_firstName'] . ",";?>
                                     </h3>
                                     <h3 class="recipient__personal__name">
                                         <?php echo $row['recip_midName']; ?>
                                     </h3>
-                                    <h3 class="recipient__personal__age">Age: <span
-                                            class="personal__age__value"><?php echo $row['recip_age']; ?></span></h3>
-                                    <h3 class="recipient__personal__sex">Sex: <span
-                                            class="personal__sex_value"><?php echo $row['recip_sex']; ?></span></h3>
+                                    <h3 class="recipient__personal__age">Age: <span class="personal__age__value">
+                                            <?php echo $row['recip_age']; ?>
+                                        </span></h3>
+                                    <h3 class="recipient__personal__sex">Sex: <span class="personal__sex_value">
+                                            <?php echo $row['recip_sex']; ?>
+                                        </span></h3>
                                 </div>
                             </div>
-                                <!---CONTACT INFO---->
+                            <!---CONTACT INFO---->
                             <div class="recipient__contact">
-                                <h3 class="recipient__contact__number"><?php echo $row['recip_phoneNum']; ?></h3>
+                                <h3 class="recipient__contact__number">
+                                    <?php echo $row['recip_phoneNum']; ?>
+                                </h3>
                             </div>
                             <!---BLOOD TYPE-->
-                            <h3 class="recipient__bloodtype"><?php echo $row['recip_bloodType']; ?></h3>
+                            <h3 class="recipient__bloodtype">
+                                <?php echo $row['recip_bloodType']; ?>
+                            </h3>
                             <!---ORGAN IMAGE---->
                             <?php 
                                         if($row['recip_neededOrgan'] == "Kidney"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
+                            <?php
                                         }
                                         else if($row['recip_neededOrgan'] == "Liver"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
+                            <?php
                                         }
                                         else if($row['recip_neededOrgan'] == "Lungs"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
+                            <?php
                                         }
                                         else if($row['recip_neededOrgan'] == "Heart"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
+                            <?php
                                         }
                                         else if($row['recip_neededOrgan'] == "Pancreas"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
+                            <?php
                                         }
                                         else if($row['recip_neededOrgan'] == "Intestines"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                            <?php
                                         }
                                         else if($row['recip_neededOrgan'] == "Hands and Face"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/handsandface.png" alt="hands and face">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/handsandface.png"
+                                alt="hands and face">
+                            <?php
                                         }
                                         else if($row['recip_neededOrgan'] == "Corneas"){
                                             ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
-                                            <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
+                            <?php
                                         }
                                         else{
                                         ?>
-                                            <img class="recipient__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
-                                        <?php
+                            <img class="recipient__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                            <?php
                                         }
                                         ?>
 
@@ -287,19 +297,21 @@
 
 
                             <!-------DATE REQUIRED-------->
-                        
-                            <h3 class="recipient__daterequired"><?php echo $row['recip_Urgency']; ?></h3>
-                        
+
+                            <h3 class="recipient__daterequired">
+                                <?php echo $row['recip_Urgency']; ?>
+                            </h3>
+
                             <!-----------STATUS------------>
                             <?php 
                                 if($row['recip_status'] == 1){
                             ?>
-                               <div class="recipient__status" style="background-color: green;"></div>
+                            <div class="recipient__status" style="background-color: green;"></div>
                             <?php 
                             }
                             else if($row['recip_status'] == 0){
                             ?>
-                                <div class="recipient__status" style="background-color: yellow;"></div>
+                            <div class="recipient__status" style="background-color: yellow;"></div>
                             <?php 
                              }   
                                 else if($row['recip_status'] == -1){
@@ -342,7 +354,9 @@
 
         <div class="dashboard-content">
             <div class="dashboard-overflow_container">
-                <form class="registrationForm" action="process_recipient_registration.php" method="POST">
+
+                    <!---------START OF FORM---------->
+                <form class="registrationForm" action="./admin-add/process_recipient_registration.php" method="POST" target="_self">
                     <h1 class="h1">recipient registration form</h1>
                     <div class="personalInfo">
                         <p class="p">Personal Information</p>
@@ -363,8 +377,8 @@
 
                         <div class="info2">
                             <label class="label" for="recip_bDay">
-                                <input class="input" required type="date" name="recip_bDay" value="2023-12-30">
-                                <span class="span">Date of Birth</span>
+                                <input class="input" required type="date" name="recip_bDay" value="" id="inputdate">
+                                <span class="span" id="spandate">Date of Birth</span>
                             </label>
                             <label class="label" for="recip_age">
                                 <input class="input" required type="number" name="recip_age" min="18" defaul="18"
@@ -457,43 +471,52 @@
                         <p class="p">Recipient's Need</p>
                         <div class="needsText">
                             <input type="radio" id="recip_boolBlood" name="recip_boolBlood" value="1"
-                                class="recip_bloodOrgan" required>
+                                class="recip_bloodOrgan" required onclick="checkSelectedRadio()">
                             <label for="recip_boolBlood">
                                 <p>Blood</p>
                             </label>
                         </div>
-                        <label class="label">
-                            <input class="input" type="date" name="recip_bloodUrgency" id="recip_bloodUrgency"
-                                value="2023-12-30">
-                            <span class="span">Transfusion Urgency</span>
-                        </label class="label">
+
                         <div class="needsText" id="needsTextbtm">
-                            <input type="radio" id="recip_boolOrganTissue" name="recip_boolBlood" value="0"
-                                class="recip_bloodOrgan">
-                            <label for="recip_boolOrganTissue">
+                            <input type="radio" id="recip_boolBloods" name="recip_boolBlood" value="0"
+                                class="recip_bloodOrgan" required onclick="checkSelectedRadio()">
+                            <label for="recip_boolBloods">
                                 <p>Organ and/or Tissue</p>
                             </label>
                         </div>
                         <div class="needOrgan">
-                            <label class="label" for="neededOrgan">
+                            <!---<div id="organblocker"></div>-->
+                            <label class="label organOption" for="neededOrgan">
                                 <select name="recip_neededOrgan" id="recip_neededOrgan neededOrgan" class="select">
-                                    <option value="" disabled hidden selected>Select</option>
-                                    <option value="">Kidney</option>
-                                    <option value="">Liver</option>
-                                    <option value="">Lungs</option>
-                                    <option value="">Heart</option>
-                                    <option value="">Pancreas</option>
-                                    <option value="">Intestines</option>
-                                    <option value="">Hands and Face</option>
-                                    <option value="">Corneas</option>
+                                    <option value="" hidden selected>Select</option>
+                                    <option value="Kidney">Kidney</option>
+                                    <option value="Liver">Liver</option>
+                                    <option value="Lungs">Lungs</option>
+                                    <option value="Heart">Heart</option>
+                                    <option value="Pancreas">Pancreas</option>
+                                    <option value="Intestines">Intestines</option>
+                                    <option value="Hands and Face">Hands and Face</option>
+                                    <option value="Corneas">Corneas</option>
                                 </select>
                                 <span class="span">Needed Organ/Tissue</span>
                             </label class="label">
-                            <label class="label">
-                                <input class="input" type="date" name="recip_organUrgency" id="recip_organUrgency"
-                                    value="2023-12-30">
-                                <span class="span">Transplant Urgency</span>
+                            <label class="label dateUrgency">
+                                <!--<div id="bloodblocker"></div>-->
+                                <input class="input" type="date" name="recip_Urgency" id="recip_Urgency" value=""
+                                    required>
+                                <span class="span">Date Urgency</span>
                             </label class="label">
+
+                            <!----
+                <label class="label">
+                
+                    
+                <div id="organblocker2"></div>
+                    <input class="input" type="date" name="recip_organUrgency" id="recip_organUrgency"
+                        value="">
+                    <span class="span">Transplant Urgency</span>
+                </label class="label">
+                -->
                         </div>
                     </div>
                     <div class="btn_wrapper">
@@ -501,10 +524,11 @@
                     </div>
                 </form>
             </div>
+            <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
         </div>
-        <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
-    </div>
 
+    </div>
+    <script src="./registrationscript.js"></script>                
     <script src="../app/popUpDashboard.js"></script>
 </body>
 
