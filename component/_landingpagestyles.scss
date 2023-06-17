@@ -185,13 +185,14 @@
     background-color: red;
 }
 
-.navlogo {
+.logo {
     padding-left: 15px;
     img {
         width: 135px;
         border-radius: 10px;
-
+        transition: .1s ease-in-out;
         &:hover {
+            transition: .1s ease-in-out;
             scale: 1.03;
             transition: .25s ease-in-out;
             box-shadow: inset 2px 5px 10px rgba(5, 5, 5, 0), 0 3px 5px rgba(0, 0, 0, 0.4);
@@ -206,14 +207,6 @@
         &:hover::after {
             opacity: 1;
         }
-    }
-}
-
-.logo {
-    padding-left: 15px;
-    img {
-        width: 135px;
-        border-radius: 10px;
     }
 }
 

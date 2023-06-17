@@ -21,7 +21,7 @@
     <title>Transfusion Registry</title>
 </head>
 
-<body>
+<body class="adminTransfusionRegistryBody">
     <nav class="adminDashboard">
 
         <div class="adminNavigation .hide-for-mobile">
