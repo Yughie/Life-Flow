@@ -87,6 +87,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: rgb(41, 41, 41);
 
     img {
         width: 60px;
@@ -125,7 +126,7 @@
                     .text {
                         margin-left: 15px;
                         width: 100px;
-                        color: black;
+                        color: rgb(41, 41, 41);
                         font-weight: 600;
                     }
 
@@ -157,7 +158,7 @@
 .contentWrapper {
     display: flex;
     width: calc(100%);
-    background-color: blue;
+    //background-color: blue;
 
     .corner {
         width: 25px;
@@ -186,6 +187,7 @@
             align-items: center;
             font-size: 18px;
             margin-top: 10px;
+            color: rgb(41, 41, 41);
 
             .user {
                 padding-left: 15px;
@@ -213,7 +215,7 @@
                     background-color: rgb(221, 233, 255);
                     border-radius: 25px;
                     height: min-content;
-                    p {
+                    .orgtxt {
                         width: 200px;
                         margin: 10px 0px;
                         padding-left: 25px;
@@ -234,11 +236,29 @@
                             gap: 15px;
                             justify-items: center;
                             justify-content: center;
-                            .org1 {
-                                background-color: white;
-                                width: 125px;
-                                height: 125px;
-                                border-radius: 15px;
+                        }
+
+                        .org1, .org2 {
+                            background-color: white;
+                            width: 125px;
+                            height: 125px;
+                            border-radius: 15px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            .orgimg {
+                                img {
+                                    height: 60px;
+                                }
+                            }
+
+                            .orgCount {
+                                color: rgb(54, 90, 142);
+                                font-weight: 600;
+                                margin: 0px;
+                                font-size: 25px;
                             }
                         }
     
@@ -249,12 +269,6 @@
                             gap: 15px;
                             justify-items: center;
                             justify-content: center;
-                            .org2 {
-                                background-color: white;
-                                width: 125px;
-                                height: 125px;
-                                border-radius: 15px;
-                            }
                         }
                     }
                 }
@@ -264,7 +278,7 @@
                     border-radius: 25px;
                     height: min-content;
 
-                    p {
+                    .bloodtxt {
                         width: 200px;
                         margin: 10px 0px;
                         padding-left: 25px;
@@ -274,37 +288,63 @@
 
                     .bloodsWrapper {
                         display: grid;
-                        grid-template-areas: 'orgRow1''orgRow2';
+                        grid-template-areas: 'bloodRow1''bloodRow2';
                         gap: 15px;
                         margin-bottom: 25px;
                         
                         .bloodRow1 {
                             display: grid;
-                            grid-area: orgRow1;
+                            grid-area: bloodRow1;
                             grid-template-columns: repeat(4, .1fr);
                             gap: 15px;
                             justify-items: center;
                             justify-content: center;
-                            .blood1 {
-                                background-color: white;
-                                width: 125px;
-                                height: 125px;
-                                border-radius: 15px;
-                            }
                         }
     
                         .bloodRow2 {
                             display: grid;
-                            grid-area: orgRow2;
+                            grid-area: bloodRow2;
                             grid-template-columns: repeat(4, .1fr);
                             gap: 15px;
                             justify-items: center;
                             justify-content: center;
-                            .blood2 {
-                                background-color: white;
-                                width: 125px;
-                                height: 125px;
+                        }
+
+                        .blood1, .blood2 {
+                            background-color: white;
+                            width: 125px;
+                            height: 125px;
+                            border-radius: 15px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            .btype {
+                                background-color: rgb(249, 140, 177);
+                                height: 62.5px;
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
                                 border-radius: 15px;
+                                .bloodtype {
+                                    margin: 0px;
+                                    font-size: 25px;
+                                    font-weight: 600;
+                                    color: white;
+                                }
+                            }
+                            
+
+                            .bloodCount {
+                                color: rgb(195, 27, 84);
+                                font-weight: 600;
+                                margin: 0px;
+                                font-size: 25px;
+                                height: 62.5px;
+                                display: flex;
+                                align-items: center;
                             }
                         }
                     }
@@ -313,10 +353,18 @@
     
             .recipRight {
                 margin-top: 15px;
-                background-color: lightgreen;
+                background-color: white;
                 grid-area: right;
                 margin-bottom: 25px;
                 width: 645px;
+                border-radius: 15px;
+
+                .righttxt {
+                    width: 200px;
+                    margin: 0px;
+                    color: rgb(41, 41, 41);
+                    font-weight: 600;
+                }
             }
         }
     }
@@ -330,7 +378,14 @@
     }
 }
 
-@media screen and (max-width: 685px) {
+@media screen and (max-width: 922px) {
+    #sidebar {
+        transition: .3s ease-in-out;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 645px) {
     #sidebar {
         transition: .3s ease-in-out;
         display: none;
