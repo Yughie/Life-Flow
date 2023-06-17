@@ -174,7 +174,6 @@ h1, h2, h3 {
   display: flex;
   background-color: #860909;
   height: 100%;
-  overflow: auto;
 }
 .adminDashboard .adminNavigation {
   display: flex;
@@ -1357,9 +1356,6 @@ h1, h2, h3 {
   border: 1px solid black;
   background-color: #860909;
 }
-.DonorApplicant__contentTitle * {
-  border: 1px dashed yellow;
-}
 .DonorApplicant__contentTitle__ID {
   width: 150px;
 }
@@ -1790,7 +1786,7 @@ h1, h2, h3 {
 }
 .adminRecipient .recipient_container .recipient__bloodtype {
   color: #860909;
-  font-size: 2.375rem;
+  font-size: 1.875rem;
   width: 55px;
 }
 .adminRecipient .recipient_container .recipient__Organ {
@@ -2429,10 +2425,6 @@ h1, h2, h3 {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
-.adminTransfusionRegistryBody {
-  border: 1px dashed yellow;
-}
-
 .hide-radio {
   position: absolute;
   opacity: 0;
@@ -2654,24 +2646,24 @@ h1, h2, h3 {
   background-color: #860909;
 }
 .admintransfusion__contentTitle__ID {
-  width: 100px;
+  width: 120px;
 }
 .admintransfusion__contentTitle__Profile {
-  width: 220px;
+  width: 300px;
 }
 .admintransfusion__contentTitle__Contact {
-  width: 150px;
+  width: 160px;
   margin-left: 5px;
 }
 .admintransfusion__contentTitle__BloodType {
-  width: 80px;
+  width: 90px;
   margin-left: 5px;
 }
 .admintransfusion__contentTitle__Organ {
   width: 70px;
 }
 .admintransfusion__contentTitle__DateRequired {
-  width: 110px;
+  width: 120px;
 }
 .admintransfusion__contentTitle__Status {
   margin-right: 30px;
@@ -2716,6 +2708,8 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 70px;
 }
 .admintransfusion .transfusion_container .transfusion__order__applicationdate {
   color: #6d6a6a;
@@ -2723,11 +2717,11 @@ h1, h2, h3 {
 }
 .admintransfusion .transfusion_container .transfusion__order__ID {
   font-size: 1.875rem;
-  margin-left: 20px;
 }
 .admintransfusion .transfusion_container .transfusion__personal {
   display: flex;
   align-items: center;
+  width: 300px;
 }
 .admintransfusion .transfusion_container .transfusion__personal__Image {
   width: 80px;
@@ -2748,6 +2742,7 @@ h1, h2, h3 {
 }
 .admintransfusion .transfusion_container .transfusion__contact {
   text-align: center;
+  width: 100px;
 }
 .admintransfusion .transfusion_container .transfusion__contact__email {
   font-size: 0.875rem;
@@ -2758,10 +2753,15 @@ h1, h2, h3 {
 .admintransfusion .transfusion_container .transfusion__bloodtype {
   color: #860909;
   font-size: 2.375rem;
+  text-align: center;
+  width: 80px;
 }
 .admintransfusion .transfusion_container .transfusion__Organ {
   width: 60px;
   height: 60px;
+}
+.admintransfusion .transfusion_container .transfusion__daterequired {
+  font-size: 0.875rem;
 }
 .admintransfusion .transfusion_container .transfusion__status {
   width: 40px;
@@ -3497,6 +3497,13 @@ h1, h2, h3 {
     margin-left: 100px;
   }
 }
+.transplantRecipient__TITLE {
+  text-align: center;
+  background-color: #860909;
+  border: 1px solid black;
+  color: #e9e9e9;
+}
+
 /************************ADMIN transplantRecipient*********************/
 .admintransplantRecipient {
   display: flex;
@@ -3521,41 +3528,11 @@ h1, h2, h3 {
   border: 1px solid black;
   background-color: #860909;
 }
-.admintransplantRecipient__contentTitle__ID {
-  width: 100px;
-}
-.admintransplantRecipient__contentTitle__Profile {
-  width: 220px;
-}
-.admintransplantRecipient__contentTitle__Contact {
-  width: 150px;
-  margin-left: 5px;
-}
-.admintransplantRecipient__contentTitle__BloodType {
-  width: 80px;
-  margin-left: 5px;
-}
-.admintransplantRecipient__contentTitle__Organ {
-  width: 70px;
-}
-.admintransplantRecipient__contentTitle__DateRequired {
-  width: 110px;
-}
-.admintransplantRecipient__contentTitle__empty {
-  width: 140px;
-}
-.admintransplantRecipient .transplant-content-container {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  min-width: inherit;
-}
 .admintransplantRecipient .transplantRecipient_container {
   display: block;
   width: 50%;
-  overflow-y: auto;
-  white-space: nowrap;
-  border-radius: 15px;
+  border-radius: 15px 15px 0px 0px;
+  border-right: 1px solid #6d6a6a;
 }
 .admintransplantRecipient .transplantRecipient_container::-webkit-scrollbar {
   width: 1em;
@@ -3605,6 +3582,8 @@ h1, h2, h3 {
 .admintransplantRecipient .transplantRecipient_container .transplantRecipient__personal {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  min-width: 500px;
 }
 .admintransplantRecipient .transplantRecipient_container .transplantRecipient__personal__Image {
   width: 50px;
@@ -3672,12 +3651,18 @@ h1, h2, h3 {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
+.transplant_Container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  white-space: nowrap;
+  background-color: #136371;
+}
+
 /************************TRANSPLANT DONORS*********************************/
 .transplantDonor_container {
-  display: block;
   width: 50%;
-  overflow-y: auto;
-  white-space: nowrap;
   border-radius: 15px;
 }
 .transplantDonor_container::-webkit-scrollbar {
@@ -3701,7 +3686,7 @@ h1, h2, h3 {
   border-radius: 15px;
   max-height: 100px;
   min-height: 100px;
-  min-width: 445px;
+  min-width: 500px;
   /************************DATABASEEEEEE***************************/
   /******************FUNCTIONS**********************/
 }
@@ -3728,6 +3713,8 @@ h1, h2, h3 {
 .transplantDonor_container .transplantDonor__personal {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  min-width: 500px;
 }
 .transplantDonor_container .transplantDonor__personal__Image {
   width: 50px;

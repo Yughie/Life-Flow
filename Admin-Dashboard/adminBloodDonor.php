@@ -200,7 +200,7 @@
                                 </div>
                                 <div>
                                     <h3 class="bloodDonor__personal__name">
-                                            <?php echo $row['don_lastName'] . $row['don_firstName'] . ",";?>
+                                            <?php echo $row['don_lastName'] . " " . $row['don_firstName'] . ",";?>
                                     </h3>
                                     <h3 class="bloodDonor__personal__name">
                                         <?php echo $row['don_midName']; ?>
@@ -230,14 +230,6 @@
                             }
                         ?>
 
-
-
-
-                        <div class="bloodDonor2 bloodDonor"></div>
-                        <div class="bloodDonor3 bloodDonor"></div>
-                        <div class="bloodDonor3 bloodDonor"></div>
-                        <div class="bloodDonor3 bloodDonor"></div>
-                        <div class="bloodDonor3 bloodDonor"></div>
                     </div>
 
                 </div>
@@ -256,36 +248,38 @@
 
         <div class="dashboard-content">
             <div class="dashboard-overflow_container">
-                <form class="registrationForm" id="donorFormn" action="process_donor_registration.php" method="POST">
+            <form class="registrationForm" id="donorFormn" action="./admin-add/bloodDonor_registration.php" method="POST"
+                    enctype="multipart/form-data">
 
-                    <h1 class="h1">donor registration form</h1>
+
+                    <h1 class="h1">blood registration form</h1>
                     <div class="personalInfo">
                         <p class="p">Personal Information</p>
                         <div class="fullname">
                             <label class="label">
                                 <input class="input" required="" type="text" name="don_firstName">
                                 <span class="span">First Name</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <input class="input" required="" type="text" name="don_midName">
                                 <span class="span">Middle Name</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <input class="input" required="" type="text" name="don_lastName">
                                 <span class="span">Last Name</span>
-                            </label class="label">
+                            </label>
                         </div>
 
                         <div class="info2" id="donorInfo2">
                             <label class="label">
-                                <input class="input" required="" type="date" name="don_bday" value="2023-12-30">
-                                <span class="span">Date of Birth</span>
-                            </label class="label">
+                                <input class="input" required="" type="date" name="don_bday" value="" id="inputdate">
+                                <span class="span" id="spandate">Date of Birth</span>
+                            </label>
                             <label class="label">
                                 <input class="input" id="age" required="" type="number" name="don_age" min="18"
                                     minlength="2" maxlength="2">
                                 <span class="span">Age</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <select id="sex" required="" name="don_sex" class="select">
                                     <option value="" disabled hidden selected>Select</option>
@@ -293,7 +287,7 @@
                                     <option value="Female">Female</option>
                                 </select>
                                 <span class="span">Sex</span>
-                            </label class="label">
+                            </label>
                             <label class="label">
                                 <select id="bloodtype" required name="don_bloodType" class="select">
                                     <option value="" disabled hidden selected>Select</option>
@@ -336,7 +330,7 @@
                         <div class="phonenum" id="donPhoneNum">
                             <label class="label">
                                 <input class="input" required="" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                    name="">
+                                    name="don_phoneNum">
                                 <span class="span">Phone Number 9XX-XXX-XXXX</span>
                             </label class="label">
                         </div>
@@ -349,8 +343,8 @@
 
                     <div class="optionalInfo" id="donorOptionalInfo">
                         <p class="p">Optional Information</p>
-                        <label class="label">
-                            <select id="ethnicity" required name="don_ethnicity" class="select">
+                        <label class="label" for="ethnicity">
+                            <select id="ethnicity" required="" name="don_ethnicity" class="select">
                                 <option value="" disabled hidden selected>Select</option>
                                 <option value="African">African</option>
                                 <option value="European">European</option>
@@ -369,39 +363,43 @@
                     <div class="recipsNeed">
                         <p class="p">Your Donation Can Help Save and Heal Lives</p>
                         <div class="needsText">
-                            <input class="input" type="checkbox" id="ui-checkbox" name="don_boolBlood" value="1">
+                            <input class="chkbx" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1">
                             <p>Blood</p>
                         </div>
-                        <!----------FOR ORGAN DONOR---
-                <div class="organordon">
-                    <input class="input" type="checkbox" id="ui-checkboxdon" name="don_boolOrganTissue" value="1">
-                    <p class="organordontxt">Organ and/or Tissue</p>
-                </div>
-                <div class="needOrgan" id="donorGiftOrgan">
-                    <label class="label">
-                        <select name="don_giftOrgan" class="select" id="don_gift">
-                            <option value="" disabled hidden selected>Select</option>
-                            <option value="Kidney">Kidney</option>
-                            <option value="Liver">Liver</option>
-                            <option value="Lungs">Lungs</option>
-                            <option value="Heart">Heart</option>
-                            <option value="Pancreas">Pancreas</option>
-                            <option value="Intestines">Intestines</option>
-                            <option value="Hands and Face">Hands and Face</option>
-                            <option value="Corneas">Corneas</option>
-                        </select>
-                        <span class="span">Specify Gift of Donation</span>
-                    </label>
-                </div>
-            </div>
-            -------------->
-                        <div class="btn_wrapper">
-                            <button type="submit" id="registerbtn">Register</button>
+                        <div class="organordon">
+
+                        <!--
+                            <input class="chkbx" type="checkbox" id="ui-checkboxdonorg" name="don_boolOrganTissue"
+                                value="1" onclick="donblocker()">
+                            <p class="organordontxt">Organ and/or Tissue</p>
                         </div>
+                        <div class="needOrgan" id="donorGiftOrgan">
+                            <div id="blocker"></div>
+                            <label class="label">
+                                <select name="don_giftOrgan" class="select" id="don_gift">
+                                    <option value="" disabled hidden selected>Select</option>
+                                    <option value="Kidney">Kidney</option>
+                                    <option value="Liver">Liver</option>
+                                    <option value="Lungs">Lungs</option>
+                                    <option value="Heart">Heart</option>
+                                    <option value="Pancreas">Pancreas</option>
+                                    <option value="Intestines">Intestines</option>
+                                    <option value="Hands and Face">Hands and Face</option>
+                                    <option value="Corneas">Corneas</option>
+                                </select>
+                                <span class="span">Specify Gift of Donation</span>
+                            </label>
+                        </div>
+
+                        -->
+                    </div>
+                    <div class="btn_wrapper">
+                        <button type="submit" id="registerbtn">Register</button>
+                    </div>
                 </form>
             </div>
+            <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
         </div>
-        <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
 
     </div>
 
