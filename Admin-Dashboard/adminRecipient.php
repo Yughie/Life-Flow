@@ -109,7 +109,7 @@
                         </svg>
 
                         <h2 class="recipient-add-function-text">Add &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                            Organ Donor</h2>
+                            Recipient</h2>
                     </div>
 
                     <div class="recipient-select-function_container">
@@ -276,7 +276,7 @@
                                         }
                                         else{
                                         ?>
-                                            <img class="applicant__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                                            <img class="recipient__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
                                         <?php
                                         }
                                         ?>

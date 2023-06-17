@@ -1,3 +1,19 @@
+<?php 
+    require_once ('admin-php/connection.php');
+    require 'admin-php/functions.php'; 
+
+    $query = "SELECT * FROM recipient_info_tbl WHERE recip_boolBlood =0 AND recip_status != '1'";
+    $result = mysqli_query($conn, $query);
+
+    $query_donor = "SELECT * FROM donor_info_tbl WHERE don_boolBlood = 1 AND isNewApplicant =0 AND isOrganAvailable=1 AND isDeceased=1";
+    $result_donor = mysqli_query($conn, $query_donor);
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,162 +149,240 @@
                 <!--------------LATEST DONOR APPLICATION----------------->
                 <div class="admintransplantRecipient">
 
+
+
                     <!--------------TRANSPLANT RECIPIENT------------------------>
 
                     <div class="transplantRecipient_container">
-
-                        <div class="transplantRecipient1 transplantRecipient">
-                            <label class="transplantRecipient__profile" for="transplantRecipient1">
-                                <input type="radio" name="transplantRecipient" id="transplantRecipient1" value="1"
-                                    class="option hide-radio">
-
-                                <!----ID/DATE------>
-                                <div class="transplantRecipient__order">
-                                    <h1 class="transplantRecipient__order__ID">1</h1>
-                                </div>
-                                <!---PERSONAL INFORMATION-->
-                                <div class="transplantRecipient__personal">
-                                    <div>
-                                        <img class="transplantRecipient__personal__Image"
-                                            src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
-                                    </div>
-                                    <div>
-                                        <h3 class="transplantRecipient__personal__name">Yughie Perez</h3>
-                                        <h3 class="transplantRecipient__personal__age">Age: <span
-                                                class="personal__age__value">21</span></h3>
-                                        <h3 class="transplantRecipient__personal__sex">Sex: <span
-                                                class="personal__sex_value">Male</span></h3>
-                                    </div>
-
-
-                                    <!---BLOOD TYPE--->
-                                    <h3 class="transplantRecipient__bloodtype">O+</h3>
-                                    <!---ORGAN IMAGE----->
-                                    <img class="transplantRecipient__Organ" src="../Images/Organ-Assets/organ-liver.svg"
-                                        alt="liver image">
-
-                                    <!-------DATE REQUIRED--------->
-                                    <h3 class="transplantRecipient__daterequired">09-12-01
-                                        <div class="transplantRecipient__status"></div>
-                                    </h3>
-                                    <!---FUNCTIONS----->
-                                    <div class="transplantRecipient-function-container">
-                                        <img class="transplantRecipient-edit"
-                                            src="../Images/DonorApplicant/icon-editApplicant.svg"
-                                            alt="edit applicant icon">
-                                        <img class="transplantRecipient-delete"
-                                            src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
-                                    </div>
-                            </label>
+                        <div class="transplantRecipient__TITLE">
+                            <h1>RECIPIENT</h1>
                         </div>
-                    </div>
+                        <div class="transplant_Container">
+
+                            <?php   
+                            while($row = mysqli_fetch_assoc($result)){
+                            ?>
+
+                            <div class="transplantRecipient1 transplantRecipient">
+                                <label class="" for="transplantRecipient1">
+                                    <input type="radio" name="transplantRecipient" id="transplantRecipient1" value="<?php echo $row['recipID']; ?>"
+                                        class="option hide-radio">
 
 
-                    <!--------------------------------------------------->
-                    <div class="transplantRecipient2 transplantRecipient">
-                        <label class="transplantRecipient__profile" for="transplantRecipient2">
-                            <input type="radio" name="transplantRecipient" id="transplantRecipient2" value="2"
-                                class="option">
-                        </label>
-                    </div>
-                    <div class="transplantRecipient3 transplantRecipient">
-                        <label class="transplantRecipient__profile" for="transplantRecipient3">
-                            <input type="radio" name="transplantRecipient" id="transplantRecipient3" value="3"
-                                class="option">
-                        </label>
-                    </div>
-                    <div class="transplantRecipient4 transplantRecipient">
-                        <label class="transplantRecipient__profile" for="transplantRecipient4">
-                            <input type="radio" name="transplantRecipient" id="transplantRecipient4" value="4"
-                                class="option">
-                        </label>
-                    </div>
-                    <div class="transplantRecipient5 transplantRecipient"></div>
-                    <div class="transplantRecipient6 transplantRecipient"></div>
+
+                                    <div class="transplantRecipient__personal">
+                                        <!----ID/DATE------>
+                                        <div class="transplantRecipient__order">
+                                            <h1 class="transplantRecipient__order__ID"><?php echo $row['recipID']; ?></h1>
+                                        </div>
+                                        <!---PERSONAL INFORMATION-->
+                                        <div>
+                                            <img class="transplantRecipient__personal__Image"
+                                                src="../Images/AdminDashboard/profile-default.svg"
+                                                alt="default profile">
+                                        </div>
+                                        <div>
+                                            <h3 class="transplantRecipient__personal__name">
+                                                <?php echo $row['recip_lastName'] ." " . $row['recip_firstName'] . ",";?>
+                                            </h3>
+                                            <h3 class="transplantRecipient__personal__name">
+                                                <?php echo $row['recip_midName']; ?>
+                                            </h3>
+                                            <h3 class="transplantRecipient__personal__age">Age: <span
+                                                    class="personal__age__value"><?php echo $row['recip_age']; ?></span></h3>
+                                            <h3 class="transplantRecipient__personal__sex">Sex: <span
+                                                    class="personal__sex_value"><?php echo $row['recip_sex']; ?></span></h3>
+                                        </div>
 
 
-                </div>
+                                        <!---BLOOD TYPE--->
+                                        <h3 class="transplantRecipient__bloodtype"><?php echo $row['recip_bloodType']; ?></h3>
+                                        <!---ORGAN IMAGE----->
+                                        <img class="transplantRecipient__Organ"
+                                            src="../Images/Organ-Assets/organ-liver.svg" alt="liver image">
+
+                                        <!-------DATE REQUIRED--------->
+                                        <h3 class="transplantRecipient__daterequired"><?php echo $row['recip_Urgency']; ?>
+                                        <?php 
+                                            if($row['recip_status'] == 1){
+                                        ?>
+                                        <div class="transplantRecipient__status" style="background-color: green;"></div>
+                                        <?php 
+                                        }
+                                        else if($row['recip_status'] == 0){
+                                        ?>
+                                            <div class="transplantRecipient__status" style="background-color: yellow;"></div>
+                                        <?php 
+                                        }   
+                                            else if($row['recip_status'] == 1){
+                                        ?>
+                                        <div class="transplantRecipient__status" style="background-color: red;"></div>
+                                        <?php 
+                                        } 
+                                        ?>
+                                        </h3>
+                                        <!---FUNCTIONS----->
+                                        <div class="transplantRecipient-function-container">
+                                            <img class="transplantRecipient-edit"
+                                                src="../Images/DonorApplicant/icon-editApplicant.svg"
+                                                alt="edit applicant icon">
+                                            <img class="transplantRecipient-delete"
+                                                src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                        </div>
+                                    </div>
+                                </label>
 
 
-                <!---------------------TRANSPLANT DONOR------------------------>
 
-                <div class="transplantDonor_container">
-                    <!---1--->
-                    <div class="transplantDonor1 transplantDonor">
-                        <label class="transplantDonor__profile" for="transplantDonor1">
-                            <input type="radio" name="transplantDonor" id="transplantDonor1" value="1"
-                                class="option hide-radio">
-                            <!----ID/DATE------>
-                            <div class="transplantDonor__order">
-                                <h1 class="transplantDonor__order__ID">1</h1>
                             </div>
 
-                            <!---PERSONAL INFORMATION-->
-                            <div class="transplantDonor__personal">
-                                <div>
-                                    <img class="transplantDonor__personal__Image"
-                                        src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
+
+
+
+
+
+                            <?php   
+                            }
+                            ?>
+
+
+                
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+
+                    <!---------------------TRANSPLANT DONOR------------------------>
+
+                    <div class="transplantDonor_container">
+                        <!---1--->
+                        <div class="transplantRecipient__TITLE">
+                            <h1>DONOR</h1>
+                        </div>
+                        <div class="transplant_Container">
+                            <?php   
+                            while($rows = mysqli_fetch_assoc($result_donor)){
+                            ?>
+                                <div class="transplantDonor1 transplantDonor">
+                                <label class="transplantDonor__profile" for="transplantDonor1">
+                                    <input type="radio" name="transplantDonor" id="transplantDonor1" value="1"
+                                        class="option hide-radio">
+
+
+                                    <!---PERSONAL INFORMATION-->
+                                    <div class="transplantDonor__personal">
+                                        <!----ID/DATE------>
+                                        <div class="transplantDonor__order">
+                                            <h1 class="transplantDonor__order__ID"> <?php echo $rows['id'];?></h1>
+                                        </div>
+                                        <div>
+                                            <img class="transplantDonor__personal__Image"
+                                                src="../Images/AdminDashboard/profile-default.svg"
+                                                alt="default profile">
+                                        </div>
+                                        <div>
+                                                <h3 class="transplantDonor__personal__name">
+                                                    <?php echo $rows['don_lastName'] . $rows['don_firstName'] . ",";?>
+                                                </h3>
+                                                <h3 class="transplantDonor__personal__name">
+                                                    <?php echo $rows['don_midName']; ?>
+                                                </h3>
+                                            <h3 class="transplantDonor__personal__age">Age: <span
+                                                    class="personal__age__value"><?php echo $rows['don_age'] ?></span></h3>
+                                            <h3 class="transplantDonor__personal__sex">Sex: <span
+                                                    class="personal__sex_value"><?php echo $rows['don_sex']?></span></h3>
+                                        </div>
+
+
+                                        <!---BLOOD TYPE--->
+                                        <h3 class="transplantDonor__bloodtype"><?php echo $rows['don_bloodType'] ?></h3>
+                                        <!---ORGAN IMAGE----->
+                                        <?php 
+                                        if($rows['don_giftOrgan'] == "Kidney"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/kidneys.png" alt="kidney">
+                                            <?php
+                                        }
+                                        else if($rows['don_giftOrgan'] == "Liver"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                            <?php
+                                        }
+                                        else if($rows['don_giftOrgan'] == "Lungs"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/lungs.png" alt="lungs">
+                                            <?php
+                                        }
+                                        else if($rows['don_giftOrgan'] == "Heart"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/heart.png" alt="heart">
+                                            <?php
+                                        }
+                                        else if($rows['don_giftOrgan'] == "Pancreas"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/pancreas.png" alt="pancreas">
+                                            <?php
+                                        }
+                                        else if($rows['don_giftOrgan'] == "Intestines"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                            <?php
+                                        }
+                                        else if($rows['don_giftOrgan'] == "Hands and Face"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/handsandface.png" alt="hands and face">
+                                            <?php
+                                        }
+                                        else if($rows['don_giftOrgan'] == "Corneas"){
+                                            ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/cornea.png" alt="corneas">
+                                            <?php
+                                        }
+                                        else{
+                                        ?>
+                                            <img class="transplantDonor__Organ" src="../Images/Organ-Assets/icon-noOrgan.png" alt="None">
+                                        <?php
+                                        }
+                                        ?>
+
+
+                                        <!-----------STATUS------------->
+
+                                        <!---FUNCTIONS----->
+                                        <div class="transplantDonor-function-container">
+                                            <img class="transplantDonor-edit"
+                                                src="../Images/DonorApplicant/icon-editApplicant.svg"
+                                                alt="edit applicant icon">
+                                            <img class="transplantDonor-delete"
+                                                src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                        </div>
+                                    </div>
+                                </label>
                                 </div>
-                                <div>
-                                    <h3 class="transplantDonor__personal__name">Yughie Perez</h3>
-                                    <h3 class="transplantDonor__personal__age">Age: <span
-                                            class="personal__age__value">21</span></h3>
-                                    <h3 class="transplantDonor__personal__sex">Sex: <span
-                                            class="personal__sex_value">Male</span></h3>
-                                </div>
+                            <?php
+                            }
+                            ?>
 
 
-                                <!---BLOOD TYPE--->
-                                <h3 class="transplantDonor__bloodtype">O+</h3>
-                                <!---ORGAN IMAGE----->
-                                <img class="transplantDonor__Organ" src="../Images/Organ-Assets/organ-liver.svg"
-                                    alt="liver image">
+                        </div>
 
 
-                                <!-----------STATUS------------->
 
-                                <!---FUNCTIONS----->
-                                <div class="transplantDonor-function-container">
-                                    <img class="transplantDonor-edit"
-                                        src="../Images/DonorApplicant/icon-editApplicant.svg" alt="edit applicant icon">
-                                    <img class="transplantDonor-delete"
-                                        src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="transplantDonor2 transplantDonor">
-                        <label class="transplantDonor__profile" for="transplantDonor2">
-                            <input type="radio" name="transplantDonor" id="transplantDonor2" value="2" class="option">
-                        </label>
-                    </div>
-                    <div class="transplantDonor3 transplantDonor">
-                        <label class="transplantDonor__profile" for="transplantDonor3">
-                            <input type="radio" name="transplantDonor" id="transplantDonor3" value="3" class="option">
-                        </label>
-                    </div>
-                    <div class="transplantDonor4 transplantDonor">
-                        <label class="transplantDonor__profile" for="transplantDonor4">
-                            <input type="radio" name="transplantDonor" id="transplantDonor4" value="4" class="option">
-                        </label>
-                    </div>
-                    <div class="transplantDonor5 transplantDonor">
 
                     </div>
-                    <div class="transplantDonor6 transplantDonor"></div>
-
                 </div>
-
-
-
-            </div>
-        </div>
-        <div class="match-function-container">
-            <div class="match-function">
-                <img src="../Images/AdminDashboard/icon-match.svg" alt="Two people icon">
-                <h2>Match</h2>
-            </div>
-        </div>
+                <div class="match-function-container">
+                    <div class="match-function">
+                        <img src="../Images/AdminDashboard/icon-match.svg" alt="Two people icon">
+                        <h2>Match</h2>
+                    </div>
+                </div>
 
     </nav>
     <script src="../app/transplantRegistry.js"></script>
