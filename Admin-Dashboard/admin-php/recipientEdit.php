@@ -2,14 +2,26 @@
 include ('connection.php');
 
 
-$id = $_GET['ids'];
-$query = mysqli_query($conn, "SELECT * FROM donor_info_tbl WHERE id='$id'");
 
-echo $id;
+
+if (isset($_GET['ids'])) {
+    $id = $_GET['ids'];
+    // Rest of the code...
+
+    $query = mysqli_query($conn, "SELECT * FROM donor_info_tbl WHERE id='$id'");
+
+    echo $id;
+
+
+
+}
 function recip_firstName(){
   
     return $row['recip_firstName'];
 }
+
+
+
 
 
 

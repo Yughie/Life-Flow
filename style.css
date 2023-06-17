@@ -3998,6 +3998,51 @@ h1, h2, h3 {
 }
 
 */
+.dashboard-popup-update {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  transition: all 300ms ease-in-out;
+  scale: 0;
+}
+.dashboard-popup-update .dashboard-overlay-update {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.dashboard-popup-update .dashboard-content-update {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  background-color: #e9e9e9;
+}
+.dashboard-popup-update .dashboard-overflow_container-update {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  padding-bottom: 30px;
+}
+.dashboard-popup-update .dashboard-close-btn-update {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: #6AAFAC;
+  color: #fff;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+}
+.dashboard-popup-update .dashboard-close-btn-update:hover {
+  background-color: #136371;
+}
+
 .recip_dashb_body {
   height: 100vh;
   display: flex;
