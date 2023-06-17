@@ -46,13 +46,13 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                 <svg width="37" height="33" viewBox="0 0 37 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M17.1163 0.436774C17.728 -0.145591 18.6887 -0.145591 19.3004 0.436774L31.967 12.5003L35.9254 16.2702C36.5585 16.8731 36.5829 17.8754 35.9798 18.5087C35.3769 19.1419 34.3746 19.1662 33.7413 18.5632L32.4583 17.3413V29.2917C32.4583 31.0406 31.0406 32.4583 29.2917 32.4583H21.375H15.0417H7.125C5.3761 32.4583 3.95834 31.0406 3.95834 29.2917V17.3413L2.6753 18.5632C2.04206 19.1662 1.03986 19.1419 0.436785 18.5087C-0.166285 17.8754 -0.141841 16.8731 0.491383 16.2702L4.44971 12.5003L17.1163 0.436774ZM7.125 14.3254V29.2917H13.4583V21.375C13.4583 18.7516 15.5849 16.625 18.2083 16.625C20.8318 16.625 22.9583 18.7516 22.9583 21.375V29.2917H29.2917V14.3254L18.2083 3.76983L7.125 14.3254ZM19.7917 29.2917V21.375C19.7917 20.5005 19.0828 19.7917 18.2083 19.7917C17.3339 19.7917 16.625 20.5005 16.625 21.375V29.2917H19.7917Z" fill="#C11A1D"/>
                                 </svg>
-                                <span class="text">Dashboard</span>
+                                <span class="text" id="darktxt">Dashboard</span>
                             </a>
                             <a href="#">
                                 <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.10049 9.90041H8.80126C9.40437 9.90041 9.90176 9.40708 9.90176 8.79991V1.1005C9.90041 0.494682 10.3951 0 11.0009 0H21.9991C22.6036 0 23.0996 0.493326 23.0996 1.1005V8.79991C23.0996 9.40573 23.5943 9.90041 24.2001 9.90041H31.8995C32.504 9.90041 33 10.3937 33 11.0009V22.0005C33 22.6049 32.5053 23.101 31.8995 23.101H24.2001C23.5956 23.101 23.0996 23.5943 23.0996 24.2014V31.9022C23.0996 32.508 22.6049 33.0027 21.9991 33.0027H10.9995C10.3964 33.0027 9.89905 32.5094 9.89905 31.9022V24.2014C9.89905 23.5956 9.40572 23.101 8.79855 23.101H1.09779C0.494682 23.101 -0.00271225 22.6076 -0.00271225 22.0005V11.0009C0 10.3937 0.494678 9.90041 1.10049 9.90041ZM11.6867 21.56C13.3659 25.0322 18.9551 25.4117 20.9759 22.5819C22.5277 20.4093 22.2729 17.814 20.0949 15.3202C18.2504 13.2019 17.3193 11.1825 17.7082 8.53834C12.5785 11.4861 9.6429 17.3437 11.6867 21.56Z" fill="#C11A1D"/>
                                 </svg>
-                                <span class="text">Donors</span>
+                                <span class="text" id="darktxt">Donors</span>
                             </a>
                             <a href="#" class="learndon">
                                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,6 +73,28 @@ $connect = mysqli_connect($servername, $username, $password, $database);
         </nav>
         <div class="contentWrapper">
             <div class="corner"></div>
+            <label for="check" class="menuButton" id="menubtn">
+                <input type="checkbox" onclick="openSidebar(this.checked);" class="slidecheck" id="check">
+                <span class="top"></span>
+                <span class="mid"></span>
+                <span class="bot"></span>
+            </label>
+            <div class="toggleWrapper">
+                <input type="checkbox" class="dn" id="dn" onclick="darkMode(this.checked);">
+                <label for="dn" class="toggle">
+                    <span class="toggle__handler">
+                        <span class="crater crater--1"></span>
+                        <span class="crater crater--2"></span>
+                        <span class="crater crater--3"></span>
+                    </span>
+                    <span class="star star--1"></span>
+                    <span class="star star--2"></span>
+                    <span class="star star--3"></span>
+                    <span class="star star--4"></span>
+                    <span class="star star--5"></span>
+                    <span class="star star--6"></span>
+                </label>
+            </div>
             <div class="recipDashb">
                 <div class="recipTop">
                     <h1>Hello</h1>
@@ -89,7 +111,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Liver' THEN 1 ELSE 0 END) AS liver_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS liver_count FROM donor_info_tbl WHERE don_giftOrgan = 'Liver' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $liverCount = $row['liver_count'];
@@ -101,7 +123,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Cornea' THEN 1 ELSE 0 END) AS cornea_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS cornea_count FROM donor_info_tbl WHERE don_giftOrgan = 'Cornea' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $corneaCount = $row['cornea_count'];
@@ -113,7 +135,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Heart' THEN 1 ELSE 0 END) AS heart_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS heart_count FROM donor_info_tbl WHERE don_giftOrgan = 'Heart' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $heartCount = $row['heart_count'];
@@ -125,7 +147,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Pancreas' THEN 1 ELSE 0 END) AS pancreas_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS pancreas_count FROM donor_info_tbl WHERE don_giftOrgan = 'Pancreas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $pancreasCount = $row['pancreas_count'];
@@ -139,19 +161,19 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Lungs' THEN 1 ELSE 0 END) AS heart_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS lungs_count FROM donor_info_tbl WHERE don_giftOrgan = 'Lungs' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
-                                        $heartCount = $row['heart_count'];
+                                        $lungsCount = $row['lungs_count'];
                                         ?>
-                                        <p class="orgCount"><?php echo $heartCount; ?></p>
+                                        <p class="orgCount"><?php echo $lungsCount; ?></p>
                                     </div>
                                     <div class="org2">
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Kidney' THEN 1 ELSE 0 END) AS kidney_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS kidney_count FROM donor_info_tbl WHERE don_giftOrgan = 'Kidney' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $kidneyCount = $row['kidney_count'];
@@ -163,7 +185,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Intestines' THEN 1 ELSE 0 END) AS intestine_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS intestine_count FROM donor_info_tbl WHERE don_giftOrgan = 'Intestines' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $intestineCount = $row['intestine_count'];
@@ -175,7 +197,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <img class="orghnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Hands and Face' THEN 1 ELSE 0 END) AS handsface_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS handsface_count FROM donor_info_tbl WHERE don_giftOrgan = 'Hands and Face' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $HandsFaceCount = $row['handsface_count'];
@@ -194,7 +216,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">O-</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'O-' THEN 1 ELSE 0 END) AS ONeg_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS ONeg_count FROM donor_info_tbl WHERE don_bloodType = 'O-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $ONeg_count = $row['ONeg_count'];
@@ -206,7 +228,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">O+</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'O+' THEN 1 ELSE 0 END) AS OPos_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS OPos_count FROM donor_info_tbl WHERE don_bloodType = 'O+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $OPos_count = $row['OPos_count'];
@@ -218,7 +240,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">B-</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'B-' THEN 1 ELSE 0 END) AS BNeg_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS BNeg_count FROM donor_info_tbl WHERE don_bloodType = 'B-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $BNeg_count = $row['BNeg_count'];
@@ -230,7 +252,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">B+</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'B+' THEN 1 ELSE 0 END) AS BPos_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS BPos_count FROM donor_info_tbl WHERE don_bloodType = 'B+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $BPos_count = $row['BPos_count'];
@@ -244,7 +266,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">A-</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'A-' THEN 1 ELSE 0 END) AS ANeg_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS ANeg_count FROM donor_info_tbl WHERE don_bloodType = 'A-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $ANeg_count = $row['ANeg_count'];
@@ -256,7 +278,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">A+</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'A+' THEN 1 ELSE 0 END) AS APos_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS APos_count FROM donor_info_tbl WHERE don_bloodType = 'A+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $APos_count = $row['APos_count'];
@@ -268,7 +290,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">AB-</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'AB-' THEN 1 ELSE 0 END) AS ABNeg_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS ABNeg_count FROM donor_info_tbl WHERE don_bloodType = 'AB-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $ABNeg_count = $row['ABNeg_count'];
@@ -280,7 +302,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                             <p class="bloodtype">AB+</p>
                                         </div>
                                         <?php 
-                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'AB+' THEN 1 ELSE 0 END) AS ABPos_count FROM donor_info_tbl";
+                                        $query = "SELECT COUNT(*) AS ABPos_count FROM donor_info_tbl WHERE don_bloodType = 'AB+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
                                         $result = mysqli_query($connect, $query);
                                         $row = mysqli_fetch_assoc($result);
                                         $ABPos_count = $row['ABPos_count'];
@@ -293,7 +315,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                     </div>
                     
                     <div class="recipRight">
-                        <p class="righttxt">Recent Donations</p>
+                        <p class="righttxt">Recent Donation Registrations</p>
                         <?php
                             $query = "SELECT don_firstName, don_bloodType, don_giftOrgan, don_userProfile FROM donor_info_tbl ORDER BY created_at DESC LIMIT 7";
                             $result = mysqli_query($connect, $query);
@@ -359,7 +381,6 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                 </div>
             </div>
         </div>
-        
     </body>
 
 </html>
