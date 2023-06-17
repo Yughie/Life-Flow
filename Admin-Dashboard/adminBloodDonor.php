@@ -219,7 +219,7 @@
                             <h3 class="bloodDonor__bloodtype"><?php echo $row['don_bloodType']; ?></h3>
                             <!---FUNCTIONS---->
                             <div class="bloodDonor-function-container">
-                                <img class="bloodDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
+                                <img onclick="dashboardopenPopup()" class="bloodDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
                                 <img class="bloodDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
                                     alt="Trash can">
@@ -242,7 +242,7 @@
 
     </nav>
     
-    <!----------POP UP------------------------>
+    <!--------------------------POP UP------------------------>
     <div class="dashboard-popup" id="dashboard-popup-1">
         <div class="dashboard-overlay"></div>
 

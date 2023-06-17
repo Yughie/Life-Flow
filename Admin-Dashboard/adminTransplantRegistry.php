@@ -287,7 +287,6 @@
                                                     class="personal__sex_value"><?php echo $rows['don_sex']?></span></h3>
                                         </div>
 
-
                                         <!---BLOOD TYPE--->
                                         <h3 class="transplantDonor__bloodtype"><?php echo $rows['don_bloodType'] ?></h3>
                                         <!---ORGAN IMAGE----->
