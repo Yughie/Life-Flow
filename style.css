@@ -2429,7 +2429,7 @@ h1, h2, h3 {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
-.adminTransfusionRegistryBody {
+.adminTransfusionRegistryBody * {
   border: 1px dashed yellow;
 }
 
@@ -4014,6 +4014,7 @@ h1, h2, h3 {
 .recip_dashb_body {
   height: 100vh;
   display: flex;
+  overflow: hidden;
 }
 
 #sidebar {
@@ -4065,9 +4066,10 @@ h1, h2, h3 {
 }
 #sidebar .logoandcorner .toggler {
   background-color: transparent;
-  margin-right: -15px;
+  margin-left: -15px;
   margin-top: 35px;
-  z-index: 1;
+  z-index: 2;
+  position: absolute;
 }
 #sidebar .logoandcorner .toggler svg {
   background-color: rgb(94, 182, 192);
@@ -4141,6 +4143,7 @@ h1, h2, h3 {
 .contentWrapper {
   display: flex;
   width: 100%;
+  background-color: blue;
 }
 .contentWrapper .corner {
   width: 25px;
@@ -4151,5 +4154,63 @@ h1, h2, h3 {
 }
 .contentWrapper .recipDashb {
   width: 100%;
+  min-height: 100vh;
   background-color: rgb(245, 247, 251);
+  padding-top: 5px;
+  margin: 0px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.contentWrapper .recipDashb .recipTop {
+  background-color: pink;
+  height: 70px;
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+.contentWrapper .recipDashb .recipTop .user {
+  padding-left: 15px;
+  color: red;
+}
+.contentWrapper .recipDashb .recipBottom {
+  display: grid;
+  grid-area: bottom;
+  grid-template-areas: "left right";
+  height: 100%;
+  gap: 15px;
+}
+.contentWrapper .recipDashb .recipBottom .recipLeft {
+  background-color: lightblue;
+  margin-top: 15px;
+  grid-area: left;
+  display: grid;
+}
+.contentWrapper .recipDashb .recipBottom .recipLeft .organDon {
+  background-color: lightseagreen;
+  border-radius: 25px;
+  margin: 15px 0px;
+}
+.contentWrapper .recipDashb .recipBottom .recipLeft .bloodDon {
+  background-color: lightcoral;
+  border-radius: 25px;
+  margin: 15px 0px;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight {
+  margin-top: 15px;
+  background-color: lightgreen;
+  grid-area: right;
+}
+
+@media screen and (max-width: 1288px) {
+  #recipBottomID {
+    grid-template-areas: "left" "right";
+  }
+}
+@media screen and (max-width: 685px) {
+  #sidebar {
+    transition: 0.3s ease-in-out;
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

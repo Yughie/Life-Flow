@@ -4,7 +4,9 @@
 }
 
 .adminTransfusionRegistryBody{
-    border: 1px dashed yellow;
+    *{
+        border: 1px dashed yellow;
+    }
 } 
 
 .hide-radio{
