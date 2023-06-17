@@ -251,7 +251,7 @@
         border-radius: 0.5em;
         background: #b41417;
         border: 1px solid #c9191c;
-        transition: all .3s;
+        transition: all .2s ease-in-out;
         box-shadow: 6px 6px 12px #861315,
                    -6px -6px 12px #be1e20;
 
@@ -289,7 +289,6 @@
             &:checked ~ span.bot {
                 transform: translateY(-270%) rotate(-45deg);
                 width: 40px;
-                box-shadow: 0 0 10px #495057;
             }
                 
             &:checked ~ span.mid {
