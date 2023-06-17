@@ -239,9 +239,30 @@
                                         <!---PERSONAL INFORMATION-->
                                         <div class="applicant__personal">
                                             <div>
-                                                <img class="applicant__personal__Image"
+                                            
+
+                                             <!----------IMAGE PROFILE
+                                            <?php
+                                                    if($row['don_userProfile']){
+                                                ?>
+                                                    <img class="applicant__personal__Image" src="<?php $row['don_userProfile']; ?>" alt="image">
+                                            </div>
+                                                <?php
+                                                    }
+                                                    else if($row['don_userProfile'] == 0){
+                                                     
+                                                ?>
+                                                 <img class="applicant__personal__Image"
                                                     src="../Images/AdminDashboard/profile-default.svg"
                                                     alt="default profile">
+                                                <?php
+                                                    }
+                                                ?>
+                                              -->
+                                            <img class="applicant__personal__Image"
+                                                    src="../Images/AdminDashboard/profile-default.svg"
+                                                    alt="default profile">
+                                             
                                             </div>
                                             <div>
                                                 <h3 class="applicant__personal__name">
@@ -321,10 +342,7 @@
                                 
                                         <!---FUNCTIONS----->
                                         <div class="applicant-function-container">
-                                        <img class="applicant-edit"
-                                            src="../Images/DonorApplicant/icon-editApplicant.svg" alt="">
-                                        <img class="applicant-delete"
-                                            src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="">
+                                       
                                         <img class="applicant-accept" src="../Images/AdminDashboard/icon-accept.svg"
                                             alt="accept applicant">
                                         <img class="applicant-reject" src="../Images/AdminDashboard/icon-reject.svg"

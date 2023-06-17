@@ -199,11 +199,11 @@
 
                         <!---
                         <div class="transfusion1 transfusion">
-                            <!----ID/DATE-----
+                            ----ID/DATE-----
                             <div class="transfusion__order">
                                 <h1 class="transfusion__order__ID">1</h1>
                             </div>
-                            <!---PERSONAL INFORMATION-
+                            <---PERSONAL INFORMATION-
                             <div class="transfusion__personal">
                                 <div>
                                     <img class="transfusion__personal__Image"
@@ -217,22 +217,22 @@
                                             class="personal__sex_value">Male</span></h3>
                                 </div>
                             </div>
-                            <!---CONTACT INFO----
+                            <---CONTACT INFO----
                             <div class="transfusion__contact">
                                 <h3 class="transfusion__contact__email">yughiep@gmail.com</h3>
                                 <h3 class="transfusion__contact__number">092381293241</h3>
                             </div>
-                            <!---BLOOD TYPE---
+                            <---BLOOD TYPE---
                             <h3 class="transfusion__bloodtype">O+</h3>
-                            <!---ORGAN IMAGE
+                            <---ORGAN IMAGE
                                 <img class="transfusion__Organ" src="../Images/Organ-Assets/organ-liver.svg" alt="liver image">
                                 ----->
                             <!-------DATE REQUIRED---------
                             <h3 class="transfusion__daterequired">09-12-01</h3>
 
-                            <!-----------STATUS-------------
+                            <-----------STATUS-------------
                             <div class="transfusion__status"></div>
-                            <!-----------FUNCTION-------------------
+                            <-----------FUNCTION-------------------
                             <div class="transfusion-function-container">
                                 <svg class="transfusion__function" width="60" height="50" viewBox="0 0 60 50"
                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
