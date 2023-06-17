@@ -1,3 +1,12 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "lifeflow_db"; 
+
+$connect = mysqli_connect($servername, $username, $password, $database);
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -14,6 +23,7 @@
     </head>
 
     <body class="recip_dashb_body">
+    <script src="recipientdashbscript.js"></script>
         <nav id="sidebar">
             <div class="logoandcorner">
                 <div class="logo">
@@ -28,7 +38,7 @@
                 <h1>User</h1>
                 <p>RECIPIENT</p>
             </div>
-            <div class="menu-bar">
+            <div class="menu-bar sizedmenubar">
                 <div class="menu">
                     <ul class="menu-links">
                         <li class="nav-link">
@@ -58,6 +68,8 @@
                     </ul>
                 </div>
             </div>
+
+            
         </nav>
         <div class="contentWrapper">
             <div class="corner"></div>
@@ -76,25 +88,49 @@
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Liver' THEN 1 ELSE 0 END) AS liver_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $liverCount = $row['liver_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $liverCount; ?></p>
                                     </div>
                                     <div class="org1">
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Cornea' THEN 1 ELSE 0 END) AS cornea_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $corneaCount = $row['cornea_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $corneaCount; ?></p>
                                     </div>
                                     <div class="org1">
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Heart' THEN 1 ELSE 0 END) AS heart_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $heartCount = $row['heart_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $heartCount; ?></p>
                                     </div>
                                     <div class="org1">
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Pancreas' THEN 1 ELSE 0 END) AS pancreas_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $pancreasCount = $row['pancreas_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $pancreasCount; ?></p>
                                     </div>
                                 </div>
                                 <div class="orgRow2">
@@ -102,25 +138,49 @@
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Lungs' THEN 1 ELSE 0 END) AS heart_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $heartCount = $row['heart_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $heartCount; ?></p>
                                     </div>
                                     <div class="org2">
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Kidney' THEN 1 ELSE 0 END) AS kidney_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $kidneyCount = $row['kidney_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $kidneyCount; ?></p>
                                     </div>
                                     <div class="org2">
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Intestines' THEN 1 ELSE 0 END) AS intestine_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $intestineCount = $row['intestine_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $intestineCount; ?></p>
                                     </div>
                                     <div class="org2">
                                         <div class="orgimg">
                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
                                         </div>
-                                        <p class="orgCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Hands and Face' THEN 1 ELSE 0 END) AS handsface_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $HandsFaceCount = $row['handsface_count'];
+                                        ?>
+                                        <p class="orgCount"><?php echo $HandsFaceCount; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -133,25 +193,49 @@
                                         <div class="btype">
                                             <p class="bloodtype">O-</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'O-' THEN 1 ELSE 0 END) AS ONeg_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $ONeg_count = $row['ONeg_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $ONeg_count; ?></p>
                                     </div>
                                     <div class="blood1">
                                         <div class="btype">
                                             <p class="bloodtype">O+</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'O+' THEN 1 ELSE 0 END) AS OPos_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $OPos_count = $row['OPos_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $OPos_count; ?></p>
                                     </div>
                                     <div class="blood1">
                                         <div class="btype">
                                             <p class="bloodtype">B-</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'B-' THEN 1 ELSE 0 END) AS BNeg_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $BNeg_count = $row['BNeg_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $BNeg_count; ?></p>
                                     </div>
                                     <div class="blood1">
                                         <div class="btype">
                                             <p class="bloodtype">B+</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'B+' THEN 1 ELSE 0 END) AS BPos_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $BPos_count = $row['BPos_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $BPos_count; ?></p>
                                     </div>
                                 </div>
                                 <div class="bloodRow2">
@@ -159,25 +243,49 @@
                                         <div class="btype">
                                             <p class="bloodtype">A-</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'A-' THEN 1 ELSE 0 END) AS ANeg_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $ANeg_count = $row['ANeg_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $ANeg_count; ?></p>
                                     </div>
                                     <div class="blood2">
                                         <div class="btype">
                                             <p class="bloodtype">A+</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'A+' THEN 1 ELSE 0 END) AS APos_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $APos_count = $row['APos_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $APos_count; ?></p>
                                     </div>
                                     <div class="blood2">
                                         <div class="btype">
                                             <p class="bloodtype">AB-</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'AB-' THEN 1 ELSE 0 END) AS ABNeg_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $ABNeg_count = $row['ABNeg_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $ABNeg_count; ?></p>
                                     </div>
                                     <div class="blood2">
                                         <div class="btype">
                                             <p class="bloodtype">AB+</p>
                                         </div>
-                                        <p class="bloodCount">1</p>
+                                        <?php 
+                                        $query = "SELECT SUM(CASE WHEN don_boolBlood = 1 AND don_bloodType = 'AB+' THEN 1 ELSE 0 END) AS ABPos_count FROM donor_info_tbl";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $ABPos_count = $row['ABPos_count'];
+                                        ?>
+                                        <p class="bloodCount"><?php echo $ABPos_count; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +293,7 @@
                     </div>
                     
                     <div class="recipRight">
-                        <p class="righttxt">Recent Requests</p>
+                        <p class="righttxt">Recent Donations</p>
                     </div>
                 </div>
             </div>

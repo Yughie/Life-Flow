@@ -4131,6 +4131,9 @@ h1, h2, h3 {
   background-color: rgb(245, 247, 251);
   cursor: pointer;
 }
+.menu-bar .menu .menu-links .nav-link a:active {
+  background-color: rgb(245, 247, 251);
+}
 .menu-bar .menu .menu-links .nav-link .learndon {
   height: 55px;
 }
@@ -4331,6 +4334,14 @@ h1, h2, h3 {
 @media screen and (max-width: 1288px) {
   #recipBottomID {
     grid-template-areas: "left" "right";
+    justify-items: center;
+  }
+  .corner {
+    display: none;
+  }
+  .recipTop {
+    display: flex;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 922px) {

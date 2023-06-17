@@ -98,6 +98,12 @@ if (isset($_SESSION['don_username'])) {
                 }
             }
         }
+
+        //organ counts
+        $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Liver' THEN 1 ELSE 0 END) AS liver_sum FROM donor_info_tbl";
+        $result = mysqli_query($connection, $query);
+        $row = mysqli_fetch_assoc($result);
+        $liverCount = $row['liver_sum'];
     }
 } else {
     // 'don_username' session variable is not set, handle the case accordingly

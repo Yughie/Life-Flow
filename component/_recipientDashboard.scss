@@ -134,6 +134,10 @@
                         background-color: rgb(245, 247, 251);
                         cursor: pointer;
                     }
+
+                    &:active {
+                        background-color: rgb(245, 247, 251);
+                    }
                 }
 
                 .learndon {
@@ -375,6 +379,16 @@
     #recipBottomID {
         grid-template-areas:   'left'
                                'right';
+        justify-items: center;
+    }
+
+    .corner {
+        display: none;
+    }
+
+    .recipTop {
+        display: flex;
+        justify-content: center;
     }
 }
 
