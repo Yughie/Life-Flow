@@ -355,7 +355,7 @@
                                                 <div class="info2" id="donorInfo2">
                                                     <label class="label">
                                                         <input class="input" required="" type="date" name="don_bday"
-                                                        value="<?php echo date('m-d-y', strtotime($row['don_bday'])); ?>" id="inputdate">
+                                                        value="<?php echo date('y-m-d', strtotime($row['don_bday'])); ?>" id="inputdate">
                                                         <span class="span" id="spandate">Date of Birth</span>
                                                     </label>
                                                     <label class="label">
