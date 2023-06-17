@@ -172,7 +172,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                                     </div>
                                     <div class="org2">
                                         <div class="orgimg">
-                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
+                                            <img class="orghnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
                                         </div>
                                         <?php 
                                         $query = "SELECT SUM(CASE WHEN don_giftOrgan = 'Hands and Face' THEN 1 ELSE 0 END) AS handsface_count FROM donor_info_tbl";
@@ -294,6 +294,67 @@ $connect = mysqli_connect($servername, $username, $password, $database);
                     
                     <div class="recipRight">
                         <p class="righttxt">Recent Donations</p>
+                        <?php
+                            $query = "SELECT don_firstName, don_bloodType, don_giftOrgan, don_userProfile FROM donor_info_tbl ORDER BY created_at DESC LIMIT 7";
+                            $result = mysqli_query($connect, $query);
+                        ?>
+                        <table class="recentdons_tbl">
+                            <tbody>
+                                <?php
+                                    // Loop through the results and display the recent donations in table rows
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $don_FirstName = $row['don_firstName'];
+                                        $don_BloodType = $row['don_bloodType'];
+                                        $don_GiftOrgan = $row['don_giftOrgan'];
+                                        $don_dp = $row['don_userProfile'];
+                                    
+                                        // Check if the image data exists
+                                        if ($don_dp !== null) {
+                                            $base64Image = base64_encode($don_dp);
+                                            $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+                                        } else {
+                                            // Use a placeholder image if no image data is available
+                                            $imageSrc = '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png';
+                                        }
+                                        ?>
+                                        <tr class="rowWrapper">
+                                            <td class="don_row">
+                                                <div class="don_dp">
+                                                    <img src="<?php echo $imageSrc; ?>">
+                                                    <p class="don_FName">
+                                                        <?php echo $don_FirstName; ?>
+                                                    </p>
+                                                </div>
+                                                
+                                                <p class="don_BType">
+                                                    <?php echo $don_BloodType; ?>
+                                                </p>
+                                                <p class="don_organ">
+                                                <?php if ($don_GiftOrgan === 'Liver') { ?>
+                                                    <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
+                                                    <?php } elseif ($don_GiftOrgan === 'Corneas') { ?>
+                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
+                                                    <?php } elseif ($don_GiftOrgan === 'Heart') { ?>
+                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
+                                                    <?php } elseif ($don_GiftOrgan === 'Pancreas') { ?>
+                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
+                                                    <?php } elseif ($don_GiftOrgan === 'Lungs') { ?>
+                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
+                                                    <?php } elseif ($don_GiftOrgan === 'Kidney') { ?>
+                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
+                                                    <?php } elseif ($don_GiftOrgan === 'Intestines') { ?>
+                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
+                                                    <?php } elseif ($don_GiftOrgan === 'Hands and Face') { ?>
+                                                        <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
+                                                    <?php } ?>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

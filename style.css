@@ -4154,6 +4154,7 @@ h1, h2, h3 {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   background-color: rgb(245, 247, 251);
+  z-index: 0px;
 }
 .contentWrapper .recipDashb {
   width: 100%;
@@ -4171,8 +4172,9 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   font-size: 18px;
-  margin-top: 10px;
+  margin-left: 10px;
   color: rgb(41, 41, 41);
+  padding-top: 20px;
 }
 .contentWrapper .recipDashb .recipTop .user {
   padding-left: 15px;
@@ -4183,21 +4185,22 @@ h1, h2, h3 {
   grid-area: bottom;
   grid-template-areas: "left right";
   height: 100%;
-  gap: 25px;
 }
 .contentWrapper .recipDashb .recipBottom .recipLeft {
-  margin-top: 15px;
   grid-area: left;
   display: grid;
   gap: 25px;
   margin-bottom: 25px;
-  width: 600px;
+  margin-top: 25px;
+  width: 565px;
 }
 .contentWrapper .recipDashb .recipBottom .recipLeft .organDon {
+  margin-left: 10px;
   background-color: rgb(221, 233, 255);
   border-radius: 25px;
   height: -moz-min-content;
   height: min-content;
+  box-shadow: 0px 11px 10px #CED7E6;
 }
 .contentWrapper .recipDashb .recipBottom .recipLeft .organDon .orgtxt {
   width: 200px;
@@ -4222,8 +4225,8 @@ h1, h2, h3 {
 }
 .contentWrapper .recipDashb .recipBottom .recipLeft .organDon .orgsWrapper .org1, .contentWrapper .recipDashb .recipBottom .recipLeft .organDon .orgsWrapper .org2 {
   background-color: white;
-  width: 125px;
-  height: 125px;
+  width: 115px;
+  height: 115px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -4252,6 +4255,8 @@ h1, h2, h3 {
   border-radius: 25px;
   height: -moz-min-content;
   height: min-content;
+  box-shadow: 0px 11px 10px #CED7E6;
+  margin-left: 10px;
 }
 .contentWrapper .recipDashb .recipBottom .recipLeft .bloodDon .bloodtxt {
   width: 200px;
@@ -4284,8 +4289,8 @@ h1, h2, h3 {
 }
 .contentWrapper .recipDashb .recipBottom .recipLeft .bloodDon .bloodsWrapper .blood1, .contentWrapper .recipDashb .recipBottom .recipLeft .bloodDon .bloodsWrapper .blood2 {
   background-color: white;
-  width: 125px;
-  height: 125px;
+  width: 115px;
+  height: 115px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -4318,7 +4323,6 @@ h1, h2, h3 {
 }
 .contentWrapper .recipDashb .recipBottom .recipRight {
   margin-top: 15px;
-  background-color: white;
   grid-area: right;
   margin-bottom: 25px;
   width: 645px;
@@ -4327,8 +4331,75 @@ h1, h2, h3 {
 .contentWrapper .recipDashb .recipBottom .recipRight .righttxt {
   width: 200px;
   margin: 0px;
+  padding-top: 6px;
   color: rgb(41, 41, 41);
   font-weight: 600;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl {
+  border-collapse: separate;
+  border-spacing: 20px;
+  margin: 0px;
+  margin-top: -5px;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper {
+  height: 70px;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row {
+  display: grid;
+  grid-template-columns: repeat(4, 0.1fr);
+  margin: 0px;
+  margin-left: -20px;
+  height: 74px;
+  width: 645px;
+  border-radius: 25px;
+  box-shadow: 0px 11px 10px #CED7E6;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row p {
+  margin: 0px;
+  background-color: white;
+  width: 186px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row .don_dp {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row .don_dp img {
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 55px;
+  height: 55px;
+  background-color: pink;
+  border-radius: 100px;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row .don_dp .don_FName {
+  display: flex;
+  justify-content: flex-start;
+  color: rgb(41, 41, 41);
+  font-weight: 550;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row .don_BType {
+  color: rgb(197, 0, 0);
+  font-weight: 550;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row .don_organ {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row .don_organ img {
+  width: 55px;
+  height: 55px;
+}
+.contentWrapper .recipDashb .recipBottom .recipRight .recentdons_tbl .rowWrapper .don_row .don_organ .hnf {
+  width: 85px;
+  height: 85px;
 }
 
 @media screen and (max-width: 1288px) {
