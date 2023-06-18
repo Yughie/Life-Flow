@@ -1,7 +1,7 @@
-/*
+
 window.onload = function() {
-    document.querySelector('.recipDashb').style.display = 'none';
-}; */
+    document.querySelector('.recipDashb').style.display = "none";
+}; 
 
 function openSidebar(selected) {
     if(selected) {
@@ -50,3 +50,42 @@ function darkMode(selected) {
         recipDashbBody.style.setProperty("--bloodCountTxt", "");
     }
 }
+
+
+
+function openDashB() {
+    document.querySelector('.recipDashb').style.display = "none";
+}
+
+
+// Function to load the table content
+function loadTable(page) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Update the table content
+            document.getElementById("donors-table").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "load-table.php?page=" + page, true);
+    xmlhttp.send();
+}
+
+// Function to load the table content initially
+function initializeTable() {
+    loadTable(1);
+}
+
+// Event listener for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    initializeTable();
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('.pagination-link')) {
+            e.preventDefault();
+            var page = e.target.getAttribute('data-page');
+            loadTable(page);
+        }
+    });
+});
+
+
