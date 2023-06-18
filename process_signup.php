@@ -56,6 +56,9 @@ if ($recip_username && $recip_email && $recip_pass && $recip_pass === $recip_con
     
     // Set session variable to indicate user is signed in as a recipient
     $_SESSION['is_signed_in_recipient'] = true;
+
+    // username retrieval in regform
+    $_SESSION['recip_username'] = $recip_username;
     
     // Redirect to the recipient's account page
     header('Location: Registration-Forms/recipient-registration.html');
