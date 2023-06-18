@@ -2811,6 +2811,14 @@ h1, h2, h3 {
   font-size: 12px;
   transform: scale(0.8333333333) translateY(-18px);
 }
+.recipientRegistrationBody #recip_Urgency {
+  font-size: 12px;
+  padding: 18px 0px 2px 8px;
+}
+.recipientRegistrationBody #spanDate {
+  padding: 18px 0px 2px 8px;
+  font-size: 12px;
+}
 
 .nav-bar {
   background-color: #A00608;
