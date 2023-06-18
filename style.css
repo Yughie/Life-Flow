@@ -2802,22 +2802,14 @@ h1, h2, h3 {
   z-index: 1;
   opacity: 0;
 }
-.recipientRegistrationBody #inputdate {
+.recipientRegistrationBody #inputdate, .recipientRegistrationBody #recip_Urgency {
   font-size: 12px;
   padding: 18px 0px 2px 8px;
 }
-.recipientRegistrationBody #spandate {
+.recipientRegistrationBody #spandate, .recipientRegistrationBody #spanDate {
   padding: 18px 0px 2px 0px;
   font-size: 12px;
   transform: scale(0.8333333333) translateY(-18px);
-}
-.recipientRegistrationBody #recip_Urgency {
-  font-size: 12px;
-  padding: 18px 0px 2px 8px;
-}
-.recipientRegistrationBody #spanDate {
-  padding: 18px 0px 2px 8px;
-  font-size: 12px;
 }
 
 .nav-bar {
