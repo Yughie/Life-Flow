@@ -145,7 +145,7 @@
                     </div>
                     <div class="bloodDonor_container">
 
-                    <!--
+                        <!--
                         <div class="bloodDonor1 bloodDonor">
                             <!----ID/DATE------
                             <div class="bloodDonor__order">
@@ -186,11 +186,13 @@
 
                         <?php   
                             while($row = mysqli_fetch_assoc($result)){
-                        ?>
-                            <div class="bloodDonor1 bloodDonor">
+                            ?>
+                        <div class="bloodDonor1 bloodDonor">
                             <!----ID/DATE------>
                             <div class="bloodDonor__order">
-                                <h1 class="bloodDonor__order__ID"><?php echo $row['id'] ?></h1>
+                                <h1 class="bloodDonor__order__ID">
+                                    <?php echo $row['id'] ?>
+                                </h1>
                             </div>
                             <!---PERSONAL INFORMATION-->
                             <div class="bloodDonor__personal">
@@ -200,30 +202,224 @@
                                 </div>
                                 <div>
                                     <h3 class="bloodDonor__personal__name">
-                                            <?php echo $row['don_lastName'] . " " . $row['don_firstName'] . ",";?>
+                                        <?php echo $row['don_lastName'] . " " . $row['don_firstName'] . ",";?>
                                     </h3>
                                     <h3 class="bloodDonor__personal__name">
                                         <?php echo $row['don_midName']; ?>
                                     </h3>
-                                    <h3 class="bloodDonor__personal__age">Age: <span
-                                            class="personal__age__value"><?php echo $row['don_age']; ?></span></h3>
-                                    <h3 class="bloodDonor__personal__sex">Sex: <span
-                                            class="personal__sex_value"><?php echo $row['don_sex']; ?></span></h3>
+                                    <h3 class="bloodDonor__personal__age">Age: <span class="personal__age__value">
+                                            <?php echo $row['don_age']; ?>
+                                        </span></h3>
+                                    <h3 class="bloodDonor__personal__sex">Sex: <span class="personal__sex_value">
+                                            <?php echo $row['don_sex']; ?>
+                                        </span></h3>
                                 </div>
                             </div>
                             <!---CONTACT INFO----->
                             <div class="bloodDonor__contact">
-                                <h3 class="bloodDonor__contact__number"><?php echo $row['don_phoneNum']; ?></h3>
+                                <h3 class="bloodDonor__contact__number">
+                                    <?php echo $row['don_phoneNum']; ?>
+                                </h3>
                             </div>
                             <!---BLOOD TYPE-->
-                            <h3 class="bloodDonor__bloodtype"><?php echo $row['don_bloodType']; ?></h3>
+                            <h3 class="bloodDonor__bloodtype">
+                                <?php echo $row['don_bloodType']; ?>
+                            </h3>
                             <!---FUNCTIONS---->
                             <div class="bloodDonor-function-container">
-                                <img onclick="dashboardopenPopup()" class="bloodDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
-                                    alt="edit applicant icon">
+                                <img class="bloodDonor-edit edit-button" data-user-id="<?php echo $row['id']; ?>"
+                                    src="../Images/DonorApplicant/icon-editApplicant.svg" alt="edit applicant icon">
                                 <img class="bloodDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
                                     alt="Trash can">
                             </div>
+
+                                
+
+
+
+
+
+
+
+                                    <!-------------------------------- POP UP EDIT FUNCTION FUNCTIONS-------------------------------------------->
+                            <div class="dashboard-popup-update edit-form edit-form<?php echo $row['id']; ?>" data-overlay-id=<?php echo $row['id']; ?> id="dashboard-popup-1-update">
+                                <div class="dashboard-overlay-update overlay-button overlay-button<?php echo $row['id']; ?>"  data-overlay-id=<?php echo $row['id']; ?> ></div>
+
+                                <div class="dashboard-content-update ">
+                                    <div class="dashboard-overflow_container-update">
+                                        <form class="registrationForm" id="donorFormn"
+                                            action="./admin-update/donor-update.php" method="POST"
+                                            enctype="multipart/form-data">
+
+                                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                            <h1 class="h1">update organ donor</h1>
+                                            <div class="personalInfo">
+                                                <p class="p">Personal Information</p>
+                                                <div class="fullname">
+                                                    <label class="label">
+                                                        <input class="input" required="" type="text"
+                                                            name="don_firstName" value="<?php echo $row['don_firstName']; ?>">
+                                                        <span class="span">First Name</span>
+                                                    </label>
+                                                    <label class="label">
+                                                        <input class="input" required="" type="text" name="don_midName" value="<?php echo $row['don_midName']; ?>">
+                                                        <span class="span">Middle Name</span>
+                                                    </label>
+                                                    <label class="label">
+                                                        <input class="input" required="" type="text"
+                                                            name="don_lastName" value="<?php echo $row['don_lastName']; ?>">
+                                                        <span class="span">Last Name</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="info2" id="donorInfo2">
+                                                    <label class="label">
+                                                        <input class="input" required="" type="date" name="don_bday"
+                                                        value="<?php echo date('y-m-d', strtotime($row['don_bday'])); ?>" id="inputdate">
+                                                        <span class="span" id="spandate">Date of Birth</span>
+                                                    </label>
+                                                    <label class="label">
+                                                        <input class="input" id="age" required="" type="number" 
+                                                            name="don_age" min="18" minlength="2" maxlength="2" value="<?php echo $row['don_age']; ?>">
+                                                        <span class="span">Age</span>
+                                                    </label>
+                                                    <label class="label">
+                                                        <select id="sex" required="" name="don_sex" class="select">
+                                                            <option  disabled hidden selected>Select</option>
+                                                            <option value="Male" <?php echo ($row['don_sex'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+                                                            <option value="Female" <?php echo ($row['don_sex'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+                                                        </select>
+                                                        <span class="span">Sex</span>
+                                                    </label>
+                                                    <label class="label">
+                                                        <select id="bloodtype" required name="don_bloodType"
+                                                            class="select">
+                                                            <option value="" disabled hidden selected>Select</option>
+                                                            <option value="O+" <?php echo ($row['don_bloodType'] == 'O+') ? 'selected' : ''; ?>>O+</option>
+                                                            <option value="O-" <?php echo ($row['don_bloodType'] == 'O-') ? 'selected' : ''; ?>>O-</option>
+                                                            <option value="B+" <?php echo ($row['don_bloodType'] == 'B+') ? 'selected' : ''; ?>>B+</option>
+                                                            <option value="B-" <?php echo ($row['don_bloodType'] == 'B-') ? 'selected' : ''; ?>>B-</option>
+                                                            <option value="A+" <?php echo ($row['don_bloodType'] == 'A+') ? 'selected' : ''; ?>>A+</option>
+                                                            <option value="A-" <?php echo ($row['don_bloodType'] == 'A-') ? 'selected' : ''; ?>>A-</option>
+                                                            <option value="AB+" <?php echo ($row['don_bloodType'] == 'AB+') ? 'selected' : ''; ?>>AB+</option>
+                                                            <option value="AB-" <?php echo ($row['don_bloodType'] == 'AB-') ? 'selected' : ''; ?>>AB-</option>
+                                                        </select>
+                                                        <span class="span">Blood Type</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="streetadd">
+                                                    <label class="label">
+                                                        <input class="input" required="" type="text"
+                                                            name="don_streetAdd" value="<?php echo $row['don_streetAdd']; ?>">
+                                                        <span class="span">Street Address</span>
+                                                    </label class="label">
+                                                </div>
+
+                                                <div class="address">
+                                                    <label class="label">
+                                                        <input class="input" required="" type="text" name="don_city" value="<?php echo $row['don_city']; ?>">
+                                                        <span class="span">City</span>
+                                                    </label class="label">
+                                                    <label class="label">
+                                                        <input class="input" required="" type="text"
+                                                            name="don_province" value="<?php echo $row['don_province']; ?>">
+                                                        <span class="span">State/Province</span>
+                                                    </label class="label">
+                                                    <label class="label">
+                                                        <input class="input" id="postal" required="" type="number"
+                                                            pattern="[0-9]{4}" name="don_postal" value="<?php echo $row['don_postal']; ?>">
+                                                        <span class="span">Postal Code</span>
+                                                    </label class="label">
+                                                </div>
+
+                                                <div class="phonenum" id="donPhoneNum">
+                                                    <label class="label">
+                                                        <input class="input" required="" type="tel"
+                                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="don_phoneNum" value="<?php echo $row['don_phoneNum']; ?>">
+                                                        <span class="span">Phone Number 9XX-XXX-XXXX</span>
+                                                    </label class="label">
+                                                </div>
+
+                                                <div class="userprofile">
+                                                    <span class="span">Choose Profile Photo</span>
+                                                    <input class="input" type="file" name="don_userProfile"
+                                                        onchange="checkFileSize(this)">
+                                                </div>
+                                            </div>
+
+                                            <div class="optionalInfo" id="donorOptionalInfo">
+                                                <p class="p">Optional Information</p>
+                                                <label class="label" for="ethnicity">
+                                                    <select id="ethnicity" name="don_ethnicity"
+                                                        class="select">
+                                                        <option value="" <?php echo ($row['don_ethnicity'] == '') ? 'selected' : ''; ?>disabled hidden selected>Select</option>
+                                                        <option value="African" <?php echo ($row['don_ethnicity'] == 'African') ? 'selected' : ''; ?>>African</option>
+                                                        <option value="European" <?php echo ($row['don_ethnicity'] == 'European') ? 'selected' : ''; ?>>European</option>
+                                                        <option value="Indigenous" <?php echo ($row['don_ethnicity'] == 'Indigenous') ? 'selected' : ''; ?>>Indigenous</option>
+                                                        <option value="Middle Eastern" <?php echo ($row['don_ethnicity'] == 'Middle Eastern') ? 'selected' : ''; ?>>Middle Eastern</option>
+                                                        <option value="North American" <?php echo ($row['don_ethnicity'] == 'North American') ? 'selected' : ''; ?>>North American</option>
+                                                        <option value="South American" <?php echo ($row['don_ethnicity'] == 'South American') ? 'selected' : ''; ?>>South American</option>
+                                                        <option value="Oceanian" <?php echo ($row['don_ethnicity'] == 'Oceanian') ? 'selected' : ''; ?>>Oceanian</option>
+                                                        <option value="South Asian" <?php echo ($row['don_ethnicity'] == 'South Asian') ? 'selected' : ''; ?>>South Asian</option>
+                                                        <option value="Southeast Asian" <?php echo ($row['don_ethnicity'] == 'Southeast Asian') ? 'selected' : ''; ?>>Southeast Asian</option>
+                                                    </select>
+                                                    <span class="span">Ethnicity</span>
+                                                </label class="label">
+                                            </div>
+
+                                            <div class="recipsNeed">
+                                                <p class="p">Your Donation Can Help Save and Heal Lives</p>
+
+                                                <div class="needsText">
+                                                    <input class="chkbx" type="checkbox" id="ui-checkboxdon"
+                                                        name="don_boolBlood" value="1" <?php echo ($row['don_boolBlood'] == '1') ? 'checked' : ''; ?>>
+                                                    <p>Blood</p>
+                                                </div>
+
+                                                <div class="organordon">
+                                                    <input class="chkbx" type="checkbox" id="ui-checkboxdonorg"
+                                                        name="don_boolOrganTissue" value="1" onclick="donblocker()"
+                                                        require <?php echo ($row['don_boolOrganTissue'] == '1') ? 'checked' : ''; ?>>
+                                                    <p class="organordontxt">Organ and/or Tissue</p>
+                                                </div>
+                                                <div class="needOrgan" id="donorGiftOrgan">
+                                                    <div id="blocker"></div>
+                                                    <label class="label">
+                                                        <select name="don_giftOrgan" class="select" id="don_gift">
+                                                            <option value=""  <?php echo ($row['don_giftOrgan'] == '') ? 'selected' : ''; ?> disabled hidden selected>Select</option>
+                                                            <option value="Kidney"  <?php echo ($row['don_giftOrgan'] == 'Kidney') ? 'selected' : ''; ?>>Kidney</option>
+                                                            <option value="Liver" <?php echo ($row['don_giftOrgan'] == 'Liver') ? 'selected' : ''; ?>>Liver</option>
+                                                            <option value="Lungs" <?php echo ($row['don_giftOrgan'] == 'Lungs') ? 'selected' : ''; ?>>Lungs</option>
+                                                            <option value="Heart" <?php echo ($row['don_giftOrgan'] == 'Heart') ? 'selected' : ''; ?>>Heart</option>
+                                                            <option value="Pancreas" <?php echo ($row['don_giftOrgan'] == 'Pancreas') ? 'selected' : ''; ?>>Pancreas</option>
+                                                            <option value="Intestines" <?php echo ($row['don_giftOrgan'] == 'Intestines') ? 'selected' : ''; ?>>Intestines</option>
+                                                            <option value="Hands and Face" <?php echo ($row['don_giftOrgan'] == 'Hands and Face') ? 'selected' : ''; ?>>Hands and Face</option>
+                                                            <option value="Corneas" <?php echo ($row['don_giftOrgan'] == 'Corneas') ? 'selected' : ''; ?>>Corneas</option>
+                                                        </select>
+                                                        <span class="span">Specify Gift of Donation</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="btn_wrapper">
+                                                <button type="submit" id="registerbtn">Register</button>
+                                            </div>
+                                           
+                                        </form>
+                                        
+                                    </div>
+                                    <div class="dashboard-close-btn-update close-button close-button<?php echo $row['id']; ?>"  data-btn-id=<?php echo $row['id']; ?> >&times;</div>
+                                </div>
+
+                            </div>
+                                 <!-----------------END OF POP UP UPDATE---------------->
+
+
+
+
+
+
+
                         </div>
 
                         <?php 
@@ -241,15 +437,53 @@
 
 
     </nav>
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!--------------------------POP UP------------------------>
     <div class="dashboard-popup" id="dashboard-popup-1">
         <div class="dashboard-overlay"></div>
 
         <div class="dashboard-content">
             <div class="dashboard-overflow_container">
-            <form class="registrationForm" id="donorFormn" action="./admin-add/bloodDonor_registration.php" method="POST"
-                    enctype="multipart/form-data">
+                <form class="registrationForm" id="donorFormn" action="./admin-add/bloodDonor_registration.php"
+                    method="POST" enctype="multipart/form-data">
 
 
                     <h1 class="h1">blood registration form</h1>
@@ -368,7 +602,7 @@
                         </div>
                         <div class="organordon">
 
-                        <!--
+                            <!--
                             <input class="chkbx" type="checkbox" id="ui-checkboxdonorg" name="don_boolOrganTissue"
                                 value="1" onclick="donblocker()">
                             <p class="organordontxt">Organ and/or Tissue</p>
@@ -392,10 +626,10 @@
                         </div>
 
                         -->
-                    </div>
-                    <div class="btn_wrapper">
-                        <button type="submit" id="registerbtn">Register</button>
-                    </div>
+                        </div>
+                        <div class="btn_wrapper">
+                            <button type="submit" id="registerbtn">Register</button>
+                        </div>
                 </form>
             </div>
             <div class="dashboard-close-btn" onclick="dashboardtogglePopup()">&times;</div>
