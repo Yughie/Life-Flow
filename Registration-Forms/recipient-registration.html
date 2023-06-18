@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <form class="registrationForm" action="process_recipient_registration.php" method="POST">
+    <form class="registrationForm" action="process_recipient_registration.php"  enctype="multipart/form-data" method="POST">
         <h1 class="h1">recipient registration form</h1>
         <div class="personalInfo">
             <p class="p">Personal Information</p>
@@ -127,7 +127,7 @@
             </div>
             <div class="userprofile">
                 <span class="span">Choose Profile Photo</span>
-                <input class="input" type="file" name="" onchange="checkFileSize(this)">
+                <input class="input" type="file" name="recip_userProfile" onchange="checkFileSize(this)">
             </div>
         </div>
 
