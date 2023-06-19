@@ -177,8 +177,22 @@
                                         </div>
                                         <!---PERSONAL INFORMATION-->
                                         <div>
+
+                                                <?php
+                                                $don_dp = $row['recip_userProfile'];
+                                                $randomNumber = rand(1, 10);
+
+                                                // Check if the image data exists
+                                                if ($don_dp) {
+                                                    $base64Image = base64_encode($don_dp);
+                                                    $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+                                                } else {
+                                                    // Use a placeholder image if no image data is available
+                                                    $imageSrc = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
+                                                }
+                                            ?>
                                             <img class="transplantRecipient__personal__Image"
-                                                src="../Images/AdminDashboard/profile-default.svg"
+                                                src="<?php echo $imageSrc ?>"
                                                 alt="default profile">
                                         </div>
                                         <div>
@@ -272,8 +286,22 @@
                                             <h1 class="transplantDonor__order__ID"> <?php echo $rows['id'];?></h1>
                                         </div>
                                         <div>
+
+                                            <?php
+                                                $don_dp = $rows['don_userProfile'];
+                                                $randomNumber = rand(1, 10);
+
+                                                // Check if the image data exists
+                                                if ($don_dp) {
+                                                    $base64Image = base64_encode($don_dp);
+                                                    $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+                                                } else {
+                                                    // Use a placeholder image if no image data is available
+                                                    $imageSrc = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
+                                                }
+                                            ?>
                                             <img class="transplantDonor__personal__Image"
-                                                src="../Images/AdminDashboard/profile-default.svg"
+                                                src="<?php echo $imageSrc ?>"
                                                 alt="default profile">
                                         </div>
                                         <div>
