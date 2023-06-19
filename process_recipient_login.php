@@ -30,6 +30,7 @@ $connect = mysqli_connect($servername, $username, $password, $database);
             } else {
                 // Login failed
                 echo "<script>alert('Invalid username or password. Please try again.');</script>";
+                echo "<script>location.href = 'index.html';</script>";
             }
         }
     }

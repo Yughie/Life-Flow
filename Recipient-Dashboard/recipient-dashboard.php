@@ -11,13 +11,29 @@ $connect = mysqli_connect($servername, $username, $password, $database);
 if (isset($_SESSION['recip_username'])) {
     $recip_username = $_SESSION['recip_username'];
 
+    // fetch data from the recipientsignup_tbl
     $signupQuery = mysqli_query($connect, "SELECT * FROM recipientsignup_tbl WHERE recip_username='$recip_username'");
     $signupData = mysqli_fetch_assoc($signupQuery); 
 
+    // set variables
+    $recip_email = isset($signupData['recip_email']) ? $signupData['recip_email'] : null;
+    $recip_pass = isset($signupData['recip_pass']) ? $signupData['recip_pass'] : null;
+    $censored_pass = str_repeat('●', strlen($recip_pass));
+
+    // fetch data from the recipient_info_tbl
     $infoQuery = mysqli_query($connect, "SELECT * FROM recipient_info_tbl WHERE recip_username='$recip_username'");
     $infoData = mysqli_fetch_assoc($infoQuery);
-    $recip_dp = isset($infoData['recip_userProfile']) ? $infoData['recip_userProfile'] : null;
 
+    // set variables
+    $recip_dp = isset($infoData['recip_userProfile']) ? $infoData['recip_userProfile'] : null;
+    $recip_firstName = isset($infoData['recip_firstName']) ? $infoData['recip_firstName'] : null;
+    $recip_boolBlood = isset($infoData['recip_boolBlood']) ? $infoData['recip_boolBlood'] : null;
+    $recip_bloodType = isset($infoData['recip_bloodType']) ? $infoData['recip_bloodType'] : null;
+    $recip_neededOrgan = isset($infoData['recip_neededOrgan']) ? $infoData['recip_neededOrgan'] : null;
+    $recip_urgency = isset($infoData['recip_Urgency']) ? $infoData['recip_Urgency'] : null;
+
+    
+    // displaying user profile picture
     if ($recip_dp !== null) {
         $base64Image = base64_encode($recip_dp);
         $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
@@ -25,12 +41,22 @@ if (isset($_SESSION['recip_username'])) {
         // Use a placeholder image if no image data is available
         $imageSrc = '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png';
     }
-    /*
-    // Check if $infoData is not null before accessing its elements
-    if ($infoData !== null) {
-        echo "<h1>" . $infoData['recip_firstName'] . "</h1>";
-        // Display other recipient information as needed
-    } */
+
+    // adjust value of $recip_boolBlood for echo 
+    if ($recip_boolBlood === '0') {
+        $recip_boolBlood = 'None';
+    } elseif ($recip_boolBlood === '1') {
+        $recip_boolBlood = $recip_bloodType;
+    }
+    // adjust value fo $recip_neededOrgan for echo
+    if (empty($recip_neededOrgan)) {
+        $recip_neededOrgan = 'None';
+    }
+
+    // adjust the value of $recip_urgency for echo
+    if (!empty($recip_urgency)) {
+        $recip_urgency = date('Y-m-d', strtotime($recip_urgency));
+    }
 } else {
     // Redirect to the login page if the recipient is not logged in
     header('Location: ../index.html');
@@ -67,7 +93,7 @@ if (isset($_SESSION['recip_username'])) {
             </div>
             <div class="user">
                 <img src="<?php echo $imageSrc ?>" onclick="openUser();">
-                <h1><?php echo $infoData['recip_firstName']; ?></h1>
+                <h1><?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_firstName']; ?></h1>
                 <p>RECIPIENT</p>
             </div>
             <div class="menu-bar sizedmenubar">
@@ -422,8 +448,45 @@ if (isset($_SESSION['recip_username'])) {
                     <div id="pagination"></div>
                 </div>
                 <div class="userProfile">
-                    uiiai
+                    <div class="upContainer">
+                        <form action="change-recipient-info.php" method="POST" class="change_recipInfo">
+                            <p class="indicatortxt">Username</p>
+                            <input type="text" placeholder="<?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_username']; ?>"name="new_recip_username" class="input-field">
+
+                            <p class="indicatortxt">Email</p>
+                            <input type="email" placeholder="<?php echo $recip_email; ?>" name="new_recip_email" class="input-field">
+
+                            <p class="indicatortxt">Password</p>
+                            <p class="recip_pass"><?php echo $censored_pass; ?></p>
+                            <p class="changepass_btn" onclick="openChangePass();">Change password</p>
+
+                            <p class="indicatortxt" id="reqorg">Requested Organ/s</p>
+                            <p class="recip_viewinfo"><?php echo $recip_neededOrgan; ?></p>
+
+                            <p class="indicatortxt">Requested Blood</p>
+                            <p class="recip_viewinfo"><?php echo $recip_boolBlood; ?></p>
+
+                            <p class="indicatortxt">Transplant/Transfusion Urgency</p>
+                            <p class="recip_viewinfo"><?php echo $recip_urgency; ?></p>
+
+                            <button type="submit" name="change">Save Changes</button>
+                        </form>
+                    </div>
                 </div>
+                
+                <div class="changePass">
+                    <div class="changePassContainer">
+                        <form action="change-recipient-info.php" method="POST" class="change_recipInfo">
+                            <p class="indicatortxt">Old Password</p>
+                            <input type="text" placeholder="" name ="recip_pass">
+
+                            <p class="indicatortxt">New Password</p>
+                            <input type="text" placeholder="" name ="new_recip_pass" minlength="8">
+        
+                            <button type="submit" name="change">Change</button>
+                        </form>
+                    </div>
+                </div> 
             </div>
         </div>
     </body>
