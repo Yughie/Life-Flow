@@ -153,21 +153,59 @@
                     }
                 }
 
+                .logoutform {
+                    margin: 10px 0px;
+                    padding: 15px 30px;
+                    width: 212px;
+                    height: 55px;
+                    border-radius: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .aLogout {
+                        .logoutbtn {
+                            margin: 10px 0px;
+                            padding: 15px 30px;
+                            width: 212px;
+                            height: 55px;
+                            border-radius: 15px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 15px;
+                            transition: 0.1s ease-in-out;
+                            border-style: none;
+                            background-color: var(--sidebar-background);
+                            
+                            .svglogout {
+                                width: 37px;
+                                height: 25px;
+                                fill: rgb(193, 26, 29);
+                                margin-left: -5px;
+                            }
+
+                            #ptxt {
+                                width: 100px;
+                                color: var(--dark-text);
+                                font-weight: 600;
+                                margin-left: -10px;
+                            }
+
+                            &:hover {
+                                background-color: var(--dashbBG);
+                                cursor: pointer;
+                            }
+        
+                            &:active {
+                                background-color: var(--dashbBG);
+                            }
+                        }
+                    }
+                }
+
                 .learndon {
                     height: 55px;
                 }
-        
-                .aLogout {
-                    //bottom: 50px;
-                    //position: absolute;
-                    .logout {
-                        width: 37px;
-                        height: 25px;
-                        margin-left: -5px;
-                        fill: rgb(193, 26, 29);
-                    }
-                } 
-
+                
                 .toggleWrapper {
                     position: relative;
                     top: 190px;

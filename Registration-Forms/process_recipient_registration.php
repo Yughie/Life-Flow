@@ -29,7 +29,6 @@ if (isset($_SESSION['recip_username'])) {
         $recip_postal = $_POST["recip_postal"];
         $recip_phoneNum = $_POST["recip_phoneNum"];
         $recip_ethnicity = isset($_POST["recip_ethnicity"]) ? $_POST["recip_ethnicity"] : "";
-        //bool
         $recip_boolBlood = isset($_POST["recip_boolBlood"]) ? $_POST["recip_boolBlood"] : "";
         $recip_Urgency = $_POST["recip_Urgency"];
         $formatted_Urgency = date('Y-m-d', strtotime($recip_Urgency));

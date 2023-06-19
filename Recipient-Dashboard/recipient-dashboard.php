@@ -16,7 +16,7 @@ if (isset($_SESSION['recip_username'])) {
 
     $infoQuery = mysqli_query($connect, "SELECT * FROM recipient_info_tbl WHERE recip_username='$recip_username'");
     $infoData = mysqli_fetch_assoc($infoQuery);
-    $recip_dp = $infoData['recip_userProfile'];
+    $recip_dp = isset($infoData['recip_userProfile']) ? $infoData['recip_userProfile'] : null;
 
     if ($recip_dp !== null) {
         $base64Image = base64_encode($recip_dp);
@@ -25,13 +25,23 @@ if (isset($_SESSION['recip_username'])) {
         // Use a placeholder image if no image data is available
         $imageSrc = '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png';
     }
+    /*
+    // Check if $infoData is not null before accessing its elements
+    if ($infoData !== null) {
+        echo "<h1>" . $infoData['recip_firstName'] . "</h1>";
+        // Display other recipient information as needed
+    } */
+} else {
+    // Redirect to the login page if the recipient is not logged in
+    header('Location: ../index.html');
+    exit();
 }
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,10 +92,14 @@ if (isset($_SESSION['recip_username'])) {
                                 </svg>
                                 <span class="text">Learn About <br> Donation</span>
                             </a>
-                            <a href="#" class="aLogout">
-                                <svg class="logout" fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"/><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"/></svg>
-                                <span class="text">Log Out</span>
-                            </a>
+                            <div class ="logoutform">
+                                <form method="post" action="../logout.php" class="aLogout">
+                                    <button type="submit" name="logout" class="logoutbtn">
+                                        <svg class="svglogout" fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"/><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"/></svg>
+                                        <p id="ptxt">Logout</p>
+                                    </button>
+                                </form>
+                            </div>
                             <div class="toggleWrapper">
                                 <input type="checkbox" class="dn" id="dn" onclick="darkMode(this.checked);">
                                 <label for="dn" class="toggle">
