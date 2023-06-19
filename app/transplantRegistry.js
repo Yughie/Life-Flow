@@ -1,53 +1,31 @@
-let TRoptions = document.querySelectorAll("input[name='transplantDonor']");
-let TRcontainers = document.querySelectorAll(".transplantDonor");
-let TRvalue = null;
+let TRoptions = document.querySelectorAll(".transplantRecipient");
+let TDoptions = document.querySelectorAll(".transplantDonor");
+console.log("hello WOrld");
 
-let TRfindSelected = () => {
-  selected = document.querySelector("input[name='transplantDonor']:checked").value;
-  console.log(selected);
-  for(let i = 1; i <= TRoptions.length; i++){
-    if(selected == i){
-      TRcontainers[i -1].style.backgroundColor = "#5ab0c7";
-      TRvalue = i;
-    }
-    else{
-      TRcontainers[i-1].style.backgroundColor = "#e9e9e9";
-    }
-  }
-}
 
-TRoptions.forEach(TRoptions => {
-  TRoptions.addEventListener("change", TRfindSelected);
+TRoptions.forEach(button => {
+  button.addEventListener('click', function () {
+      // Retrieve the user ID from the data-user-id attribute
+      const recipientId = button.dataset.recipientId;
+      console.log(recipientId);
+      // Toggle the visibility of the corresponding edit form
+      const editForm = document.querySelector('.transplantRecipient' + recipientId);
+      editForm.style.backgroundColor = "red";
+  });
 });
 
 
-
-
-
-
-
-
-let TDoptions = document.querySelectorAll("input[name='transplantRecipient']");
-let TDcontainers = document.querySelectorAll(".transplantRecipient");
-let TDvalue = null;
-
-let TDfindSelected = () => {
-  selected = document.querySelector("input[name='transplantRecipient']:checked").value;
-  console.log(selected);
-  for(let i = 1; i <= TDoptions.length; i++){
-    if(selected == i){
-      TDcontainers[i -1].style.backgroundColor = "#5ab0c7";
-      TDvalue = i;
-    }
-    else{
-      TDcontainers[i-1].style.backgroundColor = "#e9e9e9";
-    }
-  }
-}
-
-TDoptions.forEach(TDoptions => {
-  TDoptions.addEventListener("change", TDfindSelected);
+TDoptions.forEach(button => {
+  button.addEventListener('click', function () {
+      // Retrieve the user ID from the data-user-id attribute
+      const donorId = button.dataset.donorId;
+      console.log(donorId);
+      // Toggle the visibility of the corresponding edit form
+      const editForm = document.querySelector('.transplantDonor' + donorId);
+      editForm.style.backgroundColor = "red";
+  });
 });
+
 
 
 
