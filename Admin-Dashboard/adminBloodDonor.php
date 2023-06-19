@@ -197,8 +197,23 @@
                             <!---PERSONAL INFORMATION-->
                             <div class="bloodDonor__personal">
                                 <div>
+
+                                            <?php
+                                                $don_dp = $row['don_userProfile'];
+                                                $randomNumber = rand(1, 10);
+
+                                                // Check if the image data exists
+                                                if ($don_dp) {
+                                                    $base64Image = base64_encode($don_dp);
+                                                    $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+                                                } else {
+                                                    // Use a placeholder image if no image data is available
+                                                    $imageSrc = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
+                                                }
+                                            ?>
+
                                     <img class="bloodDonor__personal__Image"
-                                        src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
+                                        src="<?php echo $imageSrc ?>" alt="default profile">
                                 </div>
                                 <div>
                                     <h3 class="bloodDonor__personal__name">

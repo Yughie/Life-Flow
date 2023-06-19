@@ -165,18 +165,21 @@
                              <h1 class="profile__ID"><?php echo $row['id'];?></h1>
 
                                     <?php
-                                        if ($row['don_userProfile'] !== null) {
-                                            $base64Image = base64_encode($row['don_userProfile']);
-                                            $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+                                        $don_dp = $row['don_userProfile'];
+                                        $randomNumber = rand(1, 10);
 
+                                        // Check if the image data exists
+                                        if ($don_dp) {
+                                            $base64Image = base64_encode($don_dp);
+                                            $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
                                         } else {
                                             // Use a placeholder image if no image data is available
-                                            $imageSrc = '../Images/AdminDashboard/profile-default.svg';
+                                            $imageSrc = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
                                         }
                                     ?>
                                   
                              <img class="profile__Image" src="<?php echo $imageSrc; ?>" alt="default profile">
-                             <h3 class="profile__Name"><?php echo $row['don_firstName'] . $row['don_midName'] .$row['don_lastName'];?></h3>
+                             <h3 class="profile__Name"><?php echo $row['don_firstName'] . " " . $row['don_midName'] . " " . $row['don_lastName'];?></h3>
                              <h3 class="profile__ApplicationDate"><?php echo $row['created_at'];?></h3>
                             
                              <div class="applicatiion-function-container">

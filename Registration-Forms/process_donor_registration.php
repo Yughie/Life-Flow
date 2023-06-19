@@ -18,7 +18,7 @@ if (isset($_SESSION['don_username'])) {
         $don_firstName = $_POST["don_firstName"];
         $don_midName = $_POST["don_midName"];
         $don_lastName = $_POST["don_lastName"];
-        $don_bday = $_POST["don_bday"];
+        $don_bday = isset($_POST["don_bday"]) ? $_POST["don_bday"] : ""; 
         $formatted_bday = date('Y-m-d', strtotime($don_bday));
         $don_age = $_POST["don_age"];
         $don_sex = isset($_POST["don_sex"]) ? $_POST["don_sex"] : "";

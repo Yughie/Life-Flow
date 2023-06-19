@@ -243,25 +243,22 @@
 
                                              <!----------IMAGE PROFILE----->
 
+                                             <?php
+                                                $don_dp = $row['don_userProfile'];
+                                                $randomNumber = rand(1, 10);
 
-                                            <?php
-                                                if ($row['don_userProfile'] !== null) {
-                                                    $base64Image = base64_encode($row['don_userProfile']);
+                                                // Check if the image data exists
+                                                if ($don_dp) {
+                                                    $base64Image = base64_encode($don_dp);
                                                     $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
-
-                                            ?>
-                                                    <img class="applicant__personal__Image"
-                                                    src="<?php echo $imageSrc ?>"
-                                                    alt="default profile">
-                                            <?php
                                                 } else {
-                                            ?>
-                                                    <img class="applicant__personal__Image" src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
-                                                    
-                                            <?php
+                                                    // Use a placeholder image if no image data is available
+                                                    $imageSrc = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
                                                 }
                                             ?>
-
+                                         
+                                                <img class="applicant__personal__Image" src="<?php echo $imageSrc ?>" alt="default profile">
+                                                    
 
                                  
                                            
