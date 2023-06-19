@@ -1,8 +1,9 @@
 
 window.onload = function() {
-    document.querySelector('.recipDashb').style.display = "none";
+    document.querySelector('.recipDashb').style.display = "block";
     document.querySelector('.donors').style.display = "none";
-    document.querySelector('.userProfile').style.display = "block";
+    document.querySelector('.userProfile').style.display = "none";
+    document.querySelector('.changePass').style.display = "none";
 }; 
 
 function openSidebar(selected) {
@@ -57,6 +58,8 @@ function darkMode(selected) {
 function openDashB() {
     document.querySelector('.recipDashb').style.display = "block";
     closeDonors();
+    closeUser();
+    closeChangePass();
 }
 
 // close dashboard
@@ -69,6 +72,7 @@ function openDonors() {
     document.querySelector('.donors').style.display = "block";
     closeDashB();
     closeUser();
+    closeChangePass();
 }
 
 // close donors
@@ -78,14 +82,25 @@ function closeDonors() {
 
 // open user profile
 function openUser() {
-    document.querySelector('.userProfile').style.display = "block";
+    document.querySelector('.userProfile').style.display = "flex";
     closeDashB();
     closeDonors();
+    closeChangePass();
 }
 
 // close user profile
 function closeUser() {
     document.querySelector('.userProfile').style.display = "none";
+}
+
+// open change pass
+function openChangePass() {
+    document.querySelector('.changePass').style.scale = "1";
+}
+
+// open change pass
+function closeChangePass() {
+    document.querySelector('.changePass').style.scale = "0";
 }
 
 

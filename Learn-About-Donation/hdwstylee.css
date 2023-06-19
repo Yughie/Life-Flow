@@ -1,0 +1,160 @@
+.logo{
+  
+    width: 150px;
+    height: 50px;
+    left: 30px;
+    top: 18px;
+  }
+
+  a{
+    display: inline;
+    color: rgb(97, 7, 7);
+    float: rightt;
+    text-align: right;
+  }
+  
+  body{
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;;
+  }
+  h6{
+    
+    text-align: center;
+    top: 200px;
+    left: 300px;
+    font-size: 25px;
+
+    background-image: 'hoimage.png';
+  }
+
+  h5{
+    top: 200px;
+    left: 300px;
+    margin-left: 20px;
+  }
+h4{
+    top: 200px;
+    left: 300px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+}
+  h3{
+    top: 200px;
+    left: 300px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+  }
+  h2{
+    position: relative;
+    margin-left: 20px;
+    padding-top: 10%;
+    
+    font-size: 15px;
+  }
+  h1{
+    top: 200px;
+    left: 300px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+  }
+nav{
+    background-position: ;
+    
+    float: right;
+    width: 1000px;
+    left: 500px;
+    top: 25px;
+    font-size: 150%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+    padding: 8px;
+    background-color: #fff;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 9vh;
+    min-width: fit-content;
+  }
+
+  .gift{
+   margin-left: 500px;
+  }
+
+  .giftdescript{
+    position: absolute;
+    width: 797px;
+    height: 241px;
+    left: 151px;
+    top: 3100px;
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 73px;
+    
+    color: #A00608;
+  }
+
+  .hodescript{
+    position: absolute;
+width: 999px;
+height: 10px;
+left: 761px;
+top: 2600px;
+
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 60px;
+line-height: 73px;
+color: #530000;
+  }
+
+.hoimage{
+    margin-left: 100px;
+}
+  .accordion {
+    background-color: #8b0000;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .active, .accordion:hover {
+    background-color: #530000;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #ffffff;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2796";
+  }
+
+  

@@ -1,0 +1,79 @@
+.logolanding{
+  
+    width: 150px;
+    height: 50px;
+    left: 30px;
+    top: 18px;
+  }
+a{
+    display: inline;
+    color: rgb(97, 7, 7);
+    float: rightt;
+    text-align: right;
+  }
+
+nav{
+    background-position: 0%;
+    
+    float: right;
+    width: 1000px;
+    left: 500px;
+    top: 25px;
+    font-size: 150%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+    padding: 8px;
+    background-color: #ffffff;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 9vh;
+    min-width: fit-content;
+  }
+  
+  
+  
+
+  body{
+    background-image: url('bg.png');
+  }
+
+  p{
+    padding: 10%;
+    margin-left: 60px;
+    font-size: 20px;
+  }
+
+  h1{
+    font-size: 120px;
+    position: absolute;
+    width: 1429px;
+    height: 148px;
+    left: -8px;
+    top: 288px;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 10px;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  ul{
+    font-size: 50px;
+    position: absolute;
+    height: 89px;
+    left: 250px;
+    top: 400px;
+  }
+
+  h2{
+    left: 250px;
+    position: absolute;
+    top: 650px;
+  }
+  

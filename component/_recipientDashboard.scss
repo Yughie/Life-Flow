@@ -716,82 +716,91 @@
                         font-weight: 600;
                     }
                     
-                    .recentdons_tbl {
-                        border-collapse: separate;
-                        border-spacing: 20px;
-                        margin: 0px;
-                        margin-top: -5px;
-                        
-                        .rowWrapper {
-                            height: 70px;
-        
-                            .don_row {
-                                display: grid;
-                                grid-template-columns: repeat(4, .1fr);
-                                margin: 0px;
-                                margin-left: -20px;
-                                height: 74px;
-                                width: 655px;
-                                border-radius: 10px;
-                                box-shadow: 0px 11px 10px var(--shadow);
-    
-                                p {
+                    .recentdons_tbl_container {
+                        width: 662px;
+                        height: 655px;
+                        overflow: scroll;
+                        overflow-x: hidden;
+                        border-radius: 15px;                        
+
+                        .recentdons_tbl {
+                            border-collapse: separate;
+                            border-spacing: 20px;
+                            margin: 0px;
+                            margin-top: -21px;
+                            
+                            .rowWrapper {
+                                height: 70px;
+            
+                                .don_row {
+                                    display: grid;
+                                    grid-template-columns: repeat(4, .1fr);
                                     margin: 0px;
-                                    background-color: var(--rowRightTxt);
-                                    width: 190px;
+                                    margin-left: -20px;
                                     height: 74px;
-    
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                }
+                                    width: 655px;
+                                    border-radius: 10px;
+                                    box-shadow: 0px 11px 10px var(--shadow);
         
-                                .don_dp {
-                                    border-top-left-radius: 10px;
-                                    border-bottom-left-radius: 10px;
-                                    display: flex;
-                                    background-color: var(--rowLeftBG);
-                                    justify-content: center;
-                                    align-items: center;
-                                    img {
-                                        margin-left: 20px;
-                                        margin-right: 10px;
-                                        width: 55px;
-                                        height: 55px;
-                                        background-color: pink;
-                                        border-radius: 100px;
-                                    }
-    
-                                    .don_FName {
+                                    p {
+                                        margin: 0px;
+                                        background-color: var(--rowRightTxt);
+                                        width: 190px;
+                                        height: 74px;
+        
                                         display: flex;
-                                        justify-content: flex-start;
-                                        color: var(--dark-text);
+                                        align-items: center;
+                                        justify-content: center;
+                                    }
+            
+                                    .don_dp {
+                                        border-top-left-radius: 10px;
+                                        border-bottom-left-radius: 10px;
+                                        display: flex;
+                                        background-color: var(--rowLeftBG);
+                                        justify-content: center;
+                                        align-items: center;
+                                        img {
+                                            margin-left: 20px;
+                                            margin-right: 10px;
+                                            width: 55px;
+                                            height: 55px;
+                                            background-color: pink;
+                                            border-radius: 100px;
+                                        }
+        
+                                        .don_FName {
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            color: var(--dark-text);
+                                            font-weight: 550;
+                                        }
+                                    }
+        
+                                    .don_BType {
+                                        color: rgb(197, 0, 0);
                                         font-weight: 550;
                                     }
-                                }
-    
-                                .don_BType {
-                                    color: rgb(197, 0, 0);
-                                    font-weight: 550;
-                                }
+            
+                                    .don_organ {
+                                        border-top-right-radius: 10px;
+                                        border-bottom-right-radius: 10px;
+                                        padding-left: 95px;
+                                        img {
+                                            width: 55px;
+                                            height: 55px;
+                                        }
         
-                                .don_organ {
-                                    border-top-right-radius: 10px;
-                                    border-bottom-right-radius: 10px;
-                                    padding-left: 95px;
-                                    img {
-                                        width: 55px;
-                                        height: 55px;
-                                    }
-    
-                                    .hnf {
-                                        width: 85px;
-                                        height: 85px;
+                                        .hnf {
+                                            width: 85px;
+                                            height: 85px;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+                    
                 }
             }
         }
@@ -817,16 +826,123 @@
             padding: 0px;
             margin: 0px;
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
             overflow-y: scroll;
             overflow-x: hidden;
-            background-color: lightpink;
+
+            .upContainer {
+                background-color: white;
+                width: 500px;
+                height: 600px;
+                border-radius: 15px;
+                margin: 20px 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .change_recipInfo {
+                    width: 80%;
+                    margin-bottom: 20px;
+
+                    .indicatortxt {
+                        width: 100%;
+                        margin: 20px 0px 0px 0px;
+                        font-weight: 550;
+                        color: var(--dark-text);
+                    }
+
+                    #reqorg {
+                        //margin: 10px 0px 0px 0px;
+                    }
+
+                    .recip_pass {
+                        background: #f3f5f7;
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 7px;
+                        border-style: none;
+                        line-height: 40px;
+                        font-size: 12px;
+                        padding-left: 10px;
+                        margin: 0px;
+                    }
+
+                    .changepass_btn {
+                        font-size: 12.5px;
+                        color: #0085ff;
+                        margin: 0px;
+                        margin-left: 288px;
+                        width: 120px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+
+                    .input-field {
+                        background: #f3f5f7;
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 7px;
+                        border-style: none;
+                        text-indent: 10px;
+
+                        &:focus {
+                            outline: none;
+                            background-color: #ebb7c0;
+                        }
+
+                        &::placeholder {
+                            color: var(--dark-text);
+                            font-size: 15px;
+                            font-weight: 450;
+                        }    
+                    }
+
+                    .recip_viewinfo {
+                        margin: 0px 0px 10px 0px;
+                        background: #f3f5f7;
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 7px;
+                        border-style: none;
+                        text-indent: 10px;
+                        line-height: 40px;
+                        font-size: 15px;
+                        font-weight: 450;
+                    }
+
+                    button {
+                        margin-left: 280px;
+                        width: 120px;
+                        height: 35px;
+                        border: none;
+                        background-color: #be0000;
+                        border-radius: 7px;
+                        color: white;
+                        font-weight: 550;
+                        transition: 0.2s ease-in-out;
+
+                        &:hover {
+                            cursor: pointer;
+                            background-color: #95cfd9;
+                        }
+                    }
+                }
+
+                .changePass {
+                    position: absolute;
+                    z-index: 99;
+                }
+            }
         }
     }
-    
 }
 
 @media screen and (max-width: 1553px) {
+
     #recipBottomID {
         display: grid;
         grid-template-areas: 'left' 'right';
@@ -842,12 +958,16 @@
             justify-content: center;
             margin-left: 25px;
 
-            .don_row {
-                width: 555px;
-                p {
-                    width: 156.1px;
+            .recentdons_tbl_container {
+                width: 560px;
+                .don_row {
+                    width: 555px;
+                    p {
+                        width: 156.1px;
+                    }
                 }
             }
+            
         }
     }
 
