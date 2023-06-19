@@ -221,8 +221,10 @@
                             <div class="bloodDonor-function-container">
                                 <img onclick="dashboardopenPopup()" class="bloodDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
-                                <img class="bloodDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
-                                    alt="Trash can">
+                                    <a href="./admin-delete/bloodDonor-delete.php?ids=<?php echo $row['id']; ?>">
+                                        <img class="bloodDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
+                                            alt="Trash can">
+                                    </a>
                             </div>
                         </div>
 
@@ -253,6 +255,10 @@
 
 
                     <h1 class="h1">blood registration form</h1>
+                    <div class="deceasedCheckbox">
+                        <input type="checkbox" name="isDeceased" id="isDeceased" class="chkbx" value="1">
+                        <label for="isDeceased">Is this person deceased?</label>
+                    </div>
                     <div class="personalInfo">
                         <p class="p">Personal Information</p>
                         <div class="fullname">
@@ -275,6 +281,7 @@
                                 <input class="input" required="" type="date" name="don_bday" value="" id="inputdate">
                                 <span class="span" id="spandate">Date of Birth</span>
                             </label>
+                            
                             <label class="label">
                                 <input class="input" id="age" required="" type="number" name="don_age" min="18"
                                     minlength="2" maxlength="2">
