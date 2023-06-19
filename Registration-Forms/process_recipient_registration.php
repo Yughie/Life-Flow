@@ -74,11 +74,7 @@ if (isset($_SESSION['recip_username'])) {
                 // Generate the base64-encoded image string
                 $base64Image = base64_encode($imageData);
 
-                // Display the image in HTML
-                echo '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="Profile Picture">';
-
-                // Redirect to dashboard
-                header("Location: recip-registration.html");
+                header("Location: ../Recipient-Dashboard/recipient-dashboard.php");
                 exit();
             }
         }

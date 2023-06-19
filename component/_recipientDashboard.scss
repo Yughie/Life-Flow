@@ -546,6 +546,7 @@
                                 width: 115px;
                                 height: 115px;
                                 border-radius: 15px;
+                                box-shadow: 0px 8px 8px #B6CAEA;
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
@@ -621,6 +622,7 @@
                                 width: 115px;
                                 height: 115px;
                                 border-radius: 15px;
+                                box-shadow: 0px 8px 8px #DCABAB;
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
@@ -775,6 +777,7 @@
         display: grid;
         grid-template-areas: 'left' 'right';
         justify-content: center;
+        margin-right: 24px;
 
         .recipLeft {
             margin-left: 50px;
@@ -786,7 +789,7 @@
             margin-left: 25px;
 
             .don_row {
-                width: 655px;
+                width: 555px;
                 p {
                     width: 156.1px;
                 }
@@ -797,6 +800,7 @@
     .recipTop {
         display: flex;
         justify-content: center;
+        margin-right: 24px;
     }
 
     .organDon, .bloodDon {
@@ -825,12 +829,13 @@
 
     .recipBottom {
         margin-top: 0px;
+        margin-right: 0px;
     }
 
     .corner {
         transition: .3s ease-in-out;
         margin-top: -20px;
-        margin-bottom: -20px;
+        margin-bottom: -20px; 
     }
 }
 

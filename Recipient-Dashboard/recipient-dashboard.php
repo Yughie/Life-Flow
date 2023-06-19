@@ -1,12 +1,33 @@
 <?php
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "lifeflow_db"; 
 
 $connect = mysqli_connect($servername, $username, $password, $database);
-ini_set('display_errors', 1);
+
+if (isset($_SESSION['recip_username'])) {
+    $recip_username = $_SESSION['recip_username'];
+
+    $signupQuery = mysqli_query($connect, "SELECT * FROM recipientsignup_tbl WHERE recip_username='$recip_username'");
+    $signupData = mysqli_fetch_assoc($signupQuery); 
+
+    $infoQuery = mysqli_query($connect, "SELECT * FROM recipient_info_tbl WHERE recip_username='$recip_username'");
+    $infoData = mysqli_fetch_assoc($infoQuery);
+    $recip_dp = $infoData['recip_userProfile'];
+
+    if ($recip_dp !== null) {
+        $base64Image = base64_encode($recip_dp);
+        $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+    } else {
+        // Use a placeholder image if no image data is available
+        $imageSrc = '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png';
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,15 +49,15 @@ ini_set('display_errors', 1);
         <nav id="sidebar">
             <div class="logoandcorner">
                 <div class="logo">
-                    <a href="index.html"><img src="../Images/LOGO.png"></a>
+                    <a href="../index.html"><img src="../Images/LOGO.png"></a>
                 </div>
                 <!--<div class="toggler">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"/></svg>
                 </div> !-->
             </div>
             <div class="user">
-                <img src="../Images/Recipient-Donor-Dashboard/nav-icons/tealProfile.png">
-                <h1>User</h1>
+                <img src="<?php echo $imageSrc ?>">
+                <h1><?php echo $infoData['recip_firstName']; ?></h1>
                 <p>RECIPIENT</p>
             </div>
             <div class="menu-bar sizedmenubar">
@@ -49,7 +70,7 @@ ini_set('display_errors', 1);
                                 </svg>
                                 <span class="text">Dashboard</span>
                             </a>
-                            <a href="#">
+                            <a href="#" onclick="openDonors()">
                                 <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.10049 9.90041H8.80126C9.40437 9.90041 9.90176 9.40708 9.90176 8.79991V1.1005C9.90041 0.494682 10.3951 0 11.0009 0H21.9991C22.6036 0 23.0996 0.493326 23.0996 1.1005V8.79991C23.0996 9.40573 23.5943 9.90041 24.2001 9.90041H31.8995C32.504 9.90041 33 10.3937 33 11.0009V22.0005C33 22.6049 32.5053 23.101 31.8995 23.101H24.2001C23.5956 23.101 23.0996 23.5943 23.0996 24.2014V31.9022C23.0996 32.508 22.6049 33.0027 21.9991 33.0027H10.9995C10.3964 33.0027 9.89905 32.5094 9.89905 31.9022V24.2014C9.89905 23.5956 9.40572 23.101 8.79855 23.101H1.09779C0.494682 23.101 -0.00271225 22.6076 -0.00271225 22.0005V11.0009C0 10.3937 0.494678 9.90041 1.10049 9.90041ZM11.6867 21.56C13.3659 25.0322 18.9551 25.4117 20.9759 22.5819C22.5277 20.4093 22.2729 17.814 20.0949 15.3202C18.2504 13.2019 17.3193 11.1825 17.7082 8.53834C12.5785 11.4861 9.6429 17.3437 11.6867 21.56Z" fill="#C11A1D"/>
                                 </svg>
@@ -125,7 +146,7 @@ ini_set('display_errors', 1);
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS cornea_count FROM donor_info_tbl WHERE don_giftOrgan = 'Cornea' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS cornea_count FROM donor_info_tbl WHERE don_giftOrgan = 'Corneas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $corneaCount = $row['cornea_count'];

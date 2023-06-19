@@ -1,6 +1,7 @@
 
 window.onload = function() {
-    document.querySelector('.recipDashb').style.display = "none";
+    document.querySelector('.recipDashb').style.display = "block";
+    document.querySelector('.donors').style.display = "none";
 }; 
 
 function openSidebar(selected) {
@@ -51,10 +52,26 @@ function darkMode(selected) {
     }
 }
 
-
-
+// open dashboard
 function openDashB() {
+    document.querySelector('.recipDashb').style.display = "block";
+    closeDonors();
+}
+
+// close dashboard
+function closeDashB() {
     document.querySelector('.recipDashb').style.display = "none";
+}
+
+// open donors
+function openDonors() {
+    document.querySelector('.donors').style.display = "block";
+    closeDashB();
+}
+
+// close donors
+function closeDonors() {
+    document.querySelector('.donors').style.display = "none";
 }
 
 

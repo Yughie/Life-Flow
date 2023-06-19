@@ -4523,6 +4523,7 @@ h1, h2, h3 {
   width: 115px;
   height: 115px;
   border-radius: 15px;
+  box-shadow: 0px 8px 8px #B6CAEA;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4588,6 +4589,7 @@ h1, h2, h3 {
   width: 115px;
   height: 115px;
   border-radius: 15px;
+  box-shadow: 0px 8px 8px #DCABAB;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4718,6 +4720,7 @@ h1, h2, h3 {
     display: grid;
     grid-template-areas: "left" "right";
     justify-content: center;
+    margin-right: 24px;
   }
   #recipBottomID .recipLeft {
     margin-left: 50px;
@@ -4728,7 +4731,7 @@ h1, h2, h3 {
     margin-left: 25px;
   }
   #recipBottomID .recipRight .don_row {
-    width: 655px;
+    width: 555px;
   }
   #recipBottomID .recipRight .don_row p {
     width: 156.1px;
@@ -4736,6 +4739,7 @@ h1, h2, h3 {
   .recipTop {
     display: flex;
     justify-content: center;
+    margin-right: 24px;
   }
   .organDon, .bloodDon {
     width: 555px;
@@ -4759,6 +4763,7 @@ h1, h2, h3 {
   }
   .recipBottom {
     margin-top: 0px;
+    margin-right: 0px;
   }
   .corner {
     transition: 0.3s ease-in-out;
