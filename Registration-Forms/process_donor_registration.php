@@ -33,6 +33,7 @@ if (isset($_SESSION['don_username'])) {
         $don_boolBlood = isset($_POST["don_boolBlood"]) ? 1 : 0;
         $don_boolOrganTissue = isset($_POST['don_boolOrganTissue']) ? 1 : 0;
         $don_giftOrgan = isset($_POST["don_giftOrgan"]) ? $_POST["don_giftOrgan"] : "";
+        $isDeceased = isset($_POST['isDeceased']) ? 1 : 0;
 
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_errno();
@@ -59,8 +60,8 @@ if (isset($_SESSION['don_username'])) {
                 // File read successful
 
                 // Insert data into the database
-                $stmt = $connect->prepare("INSERT INTO donor_info_tbl (don_username, don_firstName, don_midName, don_lastName, don_bday, don_age, don_sex, don_bloodType, don_streetAdd, don_city, don_province, don_postal, don_phoneNum, don_ethnicity, don_boolBlood, don_boolOrganTissue, don_giftOrgan, don_userProfile) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("sssssissssssssssss", $don_username, $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData);
+                $stmt = $connect->prepare("INSERT INTO donor_info_tbl (don_username, don_firstName, don_midName, don_lastName, don_bday, don_age, don_sex, don_bloodType, don_streetAdd, don_city, don_province, don_postal, don_phoneNum, don_ethnicity, don_boolBlood, don_boolOrganTissue, don_giftOrgan, don_userProfile, isDeceased) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssssissssssssssssi", $don_username, $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData, $isDeceased);
                 $stmt->execute();
 
                 // Get the ID of the newly inserted row
