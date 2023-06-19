@@ -8,57 +8,57 @@ $database = "lifeflow_db";
 
 $connect = mysqli_connect($servername, $username, $password, $database);
 
-if (isset($_SESSION['recip_username'])) {
-    $recip_username = $_SESSION['recip_username'];
+if (isset($_SESSION['don_username'])) {
+    $don_username = $_SESSION['don_username'];
 
-    // fetch data from the recipientsignup_tbl
-    $signupQuery = mysqli_query($connect, "SELECT * FROM recipientsignup_tbl WHERE recip_username='$recip_username'");
+    // fetch data from the donorsignup_tbl
+    $signupQuery = mysqli_query($connect, "SELECT * FROM donorsignup_tbl WHERE don_username='$don_username'");
     $signupData = mysqli_fetch_assoc($signupQuery); 
 
     // set variables
-    $recip_email = isset($signupData['recip_email']) ? $signupData['recip_email'] : null;
-    $recip_pass = isset($signupData['recip_pass']) ? $signupData['recip_pass'] : null;
-    $censored_pass = str_repeat('●', strlen($recip_pass));
+    $don_email = isset($signupData['don_email']) ? $signupData['don_email'] : null;
+    $don_pass = isset($signupData['don_pass']) ? $signupData['don_pass'] : null;
+    $censored_pass = str_repeat('●', strlen($don_pass));
 
-    // fetch data from the recipient_info_tbl
-    $infoQuery = mysqli_query($connect, "SELECT * FROM recipient_info_tbl WHERE recip_username='$recip_username'");
+    // fetch data from the donor_info_tbl
+    $infoQuery = mysqli_query($connect, "SELECT * FROM donor_info_tbl WHERE don_username='$don_username'");
     $infoData = mysqli_fetch_assoc($infoQuery);
 
     // set variables
-    $recip_dp = isset($infoData['recip_userProfile']) ? $infoData['recip_userProfile'] : null;
-    $recip_firstName = isset($infoData['recip_firstName']) ? $infoData['recip_firstName'] : null;
-    $recip_boolBlood = isset($infoData['recip_boolBlood']) ? $infoData['recip_boolBlood'] : null;
-    $recip_bloodType = isset($infoData['recip_bloodType']) ? $infoData['recip_bloodType'] : null;
-    $recip_neededOrgan = isset($infoData['recip_neededOrgan']) ? $infoData['recip_neededOrgan'] : null;
-    $recip_urgency = isset($infoData['recip_Urgency']) ? $infoData['recip_Urgency'] : null;
+    $don_dp = isset($infoData['don_userProfile']) ? $infoData['don_userProfile'] : null;
+    $don_firstName = isset($infoData['don_firstName']) ? $infoData['don_firstName'] : null;
+    $don_boolBlood = isset($infoData['don_boolBlood']) ? $infoData['don_boolBlood'] : null;
+    $don_bloodType = isset($infoData['don_bloodType']) ? $infoData['don_bloodType'] : null;
+    $don_neededOrgan = isset($infoData['don_neededOrgan']) ? $infoData['don_neededOrgan'] : null;
+    $don_urgency = isset($infoData['don_Urgency']) ? $infoData['don_Urgency'] : null;
 
     
     // displaying user profile picture
-    if ($recip_dp !== null) {
-        $base64Image = base64_encode($recip_dp);
+    if ($don_dp !== null) {
+        $base64Image = base64_encode($don_dp);
         $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
     } else {
         // Use a placeholder image if no image data is available
         $imageSrc = '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png';
     }
 
-    // adjust value of $recip_boolBlood for echo 
-    if ($recip_boolBlood === '0') {
-        $recip_boolBlood = 'None';
-    } elseif ($recip_boolBlood === '1') {
-        $recip_boolBlood = $recip_bloodType;
+    // adjust value of $don_boolBlood for echo 
+    if ($don_boolBlood === '0') {
+        $don_boolBlood = 'None';
+    } elseif ($don_boolBlood === '1') {
+        $don_boolBlood = $don_bloodType;
     }
-    // adjust value fo $recip_neededOrgan for echo
-    if (empty($recip_neededOrgan)) {
-        $recip_neededOrgan = 'None';
+    // adjust value fo $don_neededOrgan for echo
+    if (empty($don_neededOrgan)) {
+        $don_neededOrgan = 'None';
     }
 
-    // adjust the value of $recip_urgency for echo
-    if (!empty($recip_urgency)) {
-        $recip_urgency = date('Y-m-d', strtotime($recip_urgency));
+    // adjust the value of $don_urgency for echo
+    if (!empty($don_urgency)) {
+        $don_urgency = date('Y-m-d', strtotime($don_Urgency));
     }
 } else {
-    // Redirect to the login page if the recipient is not logged in
+    // Redirect to the login page if the donor is not logged in
     header('Location: ../index.html');
     exit();
 }
@@ -72,7 +72,7 @@ if (isset($_SESSION['recip_username'])) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recipient Dashboard · Life Flow</title>
+        <title>Donor Dashboard · Life Flow</title>
         <link rel="icon" type="tab-icon" href="../Images/landing-page-assets/LOGO1x1.png">
         <link rel="stylesheet" href="../style.css">
         <script src="https://code.jquery.com/jquery-1.11.0.min.js"
@@ -80,8 +80,8 @@ if (isset($_SESSION['recip_username'])) {
         </script>
     </head>
 
-    <body class="recip_dashb_body">
-    <script src="recipientdashbscript.js"></script>
+    <body class="don_dashb_body">
+    <script src="donordashbscript.js"></script>
         <nav id="sidebar">
             <div class="logoandcorner">
                 <div class="logo">
@@ -93,8 +93,8 @@ if (isset($_SESSION['recip_username'])) {
             </div>
             <div class="user">
                 <img src="<?php echo $imageSrc ?>" onclick="openUser();">
-                <h1><?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_firstName']; ?></h1>
-                <p>RECIPIENT</p>
+                <h1><?php echo isset($new_don_username) ? $new_don_username : $infoData['don_firstName']; ?></h1>
+                <p>DONOR</p>
             </div>
             <div class="menu-bar sizedmenubar">
                 <div class="menu">
@@ -110,7 +110,7 @@ if (isset($_SESSION['recip_username'])) {
                                 <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.10049 9.90041H8.80126C9.40437 9.90041 9.90176 9.40708 9.90176 8.79991V1.1005C9.90041 0.494682 10.3951 0 11.0009 0H21.9991C22.6036 0 23.0996 0.493326 23.0996 1.1005V8.79991C23.0996 9.40573 23.5943 9.90041 24.2001 9.90041H31.8995C32.504 9.90041 33 10.3937 33 11.0009V22.0005C33 22.6049 32.5053 23.101 31.8995 23.101H24.2001C23.5956 23.101 23.0996 23.5943 23.0996 24.2014V31.9022C23.0996 32.508 22.6049 33.0027 21.9991 33.0027H10.9995C10.3964 33.0027 9.89905 32.5094 9.89905 31.9022V24.2014C9.89905 23.5956 9.40572 23.101 8.79855 23.101H1.09779C0.494682 23.101 -0.00271225 22.6076 -0.00271225 22.0005V11.0009C0 10.3937 0.494678 9.90041 1.10049 9.90041ZM11.6867 21.56C13.3659 25.0322 18.9551 25.4117 20.9759 22.5819C22.5277 20.4093 22.2729 17.814 20.0949 15.3202C18.2504 13.2019 17.3193 11.1825 17.7082 8.53834C12.5785 11.4861 9.6429 17.3437 11.6867 21.56Z" fill="#C11A1D"/>
                                 </svg>
-                                <span class="text">Donors</span>
+                                <span class="text">Recipients</span>
                             </a>
                             <a href="../Learn-About-Donation/Learn-About-Donation.html" class="learndon">
                                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,15 +159,15 @@ if (isset($_SESSION['recip_username'])) {
                     <span class="mid"></span>
                     <span class="bot"></span>
                 </label>
-                <div class="recipDashb">
-                    <div class="recipTop">
+                <div class="donDashb">
+                    <div class="donTop">
                         <h1>Hello</h1>
-                        <h1 class="user"><?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_username']; ?></h1>
+                        <h1 class="user"><?php echo isset($new_don_username) ? $new_don_username : $infoData['don_username']; ?></h1>
                     </div>
-                    <div class="recipBottom" id="recipBottomID">
-                        <div class="recipLeft">
+                    <div class="donBottom" id="donBottomID">
+                        <div class="donLeft">
                             <div class="organDon">
-                                <p class="orgtxt">Organ Donations</p>
+                                <p class="orgtxt">Organ Requests</p>
                                 <div class="orgsWrapper">
                                     <div class="orgRow1">
                                         <div class="org1">
@@ -175,7 +175,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS liver_count FROM donor_info_tbl WHERE don_giftOrgan = 'Liver' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS liver_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Liver' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $liverCount = $row['liver_count'];
@@ -187,7 +187,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS cornea_count FROM donor_info_tbl WHERE don_giftOrgan = 'Corneas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS cornea_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Corneas' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $corneaCount = $row['cornea_count'];
@@ -199,7 +199,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS heart_count FROM donor_info_tbl WHERE don_giftOrgan = 'Heart' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS heart_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Heart' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $heartCount = $row['heart_count'];
@@ -211,7 +211,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS pancreas_count FROM donor_info_tbl WHERE don_giftOrgan = 'Pancreas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS pancreas_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Pancreas' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $pancreasCount = $row['pancreas_count'];
@@ -225,7 +225,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS lungs_count FROM donor_info_tbl WHERE don_giftOrgan = 'Lungs' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS lungs_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Lungs' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $lungsCount = $row['lungs_count'];
@@ -237,7 +237,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS kidney_count FROM donor_info_tbl WHERE don_giftOrgan = 'Kidney' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS kidney_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Kidney' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $kidneyCount = $row['kidney_count'];
@@ -249,7 +249,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS intestine_count FROM donor_info_tbl WHERE don_giftOrgan = 'Intestines' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS intestine_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Intestines' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $intestineCount = $row['intestine_count'];
@@ -261,7 +261,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <img class="orghnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS handsface_count FROM donor_info_tbl WHERE don_giftOrgan = 'Hands and Face' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS handsface_count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Hands and Face' AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $HandsFaceCount = $row['handsface_count'];
@@ -272,7 +272,7 @@ if (isset($_SESSION['recip_username'])) {
                                 </div>
                             </div>
                             <div class="bloodDon">
-                                <p class="bloodtxt">Blood Donations</p>
+                                <p class="bloodtxt">Blood Requests</p>
                                 <div class="bloodsWrapper">
                                     <div class="bloodRow1">
                                         <div class="blood1">
@@ -280,7 +280,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">O-</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS ONeg_count FROM donor_info_tbl WHERE don_bloodType = 'O-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS ONeg_count FROM recipient_info_tbl WHERE recip_bloodType = 'O-' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $ONeg_count = $row['ONeg_count'];
@@ -292,7 +292,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">O+</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS OPos_count FROM donor_info_tbl WHERE don_bloodType = 'O+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS OPos_count FROM recipient_info_tbl WHERE recip_bloodType = 'O+' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $OPos_count = $row['OPos_count'];
@@ -304,7 +304,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">B-</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS BNeg_count FROM donor_info_tbl WHERE don_bloodType = 'B-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS BNeg_count FROM recipient_info_tbl WHERE recip_bloodType = 'B-' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $BNeg_count = $row['BNeg_count'];
@@ -316,7 +316,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">B+</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS BPos_count FROM donor_info_tbl WHERE don_bloodType = 'B+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS BPos_count FROM recipient_info_tbl WHERE recip_bloodType = 'B+' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $BPos_count = $row['BPos_count'];
@@ -330,7 +330,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">A-</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS ANeg_count FROM donor_info_tbl WHERE don_bloodType = 'A-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS ANeg_count FROM recipient_info_tbl WHERE recip_bloodType = 'A-' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $ANeg_count = $row['ANeg_count'];
@@ -342,7 +342,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">A+</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS APos_count FROM donor_info_tbl WHERE don_bloodType = 'A+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS APos_count FROM recipient_info_tbl WHERE recip_bloodType = 'A+' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $APos_count = $row['APos_count'];
@@ -354,7 +354,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">AB-</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS ABNeg_count FROM donor_info_tbl WHERE don_bloodType = 'AB-' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS ABNeg_count FROM recipient_info_tbl WHERE recip_bloodType = 'AB-' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $ABNeg_count = $row['ABNeg_count'];
@@ -366,7 +366,7 @@ if (isset($_SESSION['recip_username'])) {
                                                 <p class="bloodtype">AB+</p>
                                             </div>
                                             <?php 
-                                            $query = "SELECT COUNT(*) AS ABPos_count FROM donor_info_tbl WHERE don_bloodType = 'AB+' AND don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+                                            $query = "SELECT COUNT(*) AS ABPos_count FROM recipient_info_tbl WHERE recip_bloodType = 'AB+' AND recip_boolBlood = 1 AND recip_status = 0";
                                             $result = mysqli_query($connect, $query);
                                             $row = mysqli_fetch_assoc($result);
                                             $ABPos_count = $row['ABPos_count'];
@@ -378,10 +378,10 @@ if (isset($_SESSION['recip_username'])) {
                             </div>
                         </div>
                         
-                        <div class="recipRight">
-                            <p class="righttxt">Recent Donation Registrations</p>
+                        <div class="donRight">
+                            <p class="righttxt">Recent Recipient Registrations</p>
                             <?php
-                                $query = "SELECT don_firstName, don_bloodType, don_giftOrgan, don_userProfile FROM donor_info_tbl ORDER BY created_at DESC LIMIT 9";
+                                $query = "SELECT recip_firstName, recip_bloodType, recip_neededOrgan, recip_userProfile FROM recipient_info_tbl ORDER BY created_at DESC LIMIT 9";
                                 $result = mysqli_query($connect, $query);
                             ?>
                             <div class="recentdons_tbl_container">
@@ -390,14 +390,14 @@ if (isset($_SESSION['recip_username'])) {
                                     <?php
                                         // Loop through the results and display the recent donations in table rows
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            $don_FirstName = $row['don_firstName'];
-                                            $don_BloodType = $row['don_bloodType'];
-                                            $don_GiftOrgan = $row['don_giftOrgan'];
-                                            $don_dp = $row['don_userProfile'];
+                                            $recip_FirstName = $row['recip_firstName'];
+                                            $recip_bloodType = $row['recip_bloodType'];
+                                            $recip_neededOrgan = $row['recip_neededOrgan'];
+                                            $recip_dp = $row['recip_userProfile'];
                                         
                                             // Check if the image data exists
-                                            if ($don_dp !== null) {
-                                                $base64Image = base64_encode($don_dp);
+                                            if ($recip_dp !== null) {
+                                                $base64Image = base64_encode($recip_dp);
                                                 $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
                                             } else {
                                                 // Use a placeholder image if no image data is available
@@ -409,29 +409,29 @@ if (isset($_SESSION['recip_username'])) {
                                                     <div class="don_dp">
                                                         <img src="<?php echo $imageSrc; ?>">
                                                         <p class="don_FName">
-                                                            <?php echo $don_FirstName; ?>
+                                                            <?php echo $recip_FirstName; ?>
                                                         </p>
                                                     </div>
                                                     
                                                     <p class="don_BType">
-                                                        <?php echo $don_BloodType; ?>
+                                                        <?php echo $recip_bloodType; ?>
                                                     </p>
                                                     <p class="don_organ">
-                                                    <?php if ($don_GiftOrgan === 'Liver') { ?>
+                                                    <?php if ($recip_neededOrgan === 'Liver') { ?>
                                                         <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Corneas') { ?>
+                                                        <?php } elseif ($recip_neededOrgan === 'Corneas') { ?>
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Heart') { ?>
+                                                        <?php } elseif ($recip_neededOrgan === 'Heart') { ?>
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Pancreas') { ?>
+                                                        <?php } elseif ($recip_neededOrgan === 'Pancreas') { ?>
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Lungs') { ?>
+                                                        <?php } elseif ($recip_neededOrgan === 'Lungs') { ?>
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Kidney') { ?>
+                                                        <?php } elseif ($recip_neededOrgan === 'Kidney') { ?>
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Intestines') { ?>
+                                                        <?php } elseif ($recip_neededOrgan === 'Intestines') { ?>
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Hands and Face') { ?>
+                                                        <?php } elseif ($recip_neededOrgan === 'Hands and Face') { ?>
                                                             <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
                                                         <?php } ?>
                                                     </p>
@@ -453,27 +453,24 @@ if (isset($_SESSION['recip_username'])) {
                 </div>
                 <div class="userProfile">
                     <div class="upContainer">
-                        <form action="change-recipient-info.php" method="POST" class="change_recipInfo">
+                        <form action="change-donor-info.php" method="POST" class="change_donInfo">
                             <p class="indicatortxt">Username</p>
-                            <input type="text" placeholder="<?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_username']; ?>"name="new_recip_username" class="input-field">
+                            <input type="text" placeholder="<?php echo isset($new_don_username) ? $new_don_username : $infoData['don_username']; ?>"name="new_don_username" class="input-field">
 
                             <p class="indicatortxt">Email</p>
-                            <input type="email" placeholder="<?php echo $recip_email; ?>" name="new_recip_email" class="input-field">
+                            <input type="email" placeholder="<?php echo $don_email; ?>" name="new_don_email" class="input-field">
 
                             <p class="indicatortxt">Password</p>
-                            <p class="recip_pass"><?php echo $censored_pass; ?></p>
+                            <p class="don_pass"><?php echo $censored_pass; ?></p>
                             <!--
                             <p class="changepass_btn" onclick="openChangePass();">Change password</p>!-->
 
-                            <p class="indicatortxt" id="reqorg">Requested Organ/s</p>
-                            <p class="recip_viewinfo"><?php echo $recip_neededOrgan; ?></p>
+                            <p class="indicatortxt" id="reqorg">Organ Donation</p>
+                            <p class="don_viewinfo"><?php echo $don_neededOrgan; ?></p>
 
-                            <p class="indicatortxt">Requested Blood</p>
-                            <p class="recip_viewinfo"><?php echo $recip_boolBlood; ?></p>
-
-                            <p class="indicatortxt">Transplant/Transfusion Urgency</p>
-                            <p class="recip_viewinfo"><?php echo $recip_urgency; ?></p>
-
+                            <p class="indicatortxt">Blood Donation</p>
+                            <p class="don_viewinfo"><?php echo $don_boolBlood; ?></p>
+                            
                             <button type="submit" name="change">Save Changes</button>
                         </form>
                     </div>
@@ -481,12 +478,12 @@ if (isset($_SESSION['recip_username'])) {
                 
                 <div class="changePass">
                     <div class="changePassContainer">
-                        <form action="change-recipient-info.php" method="POST" class="change_recipInfo">
+                        <form action="change-donor-info.php" method="POST" class="change_donInfo">
                             <p class="indicatortxt">Old Password</p>
-                            <input type="text" placeholder="" name ="recip_pass">
+                            <input type="text" placeholder="" name ="don_pass">
 
                             <p class="indicatortxt">New Password</p>
-                            <input type="text" placeholder="" name ="new_recip_pass" minlength="8">
+                            <input type="text" placeholder="" name ="new_don_pass" minlength="8">
         
                             <button type="submit" name="change">Change</button>
                         </form>
