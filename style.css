@@ -4145,6 +4145,9 @@ h1, h2, h3 {
 .user img {
   width: 60px;
 }
+.user img:hover {
+  cursor: pointer;
+}
 .user h1 {
   margin-top: 10px;
 }
@@ -4186,14 +4189,50 @@ h1, h2, h3 {
 .menu-bar .menu .menu-links .nav-link a:active {
   background-color: var(--dashbBG);
 }
-.menu-bar .menu .menu-links .nav-link .learndon {
+.menu-bar .menu .menu-links .nav-link .logoutform {
+  margin: 10px 0px;
+  padding: 15px 30px;
+  width: 212px;
   height: 55px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.menu-bar .menu .menu-links .nav-link .aLogout .logout {
+.menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn {
+  margin: 10px 0px;
+  padding: 15px 30px;
+  width: 212px;
+  height: 55px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  transition: 0.1s ease-in-out;
+  border-style: none;
+  background-color: var(--sidebar-background);
+}
+.menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn .svglogout {
   width: 37px;
   height: 25px;
-  margin-left: -5px;
   fill: rgb(193, 26, 29);
+  margin-left: -5px;
+}
+.menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn #ptxt {
+  width: 100px;
+  color: var(--dark-text);
+  font-weight: 600;
+  margin-left: -10px;
+}
+.menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn:hover {
+  background-color: var(--dashbBG);
+  cursor: pointer;
+}
+.menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn:active {
+  background-color: var(--dashbBG);
+}
+.menu-bar .menu .menu-links .nav-link .learndon {
+  height: 55px;
 }
 .menu-bar .menu .menu-links .nav-link .toggleWrapper {
   position: relative;
@@ -4523,6 +4562,7 @@ h1, h2, h3 {
   width: 115px;
   height: 115px;
   border-radius: 15px;
+  box-shadow: 0px 8px 8px #B6CAEA;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4588,6 +4628,7 @@ h1, h2, h3 {
   width: 115px;
   height: 115px;
   border-radius: 15px;
+  box-shadow: 0px 8px 8px #DCABAB;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4712,12 +4753,24 @@ h1, h2, h3 {
   justify-content: center;
   align-items: center;
 }
+.contentWrapper .allBody .userProfile {
+  width: 101%;
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: lightpink;
+}
 
 @media screen and (max-width: 1553px) {
   #recipBottomID {
     display: grid;
     grid-template-areas: "left" "right";
     justify-content: center;
+    margin-right: 24px;
   }
   #recipBottomID .recipLeft {
     margin-left: 50px;
@@ -4728,7 +4781,7 @@ h1, h2, h3 {
     margin-left: 25px;
   }
   #recipBottomID .recipRight .don_row {
-    width: 655px;
+    width: 555px;
   }
   #recipBottomID .recipRight .don_row p {
     width: 156.1px;
@@ -4736,6 +4789,7 @@ h1, h2, h3 {
   .recipTop {
     display: flex;
     justify-content: center;
+    margin-right: 24px;
   }
   .organDon, .bloodDon {
     width: 555px;
@@ -4759,6 +4813,7 @@ h1, h2, h3 {
   }
   .recipBottom {
     margin-top: 0px;
+    margin-right: 0px;
   }
   .corner {
     transition: 0.3s ease-in-out;
@@ -4854,6 +4909,7 @@ h1, h2, h3 {
 .pagination-link {
   display: inline-block;
   margin: 10px 0px;
+  padding-top: 3px;
   text-decoration: none;
   color: #333;
   height: 30px;

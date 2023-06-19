@@ -104,6 +104,10 @@
 
     img {
         width: 60px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
     h1 {
         margin-top: 10px;
@@ -153,21 +157,59 @@
                     }
                 }
 
+                .logoutform {
+                    margin: 10px 0px;
+                    padding: 15px 30px;
+                    width: 212px;
+                    height: 55px;
+                    border-radius: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .aLogout {
+                        .logoutbtn {
+                            margin: 10px 0px;
+                            padding: 15px 30px;
+                            width: 212px;
+                            height: 55px;
+                            border-radius: 15px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 15px;
+                            transition: 0.1s ease-in-out;
+                            border-style: none;
+                            background-color: var(--sidebar-background);
+                            
+                            .svglogout {
+                                width: 37px;
+                                height: 25px;
+                                fill: rgb(193, 26, 29);
+                                margin-left: -5px;
+                            }
+
+                            #ptxt {
+                                width: 100px;
+                                color: var(--dark-text);
+                                font-weight: 600;
+                                margin-left: -10px;
+                            }
+
+                            &:hover {
+                                background-color: var(--dashbBG);
+                                cursor: pointer;
+                            }
+        
+                            &:active {
+                                background-color: var(--dashbBG);
+                            }
+                        }
+                    }
+                }
+
                 .learndon {
                     height: 55px;
                 }
-        
-                .aLogout {
-                    //bottom: 50px;
-                    //position: absolute;
-                    .logout {
-                        width: 37px;
-                        height: 25px;
-                        margin-left: -5px;
-                        fill: rgb(193, 26, 29);
-                    }
-                } 
-
+                
                 .toggleWrapper {
                     position: relative;
                     top: 190px;
@@ -546,6 +588,7 @@
                                 width: 115px;
                                 height: 115px;
                                 border-radius: 15px;
+                                box-shadow: 0px 8px 8px #B6CAEA;
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
@@ -621,6 +664,7 @@
                                 width: 115px;
                                 height: 115px;
                                 border-radius: 15px;
+                                box-shadow: 0px 8px 8px #DCABAB;
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
@@ -766,6 +810,18 @@
             justify-content: center;
             align-items: center;
         }
+
+        .userProfile {
+            width: 101%;
+            min-height: 100vh;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            background-color: lightpink;
+        }
     }
     
 }
@@ -775,6 +831,7 @@
         display: grid;
         grid-template-areas: 'left' 'right';
         justify-content: center;
+        margin-right: 24px;
 
         .recipLeft {
             margin-left: 50px;
@@ -786,7 +843,7 @@
             margin-left: 25px;
 
             .don_row {
-                width: 655px;
+                width: 555px;
                 p {
                     width: 156.1px;
                 }
@@ -797,6 +854,7 @@
     .recipTop {
         display: flex;
         justify-content: center;
+        margin-right: 24px;
     }
 
     .organDon, .bloodDon {
@@ -825,12 +883,13 @@
 
     .recipBottom {
         margin-top: 0px;
+        margin-right: 0px;
     }
 
     .corner {
         transition: .3s ease-in-out;
         margin-top: -20px;
-        margin-bottom: -20px;
+        margin-bottom: -20px; 
     }
 }
 
@@ -937,6 +996,7 @@
 .pagination-link {
     display: inline-block;
     margin: 10px 0px;
+    padding-top: 3px;
     text-decoration: none;
     color: #333;
     height: 30px;

@@ -29,7 +29,6 @@ if (isset($_SESSION['recip_username'])) {
         $recip_postal = $_POST["recip_postal"];
         $recip_phoneNum = $_POST["recip_phoneNum"];
         $recip_ethnicity = isset($_POST["recip_ethnicity"]) ? $_POST["recip_ethnicity"] : "";
-        //bool
         $recip_boolBlood = isset($_POST["recip_boolBlood"]) ? $_POST["recip_boolBlood"] : "";
         $recip_Urgency = $_POST["recip_Urgency"];
         $formatted_Urgency = date('Y-m-d', strtotime($recip_Urgency));
@@ -74,11 +73,7 @@ if (isset($_SESSION['recip_username'])) {
                 // Generate the base64-encoded image string
                 $base64Image = base64_encode($imageData);
 
-                // Display the image in HTML
-                echo '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="Profile Picture">';
-
-                // Redirect to dashboard
-                header("Location: recip-registration.html");
+                header("Location: ../Recipient-Dashboard/recipient-dashboard.php");
                 exit();
             }
         }
@@ -87,5 +82,4 @@ if (isset($_SESSION['recip_username'])) {
     // 'recip_username' session variable is not set, handle the case accordingly
     echo "Recipient Username not found.";
 }
-
 ?>
