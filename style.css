@@ -2424,10 +2424,6 @@ h1, h2, h3 {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
-.adminTransfusionRegistryBody * {
-  border: 1px dashed yellow;
-}
-
 .hide-radio {
   position: absolute;
   opacity: 0;

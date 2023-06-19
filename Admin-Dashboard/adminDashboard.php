@@ -2,7 +2,7 @@
     require_once ('admin-php/connection.php');
     require 'admin-php/functions.php'; 
 
-    $query = "SELECT * FROM donor_info_tbl WHERE isNewApplicant = 1";
+    $query = "SELECT * FROM donor_info_tbl WHERE isNewApplicant = 1 ORDER BY id DESC LIMIT 10";
     $result = mysqli_query($conn, $query);
 
 
