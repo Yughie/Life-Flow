@@ -183,9 +183,10 @@
                              <h3 class="profile__ApplicationDate"><?php echo $row['created_at'];?></h3>
                             
                              <div class="applicatiion-function-container">
-            
-                                <img class="applicant-accept" src="../Images/AdminDashboard/icon-accept.svg"
-                                        alt="accept applicant">
+                                <a href="./admin-update/latestDonor-update.php?ids=<?php echo $row['id']; ?>">
+                                    <img class="applicant-accept" src="../Images/AdminDashboard/icon-accept.svg"
+                                            alt="accept applicant">
+                                </a>
                                     <a  href="./admin-delete/dashboard-applicant-delete.php?ids=<?php echo $row['id']; ?>">
                        
                                        <img class="applicant-reject" src="../Images/AdminDashboard/icon-reject.svg"

@@ -59,7 +59,7 @@
         $stmt->execute();
 
         // Redirect to dashboard
-        header('Location: ../adminOrganDonor.php');
+        header('Location: ../adminDashboard.php');
         exit();
     }
 ?>
