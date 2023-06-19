@@ -205,7 +205,7 @@
                             <!---PERSONAL INFORMATION--->
                             <div class="organDonor__personal">
                                 <div>
-                                            <?php
+                                <?php
                                                 $don_dp = $row['don_userProfile'];
                                                 $randomNumber = rand(1, 10);
 
@@ -218,8 +218,8 @@
                                                     $imageSrc = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
                                                 }
                                             ?>
-                                        <img class="organDonor__personal__Image" src="<?php echo $imageSrc ?>" alt="Profile Image">
-                                  
+                                     <img class="organDonor__personal__Image" src="<?php echo $imageSrc; ?>" alt="Profile Image">
+                                                    
                                 </div>
                                 <div>
                                     <h3 class="organDonor__personal__name">
@@ -308,7 +308,7 @@
                                 <img  class="organDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
                                     </a>
-                                    <a href="./admin-delete/recipient-delete.php?ids=<?php echo $row['id']; ?>">
+                                    <a href="./admin-delete/organDonor-delete.php?ids=<?php echo $row['id']; ?>">
                                 <img class="organDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
                                     alt="Trash can">
                                     </a>
@@ -320,15 +320,6 @@
                             
 
                             
-
-
-
-
-
-
-
-
-
 
                             <!-------------------------------- POP UP EDIT FUNCTION FUNCTIONS-------------------------------------------->
                             <div class="dashboard-popup-update edit-form edit-form<?php echo $row['id']; ?>" data-overlay-id=<?php echo $row['id']; ?> id="dashboard-popup-1-update">
@@ -343,7 +334,7 @@
                                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                             <h1 class="h1">update organ donor</h1>
                                             <div class="deceasedCheckbox">
-                                                <input type="checkbox" name="isDeceased" id="isDeceased" class="chkbx" value="1">
+                                                <input type="checkbox" name="isDeceased" id="isDeceased" class="chkbx" value="1"  <?php echo ($row['isDeceased'] == '1') ? 'checked' : ''; ?>>
                                                 <label for="isDeceased">Is this person deceased?</label>
                                             </div>
                                             <div class="personalInfo">
@@ -435,9 +426,29 @@
                                                 </div>
 
                                                 <div class="userprofile">
+                                                <?php
+                                                    $recip_dp = $row['don_userProfile'];
+                                                    $randomNumber = rand(1, 10);
+                                                    // Check if the image data exists
+                                                    if ($recip_dp !== null) {
+                                                        // Convert the BLOB image data to a base64-encoded string
+                                                        $imageDataEncoded = base64_encode($recip_dp);
+                                                    
+                                                        // Generate the data URL
+                                                        $dataUrl = 'data:image/jpeg;base64,' . $imageDataEncoded;
+                                                    } else {
+                                                        // Use a placeholder image if no image data is available
+                                                        $dataUrl = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
+                                                    }
+                                                    ?>
+
+
                                                     <span class="span">Choose Profile Photo</span>
-                                                    <input class="input" type="file" name="don_userProfile"
-                                                        onchange="checkFileSize(this)">
+                                                    <input class="input" type="file" name="don_userProfile" onchange="checkFileSize(this)">
+                                                    <?php if ($recip_dp !== null): ?>
+                                                        <img class="preview-image" src="<?php echo $dataUrl; ?>" alt="Profile Photo Preview" style="width: 200px;">
+                                                    <?php endif; ?>
+
                                                 </div>
                                             </div>
 
@@ -658,7 +669,7 @@
                         -->
                         <div class="organordon">
                             <input class="chkbx" type="checkbox" id="ui-checkboxdonorg" name="don_boolOrganTissue"
-                                value="1" onclick="donblocker()" require>
+                                value="1" onclick="donblocker()" checked>
                             <p class="organordontxt">Organ and/or Tissue</p>
                         </div>
                         <div class="needOrgan" id="donorGiftOrgan">

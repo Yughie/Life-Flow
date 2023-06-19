@@ -265,7 +265,7 @@
                                 <div class="dashboard-content-update ">
                                     <div class="dashboard-overflow_container-update">
                                         <form class="registrationForm" id="donorFormn"
-                                            action="./admin-update/donor-update.php" method="POST"
+                                            action="./admin-update/bloodDonor-update.php" method="POST"
                                             enctype="multipart/form-data">
 
                                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
@@ -359,9 +359,31 @@
                                                 </div>
 
                                                 <div class="userprofile">
+
+                                                <?php
+                                                    $recip_dp = $row['don_userProfile'];
+                                                    $randomNumber = rand(1, 10);
+                                                    // Check if the image data exists
+                                                    if ($recip_dp !== null) {
+                                                        // Convert the BLOB image data to a base64-encoded string
+                                                        $imageDataEncoded = base64_encode($recip_dp);
+                                                    
+                                                        // Generate the data URL
+                                                        $dataUrl = 'data:image/jpeg;base64,' . $imageDataEncoded;
+                                                    } else {
+                                                        // Use a placeholder image if no image data is available
+                                                        $dataUrl = '../Images/default-image/Default-profile-'.$randomNumber .'.png';
+                                                    }
+                                                    ?>
+
+
+
                                                     <span class="span">Choose Profile Photo</span>
-                                                    <input class="input" type="file" name="don_userProfile"
-                                                        onchange="checkFileSize(this)">
+                                                    <input class="input" type="file" name="don_userProfile" onchange="checkFileSize(this)">
+                                                    <?php if ($recip_dp !== null): ?>
+                                                        <img class="preview-image" src="<?php echo $dataUrl; ?>" alt="Profile Photo Preview" style="width: 200px;">
+                                                    <?php endif; ?>
+
                                                 </div>
                                             </div>
 
@@ -370,7 +392,7 @@
                                                 <label class="label" for="ethnicity">
                                                     <select id="ethnicity" name="don_ethnicity"
                                                         class="select">
-                                                        <option value="" <?php echo ($row['don_ethnicity'] == '') ? 'selected' : ''; ?>disabled hidden selected>Select</option>
+                                                        <option value="" <?php echo ($row['don_ethnicity'] == '') ? 'selected' : ''; ?> disabled hidden selected>Select</option>
                                                         <option value="African" <?php echo ($row['don_ethnicity'] == 'African') ? 'selected' : ''; ?>>African</option>
                                                         <option value="European" <?php echo ($row['don_ethnicity'] == 'European') ? 'selected' : ''; ?>>European</option>
                                                         <option value="Indigenous" <?php echo ($row['don_ethnicity'] == 'Indigenous') ? 'selected' : ''; ?>>Indigenous</option>
@@ -596,7 +618,7 @@
                     <div class="recipsNeed">
                         <p class="p">Your Donation Can Help Save and Heal Lives</p>
                         <div class="needsText">
-                            <input class="chkbx" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1">
+                            <input class="chkbx" type="checkbox" id="ui-checkboxdon" name="don_boolBlood" value="1" checked>
                             <p>Blood</p>
                         </div>
                         <div class="organordon">

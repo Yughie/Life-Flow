@@ -5,7 +5,7 @@
     $query = "SELECT * FROM recipient_info_tbl WHERE recip_boolBlood =0 AND recip_status != '1'";
     $result = mysqli_query($conn, $query);
 
-    $query_donor = "SELECT * FROM donor_info_tbl WHERE don_boolBlood = 1 AND isNewApplicant =0 AND isOrganAvailable=1 AND isDeceased=1";
+    $query_donor = "SELECT * FROM donor_info_tbl WHERE don_boolOrganTissue AND isNewApplicant =0 AND isOrganAvailable=1 AND isDeceased=1";
     $result_donor = mysqli_query($conn, $query_donor);
 
 
