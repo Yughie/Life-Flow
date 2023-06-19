@@ -23,7 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result && mysqli_num_rows($result) > 0) {
             // Login successful
             $_SESSION['is_signed_in_donor'] = true;
-            header('Location: Donor-Dashboard/donor-dashboard.php'); // Replace with the donor's account page
+            $_SESSION['don_username'] = $don_username;
+            // Redirect to the donor dashboard
+            header('Location: Donor-Dashboard/Donor-dashboard.php');
             exit();
         } else {
             // Login failed
