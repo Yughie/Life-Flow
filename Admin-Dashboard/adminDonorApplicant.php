@@ -348,8 +348,10 @@
                                        
                                         <img class="applicant-accept" src="../Images/AdminDashboard/icon-accept.svg"
                                             alt="accept applicant">
-                                        <img class="applicant-reject" src="../Images/AdminDashboard/icon-reject.svg"
-                                            alt="rejectapplicant">
+                                            <a href="./admin-delete/applicant-delete.php?ids=<?php echo $row['id']; ?>">
+                                                <img class="applicant-reject" src="../Images/AdminDashboard/icon-reject.svg"
+                                                    alt="rejectapplicant">
+                                            </a>
                                     </div>
                                 </div>
                                     <?php  

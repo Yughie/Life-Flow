@@ -13,12 +13,12 @@
         opacity: 0;
     }
 
-    #inputdate {
+    #inputdate, #recip_Urgency {
         font-size: 12px;
         padding: 18px 0px 2px 8px;
     }
 
-    #spandate {
+    #spandate, #spanDate {
         padding: 18px 0px 2px 0px;
         font-size: 12px;
         transform: scale(calc(10 / 12)) translateY(-18px);
@@ -559,6 +559,13 @@
         }
     }
     
+}
+
+
+.deceasedCheckbox{
+    display: flex;
+    align-items: center;
+
 }
 
 .organOption{

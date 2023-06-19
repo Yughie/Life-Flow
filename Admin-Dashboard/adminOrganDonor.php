@@ -305,7 +305,7 @@
                                 <img  class="organDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
                                     </a>
-                                    <a>
+                                    <a href="./admin-delete/organDonor-delete.php?ids=<?php echo $row['id']; ?>">
                                 <img class="organDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
                                     alt="Trash can">
                                     </a>
@@ -339,6 +339,10 @@
 
                                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                             <h1 class="h1">update organ donor</h1>
+                                            <div class="deceasedCheckbox">
+                                                <input type="checkbox" name="isDeceased" id="isDeceased" class="chkbx" value="1">
+                                                <label for="isDeceased">Is this person deceased?</label>
+                                            </div>
                                             <div class="personalInfo">
                                                 <p class="p">Personal Information</p>
                                                 <div class="fullname">
@@ -530,6 +534,10 @@
 
 
                     <h1 class="h1">organ registration form</h1>
+                    <div class="deceasedCheckbox">
+                        <input type="checkbox" name="isDeceased" id="isDeceased" class="chkbx" value="1">
+                        <label for="isDeceased">Is this person deceased?</label>
+                    </div>
                     <div class="personalInfo">
                         <p class="p">Personal Information</p>
                         <div class="fullname">

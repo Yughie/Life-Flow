@@ -59,6 +59,11 @@
         
 
         <h1 class="h1">donor registration form</h1>
+        <div class="deceasedCheckbox">
+            <input type="checkbox" name="isDeceased" id="isDeceased" class="chkbx" value="1">
+            <label for="isDeceased">Are you registering for someone else?</label>
+        </div>
+        
         <div class="personalInfo">
             <p class="p">Personal Information</p>
             <div class="fullname">
@@ -77,10 +82,7 @@
             </div>
 
             <div class="info2" id="donorInfo2">
-                <label class="label">
-                    <input class="input" required="" type="date" name="don_bday" value="" id="inputdate">
-                    <span class="span" id="spandate">Date of Birth</span>
-                </label>
+
                 <label class="label">
                     <input class="input" id="age" required="" type="number" name="don_age" min="18" minlength="2" maxlength="2">
                     <span class="span">Age</span>
@@ -147,7 +149,7 @@
         <div class="optionalInfo" id="donorOptionalInfo">
             <p class="p">Optional Information</p>
             <label class="label" for="ethnicity">
-                <select id="ethnicity" required="" name="don_ethnicity" class="select">
+                <select id="ethnicity" name="don_ethnicity" class="select">
                     <option value="" disabled hidden selected>Select</option>
                     <option value="African">African</option>
                     <option value="European">European</option>
