@@ -1,7 +1,8 @@
 
 window.onload = function() {
-    document.querySelector('.recipDashb').style.display = "block";
+    document.querySelector('.recipDashb').style.display = "none";
     document.querySelector('.donors').style.display = "none";
+    document.querySelector('.userProfile').style.display = "block";
 }; 
 
 function openSidebar(selected) {
@@ -67,11 +68,24 @@ function closeDashB() {
 function openDonors() {
     document.querySelector('.donors').style.display = "block";
     closeDashB();
+    closeUser();
 }
 
 // close donors
 function closeDonors() {
     document.querySelector('.donors').style.display = "none";
+}
+
+// open user profile
+function openUser() {
+    document.querySelector('.userProfile').style.display = "block";
+    closeDashB();
+    closeDonors();
+}
+
+// close user profile
+function closeUser() {
+    document.querySelector('.userProfile').style.display = "none";
 }
 
 

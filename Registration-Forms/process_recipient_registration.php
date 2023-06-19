@@ -82,5 +82,4 @@ if (isset($_SESSION['recip_username'])) {
     // 'recip_username' session variable is not set, handle the case accordingly
     echo "Recipient Username not found.";
 }
-
 ?>

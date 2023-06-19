@@ -104,6 +104,10 @@
 
     img {
         width: 60px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
     h1 {
         margin-top: 10px;
@@ -806,6 +810,18 @@
             justify-content: center;
             align-items: center;
         }
+
+        .userProfile {
+            width: 101%;
+            min-height: 100vh;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            background-color: lightpink;
+        }
     }
     
 }
@@ -980,6 +996,7 @@
 .pagination-link {
     display: inline-block;
     margin: 10px 0px;
+    padding-top: 3px;
     text-decoration: none;
     color: #333;
     height: 30px;

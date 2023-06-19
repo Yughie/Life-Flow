@@ -66,7 +66,7 @@ if (isset($_SESSION['recip_username'])) {
                 </div> !-->
             </div>
             <div class="user">
-                <img src="<?php echo $imageSrc ?>">
+                <img src="<?php echo $imageSrc ?>" onclick="openUser();">
                 <h1><?php echo $infoData['recip_firstName']; ?></h1>
                 <p>RECIPIENT</p>
             </div>
@@ -420,6 +420,9 @@ if (isset($_SESSION['recip_username'])) {
                 <div class="donors" id="donorsDIV">
                     <div id="donors-table"></div>
                     <div id="pagination"></div>
+                </div>
+                <div class="userProfile">
+                    uiiai
                 </div>
             </div>
         </div>
