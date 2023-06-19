@@ -325,8 +325,11 @@
                             <div class="recipient-function-container">
                                 <img  src="../Images/DonorApplicant/icon-editApplicant.svg" class="recipient-edit edit-button" data-user-id=<?php echo $row['recipID']; ?>
                                     alt="edit applicant icon">
-                                <img class="recipient-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
-                                    alt="Trash can">
+
+                                    <a href="./admin-delete/recipient-delete.php?ids=<?php echo $row['recipID']; ?>">
+                                        <img class="recipient-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
+                                            alt="Trash can">
+                                    </a>
                             </div>
 
 

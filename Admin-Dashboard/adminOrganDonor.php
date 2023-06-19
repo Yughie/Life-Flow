@@ -305,7 +305,7 @@
                                 <img  class="organDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
                                     </a>
-                                    <a href="./admin-delete/organDonor-delete.php?ids=<?php echo $row['id']; ?>">
+                                    <a href="./admin-delete/recipient-delete.php?ids=<?php echo $row['id']; ?>">
                                 <img class="organDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
                                     alt="Trash can">
                                     </a>

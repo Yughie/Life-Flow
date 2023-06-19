@@ -226,8 +226,10 @@
                                             <img class="transplantRecipient-edit"
                                                 src="../Images/DonorApplicant/icon-editApplicant.svg"
                                                 alt="edit applicant icon">
-                                            <img class="transplantRecipient-delete"
-                                                src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                                <a href="./admin-delete/transplant-delete.php?id=<?php echo $row['recipID']; ?>">
+                                                    <img class="transplantRecipient-delete"
+                                                        src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                                </a>
                                         </div>
                                     </div>
                                 </label>
@@ -346,8 +348,10 @@
                                             <img class="transplantDonor-edit edit-button" data-user-id="<?php echo $rows['id']; ?>"
                                                 src="../Images/DonorApplicant/icon-editApplicant.svg"
                                                 alt="edit applicant icon">
-                                            <img class="transplantDonor-delete"
-                                                src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                            <a href="./admin-delete/transplant-delete.php?id=<?php echo $rows['id']; ?>">
+                                                <img class="transplantDonor-delete"
+                                                    src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                            </a>
                                         </div>
 
 
