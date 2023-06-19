@@ -205,11 +205,17 @@
                             <!---PERSONAL INFORMATION--->
                             <div class="organDonor__personal">
                                 <div>
-                                <?php if (!empty($row['image'])): ?>
-                                    <img class="organDonor__personal__Image" src="<?php echo $row['don_userProfile']; ?>" alt="Image">
-                                <?php else: ?>
-                                    <img class="organDonor__personal__Image" src="../Images/AdminDashboard/profile-default.svg" alt="Default Image">
-                                <?php endif; ?>
+                                    <?php
+                                        if ($row['don_userProfile'] !== null) {
+                                            $base64Image = base64_encode($row['don_userProfile']);
+                                            $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+
+                                        } else {
+                                            // Use a placeholder image if no image data is available
+                                            $imageSrc = '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png';
+                                        }
+                                    ?>
+                                        <img class="organDonor__personal__Image" src="<?php echo $imageSrc ?>" alt="Profile Image">
                                   
                                 </div>
                                 <div>
@@ -299,7 +305,7 @@
                                 <img  class="organDonor-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
                                     alt="edit applicant icon">
                                     </a>
-                                    <a href="./admin-delete/organDonor-delete.php?ids=<?php echo $row['id']; ?>">
+                                    <a href="./admin-delete/recipient-delete.php?ids=<?php echo $row['id']; ?>">
                                 <img class="organDonor-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
                                     alt="Trash can">
                                     </a>
@@ -435,7 +441,7 @@
                                             <div class="optionalInfo" id="donorOptionalInfo">
                                                 <p class="p">Optional Information</p>
                                                 <label class="label" for="ethnicity">
-                                                    <select id="ethnicity" required="" name="don_ethnicity"
+                                                    <select id="ethnicity" name="don_ethnicity"
                                                         class="select">
                                                         <option value="" <?php echo ($row['don_ethnicity'] == '') ? 'selected' : ''; ?>disabled hidden selected>Select</option>
                                                         <option value="African" <?php echo ($row['don_ethnicity'] == 'African') ? 'selected' : ''; ?>>African</option>

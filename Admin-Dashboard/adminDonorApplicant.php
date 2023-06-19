@@ -241,27 +241,30 @@
                                             <div>
                                             
 
-                                             <!----------IMAGE PROFILE
+                                             <!----------IMAGE PROFILE----->
+
+
                                             <?php
-                                                    if($row['don_userProfile']){
-                                                ?>
-                                                    <img class="applicant__personal__Image" src="<?php $row['don_userProfile']; ?>" alt="image">
-                                            </div>
-                                                <?php
-                                                    }
-                                                    else if($row['don_userProfile'] == 0){
-                                                     
-                                                ?>
-                                                 <img class="applicant__personal__Image"
-                                                    src="../Images/AdminDashboard/profile-default.svg"
+                                                if ($row['don_userProfile'] !== null) {
+                                                    $base64Image = base64_encode($row['don_userProfile']);
+                                                    $imageSrc = 'data:image/jpeg;base64,' . $base64Image;
+
+                                            ?>
+                                                    <img class="applicant__personal__Image"
+                                                    src="<?php echo $imageSrc ?>"
                                                     alt="default profile">
-                                                <?php
-                                                    }
-                                                ?>
-                                              -->
-                                            <img class="applicant__personal__Image"
-                                                    src="../Images/AdminDashboard/profile-default.svg"
-                                                    alt="default profile">
+                                            <?php
+                                                } else {
+                                            ?>
+                                                    <img class="applicant__personal__Image" src="../Images/AdminDashboard/profile-default.svg" alt="default profile">
+                                                    
+                                            <?php
+                                                }
+                                            ?>
+
+
+                                 
+                                           
                                              
                                             </div>
                                             <div>

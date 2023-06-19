@@ -323,11 +323,213 @@
 
                             <!---FUNCTIONS---->
                             <div class="recipient-function-container">
-                                <img class="recipient-edit" src="../Images/DonorApplicant/icon-editApplicant.svg"
+                                <img  src="../Images/DonorApplicant/icon-editApplicant.svg" class="recipient-edit edit-button" data-user-id=<?php echo $row['recipID']; ?>
                                     alt="edit applicant icon">
-                                <img class="recipient-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
-                                    alt="Trash can">
+
+                                    <a href="./admin-delete/recipient-delete.php?ids=<?php echo $row['recipID']; ?>">
+                                        <img class="recipient-delete" src="../Images/DonorApplicant/icon-deleteApplicant.svg"
+                                            alt="Trash can">
+                                    </a>
                             </div>
+
+
+
+
+
+
+
+                       <!-------------------------------- POP UP EDIT FUNCTION FUNCTIONS-------------------------------------------->
+                       <div class="dashboard-popup-update edit-form edit-form<?php echo $row['recipID']; ?>" data-overlay-id=<?php echo $row['recipID']; ?> id="dashboard-popup-1-update">
+                                <div class="dashboard-overlay-update overlay-button overlay-button<?php echo $row['id']; ?>"  data-overlay-id=<?php echo $row['recipID']; ?> ></div>
+
+                                <div class="dashboard-content-update ">
+                                    <div class="dashboard-overflow_container-update">
+                                            <!---------START OF FORM---------->
+
+
+                <form class="registrationForm" action="./.php" method="POST" target="_self">
+
+                    <input type="hidden" name="id" value="<?php echo $row['recipID']; ?>">
+                    <h1 class="h1">update recipient</h1>
+                    <div class="personalInfo">
+                        <p class="p">Personal Information</p>
+                        <div class="fullname">
+                            <label class="label" for="recip_firstName">
+                                <input class="input" required type="text"  value="<?php echo $row['recip_firstName']; ?>" name="recip_firstName">
+                                <span class="span">First Name</span>
+                            </label>
+                            <label class="label" for="recip_midName">
+                                <input class="input" required type="text" name="recip_midName"  value="<?php echo $row['recip_midName']; ?>">
+                                <span class="span">Middle Name</span>
+                            </label>
+                            <label class="label" for="recip_lastName">
+                                <input class="input" required type="text" name="recip_lastName"  value="<?php echo $row['recip_lastName']; ?>">
+                                <span class="span">Last Name</span>
+                            </label>
+                        </div>
+
+                        <div class="info2">
+                            <label class="label" for="recip_bDay">
+                                <input class="input" required type="date" name="recip_bDay" value="" id="inputdate" value="<?php echo date('y-m-d', strtotime($row['recip_bDay'])); ?>">
+                                <span class="span" id="spandate">Date of Birth</span>
+                            </label>
+                            <label class="label" for="recip_age">
+                                <input class="input" required type="number" name="recip_age" min="18" defaul="18"
+                                    minlength="2" maxlength="2" value="<?php echo $row['recip_age']; ?>">
+                                <span class="span">Age</span>
+                            </label>
+                            <div>
+                                <label class="label" for="recip_sex">
+                                    <select id="sex" required="" name="recip_sex" class="select">
+                                        <option value="" disabled hidden selected>Select</option>
+                                        <option value="Male" <?php echo ($row['recip_sex'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+                                        <option value="Female" <?php echo ($row['recip_sex'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+                                    </select>
+                                    <span class="span">Sex</span>
+                                </label>
+                            </div>
+                            <label class="label" for="recip_bloodType">
+                                <select id="bloodtype" required name="recip_bloodType" class="select">
+                                    <option value="" disabled hidden selected>Select</option>
+                                    <option value="O+" <?php echo ($row['recip_bloodType'] == 'O+') ? 'selected' : ''; ?>>O+</option>
+                                    <option value="O-"  <?php echo ($row['recip_bloodType'] == 'O-') ? 'selected' : ''; ?>>O-</option>
+                                    <option value="B+" <?php echo ($row['recip_bloodType'] == 'B+') ? 'selected' : ''; ?>>B+</option>
+                                    <option value="B-" <?php echo ($row['recip_bloodType'] == 'B-') ? 'selected' : ''; ?>>B-</option>
+                                    <option value="A+" <?php echo ($row['recip_bloodType'] == 'A+') ? 'selected' : ''; ?>>A+</option>
+                                    <option value="A-" <?php echo ($row['recip_bloodType'] == 'A-') ? 'selected' : ''; ?>>A-</option>
+                                    <option value="AB+" <?php echo ($row['recip_bloodType'] == 'AB+') ? 'selected' : ''; ?>>AB+</option>
+                                    <option value="AB-" <?php echo ($row['recip_bloodType'] == 'AB-') ? 'selected' : ''; ?>>AB-</option>
+                                </select>
+                                <span class="span">Blood Type</span>
+                            </label class="label">
+                        </div>
+
+                        <div class="streetadd">
+                            <label class="label" for="recip_streetAdd">
+                                <input class="input" required type="text" name="recip_streetAdd" value="<?php echo $row['recip_streetADD']; ?>">
+                                <span class="span">Street Address</span>
+                            </label class="label">
+                        </div>
+
+                        <div class="address">
+                            <label class="label" for="recip_city">
+                                <input class="input" required type="text" name="recip_city" value="<?php echo $row['recip_city']; ?>">
+                                <span class="span">City</span>
+                            </label class="label">
+                            <label class="label" for="recip_province">
+                                <input class="input" required type="text" name="recip_province" value="<?php echo $row['recip_province']; ?>"> 
+                                <span class="span">State/Province</span>
+                            </label class="label">
+                            <label class="label" for="recip_postal">
+                                <input class="input" required type="number" pattern="[0-9]{4}" name="recip_postal" value="<?php echo $row['recip_postal']; ?>">
+                                <span class="span">Postal Code</span>
+                            </label class="label">
+                        </div>
+
+                        <div class="phonenum">
+                            <label class="label" for="recip_phoneNum">
+                                <input class="input" required type="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                    name="recip_phoneNum" value="<?php echo $row['recip_phoneNum']; ?>">
+                                <span class="span">Phone Number 9XX-XXX-XXXX</span>
+                            </label class="label">
+                        </div>
+                        <div class="userprofile">
+                            <span class="span">Choose Profile Photo</span>
+                            <input class="input" type="file" name="" onchange="checkFileSize(this)">
+                        </div>
+                    </div>
+
+                    <div class="optionalInfo">
+                        <p class="p">Optional Information</p>
+                        <label class="label" for="recip_ethnicity">
+
+                            <select id="ethnicity" name="recip_ethnicity" class="select">
+                                <option value="" <?php echo ($row['recip_ethnicity'] == '') ? 'selected' : ''; ?> disabled hidden selected>Select</option>
+                                <option value="African" <?php echo ($row['recip_ethnicity'] == 'African') ? 'selected' : ''; ?>>African</option>
+                                <option value="European" <?php echo ($row['recip_ethnicity'] == 'European') ? 'selected' : ''; ?>>European</option>
+                                <option value="Indigenous" <?php echo ($row['recip_ethnicity'] == 'Indigenous') ? 'selected' : ''; ?>>Indigenous</option>
+                                <option value="Middle Eastern" <?php echo ($row['recip_ethnicity'] == 'Middle Eastern') ? 'selected' : ''; ?>>Middle Eastern</option>
+                                <option value="North American" <?php echo ($row['recip_ethnicity'] == 'North American') ? 'selected' : ''; ?>>North American</option>
+                                <option value="South American" <?php echo ($row['recip_ethnicity'] == 'South American') ? 'selected' : ''; ?>>South American</option>
+                                <option value="Oceanian" <?php echo ($row['recip_ethnicity'] == 'Oceanian') ? 'selected' : ''; ?>>Oceanian</option>
+                                <option value="South Asian" <?php echo ($row['recip_ethnicity'] == 'South Asian') ? 'selected' : ''; ?>>South Asian</option>
+                                <option value="Southeast Asian" <?php echo ($row['recip_ethnicity'] == 'Southeast Asian') ? 'selected' : ''; ?>>Southeast Asian</option>
+                            </select>
+                            <span class="span">Ethnicity</span>
+
+                        </label class="label">
+                    </div>
+
+                    <div class="recipsNeed">
+                        <p class="p">Recipient's Need</p>
+                        <div class="needsText">
+                            <input type="radio" id="recip_boolBlood" name="recip_boolBlood" value="1"  <?php echo ($row['recip_boolBlood'] == '1') ? 'checked' : ''; ?>
+                                class="recip_bloodOrgan" required onclick="checkSelectedRadio()">
+                            <label for="recip_boolBlood">
+                                <p>Blood</p>
+                            </label>
+                        </div>
+
+                        <div class="needsText" id="needsTextbtm">
+                            <input type="radio" id="recip_boolBloods" name="recip_boolBlood" value="0"  <?php echo ($row['recip_boolBlood'] == '0') ? 'checked' : ''; ?>
+                                class="recip_bloodOrgan" required onclick="checkSelectedRadio()">
+                            <label for="recip_boolBloods">
+                                <p>Organ and/or Tissue</p>
+                            </label>
+                        </div>
+                        <div class="needOrgan">
+                            <!---<div id="organblocker"></div>-->
+                            <label class="label organOption" for="neededOrgan">
+                                <select name="recip_neededOrgan" id="recip_neededOrgan neededOrgan" class="select">
+                                    <option value="" <?php echo ($row['recip_neededOrgan'] == '') ? 'selected' : ''; ?> hidden selected>Select</option>
+                                    <option value="Kidney" <?php echo ($row['recip_neededOrgan'] == 'Kidney') ? 'selected' : ''; ?>>Kidney</option>
+                                    <option value="Liver" <?php echo ($row['recip_neededOrgan'] == 'Liver') ? 'selected' : ''; ?>>Liver</option>
+                                    <option value="Lungs" <?php echo ($row['recip_neededOrgan'] == 'Lungs') ? 'selected' : ''; ?>>Lungs</option>
+                                    <option value="Heart" <?php echo ($row['recip_neededOrgan'] == 'Heart') ? 'selected' : ''; ?>>Heart</option>
+                                    <option value="Pancreas" <?php echo ($row['recip_neededOrgan'] == 'Pancreas') ? 'selected' : ''; ?>>Pancreas</option>
+                                    <option value="Intestines" <?php echo ($row['recip_neededOrgan'] == 'Intestines') ? 'selected' : ''; ?>>Intestines</option>
+                                    <option value="Hands and Face" <?php echo ($row['recip_neededOrgan'] == 'Hands and Face') ? 'selected' : ''; ?>>Hands and Face</option>
+                                    <option value="Corneas" <?php echo ($row['recip_neededOrgan'] == 'Corneas') ? 'selected' : ''; ?>>Corneas</option>
+                                </select>
+                                <span class="span">Needed Organ/Tissue</span>
+                            </label class="label">
+                            <label class="label dateUrgency">
+                                <!--<div id="bloodblocker"></div>-->
+                                <input class="input" type="date" name="recip_Urgency" id="recip_Urgency" value="<?php echo date('y-m-d', strtotime($row['recip_Urgency'])); ?>"
+                                    required>
+                                <span class="span">Date Urgency</span>
+                            </label class="label">
+
+                            <!----
+                <label class="label">
+                
+                    
+                <div id="organblocker2"></div>
+                    <input class="input" type="date" name="recip_organUrgency" id="recip_organUrgency"
+                        value="">
+                    <span class="span">Transplant Urgency</span>
+                </label class="label">
+                -->
+                        </div>
+                    </div>
+                    <div class="btn_wrapper">
+                        <button type="submit" id="registerbtn">Register</button>
+                    </div>
+                </form>
+                                        
+                                    </div>
+                                    <div class="dashboard-close-btn-update close-button close-button<?php echo $row['recipID']; ?>"  data-btn-id=<?php echo $row['recipID']; ?> >&times;</div>
+                                </div>                    
+                            </div>
+
+                             <!-----------------END OF POP UP UPDATE---------------->
+
+
+
+
+
+
+
                         </div>
 
 
@@ -530,6 +732,7 @@
     </div>
     <script src="./registrationscript.js"></script>                
     <script src="../app/popUpDashboard.js"></script>
+    <script src="../Recipient-Dashboard/recipientdashbscript.js"></script>
 </body>
 
 </html>
