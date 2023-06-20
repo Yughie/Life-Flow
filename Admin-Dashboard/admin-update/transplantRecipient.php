@@ -1,15 +1,13 @@
 <?php
     include ('../admin-php/connection.php');
 
-
-
     $id = $_GET['ids'];
 
-    var_dump($id); // Check if the ID value is retrieved correctly
+   
 
     // Prepare the update statement using a parameterized query
-    $statement = mysqli_prepare($conn, "UPDATE donor_info_tbl SET isNewApplicant = 0 WHERE id = ?");
-    mysqli_stmt_bind_param($statement, "s", $id);
+    $statement = mysqli_prepare($conn, "UPDATE recipient_info_tbl SET recip_status = 1 WHERE recipID = ?");
+    mysqli_stmt_bind_param($statement, "i", $id);
 
     // Execute the prepared statement
     $result = mysqli_stmt_execute($statement);
@@ -26,6 +24,6 @@
     mysqli_stmt_close($statement);
 
     // Redirect to a different page
-    header('Location: ../adminDonorApplicant.php');
+    header('Location: ../adminTransplantRegistry.php');
     exit();
 ?>

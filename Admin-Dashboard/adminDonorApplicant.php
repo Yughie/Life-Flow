@@ -75,7 +75,7 @@
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__LogOut" href="../Landing-Page/">
+                <a class="adminLinks__LogOut" href="../index.html">
                     <img src="../Images/AdminDashboard/Icon-LogOut-standby.svg" alt="Log Out Icon">
                     <h2>Log Out</h2>
                 </a>

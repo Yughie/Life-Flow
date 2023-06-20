@@ -78,7 +78,7 @@
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__LogOut" href="../Landing-Page/Landing-Page.html">
+                <a class="adminLinks__LogOut" href="../index.html">
                     <img src="../Images/AdminDashboard/Icon-LogOut-standby.svg" alt="Log Out Icon">
                     <h2>Log Out</h2>
                 </a>
@@ -163,12 +163,13 @@
                             while($row = mysqli_fetch_assoc($result)){
                             ?>
 
-                            <div class="transplantRecipient1 transplantRecipient">
-                                <label class="" for="transplantRecipient1">
-                                    <input type="radio" name="transplantRecipient" id="transplantRecipient1" value="<?php echo $row['recipID']; ?>"
+                            <div class="transplantRecipient transplantRecipient<?php echo $row['recipID'] ?>" data-recipient-id="<?php echo $row['recipID'] ?>">
+                                <label class="" for="transplantRecipient<?php echo $row['recipID'] ?>">
+                                    <input type="radio" name="transplantRecipients"
+                                    id="transplantRecipient<?php echo $row['recipID']; ?>" value="<?php echo $row['recipID']; ?>"
                                         class="option hide-radio">
 
-
+                                        <input type="hidden" name="id" value="<?php echo $row['recipID']; ?>">
 
                                     <div class="transplantRecipient__personal">
                                         <!----ID/DATE------>
@@ -237,12 +238,19 @@
                                         </h3>
                                         <!---FUNCTIONS----->
                                         <div class="transplantRecipient-function-container">
+                                        <!------
                                             <img class="transplantRecipient-edit"
+
+                                            
                                                 src="../Images/DonorApplicant/icon-editApplicant.svg"
                                                 alt="edit applicant icon">
-                                                <a href="./admin-delete/transplant-delete.php?id=<?php echo $row['recipID']; ?>">
+                                                ---->
+                                                <a href="./admin-update/transplantRecipient.php?ids=<?php echo $row['recipID']; ?>">
+                                                    <!-------
                                                     <img class="transplantRecipient-delete"
                                                         src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                    -->
+                                                    <img class="transplantFunction" src="../Images/icon-temporary.png" alt="Hand icon">
                                                 </a>
                                         </div>
                                     </div>
@@ -273,12 +281,12 @@
                             <?php   
                             while($rows = mysqli_fetch_assoc($result_donor)){
                             ?>
-                                <div class="transplantDonor1 transplantDonor">
-                                <label class="transplantDonor__profile" for="transplantDonor1">
-                                    <input type="radio" name="transplantDonor" id="transplantDonor1" value="1"
+                                <div class="transplantDonor transplantDonor<?php echo $rows['id'] ?>" data-donor-id=<?php echo $rows['id'] ?>>
+                                <label class="transplantDonor__profile" for="transplantDonor<?php echo $rows['id'] ?>">
+                                    <input type="radio" name="transplantDonors"  id="transplantDonor1" value="1"
                                         class="option hide-radio">
 
-
+                                        <input type="hidden" name="id" value="<?php echo $rows['id']; ?>">
                                     <!---PERSONAL INFORMATION-->
                                     <div class="transplantDonor__personal">
                                         <!----ID/DATE------>
@@ -373,12 +381,18 @@
 
                                         <!---FUNCTIONS----->
                                         <div class="transplantDonor-function-container">
+
+                                        <!----
                                             <img class="transplantDonor-edit edit-button" data-user-id="<?php echo $rows['id']; ?>"
                                                 src="../Images/DonorApplicant/icon-editApplicant.svg"
                                                 alt="edit applicant icon">
-                                            <a href="./admin-delete/transplant-delete.php?id=<?php echo $rows['id']; ?>">
+                                                ---->
+                                            <a href="./admin-update/transplantDonor.php?ids=<?php echo $rows['id']; ?>">
+                                            <!---
                                                 <img class="transplantDonor-delete"
                                                     src="../Images/DonorApplicant/icon-deleteApplicant.svg" alt="Trash can">
+                                    -->
+                                               <img class="transplantFunction" src="../Images/icon-temporary.png" alt="Hand icon">
                                             </a>
                                         </div>
 

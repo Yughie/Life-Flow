@@ -272,6 +272,10 @@ h1, h2, h3 {
   transform: scale(1.03);
 }
 
+.profile__Image {
+  border: 50%;
+}
+
 .adminDashboardContent {
   display: block;
   width: 100%;
@@ -2424,10 +2428,6 @@ h1, h2, h3 {
   filter: invert(44%) sepia(23%) saturate(1396%) hue-rotate(314deg) brightness(93%) contrast(79%);
 }
 
-.adminTransfusionRegistryBody * {
-  border: 1px dashed yellow;
-}
-
 .hide-radio {
   position: absolute;
   opacity: 0;
@@ -3524,6 +3524,7 @@ h1, h2, h3 {
   padding-top: 20px;
   padding-bottom: 20px;
   border: 1px solid black;
+  cursor: pointer;
 }
 .admintransplantRecipient__contentTitle {
   display: flex;
@@ -3695,6 +3696,7 @@ h1, h2, h3 {
   max-height: 100px;
   min-height: 100px;
   min-width: 500px;
+  cursor: pointer;
   /************************DATABASEEEEEE***************************/
   /******************FUNCTIONS**********************/
 }
@@ -3822,6 +3824,23 @@ h1, h2, h3 {
   scale: 1;
 }
 
+.transplantFunction {
+  width: 50px;
+  height: 50px;
+  fill: #860909;
+}
+.transplantFunction:hover {
+  animation: beat 400ms infinite alternate;
+}
+
+@keyframes beat {
+  0% {
+    scale: 1.03;
+  }
+  100% {
+    scale: 1;
+  }
+}
 .donorRegistrationBody {
   overflow-x: hidden;
 }

@@ -74,7 +74,7 @@
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__LogOut" href="../Landing-Page/Landing-Page.html">
+                <a class="adminLinks__LogOut" href="../index.html">
                     <img src="../Images/AdminDashboard/Icon-LogOut-standby.svg" alt="Log Out Icon">
                     <h2>Log Out</h2>
                 </a>
@@ -90,7 +90,7 @@
                 <!-----------BLOOOD TYPE CONTAINER--------------------------->
                 <div class="bloodType_Container">
 
-                    <input type="radio" name="blooodtype" id="option1" value="1" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option1" value="1" class="option getBloodType hide-radio">
                     <label for="option1">
                         <div class="bloodtype1 bloodtype">
                             <div class="bloodtype__name bloodtype__name1" for="onegative">O-</div>
@@ -98,49 +98,49 @@
 
                         </div>
                     </label>
-                    <input type="radio" name="blooodtype" id="option2" value="2" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option2" value="2" class="option getBloodType hide-radio">
                     <label for="option2">
                         <div class="bloodtype2 bloodtype">
                             <div class="bloodtype__name bloodtype__name2">O+</div>
                             <div class="bloodtype__count bloodtype__count2"><?php echo display_TypeOPositiveCount(); ?></div>
                         </div>
                     </label>
-                    <input type="radio" name="blooodtype" id="option3" value="3" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option3" value="3" class="option getBloodType hide-radio">
                     <label for="option3">
                         <div class="bloodtype3 bloodtype">
                             <div class="bloodtype__name bloodtype__name3">B-</div>
                             <div class="bloodtype__count bloodtype__count3"><?php echo display_TypeBNegativeCount(); ?></div>
                         </div>
                     </label>
-                    <input type="radio" name="blooodtype" id="option4" value="4" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option4" value="4" class="option getBloodType hide-radio">
                     <label for="option4">
                         <div class="bloodtype4 bloodtype">
                             <div class="bloodtype__name bloodtype__name4">B+</div>
                             <div class="bloodtype__count bloodtype__count4"><?php echo display_TypeBPositiveCount(); ?></div>
                         </div>
                     </label>
-                    <input type="radio" name="blooodtype" id="option5" value="5" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option5" value="5" class="option getBloodType hide-radio">
                     <label for="option5">
                         <div class="bloodtype5 bloodtype">
                             <div class="bloodtype__name bloodtype__name5">A-</div>
                             <div class="bloodtype__count bloodtype__count5"><?php echo display_TypeANegativeCount(); ?></div>
                         </div>
                     </label>
-                    <input type="radio" name="blooodtype" id="option6" value="6" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option6" value="6" class="option getBloodType hide-radio">
                     <label for="option6">
                         <div class="bloodtype6 bloodtype">
                             <div class="bloodtype__name bloodtype__name6">A+</div>
                             <div class="bloodtype__count bloodtype__count6"><?php echo display_TypeAPositiveCount(); ?></div>
                         </div>
                     </label>
-                    <input type="radio" name="blooodtype" id="option7" value="7" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option7" value="7" class="option getBloodType hide-radio">
                     <label for="option7">
                         <div class="bloodtype7 bloodtype">
                             <div class="bloodtype__name bloodtype__name7">AB-</div>
                             <div class="bloodtype__count bloodtype__count7"><?php echo display_TypeABNegativeCount(); ?></div>
                         </div>
                     </label>
-                    <input type="radio" name="blooodtype" id="option8" value="8" class="option hide-radio">
+                    <input type="radio" name="blooodtype" id="option8" value="8" class="option getBloodType hide-radio">
                     <label for="option8">
                         <div class="bloodtype8 bloodtype">
                             <div class="bloodtype__name bloodtype__name8">AB+</div>
@@ -318,11 +318,13 @@
                             ?>
                             <!-----------FUNCTION------------------->
                             <div class="transfusion-function-container">
-                                <svg class="transfusion__function" width="60" height="50" viewBox="0 0 60 50"
-                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M49.5837 42.5172H35.4774C35.1953 43.1974 34.8191 43.8777 34.3019 44.4533C33.2439 45.6307 31.8568 46.2586 30.3521 46.2586C28.8474 46.2586 27.4603 45.6307 26.4023 44.4533L16.4809 33.4122C16.0342 32.9151 16.0342 32.1825 16.4809 31.6854C16.9276 31.1883 17.5859 31.1883 18.0326 31.6854L28.0246 42.805C29.3176 44.244 31.4336 44.244 32.7737 42.805C34.0668 41.366 34.0668 39.0113 32.7737 37.5199L20.3366 23.6794C18.2677 21.377 15.5875 20.2781 12.9308 20.1996H0V35.0867H6.2538C7.71145 35.0867 9.09858 35.7146 10.2036 36.892L18.8554 46.5202C20.9714 48.875 23.9337 50 26.6609 50H49.5837C51.4175 50 52.9222 48.3255 52.9222 46.2848C52.9222 44.244 51.4175 42.5172 49.5837 42.5172ZM56.4958 19.938C60.7042 15.8303 61.2214 8.66142 57.5068 3.89964C53.8156 -0.783659 47.3737 -1.35926 43.0948 2.7746L41.6371 4.18744L40.1795 2.7746C35.9711 -1.3331 29.4587 -0.783659 25.7675 3.89964C22.0529 8.58293 22.5701 15.8303 26.7785 19.938L41.402 36.6304L56.4958 19.938Z" />
-                                </svg>
+                                <a href="./admin-update/transfusion-update.php?ids=<?php echo $row['recipID'];?>">
+                                    <svg class="transfusion__function"  width="60" height="50" viewBox="0 0 60 50"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M49.5837 42.5172H35.4774C35.1953 43.1974 34.8191 43.8777 34.3019 44.4533C33.2439 45.6307 31.8568 46.2586 30.3521 46.2586C28.8474 46.2586 27.4603 45.6307 26.4023 44.4533L16.4809 33.4122C16.0342 32.9151 16.0342 32.1825 16.4809 31.6854C16.9276 31.1883 17.5859 31.1883 18.0326 31.6854L28.0246 42.805C29.3176 44.244 31.4336 44.244 32.7737 42.805C34.0668 41.366 34.0668 39.0113 32.7737 37.5199L20.3366 23.6794C18.2677 21.377 15.5875 20.2781 12.9308 20.1996H0V35.0867H6.2538C7.71145 35.0867 9.09858 35.7146 10.2036 36.892L18.8554 46.5202C20.9714 48.875 23.9337 50 26.6609 50H49.5837C51.4175 50 52.9222 48.3255 52.9222 46.2848C52.9222 44.244 51.4175 42.5172 49.5837 42.5172ZM56.4958 19.938C60.7042 15.8303 61.2214 8.66142 57.5068 3.89964C53.8156 -0.783659 47.3737 -1.35926 43.0948 2.7746L41.6371 4.18744L40.1795 2.7746C35.9711 -1.3331 29.4587 -0.783659 25.7675 3.89964C22.0529 8.58293 22.5701 15.8303 26.7785 19.938L41.402 36.6304L56.4958 19.938Z" />
+                                    </svg>
+                                </a>
                             </div>
 
                         </div>

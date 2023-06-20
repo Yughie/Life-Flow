@@ -1,10 +1,12 @@
 let options = document.querySelectorAll("input[name='blooodtype']");
 let names = document.querySelectorAll(".bloodtype__name");
 let counts = document.querySelectorAll(".bloodtype__count");
-let value = null;
+var value = null;
+
 
 let findSelected = () => {
   selected = document.querySelector("input[name='blooodtype']:checked").value;
+
   console.log(selected);
   for(let i = 1; i <= options.length; i++){
     if(selected == i){
@@ -21,7 +23,11 @@ let findSelected = () => {
   }
 }
 
-options.forEach(options => {
-  options.addEventListener("change", findSelected);
-})
 
+const giveBlood = documet.querySelectorAll('.transfusion__function');
+
+
+giveBlood.addEventListener("click", function() {
+
+  giveBlood.style.scale = "2"
+});
