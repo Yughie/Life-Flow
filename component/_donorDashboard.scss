@@ -1,6 +1,6 @@
 @use "../abstract/index.scss" as *;
 
-.recip_dashb_body {
+.don_dashb_body {
     height: 100vh;
     display: flex;
     overflow: hidden;
@@ -510,7 +510,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
 
-        .recipDashb {
+        .donDashb {
             width: 101%;
             min-height: 100vh;
             //background-color: red;
@@ -521,7 +521,7 @@
             overflow-y: scroll;
             overflow-x: hidden;
     
-            .recipTop {
+            .donTop {
                 //background-color: pink;
                 height: 40px;
                 grid-area: header;
@@ -537,14 +537,14 @@
                 }
             }
     
-            .recipBottom {
+            .donBottom {
                 //min-height: 100%;
                 display: grid;
                 grid-area: bottom;
                 grid-template-areas: 'left right';
                 height: calc(100%);
                 
-                .recipLeft{
+                .donLeft{
                     //background-color: lightblue;
                     //margin-top: 15px;
                     grid-area: left;
@@ -703,7 +703,7 @@
                     }
                 }
         
-                .recipRight {
+                .donRight {
                     margin-top: 15px;
                     grid-area: right;
                     margin-bottom: 25px;
@@ -844,7 +844,7 @@
                 justify-content: center;
                 align-items: center;
 
-                .change_donInfo {
+                .change_recipInfo {
                     width: 80%;
                     margin-bottom: 20px;
 
@@ -903,7 +903,7 @@
                         }    
                     }
 
-                    .don_viewinfo {
+                    .recip_viewinfo {
                         margin: 0px 0px 10px 0px;
                         background: #f3f5f7;
                         width: 100%;

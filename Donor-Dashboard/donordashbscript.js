@@ -1,6 +1,6 @@
 
 window.onload = function() {
-    document.querySelector('.recipDashb').style.display = "block";
+    document.querySelector('.donDashb').style.display = "block";
     document.querySelector('.donors').style.display = "none";
     document.querySelector('.userProfile').style.display = "none";
     document.querySelector('.changePass').style.display = "none";
@@ -21,42 +21,42 @@ function openSidebar(selected) {
 }
 
 function darkMode(selected) {
-    var recipDashbBody = document.querySelector(".recip_dashb_body");
+    var donDashbBody = document.querySelector(".recip_dashb_body");
 
     if (selected) {
-        recipDashbBody.style.setProperty("transition", "background-color 0.3s ease, color 0.3s ease-in-out");
-        recipDashbBody.style.setProperty("--sidebar-background", "#46424F");
-        recipDashbBody.style.setProperty("--dark-text", "white");
-        recipDashbBody.style.setProperty("--dashbBG", "#1A1625");
-        recipDashbBody.style.setProperty("--shadow", "transparent");
-        recipDashbBody.style.setProperty("--babyblue", "#2F2B3A");
-        recipDashbBody.style.setProperty("--lightpink", "#2F2B3A");
-        recipDashbBody.style.setProperty("--whiteBox", "#1A1625");
-        recipDashbBody.style.setProperty("--rowRightTxt", "#2F2B3A");
-        recipDashbBody.style.setProperty("--rowLeftBG", "#2F2B3A");
-        recipDashbBody.style.setProperty("--btypeBG", "A688FA");
-        recipDashbBody.style.setProperty("--orgCountTxt", "white");
-        recipDashbBody.style.setProperty("--bloodCountTxt", "white");
+        donDashbBody.style.setProperty("transition", "background-color 0.3s ease, color 0.3s ease-in-out");
+        donDashbBody.style.setProperty("--sidebar-background", "#46424F");
+        donDashbBody.style.setProperty("--dark-text", "white");
+        donDashbBody.style.setProperty("--dashbBG", "#1A1625");
+        donDashbBody.style.setProperty("--shadow", "transparent");
+        donDashbBody.style.setProperty("--babyblue", "#2F2B3A");
+        donDashbBody.style.setProperty("--lightpink", "#2F2B3A");
+        donDashbBody.style.setProperty("--whiteBox", "#1A1625");
+        donDashbBody.style.setProperty("--rowRightTxt", "#2F2B3A");
+        donDashbBody.style.setProperty("--rowLeftBG", "#2F2B3A");
+        donDashbBody.style.setProperty("--btypeBG", "A688FA");
+        donDashbBody.style.setProperty("--orgCountTxt", "white");
+        donDashbBody.style.setProperty("--bloodCountTxt", "white");
     } else {
-        recipDashbBody.style.setProperty("transition", "background-color 0.3s ease, color 0.3s ease-in-out");
-        recipDashbBody.style.setProperty("--sidebar-background", "");
-        recipDashbBody.style.setProperty("--dark-text", "");
-        recipDashbBody.style.setProperty("--dashbBG", "");
-        recipDashbBody.style.setProperty("--shadow", "");
-        recipDashbBody.style.setProperty("--babyblue", "");
-        recipDashbBody.style.setProperty("--lightpink", "");
-        recipDashbBody.style.setProperty("--whiteBox", "");
-        recipDashbBody.style.setProperty("--rowRightTxt", "");
-        recipDashbBody.style.setProperty("--rowLeftBG", "");
-        recipDashbBody.style.setProperty("--btypeBG", "");
-        recipDashbBody.style.setProperty("--orgCountTxt", "");
-        recipDashbBody.style.setProperty("--bloodCountTxt", "");
+        donDashbBody.style.setProperty("transition", "background-color 0.3s ease, color 0.3s ease-in-out");
+        donDashbBody.style.setProperty("--sidebar-background", "");
+        donDashbBody.style.setProperty("--dark-text", "");
+        donDashbBody.style.setProperty("--dashbBG", "");
+        donDashbBody.style.setProperty("--shadow", "");
+        donDashbBody.style.setProperty("--babyblue", "");
+        donDashbBody.style.setProperty("--lightpink", "");
+        donDashbBody.style.setProperty("--whiteBox", "");
+        donDashbBody.style.setProperty("--rowRightTxt", "");
+        donDashbBody.style.setProperty("--rowLeftBG", "");
+        donDashbBody.style.setProperty("--btypeBG", "");
+        donDashbBody.style.setProperty("--orgCountTxt", "");
+        donDashbBody.style.setProperty("--bloodCountTxt", "");
     }
 }
 
 // open dashboard
 function openDashB() {
-    document.querySelector('.recipDashb').style.display = "block";
+    document.querySelector('.donDashb').style.display = "block";
     closeDonors();
     closeUser();
     closeChangePass();
@@ -64,7 +64,7 @@ function openDashB() {
 
 // close dashboard
 function closeDashB() {
-    document.querySelector('.recipDashb').style.display = "none";
+    document.querySelector('.donDashb').style.display = "none";
 }
 
 // open donors
