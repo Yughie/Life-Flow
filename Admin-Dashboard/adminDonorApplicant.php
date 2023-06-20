@@ -266,7 +266,7 @@
                                             </div>
                                             <div>
                                                 <h3 class="applicant__personal__name">
-                                                    <?php echo $row['don_lastName'] . $row['don_firstName'] . ",";?>
+                                                    <?php echo $row['don_lastName'] . " " . $row['don_firstName'] . ",";?>
                                                 </h3>
                                                 <h3 class="applicant__personal__name">
                                                     <?php echo $row['don_midName']; ?>

@@ -390,6 +390,7 @@ h1, h2, h3 {
 .LatestDonorApplication .latestApplication_container .profile__Image {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
 .LatestDonorApplication .latestApplication_container .profile__Name {
   color: #292828;
@@ -844,7 +845,7 @@ h1, h2, h3 {
   border-radius: 20px;
 }
 .signuppopup .su-btm .sides {
-  background-image: url("Images/landing-page-assets/popups-assets/fltr donor side.png");
+  background-image: url("Images/landing-page-assets/popups-assets/fltr recipient side.png");
   background-size: 100%;
   background-position: center;
   border-radius: 20px 0px 0px 20px;

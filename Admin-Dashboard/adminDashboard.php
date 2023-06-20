@@ -178,7 +178,7 @@
                                         }
                                     ?>
                                   
-                             <img class="profile__Image" src="<?php echo $imageSrc; ?>" alt="default profile">
+                             <img class="profile__Image" src="<?php echo $imageSrc; ?>" alt="default profile" style="border-radius: 50%;">
                              <h3 class="profile__Name"><?php echo $row['don_firstName'] . " " . $row['don_midName'] . " " . $row['don_lastName'];?></h3>
                              <h3 class="profile__ApplicationDate"><?php echo $row['created_at'];?></h3>
                             

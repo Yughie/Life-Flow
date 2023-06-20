@@ -544,7 +544,7 @@
                             </div>
                         </div>
                         <div class="btn_wrapper">
-                            <button type="submit" id="registerbtn">Register</button>
+                            <button type="submit" id="registerbtn">Update</button>
                         </div>
                     </form>
                                         

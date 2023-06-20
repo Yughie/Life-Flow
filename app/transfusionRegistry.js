@@ -24,10 +24,3 @@ let findSelected = () => {
 }
 
 
-const giveBlood = documet.querySelectorAll('.transfusion__function');
-
-
-giveBlood.addEventListener("click", function() {
-
-  giveBlood.style.scale = "2"
-});

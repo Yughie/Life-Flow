@@ -433,7 +433,24 @@ if (isset($_SESSION['don_username'])) {
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
                                                         <?php } elseif ($recip_neededOrgan === 'Hands and Face') { ?>
                                                             <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
-                                                        <?php } ?>
+                                                        <?php } elseif ($recip_bloodType === 'O-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o-.svg">
+                                                        <?php }elseif ($recip_bloodType === 'O+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o+.svg">
+                                                        <?php }elseif ($recip_bloodType === 'A-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a-.svg">
+                                                        <?php }elseif ($recip_bloodType === 'A+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a+.svg">
+                                                        <?php }elseif ($recip_bloodType === 'B-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b-.svg">
+                                                        <?php }elseif ($recip_bloodType === 'B+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b+.svg">
+                                                        <?php }elseif ($recip_bloodType === 'AB-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab-.svg">
+                                                        <?php }elseif ($recip_bloodType === 'AB+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab+.svg">
+                                                        <?php }
+                                                        ?>
                                                     </p>
                                                 </td>
                                             </tr>

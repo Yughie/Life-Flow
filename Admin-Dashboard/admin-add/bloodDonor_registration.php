@@ -45,7 +45,7 @@
                 // Insert data into the database
                 $stmt = $connect->prepare("INSERT INTO donor_info_tbl ( don_firstName, don_midName, don_lastName, don_bday, don_age, don_sex, don_bloodType, don_streetAdd, don_city, don_province, don_postal, don_phoneNum, don_ethnicity, don_boolBlood, don_boolOrganTissue, don_giftOrgan, don_userProfile, isDeceased, isNewApplicant) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("ssssissssssssssssii", $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData, $isDeceased, $isNewApplicant);
-                
+                $stmt->execute();
               
     
 

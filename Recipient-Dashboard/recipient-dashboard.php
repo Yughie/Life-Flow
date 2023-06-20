@@ -28,7 +28,8 @@ if (isset($_SESSION['recip_username'])) {
     $recip_dp = isset($infoData['recip_userProfile']) ? $infoData['recip_userProfile'] : null;
     $recip_firstName = isset($infoData['recip_firstName']) ? $infoData['recip_firstName'] : null;
     $recip_boolBlood = isset($infoData['recip_boolBlood']) ? $infoData['recip_boolBlood'] : null;
-    $recip_bloodType = isset($infoData['recip_bloodType']) ? $infoData['recip_bloodType'] : null;
+    $don_bloodType = isset($infoData['don_bloodType']) ? $infoData['don_bloodType'] : null;
+    $don_origBloodType = isset($infoData['don_bloodType']) ? $infoData['don_bloodType'] : null;
     $recip_neededOrgan = isset($infoData['recip_neededOrgan']) ? $infoData['recip_neededOrgan'] : null;
     $recip_urgency = isset($infoData['recip_Urgency']) ? $infoData['recip_Urgency'] : null;
 
@@ -46,8 +47,9 @@ if (isset($_SESSION['recip_username'])) {
     if ($recip_boolBlood === '0') {
         $recip_boolBlood = 'None';
     } elseif ($recip_boolBlood === '1') {
-        $recip_boolBlood = $recip_bloodType;
+        $recip_boolBlood = $don_bloodType;
     }
+
     // adjust value fo $recip_neededOrgan for echo
     if (empty($recip_neededOrgan)) {
         $recip_neededOrgan = 'None';
@@ -433,7 +435,24 @@ if (isset($_SESSION['recip_username'])) {
                                                             <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
                                                         <?php } elseif ($don_GiftOrgan === 'Hands and Face') { ?>
                                                             <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
-                                                        <?php } ?>
+                                                        <?php } elseif ($don_bloodType === 'O-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o-.svg">
+                                                        <?php } elseif ($don_bloodType === 'O+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o+.svg">
+                                                        <?php } elseif ($don_bloodType === 'A-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a-.svg">
+                                                        <?php } elseif ($don_bloodType === 'A+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a+.svg">
+                                                        <?php } elseif ($don_bloodType === 'B-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b-.svg">
+                                                        <?php } elseif ($don_bloodType === 'B+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b+.svg">
+                                                        <?php } elseif ($don_bloodType === 'AB-') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab-.svg">
+                                                        <?php } elseif ($don_bloodType === 'AB+') { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab+.svg">
+                                                        <?php }
+                                                        ?>
                                                     </p>
                                                 </td>
                                             </tr>
