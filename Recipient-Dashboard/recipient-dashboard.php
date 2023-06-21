@@ -28,8 +28,7 @@ if (isset($_SESSION['recip_username'])) {
     $recip_dp = isset($infoData['recip_userProfile']) ? $infoData['recip_userProfile'] : null;
     $recip_firstName = isset($infoData['recip_firstName']) ? $infoData['recip_firstName'] : null;
     $recip_boolBlood = isset($infoData['recip_boolBlood']) ? $infoData['recip_boolBlood'] : null;
-    $don_bloodType = isset($infoData['don_bloodType']) ? $infoData['don_bloodType'] : null;
-    $don_origBloodType = isset($infoData['don_bloodType']) ? $infoData['don_bloodType'] : null;
+    $recip_bloodType = isset($infoData['recip_bloodType']) ? $infoData['recip_bloodType'] : null;
     $recip_neededOrgan = isset($infoData['recip_neededOrgan']) ? $infoData['recip_neededOrgan'] : null;
     $recip_urgency = isset($infoData['recip_Urgency']) ? $infoData['recip_Urgency'] : null;
 
@@ -47,9 +46,8 @@ if (isset($_SESSION['recip_username'])) {
     if ($recip_boolBlood === '0') {
         $recip_boolBlood = 'None';
     } elseif ($recip_boolBlood === '1') {
-        $recip_boolBlood = $don_bloodType;
+        $recip_boolBlood = $recip_bloodType;
     }
-
     // adjust value fo $recip_neededOrgan for echo
     if (empty($recip_neededOrgan)) {
         $recip_neededOrgan = 'None';
@@ -383,7 +381,7 @@ if (isset($_SESSION['recip_username'])) {
                         <div class="recipRight">
                             <p class="righttxt">Recent Donation Registrations</p>
                             <?php
-                                $query = "SELECT don_firstName, don_bloodType, don_giftOrgan, don_userProfile FROM donor_info_tbl ORDER BY created_at DESC LIMIT 9";
+                                $query = "SELECT don_firstName, don_bloodType, don_boolBlood, don_giftOrgan, don_userProfile FROM donor_info_tbl ORDER BY created_at DESC LIMIT 9";
                                 $result = mysqli_query($connect, $query);
                             ?>
                             <div class="recentdons_tbl_container">
@@ -393,7 +391,8 @@ if (isset($_SESSION['recip_username'])) {
                                         // Loop through the results and display the recent donations in table rows
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             $don_FirstName = $row['don_firstName'];
-                                            $don_BloodType = $row['don_bloodType'];
+                                            $don_bloodType = $row['don_bloodType'];
+                                            $don_boolBlood = $row['don_boolBlood'];
                                             $don_GiftOrgan = $row['don_giftOrgan'];
                                             $don_dp = $row['don_userProfile'];
                                         
@@ -416,43 +415,43 @@ if (isset($_SESSION['recip_username'])) {
                                                     </div>
                                                     
                                                     <p class="don_BType">
-                                                        <?php echo $don_BloodType; ?>
+                                                        <?php echo $don_bloodType; ?>
                                                     </p>
                                                     <p class="don_organ">
-                                                    <?php if ($don_GiftOrgan === 'Liver') { ?>
-                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Corneas') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Heart') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Pancreas') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Lungs') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Kidney') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Intestines') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
-                                                        <?php } elseif ($don_GiftOrgan === 'Hands and Face') { ?>
-                                                            <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
-                                                        <?php } elseif ($don_bloodType === 'O-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o-.svg">
-                                                        <?php } elseif ($don_bloodType === 'O+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o+.svg">
-                                                        <?php } elseif ($don_bloodType === 'A-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a-.svg">
-                                                        <?php } elseif ($don_bloodType === 'A+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a+.svg">
-                                                        <?php } elseif ($don_bloodType === 'B-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b-.svg">
-                                                        <?php } elseif ($don_bloodType === 'B+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b+.svg">
-                                                        <?php } elseif ($don_bloodType === 'AB-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab-.svg">
-                                                        <?php } elseif ($don_bloodType === 'AB+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab+.svg">
-                                                        <?php }
-                                                        ?>
+                                                    <?php
+                                                    $bloodTypes = array('O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+');
+                                                    foreach ($bloodTypes as $bloodType) {
+                                                        if ($don_boolBlood == 1 && $don_bloodType === $bloodType) { ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/<?php echo strtolower($bloodType); ?>.svg">
+                                                    <?php }
+                                                    } ?>
+                                                    
+                                                    <?php switch ($don_GiftOrgan) {
+                                                        case 'Liver': ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                        case 'Corneas': ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                        case 'Heart': ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                        case 'Pancreas': ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                        case 'Lungs': ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                        case 'Kidney': ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                        case 'Intestines': ?>
+                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                        case 'Hands and Face': ?>
+                                                            <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg" style="margin-right: 55px;">
+                                                        <?php break;
+                                                    } ?>        
                                                     </p>
                                                 </td>
                                             </tr>

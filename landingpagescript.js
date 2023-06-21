@@ -130,6 +130,24 @@ function closeRecipLogin() {
     }, 300)
 }
 
+function openLogIn() {
+    document.querySelector("#login").style.top = "50%";
+    document.querySelector('#login').style.boxShadow = "0 0 0 1600px rgba(0, 0, 0, 0.25)";
+    document.querySelector("#login").style.display = "flex";
+    document.querySelector('#login').classList.add('fadein');
+    closeRecReg();
+    closeDonReg()
+    closeSignUp();
+}
+function closeLogIn() {
+    document.querySelector("#login").style.top = "150%";
+    document.querySelector('#login').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
+    document.querySelector('#login').classList.add('fadeout');
+    setTimeout(() => {
+        document.querySelector('#login').classList.remove('fadeout');
+    }, 300)
+}
+
 
 
 // checks if recipient password matches (for span indicator)

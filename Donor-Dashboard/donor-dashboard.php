@@ -381,7 +381,7 @@ if (isset($_SESSION['don_username'])) {
                         <div class="donRight">
                             <p class="righttxt">Recent Recipient Registrations</p>
                             <?php
-                                $query = "SELECT recip_firstName, recip_bloodType, recip_neededOrgan, recip_userProfile FROM recipient_info_tbl ORDER BY created_at DESC LIMIT 9";
+                                $query = "SELECT recip_firstName, recip_bloodType, recip_boolBlood, recip_neededOrgan, recip_userProfile FROM recipient_info_tbl ORDER BY created_at DESC LIMIT 9";
                                 $result = mysqli_query($connect, $query);
                             ?>
                             <div class="recentdons_tbl_container">
@@ -392,6 +392,7 @@ if (isset($_SESSION['don_username'])) {
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             $recip_FirstName = $row['recip_firstName'];
                                             $recip_bloodType = $row['recip_bloodType'];
+                                            $recip_boolBlood = $row['recip_boolBlood'];
                                             $recip_neededOrgan = $row['recip_neededOrgan'];
                                             $recip_dp = $row['recip_userProfile'];
                                         
@@ -417,40 +418,95 @@ if (isset($_SESSION['don_username'])) {
                                                         <?php echo $recip_bloodType; ?>
                                                     </p>
                                                     <p class="don_organ">
-                                                    <?php if ($recip_neededOrgan === 'Liver') { ?>
-                                                        <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
-                                                        <?php } elseif ($recip_neededOrgan === 'Corneas') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
-                                                        <?php } elseif ($recip_neededOrgan === 'Heart') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
-                                                        <?php } elseif ($recip_neededOrgan === 'Pancreas') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
-                                                        <?php } elseif ($recip_neededOrgan === 'Lungs') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
-                                                        <?php } elseif ($recip_neededOrgan === 'Kidney') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
-                                                        <?php } elseif ($recip_neededOrgan === 'Intestines') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
-                                                        <?php } elseif ($recip_neededOrgan === 'Hands and Face') { ?>
-                                                            <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
-                                                        <?php } elseif ($recip_bloodType === 'O-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o-.svg">
-                                                        <?php }elseif ($recip_bloodType === 'O+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o+.svg">
-                                                        <?php }elseif ($recip_bloodType === 'A-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a-.svg">
-                                                        <?php }elseif ($recip_bloodType === 'A+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a+.svg">
-                                                        <?php }elseif ($recip_bloodType === 'B-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b-.svg">
-                                                        <?php }elseif ($recip_bloodType === 'B+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b+.svg">
-                                                        <?php }elseif ($recip_bloodType === 'AB-') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab-.svg">
-                                                        <?php }elseif ($recip_bloodType === 'AB+') { ?>
-                                                            <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab+.svg">
-                                                        <?php }
-                                                        ?>
+                                                    <?php
+                                                        if ($recip_boolBlood == 1) {
+                                                            switch ($recip_bloodType) {
+                                                            case 'O-':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o-.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'O+':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/o+.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'A-':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a-.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'A+':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/a+.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'B-':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b-.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'B+':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/b+.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'AB-':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab-.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'AB+':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/bloodpacks-asset/ab+.svg">
+                                                                <?php
+                                                                break;
+                                                            }
+                                                        } else {
+                                                            switch ($recip_neededOrgan) {
+                                                            case 'Liver':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/organs-asset/liver.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'Corneas':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/organs-asset/cornea.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'Heart':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/organs-asset/heart.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'Pancreas':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/organs-asset/pancreas.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'Lungs':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/organs-asset/lungs.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'Kidney':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/organs-asset/kidneys.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'Intestines':
+                                                                ?>
+                                                                <img src="../Images/Recipient-Donor-Dashboard/organs-asset/intestines.svg">
+                                                                <?php
+                                                                break;
+                                                            case 'Hands and Face':
+                                                                ?>
+                                                                <img class="hnf" src="../Images/Recipient-Donor-Dashboard/organs-asset/handsface.svg">
+                                                                <?php
+                                                                break;
+                                                            }
+                                                        }
+                                                    ?>
                                                     </p>
                                                 </td>
                                             </tr>

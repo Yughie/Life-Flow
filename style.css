@@ -1000,6 +1000,22 @@ h1, h2, h3 {
   margin-bottom: 15px;
 }
 
+#login {
+  flex-direction: row-reverse;
+}
+#login #signupclosebtn {
+  margin-left: 315px;
+  margin-bottom: 360px;
+  position: absolute;
+}
+#login #logoid {
+  padding-left: 0px;
+  margin-bottom: 15px;
+}
+#login p {
+  margin-bottom: 15px;
+}
+
 #reciplogin #logoid {
   padding-left: 0px;
   margin-bottom: 15px;
