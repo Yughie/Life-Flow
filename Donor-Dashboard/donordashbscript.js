@@ -1,6 +1,6 @@
 
 window.onload = function() {
-    document.querySelector('.donDashb').style.display = "block";
+    document.querySelector('.donDashb').style.display = "flex";
     document.querySelector('.donors').style.display = "none";
     document.querySelector('.userProfile').style.display = "none";
     document.querySelector('.changePass').style.display = "none";
@@ -56,7 +56,7 @@ function darkMode(selected) {
 
 // open dashboard
 function openDashB() {
-    document.querySelector('.donDashb').style.display = "block";
+    document.querySelector('.donDashb').style.display = "flex";
     closeDonors();
     closeUser();
     closeChangePass();
