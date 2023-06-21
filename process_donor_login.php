@@ -13,7 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $don_pass = isset($_POST["don_pass"]) ? $_POST["don_pass"] : "";
     $userType = isset($_POST["userType"]) ? $_POST["userType"] : "";
 
-    // Validate and sanitize the input
+    // Check if the user is logging in as an admin
+    if ($username === "admin" && $password === "adminlogin") {
+        // Redirect to the admin dashboard
+        header('Location: ../Admin-Dashboard/adminDashboard.php');
+        exit();
+    }
 
     // Check if the user is logging in as a donor
     if ($userType === "donor") {

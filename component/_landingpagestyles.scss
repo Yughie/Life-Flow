@@ -601,6 +601,26 @@
     }
 }
 
+#login {
+    flex-direction: row-reverse;
+
+    #signupclosebtn {
+        margin-left: 315px;
+        margin-bottom: 360px;
+        position: absolute;
+    }
+
+    #logoid {
+        padding-left: 0px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+}
+
+
 #reciplogin {
     #logoid {
         padding-left: 0px;

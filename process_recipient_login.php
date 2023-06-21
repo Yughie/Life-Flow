@@ -13,8 +13,13 @@ $connect = mysqli_connect($servername, $username, $password, $database);
         $recip_pass = isset($_POST["recip_pass"]) ? $_POST["recip_pass"] : "";
         $userType = isset($_POST["userType"]) ? $_POST["userType"] : "";
 
-        // Validate and sanitize the input
-
+        // Check if the user is logging in as an admin
+        if ($username === "admin" && $password === "adminlogin") {
+            // Redirect to the admin dashboard
+            header('Location: ../Admin-Dashboard/adminDashboard.php');
+            exit();
+        }
+        
         // Check if the user is logging in as a recipient
         if ($userType === "recipient") {
             $query = "SELECT * FROM recipientsignup_tbl WHERE recip_username='$recip_username' AND recip_pass='$recip_pass'";
