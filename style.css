@@ -4256,12 +4256,6 @@ h1, h2, h3 {
   fill: rgb(193, 26, 29);
   margin-left: -5px;
 }
-.menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn #dtxt {
-  margin-left: 11px;
-}
-.menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn #ltxt {
-  margin-left: 14px;
-}
 .menu-bar .menu .menu-links .nav-link .logoutform .aLogout .logoutbtn #ptxt {
   width: 100px;
   color: var(--dark-text);
