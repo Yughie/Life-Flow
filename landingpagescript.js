@@ -51,6 +51,8 @@ function openRecReg() {
     document.querySelector('#recipReg').classList.add('fadein');
     closeSignUp();
     closeRecipLogin();
+    closeDonorLogin();
+    closeSignUp();
 }
 // close recipient sign up form 
 function closeRecReg() {
@@ -75,6 +77,7 @@ function openDonReg() {
     closeSignUp();
     closeRecipLogin();
     closeDonorLogin();
+    closeSignUp();
 }
 
 // close donor sign up form 
@@ -92,6 +95,7 @@ function closeDonReg() {
 window.onload = function() {
     document.querySelector('#donorlogin').style.display = 'none';
     document.querySelector('#reciplogin').style.display = 'none';
+    document.querySelector('#login').style.display = 'none';
 };
 // open login popup
 function openDonorLogin() {
@@ -101,6 +105,8 @@ function openDonorLogin() {
     document.querySelector('#donorlogin').classList.add('fadein');
     closeRecReg();
     closeDonReg()
+    closeSignUp();
+    closeLogIn();
 }
 // close login popup 
 function closeDonorLogin() {
@@ -120,6 +126,7 @@ function openRecipLogin() {
     closeRecReg();
     closeDonReg()
     closeSignUp();
+    closeLogIn();
 }
 function closeRecipLogin() {
     document.querySelector("#reciplogin").style.top = "150%";
@@ -138,7 +145,9 @@ function openLogIn() {
     closeRecReg();
     closeDonReg()
     closeSignUp();
+    closeDonorLogin();
 }
+
 function closeLogIn() {
     document.querySelector("#login").style.top = "150%";
     document.querySelector('#login').style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0)";
