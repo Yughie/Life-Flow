@@ -189,11 +189,20 @@
                                 margin-left: -5px;
                             }
 
+                            #dtxt {
+                                margin-left: 11px;
+                            }
+
+                            #ltxt {
+                                margin-left: 14px;
+                            }
+
                             #ptxt {
                                 width: 100px;
                                 color: var(--dark-text);
                                 font-weight: 600;
-                                margin-left: -10px;
+                                margin-left: -6.45px;
+                                font-family: "Montserrat", sans-serif;
                             }
 
                             &:hover {
@@ -853,10 +862,6 @@
                         margin: 20px 0px 0px 0px;
                         font-weight: 550;
                         color: var(--dark-text);
-                    }
-
-                    #reqorg {
-                        //margin: 10px 0px 0px 0px;
                     }
 
                     .recip_pass {
