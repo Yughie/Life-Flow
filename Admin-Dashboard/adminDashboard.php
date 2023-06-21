@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+
     require_once ('admin-php/connection.php');
     require 'admin-php/functions.php'; 
 
@@ -9,8 +11,17 @@
 
 ?>
 
+<?php
 
-
+if (isset($_SESSION['admin_loggedin'])) {
+    $username = $_SESSION['admin_loggedin'];
+}
+else {
+    // Redirect to the login page if the admin is not logged in
+    header('Location: ../index.html');
+    exit();
+}
+?>
 
 
 
@@ -81,7 +92,7 @@
                 </a>
             </div>
             <div class="adminLinks flex">
-                <a class="adminLinks__LogOut" href="../Landing-Page/Landing-Page.html">
+                <a class="adminLinks__LogOut" href="../adminlogout.php">
                     <img src="../Images/AdminDashboard/Icon-LogOut-standby.svg" alt="Log Out Icon">
                     <h2>Log Out</h2>
                 </a>
@@ -216,5 +227,4 @@
 
     </nav>
 </body>
-
 </html>

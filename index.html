@@ -37,7 +37,7 @@
                 <li class="list"><a href="index.html">home</a></li>
                 <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
                 <li class="list"><a href="Learn-About-Donation/Learn-About-Donation.html">learn about donation</a></li>
-                <li class="list" onclick="openLogIn()">Log in</a></li>
+                <li class="list" onclick="openLogIn()">Sign in</a></li>
             </ul>
         </div>
 
@@ -46,7 +46,7 @@
                 <li class="list"><a href="index.html">home</a></li>
                 <li class="list" onclick="openSignUp()" id="signupbtn"><a href="#">sign up</a></li>
                 <li class="list"><a href="Learn-About-Donation/Learn-About-Donation.html">learn about donation</a></li>
-                <li class="list" onclick="openLogIn()"><a href="#">Log in</a></li>
+                <li class="list" onclick="openLogIn()"><a href="#">Sign in</a></li>
             </ul>
         </div>
     </div>
@@ -272,21 +272,18 @@
                 <a href="#"><img src="Images/LOGO.png"></a>
             </div>
             <h1>Hi there!</h1>
-            <p>signing in as a donor</p>
+            <p>signing in</p>
             <div class="loginFormContainer">
-                <form class="popup-form" id="loginForm" action="process_donor_login.php" method="POST">
+                <form class="popup-form" id="loginForm" action="process_login.php" method="POST">
                     <label>
-                        <input required="" placeholder="" type="text" name="don_username" minlength="5" class="input">
+                        <input required="" placeholder="" type="text" name="username" minlength="5" class="input">
                         <span>Username</span>
                     </label>
                                     
                     <label>
-                        <input required="" placeholder="" type="password" name="don_pass" minlength="8" class="input" id="passInput">
+                        <input required="" placeholder="" type="password" name="pass" minlength="8" class="input" id="passInput">
                         <span id="indicator">Password</span>
-                    </label>
-                
-                    <input type="hidden" name="userType" value="donor">
-                
+                    </label>              
                     <button type="submit" id="button">Sign in</button>
                                     
                     <p class="signin">Don't have an account? <a href="#" onclick="openDonReg()">Sign up</a></p>
