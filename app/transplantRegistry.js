@@ -2,7 +2,7 @@ let TRoptions = document.querySelectorAll(".transplantRecipient");
 let TDoptions = document.querySelectorAll(".transplantDonor");
 console.log("hello WOrld");
 
-
+/*
 TRoptions.forEach(button => {
   button.addEventListener('click', function () {
       // Retrieve the user ID from the data-user-id attribute
@@ -15,6 +15,7 @@ TRoptions.forEach(button => {
 });
 
 
+
 TDoptions.forEach(button => {
   button.addEventListener('click', function () {
       // Retrieve the user ID from the data-user-id attribute
@@ -25,7 +26,7 @@ TDoptions.forEach(button => {
       editForm.style.backgroundColor = "red";
   });
 });
-
+*/
 
 
 

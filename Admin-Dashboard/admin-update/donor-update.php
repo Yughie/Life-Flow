@@ -14,7 +14,7 @@
         $don_bday = isset($_POST["don_bday"]) ? $_POST["don_bday"] : ""; 
         $formatted_bday = date('Y-m-d', strtotime($don_bday));
         $don_age = $_POST["don_age"];
-        $don_sex = isset($_POST["don_sex"]) ? $_POST["don_sex"] : "";
+        $don_sex = isset($_POST["don_sex"]) ? $_POST["don_sex"] : ""; 
         $don_bloodType = isset($_POST["don_bloodType"]) ? $_POST["don_bloodType"] : "";
         $don_streetAdd = $_POST["don_streetAdd"];
         $don_city = $_POST["don_city"];
@@ -51,13 +51,21 @@
         } else {
             // No new file selected, use the existing image data
             $imageData = $existingImageData;
+            $stmt = $connect->prepare("UPDATE donor_info_tbl SET don_firstName = ?, don_midName = ?, don_lastName = ?, don_bday = ?, don_age = ?, don_sex = ?, don_bloodType = ?, don_streetAdd = ?, don_city = ?, don_province = ?, don_postal = ?, don_phoneNum = ?, don_ethnicity = ?, don_boolBlood = ?, don_boolOrganTissue = ?, don_giftOrgan = ?, don_userProfile = ?, isDeceased = ? WHERE id = ?");
+            $stmt->bind_param("sssssissssssssssssi", $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData, $isDeceased, $id);
+            $stmt->execute();
+            echo "don_sex value: " . $don_sex . "<br>";
+            // Redirect to dashboard
+            header('Location: ../adminOrganDonor.php');
+           
+            
         }
 
         // Insert data into the database
         $stmt = $connect->prepare("UPDATE donor_info_tbl SET don_firstName = ?, don_midName = ?, don_lastName = ?, don_bday = ?, don_age = ?, don_sex = ?, don_bloodType = ?, don_streetAdd = ?, don_city = ?, don_province = ?, don_postal = ?, don_phoneNum = ?, don_ethnicity = ?, don_boolBlood = ?, don_boolOrganTissue = ?, don_giftOrgan = ?, don_userProfile = ?, isDeceased = ? WHERE id = ?");
         $stmt->bind_param("sssssissssssssssssi", $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData, $isDeceased, $id);
         $stmt->execute();
-
+        echo "don_sex value: " . $don_sex . "<br>";
         // Redirect to dashboard
         header('Location: ../adminOrganDonor.php');
         exit();
