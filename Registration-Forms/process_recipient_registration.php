@@ -73,6 +73,7 @@ if (isset($_SESSION['recip_username'])) {
                 // Generate the base64-encoded image string
                 $base64Image = base64_encode($imageData);
 
+                // Redirect to dashboard
                 header("Location: ../Recipient-Dashboard/recipient-dashboard.php");
                 exit();
             }
@@ -80,6 +81,8 @@ if (isset($_SESSION['recip_username'])) {
     }
 } else {
     // 'recip_username' session variable is not set, handle the case accordingly
-    echo "Recipient Username not found.";
+    echo "<script>alert('Please sign up first.')</script>";
+    echo "<script>location.href = '../index.html';</script>";
+    exit();
 }
 ?>

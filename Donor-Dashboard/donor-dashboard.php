@@ -59,7 +59,8 @@ if (isset($_SESSION['don_username'])) {
     }
 } else {
     // Redirect to the login page if the donor is not logged in
-    header('Location: ../index.html');
+    echo "<script>alert('Please log in first.')</script>";
+    echo "<script>location.href = '../index.html';</script>";
     exit();
 }
 ?>
