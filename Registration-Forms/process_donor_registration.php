@@ -53,25 +53,48 @@ if (isset($_SESSION['don_username'])) {
 
             $uploadedFile = $_FILES['don_userProfile']['tmp_name']; // Get the temporary name/path of the uploaded file
 
-            // Read the image data from the uploaded file
-            $imageData = file_get_contents($uploadedFile);
+            // Check if a file is uploaded
+            if (!empty($uploadedFile)) {
+                // Read the image data from the uploaded file
+                $imageData = file_get_contents($uploadedFile);
+            
+                if ($imageData !== false) {
+                    // File read successful
+                    // Insert data into the database
+                    $stmt = $connect->prepare("INSERT INTO donor_info_tbl (don_username, don_firstName, don_midName, don_lastName, don_bday, don_age, don_sex, don_bloodType, don_streetAdd, don_city, don_province, don_postal, don_phoneNum, don_ethnicity, don_boolBlood, don_boolOrganTissue, don_giftOrgan, don_userProfile, isDeceased) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param("sssssissssssssssssi", $don_username, $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData, $isDeceased);
+                    $stmt->execute();
+            
+                    // Get the ID of the newly inserted row
+                    $newlyInsertedId = mysqli_insert_id($connect);
+            
+                    // Generate the base64-encoded image string
+                    $base64Image = base64_encode($imageData);
+            
+                    // Redirect to dashboard
+                    header("Location: ../Donor-Dashboard/donor-dashboard.php");
+                    exit();
+                }
+            } else {
+                // Use a placeholder image if no image data is available
+                
+                // Randomly choose between two profile images
+                $profileImages = array(
+                    '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png',
+                    '../Images/Recipient-Donor-Dashboard/nav-icons/tealProfile.png'
+                );
+                $randomIndex = array_rand($profileImages);
+                $profileImage = $profileImages[$randomIndex];
 
-            if ($imageData !== false) {
-                // File read successful
+                // Read the image data from the chosen profile image
+                $imageData = file_get_contents($profileImage);
 
-                // Insert data into the database
                 $stmt = $connect->prepare("INSERT INTO donor_info_tbl (don_username, don_firstName, don_midName, don_lastName, don_bday, don_age, don_sex, don_bloodType, don_streetAdd, don_city, don_province, don_postal, don_phoneNum, don_ethnicity, don_boolBlood, don_boolOrganTissue, don_giftOrgan, don_userProfile, isDeceased) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("sssssissssssssssssi", $don_username, $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData, $isDeceased);
                 $stmt->execute();
-
-                // Get the ID of the newly inserted row
-                $newlyInsertedId = mysqli_insert_id($connect);
-
-                // Generate the base64-encoded image string
-                $base64Image = base64_encode($imageData);
-
+            
                 // Redirect to dashboard
-                header("Location: donor-registration.html");
+                header("Location: ../Donor-Dashboard/donor-dashboard.php");
                 exit();
             }
         }

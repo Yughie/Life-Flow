@@ -732,7 +732,6 @@
                                             margin-right: 10px;
                                             width: 55px;
                                             height: 55px;
-                                            background-color: pink;
                                             border-radius: 100px;
                                         }
         
@@ -875,6 +874,15 @@
                         line-height: 40px;
                         font-size: 15px;
                         font-weight: 450;
+
+                        .match-found {
+                            font-size: 16px;
+                            color: green;
+                            font-weight: bold;
+                            line-height: 1.2;
+                            text-indent: 0;
+                            padding-left: 10px;
+                        }
                     }
 
                     button {
@@ -906,17 +914,17 @@
 
 @media screen and (max-width: 1553px) {
 
-    #recipBottomID {
+    #donBottomID {
         display: grid;
         grid-template-areas: 'left' 'right';
         justify-content: center;
         margin-right: 24px;
 
-        .recipLeft {
+        .donLeft {
             margin-left: 50px;
         }
 
-        .recipRight {
+        .donRight {
             display: grid;
             justify-content: center;
             margin-left: 25px;

@@ -31,6 +31,7 @@
             END AS recip_boolBlood, recip_neededOrgan, recip_neededOrgan,
             recip_ethnicity, recip_sex
             FROM recipient_info_tbl
+            WHERE recip_status = 0
             LIMIT $rows_per_page OFFSET $offset";
 
         $result = $connect->query($sql);
@@ -51,11 +52,12 @@
             $row_count = 0;
             while ($row = $result->fetch_assoc()) {
                 $row_count++;
+                $recip_neededOrgan = !empty($row["recip_neededOrgan"]) ? $row["recip_neededOrgan"] : "No";
                 echo '<tr' . ($row_count === 10 ? ' class="tenth-row"' : '') . '>
                     <td' . ($row_count === 10 ? ' class="first-td"' : '') . '>' . $row["recip_firstName"] . '</td>
                     <td>' . $row["recip_bloodType"] . '</td>
                     <td>' . $row["recip_boolBlood"] . '</td>
-                    <td>' . $row["recip_neededOrgan"] . '</td>
+                    <td>' . $recip_neededOrgan . '</td>
                     <td>' . $row["recip_ethnicity"] . '</td>
                     <td' . ($row_count === 10 ? ' class="last-td"' : '') . '>' . $row["recip_sex"] . '</td>
                 </tr>';

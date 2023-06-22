@@ -91,7 +91,8 @@ if (isset($_SESSION['don_username'])) {
             </div>
             <div class="user">
                 <img src="<?php echo $imageSrc ?>" onclick="openUser();">
-                <h1><?php echo isset($new_don_username) ? $new_don_username : $infoData['don_firstName']; ?></h1>
+                <h1><?php echo isset($new_don_username) ? $new_don_username : ($infoData['don_firstname'] ?? $don_username); ?></h1>
+
                 <p>DONOR</p>
             </div>
             <div class="menu-bar sizedmenubar">
@@ -160,7 +161,7 @@ if (isset($_SESSION['don_username'])) {
                 <div class="donDashb">
                     <div class="donTop">
                         <h1>Hello</h1>
-                        <h1 class="user"><?php echo isset($new_don_username) ? $new_don_username : $infoData['don_username']; ?></h1>
+                        <h1 class="user" style="display: block;"><?php echo isset($new_don_username) ? $new_don_username : ($infoData['don_firstname'] ?? $don_username); ?><span class="black-exclamation" style="color: #292929">!</span></h1>
                     </div>
                     <div class="donBottom" id="donBottomID">
                         <div class="donLeft">
@@ -379,7 +380,7 @@ if (isset($_SESSION['don_username'])) {
                         <div class="donRight">
                             <p class="righttxt">Recent Recipient Registrations</p>
                             <?php
-                                $query = "SELECT recip_firstName, recip_bloodType, recip_boolBlood, recip_neededOrgan, recip_userProfile FROM recipient_info_tbl ORDER BY created_at DESC LIMIT 9";
+                                $query = "SELECT recip_firstName, recip_bloodType, recip_boolBlood, recip_neededOrgan, recip_userProfile FROM recipient_info_tbl WHERE recip_status = 0 ORDER BY created_at DESC LIMIT 9";
                                 $result = mysqli_query($connect, $query);
                             ?>
                             <div class="recentdons_tbl_container">
@@ -519,6 +520,17 @@ if (isset($_SESSION['don_username'])) {
                     </div>
                 </div>
                 <div class="donors" id="donorsDIV">
+                    <!--
+                    <div id="filter-form">
+                        <label for="organ-filter">Filter by Organ:</label>
+                        <select name="organ-filter" id="organ-filter">
+                            <option value="all">All</option>
+                            <option value="liver">Liver</option>
+                            <option value="pancreas">Pancreas</option>
+                             Add more options for other organs 
+                        </select>
+                        <button id="filter-button">Filter</button>
+                    </div> -->
                     <div id="donors-table"></div>
                     <div id="pagination"></div>
                 </div>
@@ -526,7 +538,7 @@ if (isset($_SESSION['don_username'])) {
                     <div class="upContainer">
                         <form action="change-donor-info.php" method="POST" class="change_donInfo">
                             <p class="indicatortxt">Username</p>
-                            <input type="text" placeholder="<?php echo isset($new_don_username) ? $new_don_username : $infoData['don_username']; ?>"name="new_don_username" class="input-field">
+                            <input type="text" placeholder="<?php echo isset($new_don_username) ? $new_don_username : ($infoData['don_firstname'] ?? $don_username); ?>"name="new_don_username" class="input-field">
 
                             <p class="indicatortxt">Email</p>
                             <input type="email" placeholder="<?php echo $don_email; ?>" name="new_don_email" class="input-field">
@@ -537,10 +549,26 @@ if (isset($_SESSION['don_username'])) {
                             <p class="changepass_btn" onclick="openChangePass();">Change password</p>!-->
 
                             <p class="indicatortxt" id="reqorg">Organ Donation</p>
-                            <p class="don_viewinfo"><?php echo $don_neededOrgan; ?></p>
+                            <p class="don_viewinfo <?php echo ($infoData['isOrganAvailable'] == 0) ? 'match-found' : ''; ?>">
+                                <?php
+                                    if ($infoData['isOrganAvailable'] == 0) {
+                                        echo 'Recipient match found.';
+                                    } else {
+                                        echo $recip_neededOrgan;
+                                    }
+                                ?>
+                            </p>
 
                             <p class="indicatortxt">Blood Donation</p>
-                            <p class="don_viewinfo"><?php echo $don_boolBlood; ?></p>
+                            <p class="don_viewinfo <?php echo ($infoData['isBloodAvailable'] == 0) ? 'match-found' : ''; ?>">
+                                <?php
+                                    if ($infoData['isBloodAvailable'] == 0) {
+                                        echo 'Recipient match found.';
+                                    } else {
+                                        echo $don_boolBlood;
+                                    }
+                                ?>
+                            </p>
                             
                             <button type="submit" name="change">Save Changes</button>
                         </form>
