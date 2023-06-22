@@ -280,7 +280,7 @@
             padding: 10px 30px 10px 30px;
             border-radius: 15px;
             min-height: 100px;
-            min-width: 1000px;
+            min-width: 920px;
             
             /************************DATABASEEEEEE***************************/
 
@@ -385,7 +385,41 @@
     }
 }
 
+.organDonorTotal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    
+    align-items: flex-end;
+    text-align: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 20px 0px;
 
+    
+        &__container{
+            
+            width: 120px;
+            height: 140px;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: $darkBlueGreen;
+            .OrganDonorCount-img{
+                
+                height: 60px;
+                object-fit: cover;
+            }
+            .OrganDonorCount{
+                margin-top: 5px;
+                font-size: $font-bml;
+                color: $offWhite;
+            }
+        }
+       
+    
+}
 
 
 @include breakpoint-down(large){

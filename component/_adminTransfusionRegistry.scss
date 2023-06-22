@@ -14,13 +14,16 @@
 .bloodType_Container{
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
+    padding: 20px 20px;
+    gap: 10px;
+    
     
     .bloodtype{
         display: flex;
         flex-direction: column;
-        min-width: 120px;
+        width: 120px;
         text-align: center;
         height: 130px;
         background-color: $darkBlueGreen;
