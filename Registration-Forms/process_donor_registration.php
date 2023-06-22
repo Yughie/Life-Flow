@@ -70,9 +70,6 @@ if (isset($_SESSION['don_username'])) {
                 // Generate the base64-encoded image string
                 $base64Image = base64_encode($imageData);
 
-                // Display the image in HTML
-                echo '<img src="data:image/jpeg;base64,' . $base64Image . '" alt="Profile Picture">';
-
                 // Redirect to dashboard
                 header("Location: donor-registration.html");
                 exit();
@@ -81,6 +78,8 @@ if (isset($_SESSION['don_username'])) {
     }
 } else {
     // 'don_username' session variable is not set, handle the case accordingly
-    echo "Donor Username not found.";
+    echo "<script>alert('Please sign up first.')</script>";
+    echo "<script>location.href = '../index.html';</script>";
+    exit();
 }
 ?>

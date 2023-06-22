@@ -59,7 +59,8 @@ if (isset($_SESSION['recip_username'])) {
     }
 } else {
     // Redirect to the login page if the recipient is not logged in
-    header('Location: ../index.html');
+    echo "<script>alert('Please log in first.')</script>";
+    echo "<script>location.href = '../index.html';</script>";
     exit();
 }
 ?>
