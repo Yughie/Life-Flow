@@ -72,12 +72,23 @@ if (isset($_SESSION['don_username'])) {
                     $base64Image = base64_encode($imageData);
             
                     // Redirect to dashboard
-                    header("Location: donor-registration.html");
+                    header("Location: ../Donor-Dashboard/donor-dashboard.php");
                     exit();
                 }
             } else {
                 // Use a placeholder image if no image data is available
-                $imageData = file_get_contents('../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png');
+                
+                // Randomly choose between two profile images
+                $profileImages = array(
+                    '../Images/Recipient-Donor-Dashboard/nav-icons/pinkProfile.png',
+                    '../Images/Recipient-Donor-Dashboard/nav-icons/tealProfile.png'
+                );
+                $randomIndex = array_rand($profileImages);
+                $profileImage = $profileImages[$randomIndex];
+
+                // Read the image data from the chosen profile image
+                $imageData = file_get_contents($profileImage);
+
                 $stmt = $connect->prepare("INSERT INTO donor_info_tbl (don_username, don_firstName, don_midName, don_lastName, don_bday, don_age, don_sex, don_bloodType, don_streetAdd, don_city, don_province, don_postal, don_phoneNum, don_ethnicity, don_boolBlood, don_boolOrganTissue, don_giftOrgan, don_userProfile, isDeceased) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("sssssissssssssssssi", $don_username, $don_firstName, $don_midName, $don_lastName, $don_bday, $don_age, $don_sex, $don_bloodType, $don_streetAdd, $don_city, $don_province, $don_postal, $don_phoneNum, $don_ethnicity, $don_boolBlood, $don_boolOrganTissue, $don_giftOrgan, $imageData, $isDeceased);
                 $stmt->execute();

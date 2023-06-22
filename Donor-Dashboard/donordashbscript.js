@@ -122,6 +122,7 @@ function initializeTable() {
     loadTable(1);
 }
 
+/*
 // filter
 document.getElementById('filter-button').addEventListener('click', function() {
     var organFilter = document.getElementById('organ-filter').value;
@@ -139,7 +140,7 @@ document.getElementById('filter-button').addEventListener('click', function() {
         }
     };
     xhr.send();
-});
+}); */
 
 // Event listener for navigation links
 document.addEventListener('DOMContentLoaded', function() {

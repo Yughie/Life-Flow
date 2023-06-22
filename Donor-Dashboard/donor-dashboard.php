@@ -161,7 +161,7 @@ if (isset($_SESSION['don_username'])) {
                 <div class="donDashb">
                     <div class="donTop">
                         <h1>Hello</h1>
-                        <h1><?php echo isset($new_don_username) ? $new_don_username : ($infoData['don_firstname'] ?? $don_username); ?></h1>
+                        <h1 class="user" style="display: block;"><?php echo isset($new_don_username) ? $new_don_username : ($infoData['don_firstname'] ?? $don_username); ?><span class="black-exclamation" style="color: #292929">!</span></h1>
                     </div>
                     <div class="donBottom" id="donBottomID">
                         <div class="donLeft">
@@ -520,16 +520,17 @@ if (isset($_SESSION['don_username'])) {
                     </div>
                 </div>
                 <div class="donors" id="donorsDIV">
+                    <!--
                     <div id="filter-form">
                         <label for="organ-filter">Filter by Organ:</label>
                         <select name="organ-filter" id="organ-filter">
                             <option value="all">All</option>
                             <option value="liver">Liver</option>
                             <option value="pancreas">Pancreas</option>
-                            <!-- Add more options for other organs -->
+                             Add more options for other organs 
                         </select>
                         <button id="filter-button">Filter</button>
-                    </div>
+                    </div> -->
                     <div id="donors-table"></div>
                     <div id="pagination"></div>
                 </div>
