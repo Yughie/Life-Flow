@@ -548,10 +548,26 @@ if (isset($_SESSION['don_username'])) {
                             <p class="changepass_btn" onclick="openChangePass();">Change password</p>!-->
 
                             <p class="indicatortxt" id="reqorg">Organ Donation</p>
-                            <p class="don_viewinfo"><?php echo $don_neededOrgan; ?></p>
+                            <p class="don_viewinfo <?php echo ($infoData['isOrganAvailable'] == 0) ? 'match-found' : ''; ?>">
+                                <?php
+                                    if ($infoData['isOrganAvailable'] == 0) {
+                                        echo 'Recipient match found.';
+                                    } else {
+                                        echo $recip_neededOrgan;
+                                    }
+                                ?>
+                            </p>
 
                             <p class="indicatortxt">Blood Donation</p>
-                            <p class="don_viewinfo"><?php echo $don_boolBlood; ?></p>
+                            <p class="don_viewinfo <?php echo ($infoData['isBloodAvailable'] == 0) ? 'match-found' : ''; ?>">
+                                <?php
+                                    if ($infoData['isBloodAvailable'] == 0) {
+                                        echo 'Recipient match found.';
+                                    } else {
+                                        echo $don_boolBlood;
+                                    }
+                                ?>
+                            </p>
                             
                             <button type="submit" name="change">Save Changes</button>
                         </form>

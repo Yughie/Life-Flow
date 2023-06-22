@@ -4886,6 +4886,13 @@ h1, h2, h3 {
   font-size: 15px;
   font-weight: 450;
 }
+.contentWrapper .allBody .userProfile .upContainer .change_donInfo .don_viewinfo .match-found {
+  font-size: 16px;
+  color: green;
+  font-weight: bold;
+  text-indent: 0;
+  padding-left: 10px;
+}
 .contentWrapper .allBody .userProfile .upContainer .change_donInfo button {
   margin-left: 280px;
   width: 120px;
@@ -5850,6 +5857,14 @@ h1, h2, h3 {
   line-height: 40px;
   font-size: 15px;
   font-weight: 450;
+}
+.contentWrapper .allBody .userProfile .upContainer .change_recipInfo .recip_viewinfo .match-found {
+  font-size: 16px;
+  color: green;
+  font-weight: bold;
+  line-height: 1.2;
+  text-indent: 0;
+  padding-left: 10px;
 }
 .contentWrapper .allBody .userProfile .upContainer .change_recipInfo button {
   margin-left: 280px;

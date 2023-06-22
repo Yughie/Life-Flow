@@ -487,7 +487,15 @@ if (isset($_SESSION['recip_username'])) {
                             <p class="recip_viewinfo"><?php echo $recip_neededOrgan; ?></p>
 
                             <p class="indicatortxt">Requested Blood</p>
-                            <p class="recip_viewinfo"><?php echo $recip_boolBlood; ?></p>
+                            <p class="recip_viewinfo <?php echo ($infoData['recip_status'] == 1) ? 'match-found' : ''; ?>">
+                                <?php
+                                    if ($infoData['recip_status'] == 1) {
+                                        echo 'Donor match found. Administrator will contact you soon.';
+                                    } else {
+                                        echo '<p>' . $recip_neededOrgan . '</p>';
+                                    }
+                                ?>
+                            </p>
 
                             <p class="indicatortxt">Transplant/Transfusion Urgency</p>
                             <p class="recip_viewinfo"><?php echo $recip_urgency; ?></p>
