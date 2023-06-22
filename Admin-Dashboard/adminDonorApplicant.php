@@ -217,7 +217,7 @@
                             while($row = mysqli_fetch_assoc($result)){
                             ?>
 
-                                    <div class="applicant1 applicant">
+                                    <div class="applicant1 applicant w">
                                         <div class="applicant__order">
                                             <h3 class="applicant__order__applicationdate">
                                                 <?php 
