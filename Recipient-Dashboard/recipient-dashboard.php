@@ -163,7 +163,7 @@ if (isset($_SESSION['recip_username'])) {
                 <div class="recipDashb">
                     <div class="recipTop">
                         <h1>Hello</h1>
-                        <h1 class="user"><?php echo isset($new_recip_username) ? $new_recip_username : ($infoData['recip_firstName'] ?? $recip_username); ?></h1>
+                        <h1 class="user" style="display: block;"><?php echo isset($new_recip_username) ? $new_recip_username : ($infoData['recip_firstName'] ?? $recip_username); ?><span class="black-exclamation" style="color: #292929">!</span></h1>
                     </div>
                     <div class="recipBottom" id="recipBottomID">
                         <div class="recipLeft">
