@@ -380,7 +380,7 @@ if (isset($_SESSION['don_username'])) {
                         <div class="donRight">
                             <p class="righttxt">Recent Recipient Registrations</p>
                             <?php
-                                $query = "SELECT recip_firstName, recip_bloodType, recip_boolBlood, recip_neededOrgan, recip_userProfile FROM recipient_info_tbl WHERE recip_status <> 0 ORDER BY created_at DESC LIMIT 9";
+                                $query = "SELECT recip_firstName, recip_bloodType, recip_boolBlood, recip_neededOrgan, recip_userProfile FROM recipient_info_tbl WHERE recip_status = 0 ORDER BY created_at DESC LIMIT 9";
                                 $result = mysqli_query($connect, $query);
                             ?>
                             <div class="recentdons_tbl_container">

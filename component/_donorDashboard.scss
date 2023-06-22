@@ -914,17 +914,17 @@
 
 @media screen and (max-width: 1553px) {
 
-    #recipBottomID {
+    #donBottomID {
         display: grid;
         grid-template-areas: 'left' 'right';
         justify-content: center;
         margin-right: 24px;
 
-        .recipLeft {
+        .donLeft {
             margin-left: 50px;
         }
 
-        .recipRight {
+        .donRight {
             display: grid;
             justify-content: center;
             margin-left: 25px;

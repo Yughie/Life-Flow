@@ -5885,27 +5885,27 @@ h1, h2, h3 {
 }
 
 @media screen and (max-width: 1553px) {
-  #recipBottomID {
+  #donBottomID {
     display: grid;
     grid-template-areas: "left" "right";
     justify-content: center;
     margin-right: 24px;
   }
-  #recipBottomID .recipLeft {
+  #donBottomID .donLeft {
     margin-left: 50px;
   }
-  #recipBottomID .recipRight {
+  #donBottomID .donRight {
     display: grid;
     justify-content: center;
     margin-left: 25px;
   }
-  #recipBottomID .recipRight .recentdons_tbl_container {
+  #donBottomID .donRight .recentdons_tbl_container {
     width: 560px;
   }
-  #recipBottomID .recipRight .recentdons_tbl_container .don_row {
+  #donBottomID .donRight .recentdons_tbl_container .don_row {
     width: 555px;
   }
-  #recipBottomID .recipRight .recentdons_tbl_container .don_row p {
+  #donBottomID .donRight .recentdons_tbl_container .don_row p {
     width: 156.1px;
   }
   .recipTop {
