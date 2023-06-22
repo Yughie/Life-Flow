@@ -122,6 +122,25 @@ function initializeTable() {
     loadTable(1);
 }
 
+// filter
+document.getElementById('filter-button').addEventListener('click', function() {
+    var organFilter = document.getElementById('organ-filter').value;
+
+    // Send AJAX request to the PHP file
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'filter_donors.php?organ-filter=' + organFilter, true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Update the donors table and pagination
+            document.getElementById('donors-table').innerHTML = xhr.responseText;
+            document.getElementById('pagination').innerHTML = '';
+        } else {
+            console.log('Request failed. Status: ' + xhr.status);
+        }
+    };
+    xhr.send();
+});
+
 // Event listener for navigation links
 document.addEventListener('DOMContentLoaded', function() {
     initializeTable();

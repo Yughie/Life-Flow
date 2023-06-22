@@ -94,7 +94,7 @@ if (isset($_SESSION['recip_username'])) {
             </div>
             <div class="user">
                 <img src="<?php echo $imageSrc ?>" onclick="openUser();">
-                <h1><?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_firstName']; ?></h1>
+                <h1><?php echo isset($new_recip_username) ? $new_recip_username : ($infoData['recip_username'] ?? $recip_username); ?></h1>
                 <p>RECIPIENT</p>
             </div>
             <div class="menu-bar sizedmenubar">
@@ -163,7 +163,7 @@ if (isset($_SESSION['recip_username'])) {
                 <div class="recipDashb">
                     <div class="recipTop">
                         <h1>Hello</h1>
-                        <h1 class="user"><?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_username']; ?></h1>
+                        <h1 class="user"><?php echo isset($new_recip_username) ? $new_recip_username : ($infoData['recip_firstName'] ?? $recip_username); ?></h1>
                     </div>
                     <div class="recipBottom" id="recipBottomID">
                         <div class="recipLeft">
@@ -382,7 +382,7 @@ if (isset($_SESSION['recip_username'])) {
                         <div class="recipRight">
                             <p class="righttxt">Recent Donation Registrations</p>
                             <?php
-                                $query = "SELECT don_firstName, don_bloodType, don_boolBlood, don_giftOrgan, don_userProfile FROM donor_info_tbl ORDER BY created_at DESC LIMIT 9";
+                                $query = "SELECT don_firstName, don_bloodType, don_boolBlood, don_giftOrgan, don_userProfile FROM donor_info_tbl WHERE isNewApplicant <> 1 ORDER BY created_at DESC LIMIT 9";
                                 $result = mysqli_query($connect, $query);
                             ?>
                             <div class="recentdons_tbl_container">
@@ -462,7 +462,6 @@ if (isset($_SESSION['recip_username'])) {
                                     </tbody>
                                 </table>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -474,7 +473,7 @@ if (isset($_SESSION['recip_username'])) {
                     <div class="upContainer">
                         <form action="change-recipient-info.php" method="POST" class="change_recipInfo">
                             <p class="indicatortxt">Username</p>
-                            <input type="text" placeholder="<?php echo isset($new_recip_username) ? $new_recip_username : $infoData['recip_username']; ?>"name="new_recip_username" class="input-field">
+                            <input type="text" placeholder="<?php echo isset($new_recip_username) ? $new_recip_username : ($infoData['recip_firstName'] ?? $recip_username); ?>"name="new_recip_username" class="input-field">
 
                             <p class="indicatortxt">Email</p>
                             <input type="email" placeholder="<?php echo $recip_email; ?>" name="new_recip_email" class="input-field">
@@ -488,7 +487,15 @@ if (isset($_SESSION['recip_username'])) {
                             <p class="recip_viewinfo"><?php echo $recip_neededOrgan; ?></p>
 
                             <p class="indicatortxt">Requested Blood</p>
-                            <p class="recip_viewinfo"><?php echo $recip_boolBlood; ?></p>
+                            <p class="recip_viewinfo <?php echo ($infoData['recip_status'] == 1) ? 'match-found' : ''; ?>">
+                                <?php
+                                    if ($infoData['recip_status'] == 1) {
+                                        echo 'Donor match found. Administrator will contact you soon.';
+                                    } else {
+                                        echo '<p>' . $recip_neededOrgan . '</p>';
+                                    }
+                                ?>
+                            </p>
 
                             <p class="indicatortxt">Transplant/Transfusion Urgency</p>
                             <p class="recip_viewinfo"><?php echo $recip_urgency; ?></p>

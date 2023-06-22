@@ -1,10 +1,10 @@
 <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "lifeflow_db";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "lifeflow_db";
 
-        $connect = mysqli_connect($servername, $username, $password, $database);
+    $connect = mysqli_connect($servername, $username, $password, $database);
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +35,7 @@
             END AS don_giftOrgan,
             don_ethnicity, don_sex
             FROM donor_info_tbl
+            WHERE isNewApplicant <> 1
             LIMIT $rows_per_page OFFSET $offset";
 
         $result = $connect->query($sql);
