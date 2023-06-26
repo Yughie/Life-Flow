@@ -2,7 +2,30 @@
     require_once ('admin-php/connection.php');
     require 'admin-php/functions.php'; 
 
+    $sortOrder = 'ASC'; // Default sorting order
+
+    // Check if the sortOrder is set in the query parameters
+    if (isset($_GET['sortOrder'])) {
+        $sortOrder = $_GET['sortOrder'];
+    }
+
+
+    $searchKeyword = ''; // Default search keyword
+
+    // Check if the search keyword is set in the query parameters
+    if (isset($_GET['search'])) {
+        $searchKeyword = $_GET['search'];
+    }
+
     $query = "SELECT * FROM donor_info_tbl WHERE don_boolBlood = 1 AND isNewApplicant = 0 AND isBloodAvailable = 1";
+
+    // Add the search condition if the search keyword is provided
+    if (!empty($searchKeyword)) {
+        $query .= " AND (don_firstName LIKE '%$searchKeyword%' OR don_lastName LIKE '%$searchKeyword%' OR don_midName LIKE '%$searchKeyword%')";
+    }
+    
+    
+    $query .= " ORDER BY id $sortOrder";
     $result = mysqli_query($conn, $query);
 
 
@@ -184,9 +207,12 @@
                     </div>
 
                     <div class="bloodDonor-select-function_container">
-                        <div class="bloodDonor-search-function">
-                            <input class="bloodDonor-search-input" type="text" name="" id="" placeholder="Search">
-                        </div>
+                        <form method="GET" class="searchForm_function"> 
+                            <div class="bloodDonor-search-function">
+                                <input class="bloodDonor-search-input" type="text" name="search" id="" placeholder="Search">
+                                <input type="submit" value="Search" class="searchForm_function__button">
+                            </div>
+                        </form>
                         <div class="bloodDonor-filter-function">
                             <svg class="bloodDonor-filter-function-icon" width="30" height="30" viewBox="0 0 30 30"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -195,7 +221,7 @@
                             </svg>
                             <h3>Filter</h3>
                         </div>
-                        <div class="bloodDonor-sort-function">
+                        <div  onclick="sortData('<?php echo $sortOrder; ?>')" class="bloodDonor-sort-function">
                             <svg class="bloodDonor-sort-function-icon" width="45" height="25" viewBox="0 0 45 25"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -206,6 +232,25 @@
                     </div>
                 </div>
 
+                <!-- JavaScript code to handle the button click event -->
+                <script>
+                function sortData(currentSortOrder) {
+                    // Determine the new sorting order
+                    var newSortOrder = currentSortOrder === 'ASC' ? 'DESC' : 'ASC';
+                    
+                    // Get the current URL
+                    var currentURL = window.location.href;
+                    
+                    // Check if the URL already has query parameters
+                    var separator = (currentURL.indexOf('?') === -1) ? '?' : '&';
+                    
+                    // Create the updated URL with the new sorting order as a query parameter
+                    var updatedURL = currentURL + separator + 'sortOrder=' + newSortOrder;
+                    
+                    // Redirect to the updated URL
+                    window.location.href = updatedURL;
+                }
+                </script>
 
                 <!--------------LATEST DONOR APPLICATION----------------->
                 <div class="adminbloodDonor">

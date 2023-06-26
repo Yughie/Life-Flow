@@ -241,7 +241,7 @@ function display_TypeABPositiveCount(){
 
 
 
-//ORGAN COUNT
+//==========================ORGAN COUNT DECEASED====================================//
 
 function organCount_liver(){
     global $conn;
@@ -315,6 +315,91 @@ function organCount_handsandface(){
     
     return $count;
 }
+
+
+
+//==========================ORGAN COUNT DECEASED====================================//
+
+function organ_liver(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Liver' AND isNewApplicant = 0 AND don_boolOrganTissue = 1  AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organ_cornea(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Corneas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1  AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organ_heart(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Heart' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organ_pancreas(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Pancreas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1  AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organ_kidneys(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Kidney' AND isNewApplicant = 0 AND don_boolOrganTissue = 1  AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organ_lungs(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Lungs' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organ_intestine(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Intestines' AND isNewApplicant = 0 AND don_boolOrganTissue = 1  AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organ_handsandface(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Hands and Face' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+
+
+
+
+
+
+
+
 
 
 
