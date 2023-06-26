@@ -88,7 +88,40 @@
             <h1 class="dashboard-title">ORGAN DONOR</h1>
             <div class="content-fixed-container">
 
-
+                        <div class="organDonorTotal">
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo organCount_liver(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/cornea.png" alt="">
+                                <p class="OrganDonorCount"><?php echo organCount_cornea(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/heart.png" alt="">
+                                <p class="OrganDonorCount"><?php echo organCount_heart(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/pancreas.png" alt="">
+                                <p class="OrganDonorCount"><?php echo organCount_pancreas(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/kidneys.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo organCount_kidneys(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/lungs.png" alt="Lungs">
+                                <p class="OrganDonorCount"><?php echo organCount_lungs(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                <p class="OrganDonorCount"><?php echo organCount_intestine(); ?></p>
+                            </div>
+                            <div  class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/handsandface.png" alt="Hand and face">
+                                <p class="OrganDonorCount"><?php echo organCount_handsandface(); ?></p>
+                            </div>
+                        </div>
 
                 <!-------------GENERAL FUNCTION---------------------->
                 <div class="organDonor-function_container">
@@ -231,9 +264,7 @@
                                     <h3 class="organDonor__personal__age">Age: <span class="personal__age__value">
                                             <?php echo $row['don_age']; ?>
                                         </span></h3>
-                                    <h3 class="organDonor__personal__sex">Sex: <span class="personal__sex_value">
-                                            <?php echo $row['don_sex']; ?>
-                                        </span></h3>
+                                    <h3 class="organDonor__personal__sex">Sex: <span class="personal__sex_value"><?php echo $row['don_sex']; ?> </span> </h3>
                                 </div>
                             </div>
                             <!---CONTACT INFO---->
@@ -358,10 +389,16 @@
 
                                                 <div class="info2" id="donorInfo2">
                                                     <label class="label">
-                                                        <input class="input" required="" type="date" name="don_bday"
-                                                        value="<?php echo date('y-m-d', strtotime($row['don_bday'])); ?>" id="inputdate">
+                                                        <?php 
+                                                        $formattedDate = $row['don_bday'];
+                                                        $dateValue = date('Y-m-d', strtotime($formattedDate));
+                                                        ?>
+                                                        <input class="input updateDate" required="" type="date" name="don_bday" 
+                                                        value="<?php echo $dateValue; ?>" id="inputdate">
+                                                        
                                                         <span class="span" id="spandate">Date of Birth</span>
                                                     </label>
+                                
                                                     <label class="label">
                                                         <input class="input" id="age" required="" type="number" 
                                                             name="don_age" min="18" minlength="2" maxlength="2" value="<?php echo $row['don_age']; ?>">
@@ -395,7 +432,7 @@
                                                 <div class="streetadd">
                                                     <label class="label">
                                                         <input class="input" required="" type="text"
-                                                            name="don_streetAdd" value="<?php echo $row['don_streetAdd']; ?>">
+                                                            name="don_streetAdd" value="<?php echo $formattedDate ?>">
                                                         <span class="span">Street Address</span>
                                                     </label class="label">
                                                 </div>

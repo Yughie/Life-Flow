@@ -24,3 +24,7 @@ let findSelected = () => {
 }
 
 
+options.forEach(options => {
+  options.addEventListener("change", findSelected);
+});
+

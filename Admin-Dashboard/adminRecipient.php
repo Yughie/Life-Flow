@@ -87,6 +87,105 @@
             <div class="content-fixed-container">
 
 
+            <div class="organDonorTotal">
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_liver(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/cornea.png" alt="">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_Cornea(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/heart.png" alt="">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_Heart() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/pancreas.png" alt="">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_pangcreas() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/kidneys.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_kidneys() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/lungs.png" alt="Lungs">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_lungs() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_intestine() ?></p>
+                            </div>
+                            <div  class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/handsandface.png" alt="Hand and face">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_handsandface() ?></p>
+                            </div>
+                        </div>
+
+
+
+                <!-----------BLOOOD TYPE CONTAINER--------------------------->
+                <div class="bloodType_Container">
+
+                    <input type="radio" name="blooodtype" id="option1" value="1" class="option getBloodType hide-radio">
+                    <label for="option1">
+                        <div class="bloodtype1 bloodtype">
+                            <div class="bloodtype__name bloodtype__name1" for="onegative">O-</div>
+                            <div class="bloodtype__count bloodtype__count1"><?php echo display_TypeONegativeCount(); ?></div>
+
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option2" value="2" class="option getBloodType hide-radio">
+                    <label for="option2">
+                        <div class="bloodtype2 bloodtype">
+                            <div class="bloodtype__name bloodtype__name2">O+</div>
+                            <div class="bloodtype__count bloodtype__count2"><?php echo display_TypeOPositiveCount(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option3" value="3" class="option getBloodType hide-radio">
+                    <label for="option3">
+                        <div class="bloodtype3 bloodtype">
+                            <div class="bloodtype__name bloodtype__name3">B-</div>
+                            <div class="bloodtype__count bloodtype__count3"><?php echo display_TypeBNegativeCount(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option4" value="4" class="option getBloodType hide-radio">
+                    <label for="option4">
+                        <div class="bloodtype4 bloodtype">
+                            <div class="bloodtype__name bloodtype__name4">B+</div>
+                            <div class="bloodtype__count bloodtype__count4"><?php echo display_TypeBPositiveCount(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option5" value="5" class="option getBloodType hide-radio">
+                    <label for="option5">
+                        <div class="bloodtype5 bloodtype">
+                            <div class="bloodtype__name bloodtype__name5">A-</div>
+                            <div class="bloodtype__count bloodtype__count5"><?php echo display_TypeANegativeCount(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option6" value="6" class="option getBloodType hide-radio">
+                    <label for="option6">
+                        <div class="bloodtype6 bloodtype">
+                            <div class="bloodtype__name bloodtype__name6">A+</div>
+                            <div class="bloodtype__count bloodtype__count6"><?php echo display_TypeAPositiveCount(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option7" value="7" class="option getBloodType hide-radio">
+                    <label for="option7">
+                        <div class="bloodtype7 bloodtype">
+                            <div class="bloodtype__name bloodtype__name7">AB-</div>
+                            <div class="bloodtype__count bloodtype__count7"><?php echo display_TypeABNegativeCount(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option8" value="8" class="option getBloodType hide-radio">
+                    <label for="option8">
+                        <div class="bloodtype8 bloodtype">
+                            <div class="bloodtype__name bloodtype__name8">AB+</div>
+                            <div class="bloodtype__count bloodtype__count8"><?php echo display_TypeABPositiveCount(); ?></div>
+                        </div>
+                    </label>
+                </div>
+
 
                 <!-------------GENERAL FUNCTION---------------------->
                 <div class="recipient-function_container">
@@ -352,7 +451,7 @@
 
                        <!-------------------------------- POP UP EDIT FUNCTION FUNCTIONS-------------------------------------------->
                        <div class="dashboard-popup-update edit-form edit-form<?php echo $row['recipID']; ?>" data-overlay-id=<?php echo $row['recipID']; ?> id="dashboard-popup-1-update">
-                                <div class="dashboard-overlay-update overlay-button overlay-button<?php echo $row['id']; ?>"  data-overlay-id=<?php echo $row['recipID']; ?> ></div>
+                                <div class="dashboard-overlay-update overlay-button overlay-button<?php echo $row['recipID']; ?>"  data-overlay-id=<?php echo $row['recipID']; ?> ></div>
 
                                 <div class="dashboard-content-update ">
                                     <div class="dashboard-overflow_container-update">
@@ -383,7 +482,7 @@
 
                             <div class="info2">
                                 <label class="label" for="recip_bDay">
-                                    <input class="input" required type="date" name="recip_bDay" value="" id="inputdate">
+                                    <input class="input" required type="date" name="recip_bDay" value="<?php echo date('Y-m-d', strtotime($row['recip_bDay'])); ?>" id="inputdate">
                                     <span class="span" id="spandate">Date of Birth</span>
                                 </label>
                                 <label class="label" for="recip_age">
@@ -527,7 +626,7 @@
                                 </label class="label">
                                 <label class="label dateUrgency">
                                     <!--<div id="bloodblocker"></div>-->
-                                    <input class="input" type="date" name="recip_Urgency" id="recip_Urgency" value="" required>
+                                    <input class="input" type="date" name="recip_Urgency" id="recip_Urgency" value="<?php echo date('Y-m-d', strtotime($row['recip_Urgency'])); ?>" required>
                                     <span class="span" id="spanDate">Date Urgency</span>
                                 </label class="label">
 

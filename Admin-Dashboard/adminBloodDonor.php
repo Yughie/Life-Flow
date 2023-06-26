@@ -86,6 +86,79 @@
         <div class="adminDashboardContent">
             <h1 class="dashboard-title">BLOOD DONOR</h1>
             <div class="content-fixed-container">
+
+
+
+                
+                <!-----------BLOOOD TYPE CONTAINER--------------------------->
+                <div class="bloodType_Container">
+
+                    <input type="radio" name="blooodtype" id="option1" value="1" class="option getBloodType hide-radio">
+                    <label for="option1">
+                        <div class="bloodtype1 bloodtype">
+                            <div class="bloodtype__name bloodtype__name1" for="onegative">O-</div>
+                            <div class="bloodtype__count bloodtype__count1"><?php echo bloodCount_Oneg(); ?></div>
+
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option2" value="2" class="option getBloodType hide-radio">
+                    <label for="option2">
+                        <div class="bloodtype2 bloodtype">
+                            <div class="bloodtype__name bloodtype__name2">O+</div>
+                            <div class="bloodtype__count bloodtype__count2"><?php echo bloodCount_Opos(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option3" value="3" class="option getBloodType hide-radio">
+                    <label for="option3">
+                        <div class="bloodtype3 bloodtype">
+                            <div class="bloodtype__name bloodtype__name3">B-</div>
+                            <div class="bloodtype__count bloodtype__count3"><?php echo bloodCount_Bneg(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option4" value="4" class="option getBloodType hide-radio">
+                    <label for="option4">
+                        <div class="bloodtype4 bloodtype">
+                            <div class="bloodtype__name bloodtype__name4">B+</div>
+                            <div class="bloodtype__count bloodtype__count4"><?php echo bloodCount_Bpos(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option5" value="5" class="option getBloodType hide-radio">
+                    <label for="option5">
+                        <div class="bloodtype5 bloodtype">
+                            <div class="bloodtype__name bloodtype__name5">A-</div>
+                            <div class="bloodtype__count bloodtype__count5"><?php echo bloodCount_Aneg(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option6" value="6" class="option getBloodType hide-radio">
+                    <label for="option6">
+                        <div class="bloodtype6 bloodtype">
+                            <div class="bloodtype__name bloodtype__name6">A+</div>
+                            <div class="bloodtype__count bloodtype__count6"><?php echo bloodCount_Apos(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option7" value="7" class="option getBloodType hide-radio">
+                    <label for="option7">
+                        <div class="bloodtype7 bloodtype">
+                            <div class="bloodtype__name bloodtype__name7">AB-</div>
+                            <div class="bloodtype__count bloodtype__count7"><?php echo bloodCount_ABneg(); ?></div>
+                        </div>
+                    </label>
+                    <input type="radio" name="blooodtype" id="option8" value="8" class="option getBloodType hide-radio">
+                    <label for="option8">
+                        <div class="bloodtype8 bloodtype">
+                            <div class="bloodtype__name bloodtype__name8">AB+</div>
+                            <div class="bloodtype__count bloodtype__count8"><?php echo bloodCount_ABpos(); ?></div>
+                        </div>
+                    </label>
+                </div>
+
+
+
+
+
+
+
+
                 <!-------------GENERAL FUNCTION---------------------->
                 <div class="bloodDonor-function_container">
                     <div class="bloodDonor_add_container" onclick="dashboardopenPopup()">
@@ -291,8 +364,10 @@
 
                                                 <div class="info2" id="donorInfo2">
                                                     <label class="label">
+
+                                                    
                                                         <input class="input" required="" type="date" name="don_bday"
-                                                        value="<?php echo date('y-m-d', strtotime($row['don_bday'])); ?>" id="inputdate">
+                                                        value="<?php echo date('Y-m-d', strtotime($row['don_bday'])); ?>" id="inputdate">
                                                         <span class="span" id="spandate">Date of Birth</span>
                                                     </label>
                                                     <label class="label">
@@ -301,7 +376,7 @@
                                                         <span class="span">Age</span>
                                                     </label>
                                                     <label class="label">
-                                                        <select id="sex" required="" name="don_sex" class="select">
+                                                        <select id="sex" required name="don_sex" class="select">
                                                             <option  disabled hidden selected>Select</option>
                                                             <option value="Male" <?php echo ($row['don_sex'] == 'Male') ? 'selected' : ''; ?>>Male</option>
                                                             <option value="Female" <?php echo ($row['don_sex'] == 'Female') ? 'selected' : ''; ?>>Female</option>
@@ -526,6 +601,7 @@
 
                         <div class="info2" id="donorInfo2">
                             <label class="label">
+                                
                                 <input class="input" required="" type="date" name="don_bday" value="" id="inputdate">
                                 <span class="span" id="spandate">Date of Birth</span>
                             </label>
@@ -536,7 +612,7 @@
                                 <span class="span">Age</span>
                             </label>
                             <label class="label">
-                                <select id="sex" required="" name="don_sex" class="select">
+                                <select id="sex" required name="don_sex" class="select">
                                     <option value="" disabled hidden selected>Select</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>

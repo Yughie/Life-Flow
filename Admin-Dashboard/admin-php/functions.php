@@ -21,7 +21,7 @@ function display_applicationCount(){
 
 function display_organCount(){
     global $conn;
-    $query_totalOrgan = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE isOrganAvailable =1 AND isDeceased = '1'";
+    $query_totalOrgan = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE isOrganAvailable =1 AND isDeceased = 1";
     $result_totalOrgan = mysqli_query($conn, $query_totalOrgan);
 
     // Fetch the result
@@ -37,7 +37,7 @@ function display_organCount(){
 
 function display_transplantCandidate(){
     global $conn;
-    $query_forOrganTransplant = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 0 AND recip_status != '1'";
+    $query_forOrganTransplant = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 0 AND recip_status != 1";
     $result_forOrganTransplant = mysqli_query($conn, $query_forOrganTransplant);
 
     // Fetch the result
@@ -54,7 +54,7 @@ function display_transplantCandidate(){
 
 function display_transfusionCandidate(){
     global $conn;
-    $query_forBloodTransfusion = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1'";
+    $query_forBloodTransfusion = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1";
     $result_forBloodTransfusion = mysqli_query($conn, $query_forBloodTransfusion);
 
     // Fetch the result
@@ -70,7 +70,7 @@ function display_transfusionCandidate(){
 
 function display_bloodRequestCount(){
     global $conn;
-    $query_forBloodTransfusion = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1'";
+    $query_forBloodTransfusion = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1";
     $result_forBloodTransfusion = mysqli_query($conn, $query_forBloodTransfusion);
 
     // Fetch the result
@@ -110,7 +110,7 @@ function display_bloodCount(){
 function display_TypeONegativeCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'O-'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'O-'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -126,7 +126,7 @@ function display_TypeONegativeCount(){
 function display_TypeOPositiveCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'O+'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'O+'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -142,7 +142,7 @@ function display_TypeOPositiveCount(){
 function display_TypeBNegativeCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'B-'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'B-'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -158,7 +158,7 @@ function display_TypeBNegativeCount(){
 function display_TypeBPositiveCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'B+'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'B+'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -174,7 +174,7 @@ function display_TypeBPositiveCount(){
 function display_TypeANegativeCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'A-'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'A-'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -190,7 +190,7 @@ function display_TypeANegativeCount(){
 function display_TypeAPositiveCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'A+'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'A+'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -207,7 +207,7 @@ function display_TypeAPositiveCount(){
 function display_TypeABNegativeCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'AB-'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'AB-'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -224,7 +224,7 @@ function display_TypeABNegativeCount(){
 function display_TypeABPositiveCount(){
     global $conn;
 
-    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != '1' AND recip_bloodType = 'AB+'";
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_boolBlood = 1 AND recip_status != 1 AND recip_bloodType = 'AB+'";
     $result = mysqli_query($conn, $query);
 
     // Fetch the result
@@ -236,4 +236,237 @@ function display_TypeABPositiveCount(){
     }else{
         return $count;
     }
+}
+
+
+
+
+//ORGAN COUNT
+
+function organCount_liver(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Liver' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organCount_cornea(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Corneas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organCount_heart(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Heart' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organCount_pancreas(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Pancreas' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organCount_kidneys(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Kidney' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organCount_lungs(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Lungs' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organCount_intestine(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Intestines' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function organCount_handsandface(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_giftOrgan = 'Hands and Face' AND isNewApplicant = 0 AND don_boolOrganTissue = 1 AND isDeceased = 1 AND isOrganAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+
+
+
+
+//BLOOD DONOR COUNT
+function bloodCount_Oneg(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'O-'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function bloodCount_Opos(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'O+'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function bloodCount_Bneg(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'B-'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function bloodCount_Bpos(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'B+'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function bloodCount_Aneg(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'A-'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function bloodCount_Apos(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'A+'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function bloodCount_ABneg(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'AB-'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function bloodCount_ABpos(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM donor_info_tbl WHERE don_bloodType= 'AB+'  AND isNewApplicant = 0 AND don_boolBlood = 1  AND isBloodAvailable = 1";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+
+
+
+
+///RECIPIENT ORGAN REQUEST
+
+function recipOrganCount_liver(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Liver' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function recipOrganCount_Cornea(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Corneas' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function recipOrganCount_Heart(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Heart' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function recipOrganCount_pangcreas(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Pancreas' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function recipOrganCount_kidneys(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Kidney' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function recipOrganCount_lungs(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Lungs' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function recipOrganCount_intestine(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Intestines' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
+}
+function recipOrganCount_handsandface(){
+    global $conn;
+    $query = "SELECT COUNT(*) as count FROM recipient_info_tbl WHERE recip_neededOrgan = 'Hands and Face' AND recip_status = 0 AND recip_boolBlood = 0";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    
+    return $count;
 }
