@@ -3926,6 +3926,24 @@ h1, h2, h3 {
   font-size: 12px;
   transform: scale(0.8333333333) translateY(-18px);
 }
+.donorRegistrationBody #registerbtn {
+  border: none;
+  outline: none;
+  background-color: #A00608;
+  font-weight: 450;
+  padding: 10px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+  transition: 0.2s ease-in-out;
+  width: 220px;
+}
+.donorRegistrationBody #registerbtn:hover {
+  background-color: rgb(106, 175, 172);
+  cursor: pointer;
+  scale: 1.02;
+}
 
 #topnav {
   display: flex;
@@ -3983,20 +4001,16 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
   margin: 10px 0px;
+  font-weight: 450;
 }
-.intro .registerbtn #registerbtn {
-  border: none;
-  outline: none;
-  background-color: #A00608;
-  padding: 10px;
+.intro .registerbtn #alreadydonbtn {
   border-radius: 25px;
-  color: #fff;
-  font-size: 16px;
-  transform: 0.3s ease;
+  background-color: #A00608;
+  color: white;
+  padding: 10px 18px 10px 0px;
   transition: 0.2s ease-in-out;
-  width: 220px;
 }
-.intro .registerbtn #registerbtn:hover {
+.intro .registerbtn #alreadydonbtn:hover {
   background-color: rgb(106, 175, 172);
   cursor: pointer;
   scale: 1.02;
