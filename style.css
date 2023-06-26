@@ -6059,4 +6059,41 @@ h1, h2, h3 {
   top: 6px;
   position: relative;
   background: var();
+}
+
+#alreadyADonorBody {
+  overflow: hidden;
+}
+
+.msgContainer {
+  display: flex;
+  justify-content: center;
+}
+.msgContainer .message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+  height: 100vh;
+  text-indent: 30px;
+  text-align: justify;
+  overflow-y: scroll;
+}
+.msgContainer .message .title {
+  display: flex;
+  justify-content: center;
+}
+.msgContainer .message .title h1 {
+  font-weight: 800;
+  margin-left: -15px;
+  font-size: 45px;
+}
+.msgContainer .message .title .redtitle {
+  color: #bb070a;
+  margin-left: -15px;
+}
+.msgContainer .message .txtbody {
+  font-weight: 400;
+  font-size: 22px;
 }/*# sourceMappingURL=style.css.map */
