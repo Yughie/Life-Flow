@@ -19,24 +19,26 @@ justify-content: center;
     overflow-y: scroll;
 
         .title {
-            display: flex;
-            justify-content: center;
-
             h1 {
                 font-weight: 800;
-                margin-left: -15px;
                 font-size: 45px;
-
             }
-            .redtitle {
+
+            .titletxt {
+                span {
                 color: #bb070a;
-                margin-left: -15px;
+                }
+
+                &:first-child {
+                    color: rgb(41,41,41);
+                }
             }
         }
 
         .txtbody {
             font-weight: 400;
             font-size: 22px;
+            color: rgb(41,41,41);
         }
     }
 }
