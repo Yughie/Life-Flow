@@ -6107,4 +6107,39 @@ h1, h2, h3 {
   top: 6px;
   position: relative;
   background: var();
+}
+
+#alreadyADonorBody {
+  overflow: hidden;
+}
+
+.msgContainer {
+  display: flex;
+  justify-content: center;
+}
+.msgContainer .message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+  height: 100vh;
+  text-indent: 30px;
+  text-align: justify;
+  overflow-y: scroll;
+}
+.msgContainer .message .title h1 {
+  font-weight: 800;
+  font-size: 45px;
+}
+.msgContainer .message .title .titletxt span {
+  color: #bb070a;
+}
+.msgContainer .message .title .titletxt:first-child {
+  color: rgb(41, 41, 41);
+}
+.msgContainer .message .txtbody {
+  font-weight: 400;
+  font-size: 22px;
+  color: rgb(41, 41, 41);
 }/*# sourceMappingURL=style.css.map */

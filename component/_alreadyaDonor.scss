@@ -1,0 +1,46 @@
+@use "../abstract/index.scss" as *;
+
+#alreadyADonorBody {
+    overflow: hidden;
+}
+
+.msgContainer {
+display: flex;
+justify-content: center;
+    .message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: calc(100vh);
+    text-indent: 30px;
+    text-align: justify;
+    overflow-y: scroll;
+
+        .title {
+            h1 {
+                font-weight: 800;
+                font-size: 45px;
+            }
+
+            .titletxt {
+                span {
+                color: #bb070a;
+                }
+
+                &:first-child {
+                    color: rgb(41,41,41);
+                }
+            }
+        }
+
+        .txtbody {
+            font-weight: 400;
+            font-size: 22px;
+            color: rgb(41,41,41);
+        }
+    }
+}
+
+
