@@ -1217,6 +1217,10 @@ h1, h2, h3 {
     border-left: 200px solid rgb(255, 0, 0);
   }
 }
+.searchForm_function__button {
+  display: none;
+}
+
 .applicant-function_container {
   display: flex;
   flex-direction: row;
@@ -1259,19 +1263,18 @@ h1, h2, h3 {
 }
 .applicant-function_container .applicant-select-function_container .applicant-search-function .applicant-search-input {
   background-image: url("../Images/DonorApplicant/icon-search.svg");
-  background-position: 10px 0px;
   background-repeat: no-repeat;
+  background-position: center;
   padding-left: 40px;
   width: 150px;
   height: 30px;
   font-size: 1.125rem;
   border: none;
   border-radius: 20px;
+  margin-right: 30px;
   cursor: text;
-  margin-right: 20px;
   transition: 100ms ease-in-out;
   background-color: rgb(211, 208, 208);
-  border-radius: #136371;
 }
 .applicant-function_container .applicant-select-function_container .applicant-search-function .applicant-search-input:hover {
   color: #136371;
@@ -1281,6 +1284,7 @@ h1, h2, h3 {
   transform: scale(1.03);
   color: #136371;
   box-shadow: 0px 0px 10px 0px #136371;
+  border-color: #136371;
 }
 .applicant-function_container .applicant-select-function_container .applicant-filter-function {
   display: flex;
@@ -1687,6 +1691,7 @@ h1, h2, h3 {
   margin: 30px;
   height: 71vh;
   min-width: 720px;
+  max-width: 1050px;
   padding-top: 20px;
   padding-bottom: 20px;
   border: 1px solid black;
@@ -2166,6 +2171,7 @@ h1, h2, h3 {
   border-radius: 15px;
   padding: 10px;
   background-color: #136371;
+  cursor: pointer;
 }
 .organDonorTotal__container .OrganDonorCount-img {
   height: 60px;
@@ -2176,6 +2182,9 @@ h1, h2, h3 {
   margin-top: 5px;
   font-size: 1.875rem;
   color: #e9e9e9;
+}
+.organDonorTotal__container:hover {
+  background-color: brown;
 }
 
 .bloodDonor-function_container {
@@ -2487,14 +2496,14 @@ h1, h2, h3 {
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px 20px;
-  gap: 10px;
+  gap: 12px;
 }
 .bloodType_Container .bloodtype {
   display: flex;
   flex-direction: column;
   width: 120px;
   text-align: center;
-  height: 130px;
+  height: 140px;
   background-color: #136371;
   color: #e9e9e9;
   border-radius: 20px;
@@ -2752,7 +2761,7 @@ h1, h2, h3 {
   padding: 10px 30px 10px 30px;
   border-radius: 15px;
   min-height: 100px;
-  min-width: 1000px;
+  min-width: 850px;
   /************************DATABASEEEEEE***************************/
   /******************FUNCTIONS**********************/
 }
@@ -3609,11 +3618,13 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   background-color: #e9e9e9;
-  margin: 10px 30px;
+  margin: 6px 0px;
   border-radius: 15px;
   max-height: 100px;
   min-height: 100px;
   min-width: 500px;
+  justify-content: center;
+  scale: 0.9;
   /************************DATABASEEEEEE***************************/
   /******************FUNCTIONS**********************/
 }
@@ -3712,7 +3723,7 @@ h1, h2, h3 {
 .transplant_Container {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 94%;
   overflow: auto;
   white-space: nowrap;
   background-color: #136371;
@@ -3740,12 +3751,13 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   background-color: #e9e9e9;
-  margin: 10px 30px;
+  margin: 6px 0px;
   border-radius: 15px;
   max-height: 100px;
   min-height: 100px;
   min-width: 500px;
   cursor: pointer;
+  scale: 0.9;
   /************************DATABASEEEEEE***************************/
   /******************FUNCTIONS**********************/
 }
@@ -3890,6 +3902,10 @@ h1, h2, h3 {
     scale: 1;
   }
 }
+.organCount_Container {
+  display: flex;
+}
+
 .donorRegistrationBody {
   overflow-x: hidden;
 }

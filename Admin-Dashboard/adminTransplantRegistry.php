@@ -2,11 +2,64 @@
     require_once ('admin-php/connection.php');
     require 'admin-php/functions.php'; 
 
-    $query = "SELECT * FROM recipient_info_tbl WHERE recip_boolBlood =0 AND recip_status != 1";
-    $result = mysqli_query($conn, $query);
+   
+    $sortOrder1 = 'ASC'; // Default sorting order for Display 1
+    $sortOrder2 = 'ASC'; // Default sorting order for Display 2
 
+    // Check if the sortOrder is set in the query parameters for Display 1
+    if (isset($_GET['sortOrder1'])) {
+        $sortOrder1 = $_GET['sortOrder1'];
+    }
+
+
+     // Check if the sortOrder is set in the query parameters for Display 2
+     if (isset($_GET['sortOrder2'])) {
+        $sortOrder2 = $_GET['sortOrder2'];
+    }
+
+
+
+    $searchKeywordRecip = ''; // Default search keyword
+
+    // Check if the search keyword is set in the query parameters
+    if (isset($_GET['searchRecip'])) {
+       $searchKeywordRecip = $_GET['searchRecip'];
+    }
+
+   
+    $searchKeywordDonor = ''; // Default search keyword
+
+    // Check if the search keyword is set in the query parameters
+    if (isset($_GET['searchDonor'])) {
+    $searchKeywordDonor = $_GET['searchDonor'];
+    }
+
+
+
+    $query = "SELECT * FROM recipient_info_tbl WHERE recip_boolBlood =0 AND recip_status = 0";
     $query_donor = "SELECT * FROM donor_info_tbl WHERE don_boolOrganTissue =1 AND isNewApplicant =0 AND isOrganAvailable=1 AND isDeceased=1";
+
+
+
+    
+    // Add the search condition if the search keyword is provided
+    if (!empty($searchKeywordRecip)) {
+        $query .= " AND (recip_firstName LIKE '%$searchKeywordRecip%' OR recip_lastName LIKE '%$searchKeywordRecip%' OR recip_midName LIKE '%$searchKeywordRecip%')";
+    }
+
+
+    // Add the search condition if the search keyword is provided
+    if (!empty($searchKeywordDonor)) {
+        $query_donor .= " AND (don_firstName LIKE '%$searchKeywordDonor%' OR don_lastName LIKE '%$searchKeywordDonor%' OR don_midName LIKE '%$searchKeywordDonor%')";
+    }
+
+
+
+    $query .= " ORDER BY recipID $sortOrder1";
+    $query_donor .= " ORDER BY id $sortOrder2";
+    $result = mysqli_query($conn, $query);
     $result_donor = mysqli_query($conn, $query_donor);
+
 
 
 ?>
@@ -91,16 +144,105 @@
             <h1 class="dashboard-title">TRANSPLANT REGISTRY</h1>
             <div class="content-fixed-container">
 
+            <div class="organCount_Container">
+                <div class="counter_container">
+                        <div class="organDonorTotal">
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_liver(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/cornea.png" alt="">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_Cornea(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/heart.png" alt="">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_Heart() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/pancreas.png" alt="">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_pangcreas() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/kidneys.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_kidneys() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/lungs.png" alt="Lungs">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_lungs() ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_intestine() ?></p>
+                            </div>
+                            <div  class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/handsandface.png" alt="Hand and face">
+                                <p class="OrganDonorCount"><?php echo recipOrganCount_handsandface() ?></p>
+                            </div>
+                        </div>
+                </div>
 
+
+
+
+
+
+
+
+
+
+
+
+                <div class="counter_container">
+                <div class="organDonorTotal">
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/liver.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo organCount_liver(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/cornea.png" alt="">
+                                <p class="OrganDonorCount"><?php echo organCount_cornea(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/heart.png" alt="">
+                                <p class="OrganDonorCount"><?php echo organCount_heart(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/pancreas.png" alt="">
+                                <p class="OrganDonorCount"><?php echo organCount_pancreas(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/kidneys.png" alt="liver">
+                                <p class="OrganDonorCount"><?php echo organCount_kidneys(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/lungs.png" alt="Lungs">
+                                <p class="OrganDonorCount"><?php echo organCount_lungs(); ?></p>
+                            </div>
+                            <div class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/intestines.png" alt="intestine">
+                                <p class="OrganDonorCount"><?php echo organCount_intestine(); ?></p>
+                            </div>
+                            <div  class="organDonorTotal__container">
+                                <img class="OrganDonorCount-img" src="../Images/Organ-Assets/handsandface.png" alt="Hand and face">
+                                <p class="OrganDonorCount"><?php echo organCount_handsandface(); ?></p>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
 
                 <!-------------GENERAL FUNCTION---------------------->
                 <div class="transplantRecipient-function_container">
 
                     <div class="transplantRecipient-select-function_container">
+                    <form method="GET" class="searchForm_function"> 
                         <div class="transplantRecipient-search-function">
-                            <input class="transplantRecipient-search-input" type="text" name="" id=""
+                            <input class="transplantRecipient-search-input" type="text" name="searchRecip" id=""
                                 placeholder="Search">
+                                <input type="submit" value="SearchRecip" class="searchForm_function__button">
                         </div>
+                    </form>
                         <div class="transplantRecipient-filter-function">
                             <svg class="transplantRecipient-filter-function-icon" width="30" height="30"
                                 viewBox="0 0 30 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +251,7 @@
                             </svg>
                             <h3>Filter</h3>
                         </div>
-                        <div class="transplantRecipient-sort-function">
+                        <div onclick="sortData('sortOrder1', '<?php echo $sortOrder1; ?>')" class="transplantRecipient-sort-function">
                             <svg class="transplantRecipient-sort-function-icon" width="45" height="25"
                                 viewBox="0 0 45 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -119,13 +261,22 @@
                         </div>
                     </div>
 
+                    
+
+
+
+
+
 
 
 
                     <div class="transplantDonor-select-function_container">
+                    <form method="GET" class="searchForm_function"> 
                         <div class="transplantDonor-search-function">
-                            <input class="transplantDonor-search-input" type="text" name="" id="" placeholder="Search">
+                            <input class="transplantDonor-search-input" type="text" name="searchDonor" id="" placeholder="Search">
+                            <input type="submit" value="SearchDonor" class="searchForm_function__button">
                         </div>
+                    </form>
                         <div class="transplantDonor-filter-function">
                             <svg class="transplantDonor-filter-function-icon" width="30" height="30" viewBox="0 0 30 30"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +285,7 @@
                             </svg>
                             <h3>Filter</h3>
                         </div>
-                        <div class="transplantDonor-sort-function">
+                        <div onclick="sortData('sortOrder2', '<?php echo $sortOrder2; ?>')" class="transplantDonor-sort-function">
                             <svg class="transplantDonor-sort-function-icon" width="45" height="25" viewBox="0 0 45 25"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -144,6 +295,24 @@
                         </div>
                     </div>
                 </div>
+
+                <script>
+                        function sortData(sortOrderParam, currentSortOrder) {
+                            var newSortOrder = currentSortOrder === 'ASC' ? 'DESC' : 'ASC';
+                            
+                            // Get the current URL
+                            var currentURL = window.location.href;
+                            
+                            // Check if the URL already has query parameters
+                            var separator = (currentURL.indexOf('?') === -1) ? '?' : '&';
+                            
+                            // Create the updated URL with the new sorting order as a query parameter
+                            var updatedURL = currentURL + separator + sortOrderParam + '=' + newSortOrder;
+                            
+                            // Redirect to the updated URL
+                            window.location.href = updatedURL;
+                        }
+                        </script>
 
 
                 <!-------------TRANSPLANT REGISTRY----------------->

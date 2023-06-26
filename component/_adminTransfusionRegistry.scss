@@ -17,7 +17,7 @@
     justify-content: center;
     flex-wrap: wrap;
     padding: 20px 20px;
-    gap: 10px;
+    gap: 12px;
     
     
     .bloodtype{
@@ -25,7 +25,7 @@
         flex-direction: column;
         width: 120px;
         text-align: center;
-        height: 130px;
+        height: 140px;
         background-color: $darkBlueGreen;
         color: $offWhite;
         border-radius: 20px;
@@ -360,7 +360,7 @@
             padding: 10px 30px 10px 30px;
             border-radius: 15px;
             min-height: 100px;
-            min-width: 1000px;
+            min-width: 850px;
            
             /************************DATABASEEEEEE***************************/
 

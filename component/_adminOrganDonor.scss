@@ -400,12 +400,12 @@
 
     
         &__container{
-            
             width: 120px;
             height: 140px;
             border-radius: 15px;
             padding: 10px;
             background-color: $darkBlueGreen;
+            cursor: pointer;
             .OrganDonorCount-img{
                 
                 height: 60px;
@@ -415,6 +415,10 @@
                 margin-top: 5px;
                 font-size: $font-bml;
                 color: $offWhite;
+            }
+
+            &:hover{
+                background-color: brown;
             }
         }
        
