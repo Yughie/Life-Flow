@@ -1,0 +1,62 @@
+.logowcd{
+  
+    width: 150px;
+    height: 50px;
+    left: 30px;
+    top: 18px;
+  }
+
+  a{
+    display: inline;
+    color: rgb(97, 7, 7);
+    float: rightt;
+    text-align: right;
+  }
+
+  body{
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;;
+  }
+
+  nav{
+  
+    
+    float: right;
+    width: 1000px;
+    left: 500px;
+    top: 25px;
+    font-size: 150%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+    padding: 8px;
+    background-color: #fff;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 9vh;
+    min-width: fit-content;
+  }
+
+  h2{
+    position: relative;
+    margin-left: 100px;
+    padding-top: 10%;
+    
+    font-size: 15px;
+  }
+
+  h1{
+    top: 200px;
+    left: 300px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 100px;
+  }
+
+  p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 100px;
+  }

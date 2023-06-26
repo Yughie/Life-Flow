@@ -1,0 +1,34 @@
+<!-- Assuming you have displayed a list of users and each user has an edit button -->
+<ul>
+    <?php while ($row = mysqli_fetch_assoc($result)): ?>
+    <li>
+        <?php echo $row['name']; ?>
+        <button class="edit-button" data-user-id="<?php echo $row['user_id']; ?>">Edit</button>
+        <form class="edit-form" style="display: none;">
+            <!-- Your form fields go here -->
+            <input type="text" name="name" value="<?php echo $row['name']; ?>">
+            <button type="submit">Save</button>
+        </form>
+
+        
+    </li>
+    <?php endwhile; ?>
+</ul>
+
+<!-- Include JavaScript code -->
+<script>
+    // Get all the edit buttons
+    const editButtons = document.querySelectorAll('.edit-button');
+
+    // Attach a click event listener to each edit button
+    editButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Retrieve the user ID from the data-user-id attribute
+            const userId = button.dataset.userId;
+
+            // Toggle the visibility of the corresponding edit form
+            const editForm = document.querySelector(`.edit-form[data-user-id="${userId}"]`);
+            editForm.style.display = (editForm.style.display === 'none') ? 'block' : 'none';
+        });
+    });
+</script>
